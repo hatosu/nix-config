@@ -30,14 +30,14 @@ update(){
 }
 
 nix-sync(){
-  sudo git rm -rf ~/X/Github/personal-config/*
+  sudo git rm -r ~/X/Github/personal-config/*
   sudo cp -rf /etc/nixos/* ~/X/Github/personal-config
   cd ~/X/Github/personal-config
-  git switch main
-  git add .
-  git add -A
-  git commit -am "-"
-  git push personal-config
+  sudo git switch main
+  sudo git add .
+  sudo git add -A
+  sudo git commit -am "-"
+  sudo git push personal-config
 }
 
 shafind(){
