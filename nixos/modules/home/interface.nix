@@ -1,5 +1,0 @@
-{inputs,pkgs,... }:{
-
-  # nothing yet
-
-}
