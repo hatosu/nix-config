@@ -1,6 +1,6 @@
 {
 
-  description = "Hatosu's personal NixOS flake.";
+  description = "Hatosu's NixOS flake.";
 
   inputs = {
 

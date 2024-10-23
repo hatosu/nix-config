@@ -1,6 +1,7 @@
 { pkgs, ... }: { environment.interactiveShellInit = ''
 
 rebuild(){
+  clear
   sudo nixos-rebuild switch --flake /etc/nixos#desktop
   ${pkgs.noti}/bin/noti -t 'REBUILD' -m 'system successfully rebuilt according to your personal nix configuration files >:3'
   LOCK_FILE="/home/hatosu/X/.run_once_lock"

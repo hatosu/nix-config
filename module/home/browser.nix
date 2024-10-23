@@ -1,27 +1,17 @@
-{ pkgs, inputs, ... }: 
+{ pkgs, inputs, personal-files, }: 
 
 let
 
-repo = pkgs.fetchFromGitHub {
-  owner = "hatosu";
-  repo = "personal-files";
-  rev = "3544db88f743a94badf55d9cd5769d2899c51adf";
-  hash = "sha256-vgJMKyAlH8yhWEx2psKLvdUqvUR2VrCtavi9tifqhHg=";
-};
-  
-user-js = builtins.readFile "${repo}/firefox/user.js";
+user-js = builtins.readFile "${personal-files}/other/firefox/user.js";
 
 in
 
 { 
 
-#home.file = { "data" = { source = "${repo}/firefox/data"; force = true;
-#target = "/home/hatosu/.mozilla/firefox/hatosu/storage/default"; }; };
-
 programs.firefox = { package = pkgs.firefox; enable = true; languagePacks = [ "jp" ];
 policies = { DefaultDownloadDirectory = "\${home}/X/Downloads"; }; profiles.hatosu = { isDefault=true;
 
-      # harden firefox, and strip all cancerous features and/or bloat
+      # harden firefox & remove bloat
       extraConfig = "${user-js}";
 
       # choose extensions
