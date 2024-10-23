@@ -1,0 +1,54 @@
+{ pkgs, ... }: { environment = { shellAliases = {
+
+# general
+hist = "history | grep";
+power = "shutdown -P now";
+try = "nix-shell -p";
+trace = "sudo nixos-rebuild switch --show-trace --flake /etc/nixos#desktop | less";
+etc = "cd /etc && nvim $(${pkgs.skim}/bin/sk) && cd";
+home = "cd && nvim $(${pkgs.skim}/bin/sk)";
+f = "cd $(dirname $(${pkgs.fd}/bin/fd --type file | ${pkgs.skim}/bin/sk))";
+s = "playerctl next";
+p = "playerctl play-pause";
+b = "playerctl previous";
+v = "nvim";
+y = "yazi";
+m = "mpv";
+c = "clear";
+
+# nixpkgs
+ff = "${pkgs.fastfetch}/bin/fastfetch";
+format = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+scan = "${pkgs.vulnix}/bin/vulnix --system --verbose";
+dupe = "${pkgs.rmlint}/bin/rmlint";
+anime = "${pkgs.ani-cli}/bin/ani-cli -q 1080p";
+brightness = "${pkgs.brightnessctl}/bin/brightnessctl";
+chatgpt = "${pkgs.tgpt}/bin/tgpt";
+phind = "${pkgs.tgpt}/bin/tgpt --provider phind";
+color = "${pkgs.okolors}/bin/okolors";
+disk = "${pkgs.ncdu}/bin/ncdu";
+audio = "${pkgs.ponymix}/bin/ponymix";
+tasks = "${pkgs.glances}/bin/glances";
+drag = "${pkgs.ripdrag}/bin/ripdrag -r";
+rembg = "${pkgs.backgroundremover}/bin/backgroundremover";
+img = "${pkgs.imagemagick}/bin/magick";
+opt = "${pkgs.image_optim}/bin/image_optim";
+
+# temporary
+pget = "nix run nixpkgs#pirate-get -- -T -S ~/Downloads";
+torbrowser = "nix run nixpkgs#tor-browser";
+tor = "nix run nixpkgs#aria2 --";
+metaclean = "nix run nixpkgs#metadata-cleaner --";
+vidget = "nix run nixpkgs#yt-dlp --";
+spotget = "nix run nixpkgs#spotdl -- --format mp3";
+browse = "nix run nixpkgs#w3m --";
+gping = "nix run nixpkgs#gping --";
+
+# notes
+lch = "sudoedit /etc/nixos/note/linux.txt";
+nch = "sudoedit /etc/nixos/note/nix.txt";
+vch = "sudoedit /etc/nixos/note/vim.txt";
+tch = "sudoedit /etc/nixos/note/todo.txt";
+fch = "sudoedit /etc/nixos/note/features.txt";
+
+}; }; }

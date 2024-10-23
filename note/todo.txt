@@ -1,0 +1,62 @@
+perfect firefox & language tools
+
+convert all packages to files repo
+
+app menu
+clipboard
+fastfetch
+mpv
+yazi
+tmux
+bat
+glances
+htop
+gitui
+tree
+
+perfect dev environment, neovim included
+https://nixos.wiki/wiki/NixOS_Containers
+custom vim colorscheme
+
+perfect free & safe vpn (and also anything it takes to make sites love you, faking being a different OS etc)
+
+perfect help option (man, tldr, navi, other tools too, relevant links from phind, phind output, multiple ai output)
+perfect nixfind option (relevant wiki pages, manual pages, options, packages, ai, web results)
+web scraper for jp, kr, zh, and french learning
+language learning flake
+
+https://github.com/search?q=icon&type=repositories&s=stars&o=desc
+https://github.com/nix-community/nix-on-droid
+https://github.com/erebe/greenclip
+
+script that reverse image searches with every possible tool
+
+cli tool for converting ANY kind of file to ANY OTHER file (using options, so that it can apply multiple different operations in one command)
+replace mouse with ai
+ai assistant talk through mic and always be ready to talk to
+ai assistant can scan repo for virus
+package jp study workspace into flake
+package cod into flake
+spicetify
+custom nixos iso
+hijack distros with nixos-anywhere reliably
+copy configs of xsharawi, lynaix, grox(vimjoyer), doom-emacs-dev-main-dev, aylur, misterio77
+https://www.tecmint.com/ping-multiple-linux-hosts-using-fping/
+
+ultimate image/video/audio editing script:
+- change resolution
+- edit length of video or audio
+- convert any and EVERY, and i mean EVERY media file to any other media file
+- change orientation of media
+- optimize media
+- apply visual filters
+- apply audio effects
+- change volume of video or audio
+- apply ai filters and prompts
+- ai automatic background transparency crop
+useful:
+https://www.tecmint.com/convert-webm-video-linux/
+https://github.com/nadermx/backgroundremover
+rembg = "${pkgs.backgroundremover}/bin/backgroundremover";
+img = "${pkgs.imagemagick}/bin/magick";
+opt = "${pkgs.image_optim}/bin/image_optim";
