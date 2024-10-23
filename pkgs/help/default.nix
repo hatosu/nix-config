@@ -1,9 +1,7 @@
 { pkgs }: let
 
-  # enter name
   name = "help";
 
-  # enter script contents
   script = pkgs.writeText "${name}.sh" ''
     #!/bin/sh
     echo -e "select desired option\n1. Man\n2. Tldr\n3. Navi\n"

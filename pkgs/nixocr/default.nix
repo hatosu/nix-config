@@ -2,10 +2,8 @@
 
 let
 
-  # enter name
   name = "nixocr";
 
-  # enter script contents
   script = pkgs.writeText "${name}.sh" ''
     #!/bin/sh
     mkdir -p /tmp/nixocr
@@ -18,27 +16,20 @@ let
 in
 
 pkgs.stdenv.mkDerivation {
-  
   name = "${name}";
-
   src = script;
-
   buildInputs = with pkgs; [
     shc
   ];
-
   phases = [ 
     "buildPhase" 
     "installPhase"
   ];
-
   buildPhase = ''
     shc -vrf ${script} -o ${name} 
   '';
-
   installPhase = ''
     mkdir -p $out/bin
     cp ${name} $out/bin
   '';
-
 }

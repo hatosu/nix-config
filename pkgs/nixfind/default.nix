@@ -1,9 +1,7 @@
 { pkgs }: let
 
-  # enter name
   name = "nixfind";
 
-  # enter script contents
   script = pkgs.writeText "${name}.sh" ''
     #!/bin/sh
     echo -e "select category\n1. Nix Packages\n2. Nix Options\n3. Home Options\n"
