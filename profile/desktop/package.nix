@@ -3,6 +3,7 @@
   # cli tools
   wl-clipboard
   playerctl
+  nixfmt-rfc-style
   nixocr
   nixfind
   help

@@ -18,7 +18,6 @@ c = "clear";
 
 # nixpkgs
 ff = "${pkgs.fastfetch}/bin/fastfetch";
-format = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
 scan = "${pkgs.vulnix}/bin/vulnix --system --verbose";
 dupe = "${pkgs.rmlint}/bin/rmlint";
 anime = "${pkgs.ani-cli}/bin/ani-cli -q 1080p";
