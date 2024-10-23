@@ -30,7 +30,7 @@ update(){
 }
 
 nix-sync(){
-  sudo git rm -r ~/X/Github/personal-config/*
+  sudo git rm -rf ~/X/Github/personal-config/*
   sudo cp -rf /etc/nixos/* ~/X/Github/personal-config
   cd ~/X/Github/personal-config
   sudo git switch main
