@@ -37,11 +37,10 @@
   # homemanager stuff
   home.enableNixpkgsReleaseCheck = false;
   programs.home-manager.enable = true;
-  home = {
-    username = "hatosu";
-    homeDirectory = "/home/hatosu";
-  };
+  home.username = "hatosu";
+  home.homeDirectory = "/home/hatosu";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
+
 }

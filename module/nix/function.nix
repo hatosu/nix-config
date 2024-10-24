@@ -39,6 +39,7 @@ nix-sync(){
   sudo git add -A
   sudo git commit -am "-"
   sudo git push personal-config
+  cd
 }
 
 shafind(){

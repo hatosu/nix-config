@@ -1,13 +1,14 @@
-{
-
-  description = "Hatosu's NixOS flake.";
+{ description = "Hatosu's NixOS flake.";
 
   inputs = {
 
-    # Unstable
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Unstable (newest packages)
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Stable
+    # Fresh (upcycle packages)
+    nixpkgs-fresh.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Stable (old packages)
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
     # Files
@@ -34,6 +35,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Aagl
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/5611dd61df02e0bc5d62bb3f5388821d8854faff";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Spicetify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix/1a8fa34b656d67c1d7d4c2b76cba03bf4d65dee4";
@@ -50,6 +57,21 @@
       url = "github:NixOS/nixos-hardware/5c04dd453beb0244a686d7c543e97aed71a20258";
     };
 
+    # Nix-gaming
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming/d5baae772ce87682c624233c7a9265b387caa818";
+    };
+
+  };
+
+  # add custom binary cache, to prevent manual compiling
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-gaming.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+    ];
   };
 
   # list outputs
@@ -59,9 +81,11 @@
     personal-files,
     home-manager,
     nixos-hardware,
+    aagl,
     ...
   } @ inputs: let
 
+    # define various variables ^_^
     systems = [ "x86_64-linux" ];
     forAllSystems = nixpkgs.lib.genAttrs systems; in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
@@ -80,6 +104,7 @@
           inputs.disko.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
           inputs.spicetify-nix.nixosModules.default
+          aagl.nixosModules.default
           (import ./profile/desktop/disk.nix{device="/dev/disk/by-uuid/mNEOP4-MgMU-6wSu-9om0-XYh6-jrZD-iRuLX7";})
         ];
       };
@@ -94,6 +119,17 @@
           inputs.impermanence.nixosModules.impermanence
           nixos-hardware.nixosModules.asus-zephyrus-ga402x-nvidia
           (import ./profiles/laptop/disko.nix{device="/dev/nvme0n1";})
+        ];
+      };
+
+      # minecraft server
+      minecraft = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./nixos/configuration.nix
+          nixos-hardware.nixosModules.something
+          inputs.disko.nixosModules.default
+          (import ./profiles/laptop/disko.nix{device="/dev/sda";})
         ];
       };
 

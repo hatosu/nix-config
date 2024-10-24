@@ -1,15 +1,6 @@
-{ pkgs, inputs, personal-files, }: 
-
-let
-
-user-js = builtins.readFile "${personal-files}/other/firefox/user.js";
-
-in
-
-{ 
-
-programs.firefox = { package = pkgs.firefox; enable = true; languagePacks = [ "jp" ];
-policies = { DefaultDownloadDirectory = "\${home}/X/Downloads"; }; profiles.hatosu = { isDefault=true;
+{ pkgs, inputs, ... }: let user-js = builtins.readFile "${inputs.personal-files}/other/firefox/user.js"; 
+in { programs.firefox = { package = pkgs.firefox; enable = true; languagePacks = [ "jp" ];
+policies = { DefaultDownloadDirectory = "/home/hatosu/X/Downloads"; }; profiles.hatosu = { isDefault = true;
 
       # harden firefox & remove bloat
       extraConfig = "${user-js}";
@@ -20,6 +11,16 @@ policies = { DefaultDownloadDirectory = "\${home}/X/Downloads"; }; profiles.hato
         darkreader
         yomitan
       ];
+
+      # add bookmarks
+      bookmarks = [ { name = "toolbar"; toolbar = true; bookmarks = [
+        { url = "https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=%3B"; name = ""; }
+        { url = "https://home-manager-options.extranix.com/?query=&release=master"; name = ""; }
+        { url = "https://github.com/hatosu"; name = ""; }
+        { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; name = ""; }
+        { url = "https://fmhy.net/videopiracyguide"; name = ""; }
+        { url = "https://erynith.github.io/movie-web-instances/"; name = ""; }
+      ];}];
 
       # customize chrome CSS
       userChrome = ''
@@ -39,15 +40,5 @@ policies = { DefaultDownloadDirectory = "\${home}/X/Downloads"; }; profiles.hato
           }
         }
       '';
-
-      # add bookmarks
-      bookmarks = [ { name = "toolbar"; toolbar = true; bookmarks = [
-        { url = "https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=%3B"; name = ""; }
-        { url = "https://home-manager-options.extranix.com/?query=&release=master"; name = ""; }
-        { url = "https://github.com/hatosu"; name = ""; }
-        { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; name = ""; }
-        { url = "https://fmhy.net/videopiracyguide"; name = ""; }
-        { url = "https://erynith.github.io/movie-web-instances/"; name = ""; }
-      ];}];
 
 };};}
