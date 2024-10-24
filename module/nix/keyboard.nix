@@ -1,7 +1,10 @@
-{ pkgs, inputs, ... }: 
+{ pkgs, inputs, ... }:
 
-  # language key input
-  let theme = "${inputs.personal-files}/other/fcitx5/classicui.conf"; in {
+# language key input
+let
+  theme = "${inputs.personal-files}/other/fcitx5/classicui.conf";
+in
+{
   system.activationScripts.fcitx5-theme.text = ''
     mkdir -p /home/hatosu/.config/fcitx5/conf
     ln -sfn ${theme} /home/hatosu/.config/fcitx5/conf/classicui.conf '';
@@ -19,12 +22,30 @@
         fcitx5-hangul
       ];
       settings.inputMethod = {
-        "Groups/0" = { Name = "Default"; "Default Layout" = "us"; DefaultIM = "mozc"; };
-        "Groups/0/Items/0" = { Name = "keyboard-us"; Layout = ""; };
-        "Groups/0/Items/1" = { Name = "mozc"; Layout = ""; };
-        "Groups/0/Items/2" = { Name = "hangul"; Layout = ""; };
-        "Groups/0/Items/3" = { Name = "keyboard-cn-altgr-pinyin"; Layout = ""; };
-        "GroupOrder" = { "0" = "Default"; };
+        "Groups/0" = {
+          Name = "Default";
+          "Default Layout" = "us";
+          DefaultIM = "mozc";
+        };
+        "Groups/0/Items/0" = {
+          Name = "keyboard-us";
+          Layout = "";
+        };
+        "Groups/0/Items/1" = {
+          Name = "mozc";
+          Layout = "";
+        };
+        "Groups/0/Items/2" = {
+          Name = "hangul";
+          Layout = "";
+        };
+        "Groups/0/Items/3" = {
+          Name = "keyboard-cn-altgr-pinyin";
+          Layout = "";
+        };
+        "GroupOrder" = {
+          "0" = "Default";
+        };
       };
     };
   };

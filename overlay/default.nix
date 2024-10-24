@@ -31,14 +31,6 @@
       '';
     });
 
-    # modifies foot desktop entry
-    foot = prev.foot.overrideAttrs (oldAttrs: {
-      postInstall = (oldAttrs.postInstall or "") + ''
-        substituteInPlace $out/share/applications/org.codeberg.dnkl.foot.desktop \
-          --replace "Name=Foot" "Name=Toof"
-      '';
-    });
-
   };
 
   stable-packages = final: _prev: {

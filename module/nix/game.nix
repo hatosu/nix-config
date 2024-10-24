@@ -15,10 +15,9 @@
 
   # download custom packages of games fine tuned for nixos
   environment.systemPackages = with inputs.nix-gaming.packages.${pkgs.system}; [
-    viper
     osu-lazer-bin
-    #star-citizen
-    #rocket-league
+    rocket-league
+    star-citizen
   ];
 
   # allows you to use gamemode launch option in steam
