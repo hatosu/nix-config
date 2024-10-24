@@ -1,11 +1,8 @@
-{ config, pkgs, lib, ...}: let
+{ config, pkgs, lib, inputs, ...}: let
 
 # fetch custom icons ↓
 
-discord-icon = pkgs.fetchurl {
-  url = "https://raw.githubusercontent.com/hatosu/personal-files/refs/heads/main/icons/discord.png";
-  sha256 = "134mvkc0vl1aifgv52c7gdgsblfdcxiaq88b7rylkqfrcgz37bhy";
-};
+discord-icon = "${inputs.personal-files}/icons/discord.png";
 
 in { xdg.desktopEntries = {
 

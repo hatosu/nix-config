@@ -1,6 +1,6 @@
-{ config, pkgs, ...}: let
+{ config, pkgs, inputs, ...}: let
 
-theme = "https://raw.githubusercontent.com/hatosu/personal-files/refs/heads/main/themes/theme.css";
+theme = "${inputs.personal-files}/themes/theme.css";
 
 vesktop-config = pkgs.writeText "settings.json" ''
 {

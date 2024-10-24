@@ -10,22 +10,22 @@
       colors = {
         background="1C1C1C"; 
         foreground="e0def4";
-        regular0="26233a";   # black
-        regular1="eb6f92";   # red
-        regular2="31748f";   # green
-        regular3="f6c177";   # yellow
-        regular4="9ccfd8";   # blue
-        regular5="c4a7e7";   # magenta
-        regular6="ebbcba";   # cyan
-        regular7="e0def4";   # white
-        bright0="6e6a86";   # bright black
-        bright1="eb6f92";    # bright red
-        bright2="31748f";    # bright green
-        bright3="f6c177";    # bright yellow
-        bright4="9ccfd8";    # bright blue
-        bright5="c4a7e7";    # bright magenta
-        bright6="ebbcba";    # bright cyan
-        bright7="e0def4";    # bright white
+        regular0="26233a";   
+        regular1="eb6f92";   
+        regular2="31748f";   
+        regular3="f6c177";   
+        regular4="9ccfd8";   
+        regular5="c4a7e7";   
+        regular6="ebbcba";   
+        regular7="e0def4";   
+        bright0="6e6a86";   
+        bright1="eb6f92"; 
+        bright2="31748f";  
+        bright3="f6c177";   
+        bright4="9ccfd8";    
+        bright5="c4a7e7";    
+        bright6="ebbcba";    
+        bright7="e0def4";
       };
     };
   };

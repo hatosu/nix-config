@@ -1,9 +1,7 @@
-{ pkgs, ... }: 
+{ pkgs, inputs, ... }: 
 
   # language key input
-  let theme = pkgs.fetchurl {
-  url = "https://raw.githubusercontent.com/hatosu/personal-files/refs/heads/main/fcitx5/classicui.conf";
-  sha256 = "0659f2i02sxyw30vrk5aqamqfqcak13ja0iv8s39aayi5ga937q2"; }; in {
+  let theme = "${inputs.personal-files}/other/fcitx5/classicui.conf"; in {
   system.activationScripts.fcitx5-theme.text = ''
     mkdir -p /home/hatosu/.config/fcitx5/conf
     ln -sfn ${theme} /home/hatosu/.config/fcitx5/conf/classicui.conf '';
