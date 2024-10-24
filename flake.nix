@@ -2,62 +2,62 @@
 
   inputs = {
 
-    # Unstable (newest packages)
+    # unstable (newest packages)
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Fresh (upcycle packages)
+    # fresh (upcycle packages)
     nixpkgs-fresh.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Stable (old packages)
+    # stable (old packages)
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
-    # Files
+    # files
     personal-files = {
       url = "github:hatosu/personal-files";
       flake = false;
     };
 
-    # Home-manager
+    # home-manager
     home-manager = {
       url = "github:nix-community/home-manager/038630363e7de57c36c417fd2f5d7c14773403e4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Disko
+    # hisko
     disko = {
       url = "github:nix-community/disko/67dc29be3036cc888f0b9d4f0a788ee0f6768700";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Firefox-addons
+    # firefox-addons
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=610a9c92c573bf57959ffd371cb4921dd681b272";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Aagl
+    # aagl
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix/5611dd61df02e0bc5d62bb3f5388821d8854faff";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Spicetify
+    # spicetify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix/1a8fa34b656d67c1d7d4c2b76cba03bf4d65dee4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Impermanence
+    # impermanence
     impermanence = {
       url = "github:nix-community/impermanence/fff0d95cf40609941769a443a001b25fb95b68ab";
     };
 
-    # Nixos-hardware
+    # nixos-hardware
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/5c04dd453beb0244a686d7c543e97aed71a20258";
     };
 
-    # Nix-gaming
+    # nix-gaming
     nix-gaming = {
       url = "github:fufexan/nix-gaming/d5baae772ce87682c624233c7a9265b387caa818";
     };

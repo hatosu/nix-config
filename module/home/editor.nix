@@ -12,7 +12,7 @@ viAlias = true; vimAlias = true; vimdiffAlias = true; package = pkgs.neovim-unwr
       awesome-vim-colorschemes
       syntastic
       indentLine
-      nerdcommenter
+      vim-commentary
       supertab
       undotree
     ];

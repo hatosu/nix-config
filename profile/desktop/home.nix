@@ -8,7 +8,7 @@
     inputs.self.homeManagerModules.editor
     inputs.self.homeManagerModules.theme
     inputs.self.homeManagerModules.interface
-    inputs.self.homeManagerModules.other
+    inputs.self.homeManagerModules.fetch
     inputs.self.homeManagerModules.entry
     inputs.self.homeManagerModules.message
     inputs.self.homeManagerModules.media

@@ -6,7 +6,7 @@
   editor       = import ./editor.nix;
   theme        = import ./theme.nix;
   interface    = import ./interface.nix;
-  other        = import ./other.nix;
+  fetch        = import ./fetch.nix;
   entry        = import ./entry.nix;
   message      = import ./message.nix;
   media        = import ./media.nix;
