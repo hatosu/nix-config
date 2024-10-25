@@ -6,7 +6,7 @@ monitor = HDMI-A-1,2560x1080@165,auto,auto
 
 #autostart
 exec-once = ${pkgs.dunst}/bin/dunst
-exec-once = ${pkgs.wallpaper}/bin/wallpaper
+exec-once = wallpaper
 exec-once = waybar
 exec-once = fcitx5 --enable all
 exec-once = [workspace 1 silent] firefox
