@@ -1,46 +1,31 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }: { imports = [
 
-  imports = [
+    # import local home modules
+    ./local/home/display.nix
+    ./local/home/interface.nix
+    ./local/home/theme.nix
+    ./local/home/other.nix
 
-    # import modules
+    # import global home modules
     inputs.self.homeManagerModules.terminal
     inputs.self.homeManagerModules.browser
     inputs.self.homeManagerModules.editor
-    inputs.self.homeManagerModules.theme
-    inputs.self.homeManagerModules.interface
     inputs.self.homeManagerModules.fetch
     inputs.self.homeManagerModules.entry
     inputs.self.homeManagerModules.message
     inputs.self.homeManagerModules.media
     inputs.self.homeManagerModules.explorer
-    inputs.self.homeManagerModules.display
-  
-  ];
 
-  nixpkgs = {
-    overlays = [
+]; nixpkgs = { overlays = [
 
-      # import overlays
-      inputs.self.overlays.additions
-      inputs.self.overlays.modifications
-      inputs.self.overlays.stable-packages
-    
-    ];
-    config = {
-      allowUnfree = true;
-    };
-  };
+    # import overlays
+    inputs.self.overlays.additions
+    inputs.self.overlays.modifications
+    inputs.self.overlays.stable-packages
 
-  # nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
-
-  # homemanager stuff
-  home.enableNixpkgsReleaseCheck = false;
-  programs.home-manager.enable = true;
-  home.username = "hatosu";
-  home.homeDirectory = "/home/hatosu";
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
-
-}
+]; config = { allowUnfree = true; }; };
+home.enableNixpkgsReleaseCheck = false;
+programs.home-manager.enable = true;
+home.username = "hatosu";
+home.homeDirectory = "/home/hatosu";
+home.stateVersion = "23.05";}

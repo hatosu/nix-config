@@ -1,4 +1,4 @@
-{config,pkgs,...}:{
+{ config, pkgs, ... }: {
 
   # apply cursor config
   home.pointerCursor = {
@@ -13,8 +13,8 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3";
+      package = pkgs.graphite-gtk-theme;
+      name = "Graphite-Dark";
     };
   };
 
@@ -23,8 +23,8 @@
     enable = true;
     platformTheme.name = "gtk";
     style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
+      name = "Dracula";
+      package = pkgs.dracula-qt5-theme;
     };
   };
 

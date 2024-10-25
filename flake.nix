@@ -75,14 +75,13 @@
     ...
   } @ inputs: let
 
-    # define various variables ^_^
     systems = [ "x86_64-linux" ];
     forAllSystems = nixpkgs.lib.genAttrs systems; in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
     overlays = import ./overlay {inherit inputs;};
-    nixosModules = import ./module/nix;
-    homeManagerModules = import ./module/home;
+    nixosModules = import ./global/nix;
+    homeManagerModules = import ./global/home;
     nixosConfigurations = {
 
       # desktop profile
@@ -95,7 +94,7 @@
           inputs.impermanence.nixosModules.impermanence
           inputs.spicetify-nix.nixosModules.default
           aagl.nixosModules.default
-          (import ./profile/desktop/disk.nix{device="/dev/disk/by-uuid/mNEOP4-MgMU-6wSu-9om0-XYh6-jrZD-iRuLX7";})
+          (import ./profile/desktop/local/nix/disk.nix{device="/dev/disk/by-uuid/mNEOP4-MgMU-6wSu-9om0-XYh6-jrZD-iRuLX7";})
         ];
       };
 

@@ -1,5 +1,8 @@
 - perfect disk.nix configuration (preparation for yubi key too)
 - fix impermanence (atm, directories you whitelist become read only, so fix that)
+- perfect dev environment, neovim included (https://nixos.wiki/wiki/NixOS_Containers)
+- perfect free & safe vpn (and also anything it takes to make sites love you, faking being a different OS etc)
+- web scraper for jp, kr, zh, and french learning
 
 app menu
 clipboard
@@ -30,12 +33,9 @@ img = "${pkgs.imagemagick}/bin/magick";
 opt = "${pkgs.image_optim}/bin/image_optim";
 
 - perfect firefox & language tools
-- perfect dev environment, neovim included (https://nixos.wiki/wiki/NixOS_Containers)
 - custom vim colorscheme
-- perfect free & safe vpn (and also anything it takes to make sites love you, faking being a different OS etc)
 - perfect help option (man, tldr, navi, other tools too, relevant links from phind, phind output, multiple ai output)
 - perfect nixfind option (relevant wiki pages, manual pages, options, packages, ai, web results)
-- web scraper for jp, kr, zh, and french learning
 - package jp study workspace into flake
 - language learning flake
 - script that reverse image searches with every possible tool

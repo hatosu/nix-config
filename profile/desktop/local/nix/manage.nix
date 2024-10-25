@@ -40,4 +40,7 @@
 
   };
 
+  # limit number of nix generations to 100
+  boot.loader.systemd-boot.configurationLimit = 100;
+
 }
