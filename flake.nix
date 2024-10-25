@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hisko
+    # disko
     disko = {
       url = "github:nix-community/disko/67dc29be3036cc888f0b9d4f0a788ee0f6768700";
       inputs.nixpkgs.follows = "nixpkgs";

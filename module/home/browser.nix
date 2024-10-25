@@ -1,9 +1,9 @@
-{ pkgs, inputs, ... }: let user-js = builtins.readFile "${inputs.personal-files}/other/firefox/user.js"; 
+{ pkgs, inputs, ... }: let custom-user-js = builtins.readFile "${inputs.personal-files}/other/firefox/user.js"; 
 in { programs.firefox = { package = pkgs.firefox; enable = true; languagePacks = [ "jp" ];
 policies = { DefaultDownloadDirectory = "/home/hatosu/X/Downloads"; }; profiles.hatosu = { isDefault = true;
 
       # harden firefox & remove bloat
-      extraConfig = "${user-js}";
+      extraConfig = "${custom-user-js}";
 
       # choose extensions
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
