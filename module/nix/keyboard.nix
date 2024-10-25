@@ -1,13 +1,30 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, ... }: {
 
-# language key input
-let
-  theme = "${inputs.personal-files}/other/fcitx5/classicui.conf";
-in
-{
+  # enable keyd as hotkey service
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = [ "*" ];
+      settings = {
+        main = {
+          rightshift = "overload(rightshift, rightshift)";
+          rightalt = "layer(meta)";
+          leftmeta = "layer(alt)";
+        };
+        rightshift = {
+          w = "up";
+          a = "left";
+          s = "down";
+          d = "right";
+        };
+      };
+    };
+  };
+
+  # language key input
   system.activationScripts.fcitx5-theme.text = ''
-    mkdir -p /home/hatosu/.config/fcitx5/conf
-    ln -sfn ${theme} /home/hatosu/.config/fcitx5/conf/classicui.conf '';
+  mkdir -p /home/hatosu/.config/fcitx5/conf
+  ln -sfn ${inputs.personal-files}/other/fcitx5/classicui.conf /home/hatosu/.config/fcitx5/conf/classicui.conf '';
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
   i18n.inputMethod = {
     type = "fcitx5";
@@ -50,25 +67,5 @@ in
     };
   };
 
-  # enable keyd as hotkey service
-  services.keyd = {
-    enable = true;
-    keyboards.default = {
-      ids = [ "*" ];
-      settings = {
-        main = {
-          rightshift = "overload(rightshift, rightshift)";
-          rightalt = "layer(meta)";
-          leftmeta = "layer(alt)";
-        };
-        rightshift = {
-          w = "up";
-          a = "left";
-          s = "down";
-          d = "right";
-        };
-      };
-    };
-  };
 
 }

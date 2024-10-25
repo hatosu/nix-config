@@ -4,7 +4,7 @@
 hist = "history | grep";
 power = "shutdown -P now";
 try = "nix-shell -p";
-trace = "sudo nixos-rebuild switch --show-trace --flake /etc/nixos#desktop | less";
+trace = "sudo nixos-rebuild switch --show-trace --verbose --print-build-logs --flake /etc/nixos#desktop";
 etc = "cd /etc && nvim $(${pkgs.skim}/bin/sk) && cd";
 home = "cd && nvim $(${pkgs.skim}/bin/sk)";
 f = "cd $(dirname $(${pkgs.fd}/bin/fd --type file | ${pkgs.skim}/bin/sk))";

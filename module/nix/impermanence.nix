@@ -33,6 +33,8 @@
       "/home/hatosu/X"
       "/home/hatosu/.steam"
       "/home/hatosu/.local/share/Steam"
+      "/home/hatosu/.local/share/osu"
+      "/home/hatosu/.local/share/Anki2"
       "/home/hatosu/.config/vesktop"
       "/home/hatosu/.config/spotify"
 

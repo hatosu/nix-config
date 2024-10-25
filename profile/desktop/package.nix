@@ -1,12 +1,9 @@
 { pkgs, lib, ... }:{ environment = { systemPackages = with pkgs; [
 
-  # custom packages
-  wallpaper
+  # cli tools
+  help
   nixocr
   nixfind
-  help
-
-  # cli tools
   wl-clipboard
   playerctl
   nixfmt-rfc-style
@@ -21,12 +18,10 @@
   rclone
   calc
   lshw
-  mangohud
   element
   ffmpeg
 
   # programs
-  #zed-editor
   kooha
   kdenlive
   krita
@@ -36,9 +31,6 @@
   libreoffice-fresh
   lmms
   obsidian
-  bottles
-  lutris
-  minecraft
   virt-viewer
   obs-studio
   freecad

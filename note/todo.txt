@@ -1,8 +1,8 @@
+yazi
 app menu
 clipboard
 fastfetch
 mpv
-yazi
 tmux
 bat
 glances
@@ -36,9 +36,6 @@ opt = "${pkgs.image_optim}/bin/image_optim";
 - web scraper for jp, kr, zh, and french learning
 - package jp study workspace into flake
 - language learning flake
-- https://github.com/search?q=icon&type=repositories&s=stars&o=desc
-- https://github.com/nix-community/nix-on-droid
-- https://github.com/erebe/greenclip
 - script that reverse image searches with every possible tool
 - cli tool for converting ANY kind of file to ANY OTHER file (using options, so that it can apply multiple different operations in one command)
 - replace mouse with ai
@@ -47,5 +44,8 @@ opt = "${pkgs.image_optim}/bin/image_optim";
 - package cod into flake
 - custom nixos iso
 - hijack distros with nixos-anywhere reliably
-- copy configs of xsharawi, lynaix, grox(vimjoyer), doom-emacs-dev-main-dev, aylur, misterio77
+- copy configs of xsharawi, lynaix, grox(vimjoyer), doom-emacs-main-dev, aylur, misterio77
 - https://www.tecmint.com/ping-multiple-linux-hosts-using-fping/
+- https://github.com/search?q=icon&type=repositories&s=stars&o=desc
+- https://github.com/nix-community/nix-on-droid
+- https://github.com/erebe/greenclip
