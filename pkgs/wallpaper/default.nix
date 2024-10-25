@@ -33,7 +33,8 @@ in
 
 pkgs.stdenv.mkDerivation { 
   name = "${name}";
-  src = script; buildInputs = with pkgs; [ shc ];
+  src = script; 
+  buildInputs = with pkgs; [ shc ffmpeg mpvpaper ];
   phases = [ 
   "buildPhase" 
   "installPhase" 

@@ -1,12 +1,15 @@
 { pkgs, lib, ... }:{ environment = { systemPackages = with pkgs; [
 
+  # custom packages
+  wallpaper
+  nixocr
+  nixfind
+  help
+
   # cli tools
   wl-clipboard
   playerctl
   nixfmt-rfc-style
-  nixocr
-  nixfind
-  help
   vlc
   git
   tokei
@@ -21,9 +24,9 @@
   mangohud
   element
   ffmpeg
-  
+
   # programs
-  zed-editor
+  #zed-editor
   kooha
   kdenlive
   krita
