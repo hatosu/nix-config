@@ -8,11 +8,9 @@
     enable = true;
     wlr.enable = true;
     xdgOpenUsePortal = true;
-    #config.common.default = "*";
-    config.common.default = [ "gnome" "gtk" ];
+    config.common.default = "*";
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
       xdg-desktop-portal-hyprland
     ];
   };

@@ -1,4 +1,6 @@
-yazi
+- perfect disk.nix configuration (preparation for yubi key too)
+- fix impermanence (atm, directories you whitelist become read only, so fix that)
+
 app menu
 clipboard
 fastfetch
