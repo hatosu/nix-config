@@ -26,10 +26,9 @@
   '';
 
   fileSystems."/persist".neededForBoot = true;
-  environment.persistence."/persist/system" = {
-    hideMounts = true;
+  environment.persistence."/persist/system" = { hideMounts = true;
+    
     directories = [
-
       "/home/hatosu/X"
       "/home/hatosu/.steam"
       "/home/hatosu/.local/share/Steam"
@@ -38,23 +37,20 @@
       "/home/hatosu/.local/share/anime-game-launcher"
       "/home/hatosu/.config/vesktop"
       "/home/hatosu/.config/spotify"
-
       "/etc/nixos"
       "/etc/NetworkManager/system-connections"
-
       "/var/log"
       "/var/lib/waydroid"
       "/var/lib/bluetooth"
       "/var/lib/libvirt"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
-
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
+    
     files = [
-      "/etc/machine-id"
+      #"/home/hatosu/.zsh_history"
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
-  };
-
-}
+  
+};}

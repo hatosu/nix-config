@@ -48,7 +48,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
     # impermanence
-    impermanence.url = "github:nix-community/impermanence/fff0d95cf40609941769a443a001b25fb95b68ab";
+    impermanence.url = "github:nix-community/impermanence/e337457502571b23e449bf42153d7faa10c0a562";
 
     # nixos-hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/f5c239fa9acb27f0a5326ba2949c00fada89ca9f";
@@ -88,7 +88,9 @@
           aagl.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
           inputs.disko.nixosModules.default
+          #(import ./profile/hatosu/local/nix/disk.nix{device="/dev/sda";})
           (import ./profile/hatosu/local/nix/disk.nix{device="/dev/disk/by-uuid/594c40d5-3b31-4aca-8076-d3d87e9b5a4a";})
+          #(import ./profile/hatosu/local/nix/disk.nix{device="/dev/disk/by-uuid/mNEOP4-MgMU-6wSu-9om0-XYh6-jrZD-iRuLX7";})
         ];
       };
 

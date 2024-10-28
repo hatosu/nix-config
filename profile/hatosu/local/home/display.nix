@@ -5,23 +5,6 @@ wayland.windowManager.hyprland = { package = pkgs.hyprland;
 enable = true; xwayland.enable = true; systemd.enable = true; extraConfig = ''
 monitor = HDMI-A-1,2560x1080@165,auto,auto
 monitor = eDP-1, disable
-exec-once = ${pkgs.dunst}/bin/dunst
-exec-once = ${pkgs.wallpaper}/bin/wallpaper
-exec-once = waybar
-exec-once = fcitx5 --enable all
-exec-once = [workspace 1 silent] firefox
-exec-once = [workspace 2 silent] foot
-exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=x11 --enable-wayland-ime
-exec-once = [workspace 4 silent] spotify
-input {
-    kb_layout = us
-    follow_mouse = 1
-    touchpad {
-        natural_scroll = no
-    }
-    sensitivity = 0
-    force_no_accel = 1
-}
 #https://github.com/Gl00ria/dotfiles/blob/main/dot_hyprland/.config/hypr/source/00_env.conf#L27
 env = WLR_NO_HARDWARE_CURSORS,1
 env = LIBVA_DRIVER_NAME,nvidia
@@ -47,6 +30,23 @@ env = QT_QPA_PLATFORMTHEME,qt5ct
 env = __GL_MaxFramesAllowed,1
 xwayland {
 force_zero_scaling = true
+}
+exec-once = ${pkgs.dunst}/bin/dunst
+exec-once = ${pkgs.wallpaper}/bin/wallpaper
+exec-once = waybar
+exec-once = fcitx5 --enable all
+exec-once = [workspace 1 silent] firefox
+exec-once = [workspace 2 silent] foot
+exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=x11 --enable-wayland-ime
+exec-once = [workspace 4 silent] spotify
+input {
+    kb_layout = us
+    follow_mouse = 1
+    touchpad {
+        natural_scroll = no
+    }
+    sensitivity = 0
+    force_no_accel = 1
 }
 windowrulev2 = opacity 0.90 0.90,floating:0
 windowrulev2 = opacity 0.90 0.90,floating:1

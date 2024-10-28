@@ -11,6 +11,7 @@
     ./local/nix/host.nix
     ./local/nix/network.nix
     ./local/nix/package.nix
+    ./local/nix/root.nix
     ./local/nix/manage.nix
     ./local/nix/alias.nix
     ./local/nix/function.nix
