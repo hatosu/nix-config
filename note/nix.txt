@@ -1,4 +1,23 @@
-# custom lm prompt
+# nixos wifi
+https://nixos.org/manual/nixos/stable/#sec-installation-booting-networking
+sudo su
+systemctl start wpa_supplicant
+wpa_cli
+add_network
+set_network 0 ssid "myhomenetwork"
+set_network 0 psk "mypassword"
+set_network 0 key_mgmt WPA-PSK
+enable_network 0
+quit
+echo 'OR!!!'
+nmcli r w on
+nmcli d w l
+nmcli d w c SomeWifiName password "SomePassword"
+
+# find .desktop files on nixos
+ls -l /run/current-system/sw/share/applications | grep <SomeAppHere>
+
+#custom lm prompt
   services.displayManager.sessionPackages = [
   ((pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
     [Desktop Entry]
@@ -9,6 +28,3 @@
   '')
   .overrideAttrs (_: {passthru.providedSessions = ["hyprland"];}))
   ];
-
-# find .desktop files on nixos
-ls -l /run/current-system/sw/share/applications | grep <SomeAppHere>

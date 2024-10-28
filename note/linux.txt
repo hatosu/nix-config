@@ -62,22 +62,6 @@ lsblk
 mkdir -p /media/usb-drive
 mount /dev/sdc1 /media/usb-drive
 
-# nixos wifi
-https://nixos.org/manual/nixos/stable/#sec-installation-booting-networking
-sudo su
-systemctl start wpa_supplicant
-wpa_cli
-add_network
-set_network 0 ssid "myhomenetwork"
-set_network 0 psk "mypassword"
-set_network 0 key_mgmt WPA-PSK
-enable_network 0
-quit
-echo 'OR!!!'
-nmcli r w on
-nmcli d w l
-nmcli d w c SomeWifiName password "SomePassword"
-
 # force wipe all partitions (does NOT make sure that data cant be recovered)
 dd if=/dev/zero of=/dev/sda bs=1M status=progress
 
