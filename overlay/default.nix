@@ -15,14 +15,6 @@
       enableWlrSupport = true;
     };
 
-    # modifies spotify desktop entry
-    spotify = prev.spotify.overrideAttrs (oldAttrs: {
-      postInstall = (oldAttrs.postInstall or "") + ''
-        substituteInPlace $out/share/applications/spotify.desktop \
-          --replace "Name=Spotify" "Name=曲"
-      '';
-    });
-
     # modifies ciano desktop entry
     ciano = prev.ciano.overrideAttrs (oldAttrs: {
       postInstall = (oldAttrs.postInstall or "") + ''

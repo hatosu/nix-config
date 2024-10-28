@@ -43,7 +43,7 @@ cat ~/Diy/cleanse.sh | phind "what does this script do"
 # find out how much storage a directory takes
 du -sh /path/to/directory
 
-# list directories and storage take-up
+# list directories & storage take-up
 df -h
 
 # mount usb

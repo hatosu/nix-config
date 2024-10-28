@@ -13,8 +13,6 @@ let
 
   height = "1080";
 
-  #
-
   crop = pkgs.runCommand "crop" { } ''
     mkdir -p $out/videos
     ${pkgs.ffmpeg}/bin/ffmpeg -i ${repo}/wallpapers/wallpaper.mp4 -vf \
