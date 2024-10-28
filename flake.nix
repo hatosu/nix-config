@@ -88,9 +88,7 @@
           aagl.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
           inputs.disko.nixosModules.default
-          #(import ./profile/hatosu/local/nix/disk.nix{device="/dev/sda";})
-          (import ./profile/hatosu/local/nix/disk.nix{device="/dev/disk/by-uuid/594c40d5-3b31-4aca-8076-d3d87e9b5a4a";})
-          #(import ./profile/hatosu/local/nix/disk.nix{device="/dev/disk/by-uuid/mNEOP4-MgMU-6wSu-9om0-XYh6-jrZD-iRuLX7";})
+          (import ./profile/hatosu/local/nix/disk.nix{device="/dev/nvme0n1";})
         ];
       };
 
