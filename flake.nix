@@ -84,11 +84,11 @@
         modules = [
           ./profile/hatosu/configuration.nix
           home-manager.nixosModules.home-manager
-          inputs.disko.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
           inputs.spicetify-nix.nixosModules.default
           aagl.nixosModules.default
-          (import ./profile/hatosu/local/nix/disk.nix{device="/dev/nvme0n1";})
+          inputs.impermanence.nixosModules.impermanence
+          inputs.disko.nixosModules.default
+          (import ./profile/hatosu/local/nix/disk.nix{device="/dev/disk/by-uuid/594c40d5-3b31-4aca-8076-d3d87e9b5a4a";})
         ];
       };
 
@@ -107,9 +107,9 @@
       temporary = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/configuration.nix
+          ./profile/temporary/configuration.nix
           inputs.disko.nixosModules.default
-          (import ./profiles/temp/disko.nix{device="/dev/sda";})
+          (import ./profile/temporary/disk.nix{device="/dev/nvme0n1";})
         ];
       };
 

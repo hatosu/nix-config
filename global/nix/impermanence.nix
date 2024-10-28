@@ -31,13 +31,6 @@
     directories = [
 
       "/home/hatosu/X"
-      "/home/hatosu/.steam"
-      "/home/hatosu/.local/share/Steam"
-      "/home/hatosu/.local/share/osu"
-      "/home/hatosu/.local/share/Anki2"
-      "/home/hatosu/.local/share/anime-game-launcher"
-      "/home/hatosu/.config/vesktop"
-      "/home/hatosu/.config/spotify"
 
       "/etc/nixos"
       "/etc/NetworkManager/system-connections"
