@@ -4,6 +4,7 @@
     inputs.home-manager.nixosModules.default
 
     # import local nix modules
+    ./local/nix/disk.nix
     ./local/nix/hardware.nix
     ./local/nix/driver.nix
     ./local/nix/boot.nix
@@ -41,4 +42,4 @@
 ];}; home-manager = { backupFileExtension = "backup";
 extraSpecialArgs = { inherit inputs; };
 users = { "hatosu" = import ./home.nix; }; };
-system.stateVersion = "23.05"; }
+system.stateVersion = "23.11";}

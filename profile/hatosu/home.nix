@@ -4,6 +4,7 @@
     ./local/home/display.nix
     ./local/home/interface.nix
     ./local/home/theme.nix
+    ./local/home/safe.nix
     ./local/home/other.nix
 
     # import global home modules
@@ -28,4 +29,4 @@ home.enableNixpkgsReleaseCheck = false;
 programs.home-manager.enable = true;
 home.username = "hatosu";
 home.homeDirectory = "/home/hatosu";
-home.stateVersion = "23.05";}
+home.stateVersion = "23.11";}

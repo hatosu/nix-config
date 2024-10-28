@@ -1,10 +1,7 @@
-{
-  device ? throw "Set this to your disk device, e.g. /dev/sdb",
-  ...
-}: {
-  disko.devices = {
+{ ... }: { disko.devices = {
+  
     disk.main = {
-      inherit device;
+      device = "/dev/nvme0n1";
       type = "disk";
       content = {
         type = "gpt";
@@ -25,7 +22,7 @@
             };
           };
           swap = {
-            size = "4G";
+            size = "16G";
             content = {
               type = "swap";
               resumeDevice = true;
@@ -42,6 +39,7 @@
         };
       };
     };
+
     lvm_vg = {
       root_vg = {
         type = "lvm_vg";
@@ -51,20 +49,22 @@
             content = {
               type = "btrfs";
               extraArgs = ["-f"];
-
               subvolumes = {
                 "/root" = {
+                  mountOptions = [ "compress=zstd:3" "noatime" ];
                   mountpoint = "/";
                 };
-
-                "/persist" = {
-                  mountOptions = ["subvol=persist" "compress=zstd:3" "noatime"];
-                  mountpoint = "/persist";
+                "/home" = {
+                  mountOptions = [ "compress=zstd:3" "noatime" ];
+                  mountpoint = "/home";  
                 };
-
                 "/nix" = {
-                  mountOptions = ["subvol=nix" "compress=zstd:3" "noatime"];
+                  mountOptions = [ "subvol=nix" "compress=zstd:3" "noatime" ];
                   mountpoint = "/nix";
+                };
+                "/persist" = {
+                  mountOptions = [ "subvol=persist" "compress=zstd:3" "noatime" ];
+                  mountpoint = "/persist";
                 };
               };
             };
@@ -73,4 +73,5 @@
       };
     };
   };
+
 }

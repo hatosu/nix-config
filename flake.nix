@@ -10,7 +10,7 @@
 
     # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/038630363e7de57c36c417fd2f5d7c14773403e4";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -87,8 +87,8 @@
           inputs.spicetify-nix.nixosModules.default
           aagl.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
+          inputs.home-manager.nixosModules.default
           inputs.disko.nixosModules.default
-          (import ./profile/hatosu/local/nix/disk.nix{device="/dev/nvme0n1";})
         ];
       };
 
@@ -99,7 +99,6 @@
           ./nixos/configuration.nix
           nixos-hardware.nixosModules.something
           inputs.disko.nixosModules.default
-          (import ./profiles/laptop/disko.nix{device="/dev/sda";})
         ];
       };
 
@@ -109,7 +108,6 @@
         modules = [
           ./profile/temporary/configuration.nix
           inputs.disko.nixosModules.default
-          (import ./profile/temporary/disk.nix{device="/dev/nvme0n1";})
         ];
       };
 

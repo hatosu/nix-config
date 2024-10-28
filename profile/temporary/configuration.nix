@@ -3,6 +3,7 @@
   # import hardware.nix
   imports = [
     ./hardware.nix
+    ./disk.nix
   ];
 
   # configure boot-loader
@@ -19,9 +20,21 @@
   users.users.hatosu = {
     isNormalUser = true;
     home = "/home/hatosu";
-    description = "guh... mlem";
-    extraGroups = [ "wheel" "libvirtd" "kvm" ];
+    description = "Hatosu's NixOS user.";
     initialPassword = ";";
+    group = "users";
+    extraGroups = [ 
+      "wheel"
+      "audio"
+      "sound"
+      "video"
+      "networkmanager"
+      "input"
+      "tty"
+      "docker"
+      "libvirtd" 
+      "kvm"
+    ];
   };
 
   # properly set default locale

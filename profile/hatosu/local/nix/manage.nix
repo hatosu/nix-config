@@ -18,6 +18,9 @@
 
       # increase buffer size
       download-buffer-size = "99999999";
+
+      # add trusted groups
+      trusted-users = [ "root" "@wheel" ];
     
     };
 
@@ -44,15 +47,15 @@
   };
 
   # remove unneeded channel directories
-  system.activationScripts.channel-remove.text = '' 
-  if [ -d "/root/.nix-defexpr/channels" ] 
-  then
-    rm -rf /root/.nix-defexpr/channels
-    mv -f /nix/var/nix/profiles/per-user/root/channels /tmp
-  else
-    printf ""
-  fi
-  '';
+  #system.activationScripts.channel-remove.text = '' 
+  #if [ -d "/root/.nix-defexpr/channels" ] 
+  #then
+    #rm -rf /root/.nix-defexpr/channels
+    #mv -f /nix/var/nix/profiles/per-user/root/channels /tmp
+  #else
+    #printf ""
+  #fi
+  #'';
 
   # limit number of nix generations to 100
   boot.loader.systemd-boot.configurationLimit = 100;
