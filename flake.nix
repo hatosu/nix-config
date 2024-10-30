@@ -86,6 +86,7 @@
           home-manager.nixosModules.home-manager
           inputs.home-manager.nixosModules.default
           inputs.disko.nixosModules.default
+          inputs.impermanence.nixosModules.impermanence
           inputs.spicetify-nix.nixosModules.default
           aagl.nixosModules.default
         ];
