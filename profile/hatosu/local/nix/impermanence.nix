@@ -37,7 +37,6 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
-      #"/nix/var/nix/profiles/per-user/hatosu"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
@@ -51,7 +50,7 @@
         "X"
         ".cache/dconf"
         ".config/dconf"
-        #".local/state/nix/profiles"
+        ".local/state/nix/profiles"
       ];
       files = [
         ".zsh_history"
@@ -60,16 +59,16 @@
 
   };
 
-  #systemd.tmpfiles.settings = {
-  #  "persist-hatosu-homedir" = {
-  #    "/persist/home/hatosu" = {
-  #      d = {
-  #       group = "users";
-  #        user = "hatosu";
-  #        mode = "0700";
-  #      };
-  #    };
-  #  };
-  #};
+  systemd.tmpfiles.settings = {
+    "persist-hatosu-homedir" = {
+      "/persist/home/hatosu" = {
+        d = {
+         group = "users";
+          user = "hatosu";
+          mode = "0700";
+        };
+      };
+    };
+  };
 
 }
