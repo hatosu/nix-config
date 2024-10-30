@@ -70,7 +70,7 @@
 
   };
 
+  fileSystems."/".neededForBoot = true;
   fileSystems."/persist".neededForBoot = true;
-  fileSystems."/root".neededForBoot = true;
 
 }
