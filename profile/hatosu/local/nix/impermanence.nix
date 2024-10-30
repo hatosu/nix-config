@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, lib, inputs, user, ... }: {
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
@@ -29,7 +29,6 @@
   environment.persistence."/persist/system" = {
     hideMounts = true;
     directories = [
-      #"/home/hatosu/X"
       "/etc/nixos"
       "/etc/NetworkManager/system-connections"
       "/var/log"
@@ -41,6 +40,17 @@
     files = [
       #"/etc/machine-id"
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+    ];
+  };
+
+  users.${user} = {
+    directories = [
+      "X"
+      ".cache/dconf"
+      ".config/dconf"
+    ];
+    files = [
+      ".zshrc"
     ];
   };
 
