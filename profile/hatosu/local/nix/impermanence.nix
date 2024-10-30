@@ -52,7 +52,7 @@
         ".config/dconf"
       ];
       files = [
-        ".zsh_history"
+        #".zsh_history"
       ];
     };
 
