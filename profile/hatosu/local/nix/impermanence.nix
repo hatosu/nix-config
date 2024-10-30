@@ -25,11 +25,9 @@
     umount /btrfs_tmp
   '';
 
-  programs.fuse.userAllowOther = true;
   fileSystems."/persist".neededForBoot = true;
-  environment.persistence."/persist/system" = { hideMounts = true;
-  
-    # root
+  environment.persistence."/persist/system" = {
+    hideMounts = true;
     directories = [
       "/etc/nixos"
       "/etc/NetworkManager/system-connections"
@@ -40,35 +38,11 @@
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
-      #"/etc/machine-id"
+      "/etc/machine-id"
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
-
-    # home
-    users.hatosu = {
-      directories = [
-        "X"
-        ".cache/dconf"
-        ".config/dconf"
-        ".local/state/nix/profiles"
-      ];
-      files = [
-        ".zsh_history"
-      ];
-    };
-
   };
 
-  systemd.tmpfiles.settings = {
-    "persist-hatosu-homedir" = {
-      "/persist/home/hatosu" = {
-        d = {
-         group = "users";
-          user = "hatosu";
-          mode = "0700";
-        };
-      };
-    };
-  };
+  programs.fuse.userAllowOther = true;
 
 }
