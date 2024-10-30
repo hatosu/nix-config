@@ -29,7 +29,7 @@
   environment.persistence."/persist/system" = {
     hideMounts = true;
     directories = [
-      "/home/hatosu/X"
+      #"/home/hatosu/X"
       "/etc/nixos"
       "/etc/NetworkManager/system-connections"
       "/var/log"
