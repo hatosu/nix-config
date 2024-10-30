@@ -12,12 +12,6 @@
     group = "users";
     extraGroups = [ 
       "wheel"
-      "audio"
-      "sound"
-      "video"
-      "networkmanager"
-      "input"
-      "tty"
       "docker"
       "libvirtd" 
       "kvm"
@@ -33,8 +27,5 @@
 
   # setup timezone
   time.timeZone = "America/Los_Angeles";
-
-  # allow user to modify mountpoints
-  programs.fuse.userAllowOther = true;
 
 }

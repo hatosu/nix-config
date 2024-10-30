@@ -47,9 +47,6 @@
   # setup timezone
   time.timeZone = "America/Los_Angeles";
 
-  # allow user to modify mountpoints
-  programs.fuse.userAllowOther = true;
-
   # fetch packages
   environment.systemPackages = with pkgs; [
     vim

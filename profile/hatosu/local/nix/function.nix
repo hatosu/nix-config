@@ -4,16 +4,6 @@ rebuild(){
   clear
   sudo nixos-rebuild switch --flake /etc/nixos#hatosu
   ${pkgs.noti}/bin/noti -t 'REBUILD' -m 'system successfully rebuilt according to your personal nix configuration files >:3'
-  LOCK_FILE="/home/hatosu/X/.run_once_lock"
-  if [ -f "$LOCK_FILE" ]; then
-    printf ""
-  else
-    # ↓ run once commands go here
-    sudo waydroid init
-    # ↑
-    sudo touch "$LOCK_FILE"
-    ${pkgs.noti}/bin/noti -t 'RUNONCE' -m 'finished executing run-once commands' 
-  fi
 }
 
 heal(){

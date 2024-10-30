@@ -5,6 +5,7 @@
 
     # import local nix modules
     ./local/nix/disk.nix
+    ./local/nix/impermanence.nix
     ./local/nix/hardware.nix
     ./local/nix/driver.nix
     ./local/nix/boot.nix

@@ -19,7 +19,7 @@
 
     # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/e83414058edd339148dc142a8437edb9450574c8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -46,6 +46,9 @@
       url = "github:Gerg-L/spicetify-nix/1a8fa34b656d67c1d7d4c2b76cba03bf4d65dee4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # impermanence
+    impermanence.url = "github:nix-community/impermanence/e337457502571b23e449bf42153d7faa10c0a562";
 
     # nixos-hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/f5c239fa9acb27f0a5326ba2949c00fada89ca9f";
