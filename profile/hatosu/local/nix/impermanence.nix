@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, user, ... }: {
+{ pkgs, lib, inputs, ... }: {
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
@@ -43,7 +43,7 @@
     ];
   };
 
-  users.${user} = {
+  users.hatosu = {
     directories = [
       "X"
       ".cache/dconf"
