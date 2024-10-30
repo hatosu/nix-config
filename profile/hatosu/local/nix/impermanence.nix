@@ -25,7 +25,6 @@
     umount /btrfs_tmp
   '';
 
-  programs.fuse.userAllowOther = true;
   fileSystems."/persist".neededForBoot = true;
   environment.persistence."/persist/system" = {
     hideMounts = true;
@@ -43,6 +42,19 @@
       #"/etc/machine-id"
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
+  };
+
+  programs.fuse.userAllowOther = true;
+  systemd.tmpfiles.settings = {
+    "persist-hatosu-homedir" = {
+      "/persist/home/hatosu" = {
+        d = {
+          group = "users";
+          user = "hatosu";
+          mode = "0700";
+        };
+      };
+    };
   };
 
 }
