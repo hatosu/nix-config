@@ -1,77 +1,76 @@
-{ ... }: { disko.devices = {
-  
-    disk.main = {
-      device = "/dev/nvme0n1";
-      type = "disk";
-      content = {
-        type = "gpt";
-        partitions = {
-          boot = {
-            name = "boot";
-            size = "1M";
-            type = "EF02";
-          };
-          esp = {
-            name = "ESP";
-            size = "500M";
-            type = "EF00";
-            content = {
-              type = "filesystem";
-              format = "vfat";
-              mountpoint = "/boot";
-            };
-          };
-          swap = {
-            size = "16G";
-            content = {
-              type = "swap";
-              resumeDevice = true;
-            };
-          };
-          root = {
-            name = "root";
-            size = "100%";
-            content = {
-              type = "lvm_pv";
-              vg = "root_vg";
-            };
-          };
-        };
-      };
-    };
+{ disko.devices = { 
 
-    lvm_vg = {
-      root_vg = {
-        type = "lvm_vg";
-        lvs = {
-          root = {
-            size = "100%FREE";
-            content = {
-              type = "btrfs";
-              extraArgs = ["-f"];
-              subvolumes = {
-                "/root" = {
-                  mountOptions = [ "compress=zstd:3" "noatime" ];
-                  mountpoint = "/";
-                };
-                "/home" = {
-                  mountOptions = [ "compress=zstd:3" "noatime" ];
-                  mountpoint = "/home";  
-                };
-                "/nix" = {
-                  mountOptions = [ "subvol=nix" "compress=zstd:3" "noatime" ];
-                  mountpoint = "/nix";
-                };
-                "/persist" = {
-                  mountOptions = [ "subvol=persist" "compress=zstd:3" "noatime" ];
-                  mountpoint = "/persist";
+    disk = {
+      nvme0n1 = {
+        type = "disk";
+        device = "/dev/nvme0n1";
+        content = {
+          type = "gpt";
+          partitions = {
+            
+            ESP = {
+              label = "boot";
+              name = "ESP";
+              size = "512M";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [
+                  "defaults"
+                ];
+              };
+            };
+            
+            luks = {
+              size = "100%";
+              label = "luks";
+              content = {
+                type = "luks";
+                name = "cryptroot";
+                extraOpenArgs = [ "--allow-discards" "--perf-no_read_workqueue" "--perf-no_write_workqueue" ];
+                settings = { crypttabExtraOpts = ["fido2-device=auto" "token-timeout=10"]; };
+                content = {
+                  type = "btrfs";
+                  extraArgs = ["-L" "nixos" "-f"];
+                  subvolumes = {
+                    "/root" = {
+                      mountpoint = "/";
+                      mountOptions = ["subvol=root" "compress=zstd:3" "noatime"];
+                    };
+                    "/home" = {
+                      mountpoint = "/home";
+                      mountOptions = ["subvol=home" "compress=zstd:3" "noatime"];
+                    };
+                    "/nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = ["subvol=nix" "compress=zstd:3" "noatime"];
+                    };
+                    "/persist" = {
+                      mountpoint = "/persist";
+                      mountOptions = ["subvol=persist" "compress=zstd:3" "noatime"];
+                    };
+                    "/log" = {
+                      mountpoint = "/var/log";
+                      mountOptions = ["subvol=log" "compress=zstd:3" "noatime"];
+                    };
+                    "/swap" = {
+                      mountpoint = "/swap";
+                      swap.swapfile.size = "64G";
+                    };
+                  };
                 };
               };
             };
+          
           };
         };
       };
     };
   };
+
+  fileSystems."/persist".neededForBoot = true;
+  fileSystems."/var/log".neededForBoot = true;
 
 }
