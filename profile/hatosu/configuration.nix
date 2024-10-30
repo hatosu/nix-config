@@ -7,7 +7,7 @@
     ./local/nix/disk.nix
     ./local/nix/impermanence.nix
     ./local/nix/hardware.nix
-    #./local/nix/driver.nix
+    ./local/nix/driver.nix
     ./local/nix/boot.nix
     ./local/nix/login.nix
     ./local/nix/host.nix
