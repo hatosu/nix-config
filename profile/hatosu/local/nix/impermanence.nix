@@ -50,9 +50,10 @@
         "X"
         ".cache/dconf"
         ".config/dconf"
+        ".local/state/nix/profiles"
       ];
       files = [
-        ".zshrc"
+        ".zsh_history"
       ];
     };
 
