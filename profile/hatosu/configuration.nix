@@ -29,7 +29,6 @@
     inputs.self.nixosModules.game
     inputs.self.nixosModules.virtualization
     inputs.self.nixosModules.keyboard
-    inputs.self.nixosModules.impermanence
     inputs.self.nixosModules.music
 
 ]; nixpkgs = { config = { allowUnfree = true; allowBroken = true; }; overlays = [

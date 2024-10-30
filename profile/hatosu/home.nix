@@ -4,7 +4,6 @@
     ./local/home/display.nix
     ./local/home/interface.nix
     ./local/home/theme.nix
-    ./local/home/safe.nix
     ./local/home/other.nix
 
     # import global home modules

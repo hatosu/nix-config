@@ -2,6 +2,15 @@
 
   inputs = {
 
+    # unstable (newest packages)
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
+    # fresh (upcycle packages)
+    nixpkgs-fresh.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # stable (old packages)
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+
     # files
     personal-files = {
       url = "github:hatosu/personal-files";
@@ -38,18 +47,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # unstable (newest packages)
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
-    # fresh (upcycle packages)
-    nixpkgs-fresh.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # stable (old packages)
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
-
-    # impermanence
-    impermanence.url = "github:nix-community/impermanence/e337457502571b23e449bf42153d7faa10c0a562";
-
     # nixos-hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/f5c239fa9acb27f0a5326ba2949c00fada89ca9f";
 
@@ -78,17 +75,16 @@
     homeManagerModules = import ./global/home;
     nixosConfigurations = {
 
-      # desktop profile
+      # laptop profile
       hatosu = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./profile/hatosu/configuration.nix
           home-manager.nixosModules.home-manager
-          inputs.spicetify-nix.nixosModules.default
-          aagl.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
           inputs.home-manager.nixosModules.default
           inputs.disko.nixosModules.default
+          inputs.spicetify-nix.nixosModules.default
+          aagl.nixosModules.default
         ];
       };
 
