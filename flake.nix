@@ -48,7 +48,7 @@
     };
 
     # impermanence
-    impermanence.url = "github:nix-community/impermanence/e337457502571b23e449bf42153d7faa10c0a562";
+    impermanence.url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
 
     # nixos-hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/f5c239fa9acb27f0a5326ba2949c00fada89ca9f";

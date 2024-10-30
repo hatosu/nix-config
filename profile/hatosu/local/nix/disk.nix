@@ -1,4 +1,4 @@
-{ disko.devices = {
+{ ... }: { disko.devices = {
   
     disk.main = {
       device = "/dev/nvme0n1";
@@ -67,10 +67,6 @@
         };
       };
     };
-
+  
   };
-
-  fileSystems."/".neededForBoot = true;
-  fileSystems."/persist".neededForBoot = true;
-
 }
