@@ -37,7 +37,7 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
-      "/nix/var/nix/profiles/per-user/hatosu"
+      #"/nix/var/nix/profiles/per-user/hatosu"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
