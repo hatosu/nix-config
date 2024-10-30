@@ -39,7 +39,7 @@
     inputs.self.overlays.modifications
     inputs.self.overlays.stable-packages
     
-];}; home-manager = { backupFileExtension = "backup";
+]; }; home-manager = { backupFileExtension = "backup";
 extraSpecialArgs = { inherit inputs; };
 users = { "hatosu" = import ./home.nix; }; };
 system.stateVersion = "23.11";}

@@ -58,16 +58,16 @@
 
   };
 
-  systemd.tmpfiles.settings = {
-    "persist-hatosu-homedir" = {
-      "/persist/home/hatosu" = {
-        d = {
-          group = "users";
-          user = "hatosu";
-          mode = "0700";
-        };
-      };
-    };
-  };
+  #systemd.tmpfiles.settings = {
+  #  "persist-hatosu-homedir" = {
+  #    "/persist/home/hatosu" = {
+  #      d = {
+  #       group = "users";
+  #        user = "hatosu";
+  #        mode = "0700";
+  #      };
+  #    };
+  #  };
+  #};
 
 }
