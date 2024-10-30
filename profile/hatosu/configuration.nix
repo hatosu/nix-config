@@ -42,4 +42,18 @@
 ];}; home-manager = { backupFileExtension = "backup";
 extraSpecialArgs = { inherit inputs; };
 users = { "hatosu" = import ./home.nix; }; };
-system.stateVersion = "23.11";}
+system.stateVersion = "23.11";
+
+systemd.tmpfiles.settings = {
+  "persist-hatosu-homedir" = {
+    "/persist/home/hatosu" = {
+      d = {
+        group = "users";
+        user = "hatosu";
+        mode = "0700";
+      };
+    };
+  };
+};
+
+}
