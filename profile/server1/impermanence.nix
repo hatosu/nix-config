@@ -34,41 +34,31 @@
       "/etc/nixos"
       "/etc/NetworkManager/system-connections"
       "/var/log"
-      "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
-      #"/etc/machine-id"
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
     
     # home
-    users.hatosu = {
+    users.server1 = {
       directories = [
-        "X"
-        ".game"
         ".cache/dconf"
         ".config/dconf"
-        ".config/spotify"
-        ".config/vesktop"
         ".local/share/Steam"
-        ".local/share/anime-game-launcher"
-      ];
-      files = [
-        #".zsh_history"
       ];
     };
 
   };
 
   systemd.tmpfiles.settings = {
-    "persist-hatosu-homedir" = {
-      "/persist/home/hatosu" = {
+    "persist-server1-homedir" = {
+      "/persist/home/server1" = {
         d = {
           group = "users";
-          user = "hatosu";
+          user = "server1";
           mode = "0700";
         };
       };

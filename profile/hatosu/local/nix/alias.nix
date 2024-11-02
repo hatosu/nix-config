@@ -5,9 +5,7 @@ hist = "history | grep";
 power = "shutdown -P now";
 try = "nix-shell -p";
 trace = "sudo nixos-rebuild switch --show-trace --verbose --print-build-logs --flake /etc/nixos#desktop";
-nixos = "cd /etc/nixos && nvim $(${pkgs.skim}/bin/sk) && cd";
-home = "cd && nvim $(${pkgs.skim}/bin/sk)";
-f = "cd $(dirname $(${pkgs.fd}/bin/fd --type file | ${pkgs.skim}/bin/sk))";
+cat = "bat";
 s = "playerctl next";
 p = "playerctl play-pause";
 b = "playerctl previous";
@@ -17,7 +15,6 @@ m = "mpv";
 c = "clear";
 
 # nixpkgs
-ff = "${pkgs.fastfetch}/bin/fastfetch";
 scan = "${pkgs.vulnix}/bin/vulnix --system --verbose";
 dupe = "${pkgs.rmlint}/bin/rmlint";
 anime = "${pkgs.ani-cli}/bin/ani-cli -q 1080p";
@@ -32,6 +29,10 @@ drag = "${pkgs.ripdrag}/bin/ripdrag -r";
 rembg = "${pkgs.backgroundremover}/bin/backgroundremover";
 img = "${pkgs.imagemagick}/bin/magick";
 opt = "${pkgs.image_optim}/bin/image_optim";
+home = "cd && nvim $(${pkgs.skim}/bin/sk)";
+conf = "cd /etc/nixos && nvim $(${pkgs.skim}/bin/sk) && cd";
+ff = "${pkgs.fastfetch}/bin/fastfetch";
+f = "cd $(dirname $(${pkgs.fd}/bin/fd --type file | ${pkgs.skim}/bin/sk))";
 
 # temporary
 pget = "nix run nixpkgs#pirate-get -- -T -S ~/Downloads";
@@ -44,10 +45,10 @@ browse = "nix run nixpkgs#w3m --";
 gping = "nix run nixpkgs#gping --";
 
 # notes
-lch = "sudoedit /etc/nixos/note/linux.txt";
-nch = "sudoedit /etc/nixos/note/nix.txt";
-vch = "sudoedit /etc/nixos/note/vim.txt";
-tch = "sudoedit /etc/nixos/note/todo.txt";
-fch = "sudoedit /etc/nixos/note/features.txt";
+lch = "sudoedit /etc/nixos/misc/notes/linux.txt";
+nch = "sudoedit /etc/nixos/misc/notes/nix.txt";
+vch = "sudoedit /etc/nixos/misc/notes/vim.txt";
+tch = "sudoedit /etc/nixos/misc/notes/todo.txt";
+fch = "sudoedit /etc/nixos/misc/notes/features.txt";
 
 }; }; }

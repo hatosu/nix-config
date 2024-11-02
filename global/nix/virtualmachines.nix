@@ -1,9 +1,10 @@
-{pkgs,lib,...}:{
+{ pkgs, lib, ...}: {
 
   # enable waydroid
   virtualisation.waydroid.enable = true;
 
   # enable distrobox (https://wiki.archlinux.org/title/Distrobox# Usage)
+  environment.systemPackages = [ pkgs.distrobox ];
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.podman = {
     enable = true;

@@ -1,8 +1,11 @@
+- minecraft server on homelab (nixosanywhere? special repos for ssh? choose the most robust and accepted method, and make sure the firewall and safety is perfect)
 - perfect dev environment, neovim included (https://nixos.wiki/wiki/NixOS_Containers)
-- perfect free & safe vpn (and also anything it takes to make sites love you, faking being a different OS etc)
-- ssh with homelab
+- ssh with homelab (completely safe network wise)
 - choco discord bot
-- minecraft server on homelab
+- get rid of all possible sources of malicious code on machine (sometimes laptop fan is running way faster than it should)
+- screen record
+- gif record
+- calculator gui
 
 app menu
 clipboard
@@ -15,6 +18,7 @@ htop
 gitui
 tree
 
+- perfect free & safe vpn (and also anything it takes to make sites love you, faking being a different OS etc)
 - perfect disk.nix configuration (preparation for yubi key too)
 - fix impermanence (atm, directories you whitelist become read only, so fix that)
 - web scraper for jp, kr, zh, and french learning

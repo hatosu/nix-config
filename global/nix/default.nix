@@ -1,11 +1,10 @@
 {
 
-  kernel         = import ./kernel.nix;
-  audio          = import ./audio.nix;
-  font           = import ./font.nix;
-  game           = import ./game.nix;
-  virtualization = import ./virtualization.nix;
-  keyboard       = import ./keyboard.nix;
-  music          = import ./music.nix;
+  pipewire           = import ./pipewire.nix;
+  spotify            = import ./spotify.nix;
+  textfonts          = import ./textfonts.nix;
+  virtualmachines    = import ./virtualmachines.nix;
+  gaming             = import ./gaming.nix;
+  hotkeys            = import ./hotkeys.nix;
 
 }

@@ -1,7 +1,12 @@
-{ pkgs, ... }: let
+{ pkgs, inputs, ... }: let
 
+# insert theme link
 theme = "https://raw.githubusercontent.com/hatosu/personal-files/6d191cb6d4d373baca4286d88400d01516f370a4/themes/theme.css";
 
+# choose icon
+icon = "${inputs.personal-files}/icons/discord.png";
+
+# customize config
 vesktop-config = pkgs.writeText "settings.json" ''
 {
     "autoUpdate": true,
@@ -19,6 +24,9 @@ vesktop-config = pkgs.writeText "settings.json" ''
     "winNativeTitleBar": false,
     "plugins": {
         "ChatInputButtonAPI": {
+            "enabled": true
+        },
+        "FixImagesQuality": {
             "enabled": true
         },
         "CommandsAPI": {
@@ -697,7 +705,15 @@ vesktop-config = pkgs.writeText "settings.json" ''
         "settingsSyncVersion": 1727013580575
     }
 }
+'';
 
-'';in{home.file = { "vesktop-config" = { source = vesktop-config;
+# ignore this
+in { home.file = { "vesktop-config" = { source = vesktop-config;
 target = ".config/vesktop/settings/settings.json"; force = true; }; }; 
-home.packages = with pkgs; [ vesktop ];}
+home.packages = with pkgs; [ vesktop ]; xdg.desktopEntries = { vesktop = {
+exec = "vesktop --enable-features=UseOzonePlatform --ozone-platform=x11 --enable-wayland-ime %U";
+icon = "${icon}"; name = "Discord"; genericName = "Internet Messenger";
+comment = "some random discord client..."; noDisplay = false; prefersNonDefaultGPU = false;
+startupNotify = true; terminal = false; settings = { Keywords = "discord;vencord;electron;chat";
+DBusActivatable = "false"; }; categories = [ "Network" "InstantMessaging" "Chat" ];
+mimeType = [ "" "" "" ]; type = "Application"; }; }; }

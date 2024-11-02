@@ -5,10 +5,7 @@
     # unstable (newest packages)
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # fresh (upcycle packages)
-    nixpkgs-fresh.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # stable (old packages)
+    # stable (older packages)
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
     # files
@@ -58,7 +55,6 @@
 
   };
 
-  # list outputs
   outputs = {
     self,
     nixpkgs,
@@ -78,8 +74,9 @@
     homeManagerModules = import ./global/home;
     nixosConfigurations = {
 
-      # laptop profile
-      hatosu = nixpkgs.lib.nixosSystem {
+    # add profiles ↓
+
+      laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./profile/hatosu/configuration.nix
@@ -92,22 +89,20 @@
         ];
       };
 
-      # minecraft server
-      minecraft = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./nixos/configuration.nix
-          nixos-hardware.nixosModules.something
-          inputs.disko.nixosModules.default
-        ];
-      };
-
-      # temporary profile
       temporary = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./profile/temporary/configuration.nix
           inputs.disko.nixosModules.default
+        ];
+      };
+
+      server1 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./profile/server1/configuration.nix
+          inputs.disko.nixosModules.default
+          inputs.impermanence.nixosModules.impermanence
         ];
       };
 

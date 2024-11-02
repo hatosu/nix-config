@@ -5,31 +5,33 @@ wayland.windowManager.hyprland = { package = pkgs.hyprland;
 enable = true; xwayland.enable = true; systemd.enable = true; extraConfig = ''
 monitor = HDMI-A-1,2560x1080@165,auto,auto
 monitor = eDP-1, disable
-#https://github.com/Gl00ria/dotfiles/blob/main/dot_hyprland/.config/hypr/source/00_env.conf#L27
-env = WLR_NO_HARDWARE_CURSORS,1
+env = __NV_PRIME_RENDER_OFFLOAD,1
 env = LIBVA_DRIVER_NAME,nvidia
 env = GBM_BACKEND,nvidia-drm
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-env = __NV_PRIME_RENDER_OFFLOAD,1
 env = __GL_GSYNC_ALLOWED,1
 env = __GL_VRR_ALLOWED,1
 env = WLR_DRM_NO_ATOMIC=1
 env = __VK_LAYER_NV_optimus,NVIDIA_only
 env = NVD_BACKEND,direct
-env = XDG_SESSION_TYPE,wayland
-env = XDG_SESSION_DESKTOP,Hyprland
-env = XDG_CURRENT_DESKTOP,Hyprland
-env = QT_QPA_PLATFORM,wayland # "wayland;xcb"
-env = GDK_BACKEND,wayland,x11
-env = SDL_VIDEODRIVER,wayland 
-env = CLUTTER_BACKEND,wayland 
 env = WLR_RENDERER_ALLOW_SOFTWARE,1
 env = QT_AUTO_SCREEN_SCALE_FACTOR,1
 env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
 env = QT_QPA_PLATFORMTHEME,qt5ct
 env = __GL_MaxFramesAllowed,1
-xwayland {
-force_zero_scaling = true
+env = WLR_NO_HARDWARE_CURSORS,1
+env = XDG_SESSION_DESKTOP,Hyprland
+env = XDG_CURRENT_DESKTOP,Hyprland
+env = XDG_SESSION_TYPE,wayland
+env = GDK_BACKEND,wayland,x11
+env = SDL_VIDEODRIVER,wayland 
+env = CLUTTER_BACKEND,wayland
+env = QT_QPA_PLATFORM,wayland # "wayland;xcb"
+xwayland { 
+  force_zero_scaling = true 
+}
+cursor { 
+  no_hardware_cursors = true
 }
 exec-once = ${pkgs.dunst}/bin/dunst
 exec-once = ${pkgs.wallpaper}/bin/wallpaper
@@ -99,14 +101,15 @@ misc {
 }
 $mainMod = SUPER
 bind = $mainMod, L, exec, foot
-bind = $mainMod, T, exec, fuzzel
+bind = $mainMod, T, exec, rofi -show drun
 bind = $mainMod, B, exec, firefox
 bind = $mainMod, H, exec, flameshot gui
 bind = $mainMod, O, exec, nixocr
 bind = $mainMod, P, exec, ${pkgs.hyprpicker}/bin/hyprpicker -a
 bind = $mainMod, X, togglefloating
 bind = $mainMod, Z, killactive,
-bind = $mainMod+Shift, Y, exit,
+bind = $mainMod+Ctrl, F, fullscreen
+bind = $mainMod+Ctrl, Y, exit,
 bind = $mainMod, a, movefocus, l
 bind = $mainMod, f, movefocus, r
 bind = $mainMod, d, movefocus, u

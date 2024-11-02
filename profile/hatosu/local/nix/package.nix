@@ -16,13 +16,11 @@
   wget
   shellcheck
   rclone
-  calc
   lshw
   element
   ffmpeg
 
   # programs
-  kooha
   kdenlive
   krita
   blender
@@ -37,9 +35,6 @@
   komikku
   ciano
   flameshot
-
-  # virtualization
-  distrobox
 
   # icons
   adwaita-icon-theme

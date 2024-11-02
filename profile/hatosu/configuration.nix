@@ -7,6 +7,7 @@
     ./local/nix/disk.nix
     ./local/nix/impermanence.nix
     ./local/nix/hardware.nix
+    ./local/nix/kernel.nix
     ./local/nix/driver.nix
     ./local/nix/boot.nix
     ./local/nix/login.nix
@@ -24,13 +25,12 @@
     ./local/nix/other.nix
 
     # import global nix modules
-    inputs.self.nixosModules.kernel
-    inputs.self.nixosModules.audio
-    inputs.self.nixosModules.font
-    inputs.self.nixosModules.game
-    inputs.self.nixosModules.virtualization
-    inputs.self.nixosModules.keyboard
-    inputs.self.nixosModules.music
+    inputs.self.nixosModules.pipewire
+    inputs.self.nixosModules.spotify
+    inputs.self.nixosModules.textfonts
+    inputs.self.nixosModules.virtualmachines
+    inputs.self.nixosModules.gaming
+    inputs.self.nixosModules.hotkeys
 
 ]; nixpkgs = { config = { allowUnfree = true; allowBroken = true; }; overlays = [
 
@@ -42,4 +42,4 @@
 ]; }; home-manager = { backupFileExtension = "backup";
 extraSpecialArgs = { inherit inputs; };
 users = { "hatosu" = import ./home.nix; }; };
-system.stateVersion = "23.11";}
+system.stateVersion = "23.11"; }

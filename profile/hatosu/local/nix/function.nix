@@ -2,7 +2,7 @@
 
 rebuild(){
   clear
-  sudo nixos-rebuild switch --flake /etc/nixos#hatosu
+  sudo nixos-rebuild switch --flake /etc/nixos#laptop
   ${pkgs.noti}/bin/noti -t 'REBUILD' -m 'system successfully rebuilt according to your personal nix configuration files >:3'
 }
 

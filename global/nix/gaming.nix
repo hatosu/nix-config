@@ -1,12 +1,11 @@
 { pkgs, inputs, ... }: {
 
-  # enables steam & allows usage of gamescope launch option
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-  };
+  # setup steam
+  programs.gamemode.enable = true;
+  environment.defaultPackages = [ pkgs.mangohud ];
+  programs.steam = { enable = true;
+  extraPackages = with pkgs; [ gamescope ];
+  extraCompatPackages = with pkgs; [ proton-ge-bin ]; };
 
   # enable gacha game launchers
   programs.anime-game-launcher.enable = true;
@@ -19,14 +18,10 @@
     star-citizen
   ];
 
-  # gaming related nixpkgs
-  environment.defaultPackages = with pkgs; [
+  # other game packages
+  users.users.hatosu.packages = with pkgs; [
     minecraft
-    mangohud
   ];
-
-  # allows usage of gamemode launch option in steam
-  programs.gamemode.enable = true;
 
   # support for xbox controller usb dongle
   hardware.xone.enable = true;

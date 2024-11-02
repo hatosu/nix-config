@@ -13,8 +13,8 @@ sudo chmod a+rwx <folder you created>
 sudo chmod a+rwx <your entire github folder too>
 cd <folder you created>
 git init
-git config --global user.name <insert-username-here>
-git config --global user.email <insert-email-here>
+git config --global user.name "SomeUsername"
+git config --global user.email "SomeEmail"
 git config --global --add safe.directory <folder you created>
 git remote add <choose custom name> https://github.com/hatosu/dots.git
 git remote set-url dots https://<insert-username-here>:<insert-user-token-here>@github.com/hatosu/dots.git

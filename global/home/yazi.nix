@@ -2,9 +2,9 @@
 
 let
 
-toml = "${inputs.personal-files}/other/yazi/flavors/catppuccin-frappe.yazi/flavor.toml";
+toml = "${inputs.personal-files}/other/yazi/flavors/theme.yazi/flavor.toml";
 
-xml = "${inputs.personal-files}/other/yazi/flavors/catppuccin-frappe.yazi/tmtheme.xml";
+xml = "${inputs.personal-files}/other/yazi/flavors/theme.yazi/tmtheme.xml";
 
 in
 
@@ -17,7 +17,7 @@ enableZshIntegration=true;enableNushellIntegration=false;
       };
     };
 
-theme.flavor = { use = "catppuccin-frappe"; };};
+theme.flavor = { use = "theme"; };};
 
 home.file = {
 "toml"={source=toml;force=true;

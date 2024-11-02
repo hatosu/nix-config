@@ -7,14 +7,13 @@
     ./local/home/other.nix
 
     # import global home modules
-    inputs.self.homeManagerModules.terminal
-    inputs.self.homeManagerModules.browser
-    inputs.self.homeManagerModules.editor
-    inputs.self.homeManagerModules.fetch
-    inputs.self.homeManagerModules.entry
-    inputs.self.homeManagerModules.message
-    inputs.self.homeManagerModules.media
-    inputs.self.homeManagerModules.explorer
+    inputs.self.homeManagerModules.cli
+    inputs.self.homeManagerModules.fastfetch
+    inputs.self.homeManagerModules.firefox
+    inputs.self.homeManagerModules.mpv
+    inputs.self.homeManagerModules.neovim
+    inputs.self.homeManagerModules.vesktop
+    inputs.self.homeManagerModules.yazi
 
 ]; nixpkgs = { overlays = [
 
@@ -28,4 +27,4 @@ home.enableNixpkgsReleaseCheck = false;
 programs.home-manager.enable = true;
 home.username = "hatosu";
 home.homeDirectory = "/home/hatosu";
-home.stateVersion = "23.11";}
+home.stateVersion = "23.11"; }
