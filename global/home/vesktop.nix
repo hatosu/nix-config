@@ -4,7 +4,7 @@
 theme = "https://raw.githubusercontent.com/hatosu/personal-files/6d191cb6d4d373baca4286d88400d01516f370a4/themes/theme.css";
 
 # choose icon
-icon = ../../misc/images/discord.png;
+icon = ../../misc/media/discord.png;
 
 # customize config
 vesktop-config = pkgs.writeText "settings.json" ''

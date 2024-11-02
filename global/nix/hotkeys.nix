@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, strings, ... }: {
 
   # enable keyd as hotkey service
   services.keyd = {
@@ -24,7 +24,7 @@
   # language key input
   system.activationScripts.fcitx5-theme.text = ''
   mkdir -p /home/hatosu/.config/fcitx5/conf
-  ln -sfn ${inputs.personal-files}/other/fcitx5/classicui.conf /home/hatosu/.config/fcitx5/conf/classicui.conf '';
+  ln -sfn ${strings.classicuiconf} /home/hatosu/.config/fcitx5/conf/classicui.conf '';
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
   i18n.inputMethod = {
     type = "fcitx5";

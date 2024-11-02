@@ -1,15 +1,15 @@
-{ inputs, pkgs, ... }: {
+{ pkgs, inputs, strings, ... }: {
 
   # app menu
   programs.rofi = {
     package = pkgs.rofi;
     enable = true;
     terminal = "\${pkgs.foot}/bin/foot";
-    theme = "${inputs.personal-files}/other/rofi/style.rasi";
+    theme = strings.stylerasi;
   };
 
   # bar
-  programs.waybar = let theme = builtins.readFile "${inputs.personal-files}/other/waybar/style.css"; in {
+  programs.waybar = {
     enable = true;
     package = pkgs.waybar;
     settings = {
@@ -18,7 +18,7 @@
       modules-left = [ "hyprland/workspaces" "hyprland/language" "user" ];
       modules-center = [ "hyprland/window" "privacy" ];
       modules-right = [ "tray" "cpu" "temperature" "memory" "disk" "clock" ]; }; };
-    style = "${theme}";
+    style = strings.waybarstylecss;
   };
 
   # notifications

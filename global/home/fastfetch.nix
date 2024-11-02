@@ -1,5 +1,5 @@
-{pkgs,inputs,...}: let icon="${inputs.personal-files}/other/fastfetch/logo.txt";
-in{programs.fastfetch={enable=true;package=pkgs.fastfetch;settings={
+{ pkgs, inputs, strings, ...}: let icon = strings.logotxt; in { 
+programs.fastfetch = { enable = true; package = pkgs.fastfetch; settings = {
 
       # visual 
       display = {
@@ -21,4 +21,4 @@ in{programs.fastfetch={enable=true;package=pkgs.fastfetch;settings={
         { type = "command"; text = "printf '\\0'"; key = "╰────────────────────"; }
       ];
 
-logo={source="${icon}";};};};}
+logo = { source = "${icon}"; }; }; }; }

@@ -1,15 +1,5 @@
-{pkgs,inputs,...}:
-
-let
-
-toml = "${inputs.personal-files}/other/yazi/flavors/theme.yazi/flavor.toml";
-
-xml = "${inputs.personal-files}/other/yazi/flavors/theme.yazi/tmtheme.xml";
-
-in
-
-{programs.yazi={package=pkgs.yazi;enable=true;
-enableZshIntegration=true;enableNushellIntegration=false;
+{ pkgs, inputs, strings, ... }: { programs.yazi = { package = pkgs.yazi; enable=true;
+enableZshIntegration = true; enableNushellIntegration = false;
 
     theme.manager = {
       border_style = {
@@ -18,12 +8,7 @@ enableZshIntegration=true;enableNushellIntegration=false;
     };
 
 theme.flavor = { use = "theme"; };};
-
-home.file = {
-"toml"={source=toml;force=true;
-target="/home/hatosu/.config/yazi/flavors/catppuccin-frappe.yazi/flavor.toml";};
-"xml"={source=xml;force=true;
-target="/home/hatosu/.config/yazi/flavors/catppuccin-frappe.yazi/tmtheme.xml";};
-};
-
-}
+home.file."toml" = { source = strings.flavortoml; 
+target = "/home/hatosu/.config/yazi/flavors/theme.yazi/flavor.toml"; force = true; };
+home.file."xml" = { source = strings.tmthemexml;
+target = "/home/hatosu/.config/yazi/flavors/theme.yazi/tmtheme.xml"; force = true; }; }
