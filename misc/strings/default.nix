@@ -432,9 +432,6 @@ waybarstylecss = builtins.toFile "style.css" ''
       }
 '';
 
-erm = builtins.toFile "flavor.toml" ''
-'';
-
 flavortoml = builtins.toFile "flavor.toml" ''
 [manager]
 cwd = { fg = "#81c8be" }
@@ -2534,6 +2531,9 @@ tmthemexml = builtins.toFile "tmtheme.xml" ''
     </array>
   </dict>
 </plist>
+'';
+
+vesktopthemecss = builtins.toFile "theme.css" ''
 '';
 
 }

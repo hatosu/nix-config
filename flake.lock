@@ -266,22 +266,6 @@
         "type": "github"
       }
     },
-    "personal-files": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1730535369,
-        "narHash": "sha256-Ip3p1hiM9xjlj/QyfpAE56dVwWp1eIEg8CSY0FVhSp4=",
-        "owner": "hatosu",
-        "repo": "personal-files",
-        "rev": "68665e947e67ccb4a224eb29e7aaaef153fef9a8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hatosu",
-        "repo": "personal-files",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "aagl": "aagl",
@@ -293,7 +277,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
-        "personal-files": "personal-files",
         "spicetify-nix": "spicetify-nix"
       }
     },

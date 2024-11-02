@@ -14,6 +14,7 @@ policies = { DefaultDownloadDirectory = "/home/hatosu/X/Downloads"; }; profiles.
 
       # add bookmarks
       bookmarks = [ { name = "toolbar"; toolbar = true; bookmarks = [
+        { url = "https://github.com/hatosu"; name = "hatosu"; }
         { url = "https://nixos.wiki/"; name = "wiki"; }
         { url = "https://search.nixos.org/packages?channel=unstable"; name = "packages"; }
         { url = "https://search.nixos.org/options?channel=unstable"; name = "options"; }
@@ -22,7 +23,6 @@ policies = { DefaultDownloadDirectory = "/home/hatosu/X/Downloads"; }; profiles.
         { url = "https://home-manager-options.extranix.com/?query=&release=master"; name = "home"; }
         { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files"; name = "installer"; }
         { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=roblox&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apkm_bundles"; name = "bundles"; }
-        { url = "https://github.com/hatosu"; name = "hatosu"; }
         { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; name = "kotoba"; }
         { url = "https://fmhy.net/videopiracyguide"; name = "media"; }
       ];}];

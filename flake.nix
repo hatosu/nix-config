@@ -8,12 +8,6 @@
     # stable (older packages)
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
-    # files
-    personal-files = {
-      url = "github:hatosu/personal-files";
-      flake = false;
-    };
-
     # home-manager
     home-manager = {
       url = "github:nix-community/home-manager/e83414058edd339148dc142a8437edb9450574c8";
@@ -58,7 +52,6 @@
   outputs = {
     self,
     nixpkgs,
-    personal-files,
     home-manager,
     nixos-hardware,
     aagl,

@@ -1,10 +1,10 @@
-{ pkgs, inputs, ... }: let
-
-# insert theme link
-theme = "https://raw.githubusercontent.com/hatosu/personal-files/6d191cb6d4d373baca4286d88400d01516f370a4/themes/theme.css";
+{ pkgs, inputs, strings, ... }: let
 
 # choose icon
 icon = ../../misc/media/discord.png;
+
+# choose theme
+theme = builtins.readFile ../../misc/strings/vesktopthemecss.nix;
 
 # customize config
 vesktop-config = pkgs.writeText "settings.json" ''
@@ -12,10 +12,10 @@ vesktop-config = pkgs.writeText "settings.json" ''
     "autoUpdate": true,
     "autoUpdateNotification": true,
     "useQuickCss": true,
-    "themeLinks": [
-        "${theme}"
+    "themeLinks": [],
+    "enabledThemes": [
+        "theme.css"
     ],
-    "enabledThemes": [],
     "enableReactDevtools": false,
     "frameless": false,
     "transparent": false,
@@ -96,7 +96,9 @@ vesktop-config = pkgs.writeText "settings.json" ''
             "enabled": true
         },
         "BetterRoleDot": {
-            "enabled": true
+            "enabled": true,
+            "bothStyles": false,
+            "copyRoleColorInProfilePopout": false
         },
         "BetterSessions": {
             "enabled": false
@@ -250,7 +252,12 @@ vesktop-config = pkgs.writeText "settings.json" ''
             "enabled": false
         },
         "LoadingQuotes": {
-            "enabled": true
+            "enabled": true,
+            "replaceEvents": true,
+            "enableDiscordPresetQuotes": false,
+            "additionalQuotes": "",
+            "additionalQuotesDelimiter": "|",
+            "enablePluginPresetQuotes": true
         },
         "MaskedLinkPaste": {
             "enabled": false
@@ -417,9 +424,6 @@ vesktop-config = pkgs.writeText "settings.json" ''
         "PreviewMessage": {
             "enabled": false
         },
-        "PronounDB": {
-            "enabled": false
-        },
         "QuickMention": {
             "enabled": false
         },
@@ -465,7 +469,8 @@ vesktop-config = pkgs.writeText "settings.json" ''
             "chatMentions": true,
             "memberList": true,
             "voiceUsers": true,
-            "reactorsList": true
+            "reactorsList": true,
+            "colorChatMessages": false
         },
         "SecretRingToneEnabler": {
             "enabled": false
@@ -597,7 +602,9 @@ vesktop-config = pkgs.writeText "settings.json" ''
         "UserVoiceShow": {
             "enabled": true,
             "showInUserProfileModal": true,
-            "showVoiceChannelSectionHeader": true
+            "showVoiceChannelSectionHeader": true,
+            "showInMemberList": true,
+            "showInMessages": true
         },
         "USRBG": {
             "enabled": false
@@ -690,6 +697,15 @@ vesktop-config = pkgs.writeText "settings.json" ''
         },
         "FullSearchContext": {
             "enabled": false
+        },
+        "UserMessagesPronouns": {
+            "enabled": false
+        },
+        "DynamicImageModalAPI": {
+            "enabled": true
+        },
+        "AccountPanelServerProfile": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -702,14 +718,16 @@ vesktop-config = pkgs.writeText "settings.json" ''
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1727013580575
+        "settingsSyncVersion": 1730538609582
     }
 }
 '';
 
 # ignore this
 in { home.file = { "vesktop-config" = { source = vesktop-config;
-target = ".config/vesktop/settings/settings.json"; force = true; }; }; 
+target = ".config/vesktop/settings/settings.json"; force = true; }; };
+home.file = { "vesktop-theme" = { source = builtins.toFile "theme.css" "${theme}";
+target = ".config/vesktop/themes/theme.css"; force = true; }; };
 home.packages = with pkgs; [ vesktop ]; xdg.desktopEntries = { vesktop = {
 exec = "vesktop --enable-features=UseOzonePlatform --ozone-platform=x11 --enable-wayland-ime %U";
 icon = "${icon}"; name = "Discord"; genericName = "Internet Messenger";
