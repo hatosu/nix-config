@@ -84,7 +84,7 @@
       };
 
       temporary = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs; inherit strings;};
         modules = [
           ./profile/temporary/configuration.nix
           inputs.disko.nixosModules.default
@@ -92,7 +92,7 @@
       };
 
       server1 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs; inherit strings;};
         modules = [
           ./profile/server1/configuration.nix
           inputs.disko.nixosModules.default

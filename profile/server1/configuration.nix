@@ -23,10 +23,16 @@
     useXkbConfig = true;
   };
 
-  services.picom.enable = true;
-  services.xserver.windowManager.i3 = {
+  #services.picom.enable = true;
+  #services.xserver.windowManager.i3 = {
+  #  enable = true;
+  #  configFile = strings.i3config;
+  #};
+
+  services.xserver = {
     enable = true;
-    configFile = strings.i3config;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
   programs.steam.enable = true;
@@ -37,13 +43,13 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
 
-  kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages;
   
   networking.hostName = "nix";
   
   time.timeZone = "America/Los_Angeles";
-  
-  environment.systemPackages = with pkgs; [ vim git kitty firefox rofi ];
+
+  environment.systemPackages = with pkgs; [ vim git xdotool kitty firefox rofi ];
 
   system.stateVersion = "23.11";
 
