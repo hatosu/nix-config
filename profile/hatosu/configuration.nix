@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: { imports = [
+{ inputs, lib, config, pkgs, strings, ... }: { imports = [
 
     # import the home-manager module
     inputs.home-manager.nixosModules.default
@@ -40,6 +40,6 @@
     inputs.self.overlays.stable-packages
     
 ]; }; home-manager = { backupFileExtension = "backup";
-extraSpecialArgs = { inherit inputs; };
+extraSpecialArgs = { inherit inputs; inherit strings; };
 users = { "hatosu" = import ./home.nix; }; };
 system.stateVersion = "23.11"; }

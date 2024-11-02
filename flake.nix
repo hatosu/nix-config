@@ -65,6 +65,7 @@
     ...
   } @ inputs: let
 
+    strings = import ./misc/strings/default.nix;
     systems = [ "x86_64-linux" ];
     forAllSystems = nixpkgs.lib.genAttrs systems; in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
@@ -77,7 +78,7 @@
     # add profiles ↓
 
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs; inherit strings;};
         modules = [
           ./profile/hatosu/configuration.nix
           home-manager.nixosModules.home-manager

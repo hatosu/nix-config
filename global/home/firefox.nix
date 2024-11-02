@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: let custom-user-js = builtins.readFile "${inputs.personal-files}/other/firefox/user.js";
+{ pkgs, inputs, strings, ... }: let custom-user-js = builtins.readFile strings.userjs;
 in { programs.firefox = { package = pkgs.firefox; enable = true; languagePacks = [ "jp" ];
 policies = { DefaultDownloadDirectory = "/home/hatosu/X/Downloads"; }; profiles.hatosu = { isDefault = true;
 

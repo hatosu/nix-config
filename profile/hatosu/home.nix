@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: { imports = [
+{ inputs, lib, config, pkgs, strings, ... }: { imports = [
 
     # import local home modules
     ./local/home/display.nix
@@ -27,4 +27,4 @@ home.enableNixpkgsReleaseCheck = false;
 programs.home-manager.enable = true;
 home.username = "hatosu";
 home.homeDirectory = "/home/hatosu";
-home.stateVersion = "23.11"; }
+home.stateVersion = "23.11";}
