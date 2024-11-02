@@ -1,10 +1,11 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, strings, ... }: {
 
   imports = [
     ./hardware.nix
     ./disk.nix
     ./impermanence.nix
     ./manage.nix
+    ./network.nix
     ./webfish.nix
   ];
 
@@ -22,9 +23,10 @@
     useXkbConfig = true;
   };
 
+  services.picom.enable = true;
   services.xserver.windowManager.i3 = {
     enable = true;
-    configFile = "${inputs.personal-files}/other/i3/config"; #this is a file btw
+    configFile = strings.i3config;
   };
 
   programs.steam.enable = true;
@@ -41,7 +43,7 @@
   
   time.timeZone = "America/Los_Angeles";
   
-  environment.systemPackages = with pkgs; [ vim git ];
+  environment.systemPackages = with pkgs; [ vim git kitty firefox rofi ];
 
   system.stateVersion = "23.11";
 
