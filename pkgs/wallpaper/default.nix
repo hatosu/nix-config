@@ -4,9 +4,9 @@ let
 
   repo = pkgs.fetchFromGitHub {
     owner = "hatosu";
-    repo = "personal-files";
-    rev = "15ca6de735bbd0b23d5a493de6358260309c14b2";
-    hash = "sha256-l9Q39zH1bBE0MLVKaIuD5qw3XCywQ/Nprh2Tk0hSqGA=";
+    repo = "personal-config";
+    rev = "5938f596e8a222e3a8e169c756cf0f4050fa915f";
+    hash = "sha256-zi4VPljlSqcsozlNUoSLx9xdReQl6IGoPUTPpPWwmCQ=";
   };
 
   width = "2560";
@@ -15,7 +15,7 @@ let
 
   crop = pkgs.runCommand "crop" {} ''
     mkdir -p $out/videos
-    ${pkgs.ffmpeg}/bin/ffmpeg -i ${repo}/wallpapers/wallpaper.mp4 -vf \
+    ${pkgs.ffmpeg}/bin/ffmpeg -i ${repo}/misc/media/wallpaper.mp4 -vf \
     "scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}" \
     $out/videos/wallpaper.mp4
   '';
