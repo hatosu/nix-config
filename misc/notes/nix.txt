@@ -26,6 +26,11 @@ webfish-idle = pkgs.writeShellScriptBin "webfish-idle" ''
   echo 'Hello World'
 ''; in [ webfish-idle ];
 
+# building
+nix-build (for default.nix)
+nix build (for flake dir)
+Makefile is for if there is no buildPhase ?
+
 # custom lm prompt
   services.displayManager.sessionPackages = [
   ((pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
