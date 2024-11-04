@@ -5,7 +5,6 @@ hist = "history | grep";
 power = "shutdown -P now";
 try = "nix-shell -p";
 trace = "sudo nixos-rebuild switch --show-trace --verbose --print-build-logs --flake /etc/nixos#desktop";
-cat = "bat";
 s = "playerctl next";
 p = "playerctl play-pause";
 b = "playerctl previous";

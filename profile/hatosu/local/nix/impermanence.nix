@@ -40,7 +40,6 @@
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
-      #"/etc/machine-id"
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
     
@@ -48,16 +47,15 @@
     users.hatosu = {
       directories = [
         "X"
-        ".game"
+        ".mozilla"
         ".cache/dconf"
         ".config/dconf"
-        ".config/spotify"
         ".config/vesktop"
         ".local/share/Steam"
         ".local/share/anime-game-launcher"
       ];
       files = [
-        #".zsh_history"
+        ".zsh_history"
       ];
     };
 

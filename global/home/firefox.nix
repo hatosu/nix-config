@@ -1,6 +1,6 @@
 { pkgs, inputs, strings, ... }: let custom-user-js = builtins.readFile strings.userjs;
-in { programs.firefox = { package = pkgs.firefox; enable = true; languagePacks = [ "jp" ];
-policies = { DefaultDownloadDirectory = "/home/hatosu/X/Downloads"; }; profiles.hatosu = { isDefault = true;
+in { programs.firefox = { package = pkgs.firefox; enable = true; 
+languagePacks = [ "jp" ]; policies = { }; profiles.hatosu = { isDefault = true;
 
       # harden firefox & remove bloat
       extraConfig = "${custom-user-js}";
@@ -14,20 +14,18 @@ policies = { DefaultDownloadDirectory = "/home/hatosu/X/Downloads"; }; profiles.
 
       # add bookmarks
       bookmarks = [ { name = "toolbar"; toolbar = true; bookmarks = [
-        { url = "https://www.phind.com/search?home=true"; name = "phind"; }
-        { url = "https://github.com/hatosu"; name = "hatosu"; }
-        { url = "https://nixos.wiki/"; name = "wiki"; }
-        { url = "https://search.nixos.org/packages?channel=unstable"; name = "packages"; }
-        { url = "https://search.nixos.org/options?channel=unstable"; name = "options"; }
-        { url = "https://search.nixos.org/flakes?"; name = "flakes"; }
-        { url = "https://noogle.dev/"; name = "functions"; }
-        { url = "https://home-manager-options.extranix.com/?query=&release=master"; name = "home"; }
-        { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files"; name = "installer"; }
-        { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=roblox&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apkm_bundles"; name = "bundles"; }
-        { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; name = "kotoba"; }
-        { url = "https://discord.com/developers/applications"; name = "bots"; }
-        { url = "https://dpp.dev/"; name = "dpp"; }
-        { url = "https://fmhy.net/videopiracyguide"; name = "media"; }
+        { url = "https://github.com/hatosu"; name = ""; }
+        { url = "https://noogle.dev/"; name = ""; }
+        { url = "https://home-manager-options.extranix.com/?query=&release=master"; name = ""; }
+        { url = "https://www.phind.com/search?home=true"; name = ""; }
+        { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files"; name = ""; }
+        { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; name = ""; }
+        { url = "https://dpp.dev/"; name = ""; }
+        { url = "https://fmhy.net/videopiracyguide"; name = ""; }
+        { url = "https://erynith.github.io/movie-web-instances/"; name = ""; }
+        { url = "https://jpdb.io/learn"; name = ""; }
+        { url = "https://thewiki.moe/"; name = ""; }
+        { url = "https://theindex.moe/"; name = ""; }
       ];}];
 
       # customize chrome CSS
