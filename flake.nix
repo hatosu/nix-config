@@ -8,7 +8,7 @@
     # stable (older packages)
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
-    # home-manager
+    # home manager
     home-manager = {
       url = "github:nix-community/home-manager/e83414058edd339148dc142a8437edb9450574c8";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # firefox-addons
+    # firefox addons
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=610a9c92c573bf57959ffd371cb4921dd681b272";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,34 +41,29 @@
     # impermanence
     impermanence.url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
 
-    # nixos-hardware
+    # nixos hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/f5c239fa9acb27f0a5326ba2949c00fada89ca9f";
 
-    # nix-gaming
+    # nix gaming
     nix-gaming.url = "github:fufexan/nix-gaming/d5baae772ce87682c624233c7a9265b387caa818";
 
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nixos-hardware,
-    aagl,
-    ...
-  } @ inputs: let
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, aagl, ... } @ inputs: let
 
     strings = import ./misc/strings/default.nix;
     systems = [ "x86_64-linux" ];
-    forAllSystems = nixpkgs.lib.genAttrs systems; in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+
+  in {
+      
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});  
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
     overlays = import ./overlay {inherit inputs;};
     nixosModules = import ./global/nix;
     homeManagerModules = import ./global/home;
+    
     nixosConfigurations = {
-
-    # add profiles ↓
 
       laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs; inherit strings;};
