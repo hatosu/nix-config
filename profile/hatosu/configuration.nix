@@ -32,7 +32,7 @@
     inputs.self.nixosModules.gaming
     inputs.self.nixosModules.hotkeys
 
-]; nixpkgs = { config = { allowUnfree = true; allowBroken = true; }; overlays = [
+]; nixpkgs = { overlays = [
 
     # import overlays
     inputs.self.overlays.additions

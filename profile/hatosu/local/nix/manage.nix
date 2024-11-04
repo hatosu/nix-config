@@ -46,6 +46,9 @@
 
   };
 
+  # allow unfree/broken packages
+  nixpkgs.config = { allowUnfree = true; allowBroken = true; };
+
   # remove unneeded channel directories
   system.activationScripts.channel-remove.text = '' 
   if [ -d "/root/.nix-defexpr/channels" ] 
