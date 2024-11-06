@@ -4,9 +4,10 @@
   help
   nixocr
   nixfind
+  wallpaper
+  htop
   wl-clipboard
   playerctl
-  nixfmt-rfc-style
   vlc
   git
   tokei
@@ -18,6 +19,8 @@
   rclone
   lshw
   element
+
+  # testing
   ffmpeg
 
   # programs

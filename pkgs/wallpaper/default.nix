@@ -5,8 +5,8 @@ let
   repo = pkgs.fetchFromGitHub {
     owner = "hatosu";
     repo = "personal-config";
-    rev = "5938f596e8a222e3a8e169c756cf0f4050fa915f";
-    hash = "sha256-zi4VPljlSqcsozlNUoSLx9xdReQl6IGoPUTPpPWwmCQ=";
+    rev = "4a0001eaa2054ba320d78e35159aed0aa6f98825";
+    hash = "sha256-aUqdmqjR69psDBiZJoI+AeqkYDmj/2KrEXduSkqjlZw=";
   };
 
   width = "2560";

@@ -6,7 +6,7 @@ rebuild(){
   ${pkgs.noti}/bin/noti -t 'REBUILD' -m 'system successfully rebuilt according to your personal nix configuration files >:3'
 }
 
-heal(){
+cleanse(){
   sudo echo
   sudo nix-collect-garbage 2> /dev/null | awk '/freed/,/freed/'
   sudo nix-store --gc 2> /dev/null | awk ' '

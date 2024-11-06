@@ -59,3 +59,5 @@ https://github.com/nadermx/backgroundremover
 rembg = "${pkgs.backgroundremover}/bin/backgroundremover";
 img = "${pkgs.imagemagick}/bin/magick";
 opt = "${pkgs.image_optim}/bin/image_optim";
+
+- make sure everything is 100% declared (get back to exceptions such as firefox, steam, etc)
