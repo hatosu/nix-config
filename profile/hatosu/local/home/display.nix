@@ -5,31 +5,15 @@ wayland.windowManager.hyprland = { package = pkgs.hyprland;
 enable = true; xwayland.enable = true; systemd.enable = true; extraConfig = ''
 monitor = HDMI-A-1,2560x1080@165,auto,auto
 monitor = eDP-1, disable
-#env = __NV_PRIME_RENDER_OFFLOAD,1
-#env = LIBVA_DRIVER_NAME,nvidia
-#env = GBM_BACKEND,nvidia-drm
-#env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-#env = __GL_GSYNC_ALLOWED,1
-#env = __GL_VRR_ALLOWED,1
-#env = __GL_MaxFramesAllowed,1
-#env = WLR_DRM_NO_ATOMIC=1
-#env = __VK_LAYER_NV_optimus,NVIDIA_only
-#env = NVD_BACKEND,direct
-#env = WLR_RENDERER_ALLOW_SOFTWARE,1
-#env = QT_AUTO_SCREEN_SCALE_FACTOR,1
-#env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
-#env = QT_QPA_PLATFORMTHEME,qt5ct
-env = WLR_NO_HARDWARE_CURSORS,1
-#env = XDG_SESSION_DESKTOP,Hyprland
 env = XDG_CURRENT_DESKTOP,Hyprland
-#env = XDG_SESSION_TYPE,wayland
-#env = GDK_BACKEND,wayland,x11
-#env = SDL_VIDEODRIVER,wayland 
-#env = CLUTTER_BACKEND,wayland
-#env = QT_QPA_PLATFORM,wayland # "wayland;xcb"
-#xwayland { 
-#  force_zero_scaling = true 
-#}
+env = NIXOS_OZONE_WL,1
+env = WLR_NO_HARDWARE_CURSORS,1
+env = __NV_PRIME_RENDER_OFFLOAD,1
+env = SDL_VIDEODRIVER,windows,x11
+env = EOS_USE_ANTICHEATCLIENTNULL,1
+xwayland { 
+  force_zero_scaling = true 
+}
 cursor { 
   no_hardware_cursors = true
 }

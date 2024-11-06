@@ -1,13 +1,3 @@
-- reliable /secret/files/dir system (so that nothing is shown on repo)
-- minecraft server on homelab (nixosanywhere? special repos for ssh? choose the most robust and accepted method, and make sure the firewall and safety is perfect)
-- perfect dev environment, neovim included (https://nixos.wiki/wiki/NixOS_Containers)
-- ssh with homelab (completely safe network wise)
-- choco discord bot
-- get rid of all possible sources of malicious code on machine (sometimes laptop fan is running way faster than it should)
-- screen record
-- gif record
-- calculator gui
-
 app menu
 clipboard
 fastfetch
@@ -19,6 +9,17 @@ htop
 gitui
 tree
 
+- declared gpu passthrough vm
+- setup perfect mkoption flake for your wine games
+- package cod into flake
+- minecraft server on homelab (nixosanywhere? special repos for ssh? choose the most robust and accepted method, and make sure the firewall and safety is perfect)
+- perfect dev environment, neovim included (https://nixos.wiki/wiki/NixOS_Containers)
+- ssh with homelab (completely safe network wise)
+- choco discord bot
+- get rid of all possible sources of malicious code on machine (sometimes laptop fan is running way faster than it should)
+- screen record
+- gif record
+- calculator gui
 - perfect free & safe vpn (and also anything it takes to make sites love you, faking being a different OS etc)
 - perfect disk.nix configuration (preparation for yubi key too)
 - fix impermanence (atm, directories you whitelist become read only, so fix that)
@@ -36,6 +37,7 @@ tree
 - ai assistant can scan repo for virus
 - package cod into flake
 - custom nixos iso
+- reliable /secret/files/dir system (so that nothing is shown on repo)
 - hijack distros with nixos-anywhere reliably
 - copy configs of xsharawi, lynaix, grox(vimjoyer), doom-emacs-main-dev, aylur, misterio77
 - https://www.tecmint.com/ping-multiple-linux-hosts-using-fping/

@@ -21,7 +21,6 @@
     ./local/nix/session.nix
     ./local/nix/init.nix
     ./local/nix/secure.nix
-    ./local/nix/variable.nix
     ./local/nix/other.nix
 
     # import global nix modules
