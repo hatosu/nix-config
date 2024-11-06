@@ -1,21 +1,19 @@
-app menu
-clipboard
+make dunst not look ugly asf
 fastfetch
 mpv
 tmux
 bat
-glances
-htop
 gitui
 tree
 
-- declared gpu passthrough vm
-- setup perfect mkoption flake for your wine games
+- make system analysis where it can tell you if something is good or bad usage wise of each component
+- setup perfect mkoption flake for your wine games and make it look all fancy on github
 - package cod into flake
 - minecraft server on homelab (nixosanywhere? special repos for ssh? choose the most robust and accepted method, and make sure the firewall and safety is perfect)
 - perfect dev environment, neovim included (https://nixos.wiki/wiki/NixOS_Containers)
 - ssh with homelab (completely safe network wise)
 - choco discord bot
+- declared gpu passthrough vm
 - get rid of all possible sources of malicious code on machine (sometimes laptop fan is running way faster than it should)
 - screen record
 - gif record

@@ -7,6 +7,7 @@
   wallpaper
   htop
   wl-clipboard
+  cliphist
   playerctl
   vlc
   git

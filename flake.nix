@@ -34,7 +34,7 @@
 
     # spicetify
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix/1a8fa34b656d67c1d7d4c2b76cba03bf4d65dee4";
+      url = "github:Gerg-L/spicetify-nix/396cf13f9310aa82c1a5da24a5213e7170d40642";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

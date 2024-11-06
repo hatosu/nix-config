@@ -1,4 +1,4 @@
-{ pkgs, ...}: { 
+{ pkgs, ... }: { 
 
 # hyprland
 wayland.windowManager.hyprland = { package = pkgs.hyprland;
@@ -17,6 +17,7 @@ xwayland {
 cursor { 
   no_hardware_cursors = true
 }
+exec-once = wl-paste --watch cliphist store  
 exec-once = ${pkgs.dunst}/bin/dunst
 exec-once = ${pkgs.wallpaper}/bin/wallpaper
 exec-once = waybar
@@ -84,8 +85,9 @@ misc {
   swallow_regex = ^(Kitty|foot|footclient)$
 }
 $mainMod = SUPER
-bind = $mainMod, L, exec, foot
 bind = $mainMod, T, exec, rofi -show drun
+bind = $mainMod, C, exec, cliphist list | ${pkgs.fuzzel}/bin/fuzzel -d | cliphist decode | wl-copy
+bind = $mainMod, L, exec, foot
 bind = $mainMod, B, exec, firefox
 bind = $mainMod, H, exec, flameshot gui
 bind = $mainMod, O, exec, nixocr

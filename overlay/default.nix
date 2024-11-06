@@ -21,13 +21,13 @@
       '';
     });
 
-    # pin version of papirus-icon-theme
-    papirus-icon-theme = prev.papirus-icon-theme.overrideAttrs (old: {
+    # pin version of cliphist
+    cliphist = prev.cliphist.overrideAttrs (old: {
       src = prev.fetchFromGitHub {
-        owner = "PapirusDevelopmentTeam";
-        repo = "papirus-icon-theme";
-        rev = "b0e826bbf142d51c7a019d13eb50d81f112fa310";
-        hash = "sha256-nhmaHBove1K0a5+pDFzxNckoDgs7b0pn0IPxzNIRhus=";
+        owner = "sentriz";
+        repo = "cliphist";
+        rev = "8c48df70bb3d9d04ae8691513e81293ed296231a";
+        hash = "sha256-tImRbWjYCdIY8wVMibc5g5/qYZGwgT9pl4pWvY7BDlI=";
       };
     });
 

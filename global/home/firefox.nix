@@ -24,8 +24,8 @@ languagePacks = [ "jp" ]; policies = { }; profiles.hatosu = { isDefault = true;
         { url = "https://fmhy.net/videopiracyguide"; name = ""; }
         { url = "https://erynith.github.io/movie-web-instances/"; name = ""; }
         { url = "https://jpdb.io/learn"; name = ""; }
-        { url = "https://thewiki.moe/"; name = ""; }
         { url = "https://theindex.moe/"; name = ""; }
+        { url = "https://thewiki.moe/"; name = ""; }
       ];}];
 
       # customize chrome CSS
