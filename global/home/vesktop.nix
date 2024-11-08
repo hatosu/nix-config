@@ -1,7 +1,10 @@
 { pkgs, inputs, strings, ... }: let
 
 # choose icon
-icon = ../../misc/media/discord.png;
+icon = pkgs.fetchurl {
+  url = "https://files.catbox.moe/ww0qwu.png";
+  sha256 = "134mvkc0vl1aifgv52c7gdgsblfdcxiaq88b7rylkqfrcgz37bhy";
+};
 
 # choose theme
 theme = builtins.readFile ../../misc/strings/vesktopthemecss.nix;

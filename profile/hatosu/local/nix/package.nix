@@ -27,7 +27,7 @@
   # programs
   kdenlive
   krita
-  blender
+  #blender
   zoom-us
   anki-bin
   libreoffice-fresh

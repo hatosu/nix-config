@@ -8,7 +8,6 @@ spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   enabledExtensions = with spicePkgs.extensions; [
     adblock
     hidePodcasts
-    shuffle
     popupLyrics
     history
     betterGenres

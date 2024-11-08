@@ -6,6 +6,14 @@ bat
 gitui
 tree
 
+- perfect vpn
+- make entire pc japanese
+- put everything into cloud
+- wallpaper flake
+- scrape any show in EN, JP, KR, or ZH with a single fuzzy search (example: media -jp breaking bad)
+- cemu wiiu OR something switch emulator
+- ps4 emulator
+- declared gpu passthrough vm
 - make system analysis where it can tell you if something is good or bad usage wise of each component
 - setup perfect mkoption flake for your wine games and make it look all fancy on github
 - package cod into flake
@@ -13,7 +21,6 @@ tree
 - perfect dev environment, neovim included (https://nixos.wiki/wiki/NixOS_Containers)
 - ssh with homelab (completely safe network wise)
 - choco discord bot
-- declared gpu passthrough vm
 - get rid of all possible sources of malicious code on machine (sometimes laptop fan is running way faster than it should)
 - screen record
 - gif record

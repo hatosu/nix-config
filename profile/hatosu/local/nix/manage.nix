@@ -13,14 +13,8 @@
 
       # custom binary cache
       trusted-substituters = [ "https://cache.nixos.org" ];
-      extra-trusted-substituters = [ 
-      "https://nix-community.cachix.org"
-      "https://nix-gaming.cachix.org"
-      "https://ezkea.cachix.org" ];
-      extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+      extra-trusted-substituters = [ "https://nix-community.cachix.org" ];
+      extra-trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
 
       # increase buffer size
       download-buffer-size = "99999999";
@@ -60,13 +54,13 @@
 
   # remove unneeded channel directories
   system.activationScripts.channel-remove.text = '' 
-  if [ -d "/root/.nix-defexpr/channels" ] 
-  then
-    rm -rf /root/.nix-defexpr/channels
-    mv -f /nix/var/nix/profiles/per-user/root/channels /tmp
-  else
-    printf ""
-  fi
+    if [ -d "/root/.nix-defexpr/channels" ] 
+    then
+      rm -rf /root/.nix-defexpr/channels
+      mv -f /nix/var/nix/profiles/per-user/root/channels /tmp
+    else
+      printf ""
+    fi
   '';
 
   # limit number of nix generations to 100

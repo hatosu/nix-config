@@ -1,6 +1,6 @@
 { pkgs, inputs, strings, ... }: let custom-user-js = builtins.readFile strings.userjs;
 in { programs.firefox = { package = pkgs.firefox; enable = true; 
-languagePacks = [ "jp" ]; policies = { }; profiles.hatosu = { isDefault = true;
+languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
 
       # harden firefox & remove bloat
       extraConfig = "${custom-user-js}";
@@ -14,16 +14,22 @@ languagePacks = [ "jp" ]; policies = { }; profiles.hatosu = { isDefault = true;
 
       # add bookmarks
       bookmarks = [ { name = "toolbar"; toolbar = true; bookmarks = [
-        { url = "https://github.com/hatosu"; name = ""; }
         { url = "https://noogle.dev/"; name = ""; }
         { url = "https://home-manager-options.extranix.com/?query=&release=master"; name = ""; }
+        { url = "https://github.com/hatosu"; name = ""; }
         { url = "https://www.phind.com/search?home=true"; name = ""; }
         { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files"; name = ""; }
+        { url = "https://itch.io/games/free/platform-windows"; name = ""; }
         { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; name = ""; }
         { url = "https://dpp.dev/"; name = ""; }
         { url = "https://fmhy.net/videopiracyguide"; name = ""; }
         { url = "https://erynith.github.io/movie-web-instances/"; name = ""; }
         { url = "https://jpdb.io/learn"; name = ""; }
+        { url = "https://app.cachix.org/cache/hatosu#push"; name = ""; }
+        { url = "https://filehaus.su/"; name = ""; }
+        { url = "https://picsur.org/upload"; name = ""; }
+        { url = "https://catbox.moe/"; name = ""; }
+        { url = "https://litterbox.catbox.moe/"; name = ""; }
         { url = "https://theindex.moe/"; name = ""; }
         { url = "https://thewiki.moe/"; name = ""; }
       ];}];

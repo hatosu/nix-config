@@ -44,7 +44,7 @@
     users.hatosu = {
       directories = [
         "X"
-        ".horror"
+        ".games"
         ".mozilla"
         ".cache/dconf"
         ".config/dconf"

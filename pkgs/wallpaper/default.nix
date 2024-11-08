@@ -1,30 +1,31 @@
-{ pkgs }:
+{ pkgs ? import <nixpkgs> {} }:
 
 let
 
-  repo = pkgs.fetchFromGitHub {
-    owner = "hatosu";
-    repo = "personal-config";
-    rev = "4a0001eaa2054ba320d78e35159aed0aa6f98825";
-    hash = "sha256-aUqdmqjR69psDBiZJoI+AeqkYDmj/2KrEXduSkqjlZw=";
+  file = pkgs.fetchurl {
+    url = "https://files.catbox.moe/yt2ihp.mp4";
+    sha256 = "196i5lmpdpip80z7a7wl24yvh4iccf5gdph0fcydj7rpb6arqi6s";
   };
 
   width = "2560";
 
   height = "1080";
 
+  # this crop runCommand below has to rebuild to have wallpaper work again, fix it
   crop = pkgs.runCommand "crop" {} ''
-    mkdir -p $out/videos
-    ${pkgs.ffmpeg}/bin/ffmpeg -i ${repo}/misc/media/wallpaper.mp4 -vf \
+    mkdir -p $out/video
+    ${pkgs.ffmpeg}/bin/ffmpeg -i ${file} -vf \
     "scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}" \
-    $out/videos/wallpaper.mp4
+    $out/video/wallpaper.mp4
   '';
+
+  result = "${crop}/video/wallpaper.mp4";
 
   name = "wallpaper";
 
   script = pkgs.writeText "${name}.sh" ''
     #!/bin/sh
-    ${pkgs.mpvpaper}/bin/mpvpaper -vs -o "no-audio loop" '*' ${crop}/videos/wallpaper.mp4
+    ${pkgs.mpvpaper}/bin/mpvpaper -vs -o "no-audio loop" '*' ${result}
   '';
 
 in

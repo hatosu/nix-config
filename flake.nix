@@ -26,12 +26,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # aagl
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/5611dd61df02e0bc5d62bb3f5388821d8854faff";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # spicetify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix/396cf13f9310aa82c1a5da24a5213e7170d40642";
@@ -44,12 +38,9 @@
     # nixos hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/f5c239fa9acb27f0a5326ba2949c00fada89ca9f";
 
-    # nix gaming
-    nix-gaming.url = "github:fufexan/nix-gaming/d5baae772ce87682c624233c7a9265b387caa818";
-
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, aagl, ... } @ inputs: let
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @ inputs: let
 
     strings = import ./misc/strings/default.nix;
     systems = [ "x86_64-linux" ];
@@ -74,7 +65,6 @@
           inputs.disko.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
           inputs.spicetify-nix.nixosModules.default
-          aagl.nixosModules.default
         ];
       };
 

@@ -1,9 +1,17 @@
-{ ... }: {
+{ config, pkgs, ... }: {
 
-  # setup network manager
+  # network manager
   networking.networkmanager.enable = true;
 
-  # setup firewall
+  # firewall
   networking.firewall.enable = true;
+
+  # vpn
+  services.zerotierone = {
+    package = pkgs.zerotierone;
+    enable = false;
+    joinNetworks = ["17d709436cb399c4"];
+    localConf = {};
+  };
 
 }

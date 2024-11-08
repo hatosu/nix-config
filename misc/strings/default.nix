@@ -143,6 +143,7 @@ user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
 user_pref("browser.startup.homepage", "about:home");
 user_pref("browser.download.useDownloadDir", true);
 user_pref("intl.accept_languages", "jp-JP, jp");
+user_pref("intl.locale.matchOS", true);
 '';
 
 logotxt = builtins.toFile "logo.txt" ''
