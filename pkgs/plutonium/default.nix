@@ -1,40 +1,42 @@
 { pkgs ? import <nixpkgs> {} }: let
 
+  # name
+  pname = "plutonium";
+
   # source
-  zip = pkgs.fetchurl {
-    url = "https://cdn5.filehaus.su/files/1730988675_99770/HoloCure.zip";
-    sha256 = "11pbf6g9h28xg9dkipn0hk27qm65iijaljyvmxp7r8wi03fgi8gs";
-  };
-  drv = pkgs.runCommand "unpack" {} ''
-    mkdir -p $out/files/holocure
-    ${pkgs.unzip}/bin/unzip ${zip} -d "$out/files/holocure"
+  executable = pkgs.fetchurl {
+  url = "https://cdn.plutonium.pw/updater/plutonium.exe";
+  sha256 = "03rzf0clm5vgiq479zh54xg6bjgfn1ph1hi8i6wxk0aq9p5d3lc5"; };
+  file = pkgs.runCommand "file" {} ''
+    mkdir -p $out/exe
+    cp -f ${executable} $out/exe/${pname}.exe
   '';
-  src = "${drv}/files/holocure";
 
   # wine
-  pname = "holocure";
-  home-exe = "$HOME/.games/${pname}/HoloCure.exe";
-  c-exe = "${pname}/HoloCure.exe";
+  home-exe = "$HOME/.games/${pname}/plutonium.exe";
+  c-exe = "${pname}/plutonium.exe";
   pkg = pkgs.wine64;
   version = "wine64";
-  args = "arial cjkfonts vcrun2019 d3dcompiler_43 d3dcompiler_47 d3dx9";
+  args = "dotnet48 d3dcompiler_47 corefonts vcrun2005 d3dcompiler_43 d3dx11_42 d3dx11_43 gfw msasn1 physx xact_x64 xact xinput";
   vars = ''
-    export WINEESYNC=1
-    export WINEARCH="win64"
     unset SDL_VIDEODRIVER
     unset EOS_USE_ANTICHEATCLIENTNULL
+    export WINEARCH="win64"
+    export WINEESYNC=1
+    export STAGING_RT_PRIORITY_SERVER=1
+    export vblank_mode=0
   '';
 
   # .desktop
-  desktopName = "HoloCure!";
-  comment = "Developed by Kay-Yu.";
-  icon-url = "https://img.itch.zone/aW1nLzkyMzAxNzQucG5n/original/P4UFiN.png";
-  icon-name = "P4UFiN.png";
-  icon-sha = "1yln8yphs4jhg0rr1s65w7c500djjr7lgi8zankbnawcp7zxspdn";
+  desktopName = "Plutonium Launcher";
+  comment = "Developed by the Plutonium Team.";
+  icon-url = "https://pbs.twimg.com/profile_images/993278064883851265/QrvMbLC7_400x400.jpg";
+  icon-name = "QrvMbLC7_400x400.jpg";
+  icon-sha = "1cwgbpsj2salq89jfrr5qplan6cds602qnakpvmjf5fyzqnl9n31";
 
   # meta
-  description = "HoloCure, a game developed by Kay-Yu";
-  homepage = "https://kay-yu.itch.io/holocure";
+  description = "Plutonium Launcher, software developed by the Plutonium Team";
+  homepage = "https://plutonium.pw";
   maintainers = with pkgs.lib.maintainers; [ hatosu ];
   platforms = [ "x86_64-linux" ];
   license = pkgs.lib.licenses.unfree;
@@ -49,12 +51,14 @@ script = pkgs.writeShellScriptBin pname ''
   ${vars}
   if [ ! -d "${location}" ]; then
     mkdir -m 777 -p ${location}
-    cp -rf ${src}/* ${location}
-    winetricks -q ${args}
+    cp -f ${file}/exe/* ${location}
+    mkdir -m 777 -p ${location}/drive_c/${pname}
+    chmod -R 777 "${location}"
+    winecfg -v win10
     wineserver -k
-    ${pkgs.dxvk}/bin/setup_dxvk.sh
+    winetricks -q -f ${args}
     wineserver -k
-    mkdir -p ${location}/drive_c/${pname}
+    mkdir -m 777 -p ${location}/drive_c/${pname}
     chmod -R 777 "${location}"
     mv -f ${location}/drive_c "$HOME/.cache"
     mv -f ${location}/* "$HOME/.cache/drive_c/${pname}"
@@ -88,3 +92,4 @@ pkgs.symlinkJoin {
     inherit license;
   };
 }
+

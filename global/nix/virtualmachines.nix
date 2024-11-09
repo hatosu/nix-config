@@ -1,17 +1,33 @@
 { pkgs, lib, ...}: {
 
-  # enable waydroid
+  # waydroid
   virtualisation.waydroid.enable = true;
 
-  # enable distrobox (https://wiki.archlinux.org/title/Distrobox# Usage)
+  # distrobox (https://wiki.archlinux.org/title/Distrobox# Usage)
   environment.systemPackages = [ pkgs.distrobox ];
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.podman = {
     enable = true;
-    dockerCompat = true;
+    #dockerCompat = true;
   };
 
-  # enable qemu
+  # docker
+  virtualisation.docker = {
+    package = pkgs.docker;
+    enable = true;
+    storageDriver = "btrfs";
+    daemon = {
+      settings = {
+        data-root = "/dock";
+      };
+    };
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
+  # qemu
   services.spice-vdagentd.enable = true;
   programs.virt-manager.enable = true;
   virtualisation = {

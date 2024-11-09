@@ -7,6 +7,7 @@ pkgs: {
   wallpaper        = pkgs.callPackage ./wallpaper        {};
 
   # games
+  plutonium        = pkgs.callPackage ./plutonium        {};
   ddlc             = pkgs.callPackage ./ddlc             {};
   holocure         = pkgs.callPackage ./holocure         {};
 

@@ -1,5 +1,8 @@
 { pkgs ? import <nixpkgs> {} }: let
 
+  # name
+  pname = "DDLC";
+
   # source
   zip = pkgs.fetchurl {
     url = "https://cdn7.filehaus.su/files/1730985666_82698/ddlc-win.zip";
@@ -12,9 +15,10 @@
   src = "${drv}/files/DDLC-1.1.1-pc";
 
   # wine
-  pname = "DDLC";
   home-exe = "$HOME/.games/${pname}/DDLC.exe";
   c-exe = "${pname}/DDLC.exe";
+  pkg = pkgs.wine;
+  version = "wine";
   args = "arial cjkfonts vcrun2019 d3dcompiler_43 d3dcompiler_47 d3dx9";
   vars = ''
     unset SDL_VIDEODRIVER
@@ -38,21 +42,18 @@
 
 ####################################
 
-location = "$HOME/.games/${pname}/";
+location = "$HOME/.games/${pname}";
 script = pkgs.writeShellScriptBin pname ''
   USER="$(whoami)"
-  PATH=$PATH:${pkgs.wine}/bin:${pkgs.winetricks}/bin
+  PATH=$PATH:${pkg}/bin:${pkgs.winetricks}/bin
   export WINEPREFIX="${location}"
   ${vars}
   if [ ! -d "${location}" ]; then
-    mkdir -m 777 -p ${location}
     cp -rf ${src}/* ${location}
-    winetricks -q -f ${args}
+    winetricks -q ${args}
     wineserver -k
-    wine ${home-exe}
+    ${version} ${home-exe}
     wineserver -k
-    mkdir -p ${location}/drive_c/${pname}
-    chmod -R 777 "${location}"
     mv -f ${location}/drive_c "$HOME/.cache"
     mv -f ${location}/* "$HOME/.cache/drive_c/${pname}"
     mv -f "$HOME/.cache/drive_c" "${location}"

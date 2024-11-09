@@ -19,13 +19,18 @@
   };
 
   # properly set default locale
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "ja_JP.UTF-8";
+    supportedLocales = ["ja_JP.UTF-8/UTF-8"];
+  };
+
+  # tty
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true;
   };
 
-  # setup timezone
+  # timezone
   time.timeZone = "America/Los_Angeles";
 
 }

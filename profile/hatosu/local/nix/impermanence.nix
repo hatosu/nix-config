@@ -30,6 +30,7 @@
     directories = [
       "/etc/nixos"
       "/etc/NetworkManager/system-connections"
+      "/dock"
       "/var/log"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
@@ -60,6 +61,7 @@
 
   };
 
+  # keep this, but ignore it
   systemd.tmpfiles.settings = {
     "persist-hatosu-homedir" = {
       "/persist/home/hatosu" = {
@@ -71,12 +73,5 @@
       };
     };
   };
-
-  system.activationScripts.spotify.text = ''
-    DIR="$HOME/.config/spotify"
-    if [ -d "$DIR" ]; then
-      chmod -R 777 "$DIR"
-    fi
-  '';
 
 }

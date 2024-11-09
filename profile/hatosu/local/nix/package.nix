@@ -1,10 +1,12 @@
 { pkgs, lib, ... }:{ environment = { systemPackages = with pkgs; [
 
-  # cli tools
+  # custom
   help
   nixocr
   nixfind
   wallpaper
+
+  # cli tools
   htop
   wl-clipboard
   cliphist
