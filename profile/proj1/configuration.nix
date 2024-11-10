@@ -6,12 +6,12 @@
     ./impermanence.nix
     ./manage.nix
     ./network.nix
-    ./webfish.nix
+    ./package.nix
   ];
 
-  users.users.server1 = {
+  users.users.proj1 = {
     isNormalUser = true;
-    home = "/home/server1";
+    home = "/home/proj1";
     initialPassword = ";";
     group = "users";
     extraGroups = [ "wheel" ];
@@ -29,8 +29,6 @@
     desktopManager.gnome.enable = true;
   };
 
-  programs.steam.enable = true;
-
   fonts.packages = with pkgs; [ noto-fonts hack-font gohufont ];
 
   boot.loader.systemd-boot.enable = true;
@@ -42,8 +40,6 @@
   networking.hostName = "nix";
   
   time.timeZone = "America/Los_Angeles";
-
-  environment.systemPackages = with pkgs; [ vim git xdotool kitty firefox ];
 
   system.stateVersion = "23.11";
 

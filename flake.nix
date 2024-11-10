@@ -59,20 +59,12 @@
       laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs; inherit strings;};
         modules = [
-          ./profile/hatosu/configuration.nix
+          ./profile/laptop/configuration.nix
           home-manager.nixosModules.home-manager
           inputs.home-manager.nixosModules.default
           inputs.disko.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
           inputs.spicetify-nix.nixosModules.default
-        ];
-      };
-
-      temporary = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs; inherit strings;};
-        modules = [
-          ./profile/temporary/configuration.nix
-          inputs.disko.nixosModules.default
         ];
       };
 
@@ -82,6 +74,23 @@
           ./profile/server1/configuration.nix
           inputs.disko.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
+        ];
+      };
+
+      proj1 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs; inherit strings;};
+        modules = [
+          ./profile/proj1/configuration.nix
+          inputs.disko.nixosModules.default
+          inputs.impermanence.nixosModules.impermanence
+        ];
+      };
+
+      temporary = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs; inherit strings;};
+        modules = [
+          ./profile/temporary/configuration.nix
+          inputs.disko.nixosModules.default
         ];
       };
 

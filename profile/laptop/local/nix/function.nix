@@ -21,7 +21,7 @@ update(){
 }
 
 nix-sync(){
-  sudo chmod -R a+rwx ~/X/Github 
+  sudo chmod a+rwx ~/X/Github/config
   cd ~/X/Github/config
   sudo git rm -rf ~/X/Github/config/*
   sudo cp -rf /etc/nixos/* ~/X/Github/config

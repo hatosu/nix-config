@@ -15,8 +15,8 @@ languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
 
       # add bookmarks
       bookmarks = [ { name = "toolbar"; toolbar = true; bookmarks = [
+        { url = "https://mynixos.com/"; name = ""; }
         { url = "https://noogle.dev/"; name = ""; }
-        { url = "https://home-manager-options.extranix.com/?query=&release=master"; name = ""; }
         { url = "https://github.com/hatosu"; name = ""; }
         { url = "https://www.phind.com/search?home=true"; name = ""; }
         { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files"; name = ""; }

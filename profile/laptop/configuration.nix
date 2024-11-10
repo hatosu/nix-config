@@ -30,7 +30,6 @@
     inputs.self.nixosModules.virtualmachines
     inputs.self.nixosModules.gaming
     inputs.self.nixosModules.hotkeys
-    inputs.self.nixosModules.gamedev
 
 ]; nixpkgs = { overlays = [
 

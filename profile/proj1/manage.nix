@@ -34,17 +34,19 @@
 
   };
 
-  system.activationScripts.channel-remove.text = '' 
-  if [ -d "/root/.nix-defexpr/channels" ] 
-  then
-    rm -rf /root/.nix-defexpr/channels
-    mv -f /nix/var/nix/profiles/per-user/root/channels /tmp
-  else
-    printf ""
-  fi
-  '';
+  nixpkgs.config = { allowUnfree = true; allowBroken = true; };
 
-  nixpkgs.config.allowUnfree = true;
+  environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
+
+  system.activationScripts.channel-remove.text = '' 
+    if [ -d "/root/.nix-defexpr/channels" ] 
+    then
+      rm -rf /root/.nix-defexpr/channels
+      mv -f /nix/var/nix/profiles/per-user/root/channels /tmp
+    else
+      printf ""
+    fi
+  '';
 
   boot.loader.systemd-boot.configurationLimit = 100;
 
