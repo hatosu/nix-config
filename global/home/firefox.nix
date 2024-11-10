@@ -1,5 +1,6 @@
 { pkgs, inputs, strings, ... }: let custom-user-js = builtins.readFile strings.userjs;
 in { programs.firefox = { package = pkgs.firefox; enable = true; 
+policies.DefaultDownloadDirectory = "/home/hatosu/X/Downloads";
 languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
 
       # harden firefox & remove bloat

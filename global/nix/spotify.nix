@@ -21,4 +21,5 @@ spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   ];
 
 theme = spicePkgs.themes.${theme-name}; 
-colorScheme = "${theme-name}"; enable = true; }; }
+colorScheme = "${theme-name}"; enable = true; };
+systemd.tmpfiles.rules = [ "d /home/hatosu/.config/spotify 0766 hatosu users 99999d" ]; }

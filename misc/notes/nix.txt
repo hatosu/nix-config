@@ -46,6 +46,15 @@ Makefile is for if there is no buildPhase ?
   .overrideAttrs (_: {passthru.providedSessions = ["hyprland"];}))
   ];
 
+# custom directories w/ extra permissions
+  systemd.tmpfiles.rules = [
+    "d /home/hatosu/X/Github/- 0766 hatosu users 99999d"
+    "d /home/hatosu/X/Work/- 0766 hatosu users 99999d"
+    "d /home/hatosu/X/School/- 0766 hatosu users 99999d"
+    "d /home/hatosu/X/Other/- 0766 hatosu users 99999d"
+    "d /home/hatosu/test/erm 0766 hatosu users 99999d"
+  ];
+
 # homemanager desktop entry
 let discord-icon = "${inputs.personal-files}/icons/discord.png"; in { 
   xdg.desktopEntries = {

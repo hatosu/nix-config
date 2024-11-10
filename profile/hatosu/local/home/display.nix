@@ -5,6 +5,7 @@ wayland.windowManager.hyprland = { package = pkgs.hyprland;
 enable = true; xwayland.enable = true; systemd.enable = true; extraConfig = ''
 monitor = HDMI-A-1,2560x1080@165,auto,auto
 monitor = eDP-1, disable
+env = XDG_DOWNLOAD_DIR,/home/hatosu/X/Downloads
 env = XDG_CURRENT_DESKTOP,Hyprland
 env = NIXOS_OZONE_WL,1
 env = WLR_NO_HARDWARE_CURSORS,1

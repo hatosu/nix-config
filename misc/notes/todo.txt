@@ -53,7 +53,6 @@ make flawless and perfect wine module
 - calculator gui
 - perfect free & safe vpn (and also anything it takes to make sites love you, faking being a different OS etc)
 - perfect disk.nix configuration (preparation for yubi key too)
-- fix impermanence (atm, directories you whitelist become read only, so fix that)
 - web scraper for jp, kr, zh, and french learning
 - perfect firefox & language tools
 - custom vim colorscheme

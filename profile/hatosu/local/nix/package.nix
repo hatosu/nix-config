@@ -27,7 +27,7 @@
   ffmpeg
 
   # programs
-  kdenlive
+  davinci-resolve
   krita
   #blender
   zoom-us

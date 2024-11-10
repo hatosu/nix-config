@@ -4,7 +4,8 @@
 hist = "history | grep";
 power = "shutdown -P now";
 try = "nix-shell -p";
-trace = "sudo nixos-rebuild switch --show-trace --verbose --print-build-logs --flake /etc/nixos#desktop";
+trace = "sudo nixos-rebuild switch --show-trace --verbose --print-build-logs --flake /etc/nixos#laptop";
+fixdir = "sudo chmod u=rwx,g=rw,o=r";
 s = "playerctl next";
 p = "playerctl play-pause";
 b = "playerctl previous";

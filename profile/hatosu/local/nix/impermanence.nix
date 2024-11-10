@@ -68,7 +68,7 @@
         d = {
           group = "users";
           user = "hatosu";
-          mode = "0700";
+          mode = "0766";
         };
       };
     };
