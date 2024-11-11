@@ -1,6 +1,7 @@
 pkgs: {
 
   # utils
+  nixvirt          = pkgs.callPackage ./nixvirt          {};
   nixfind          = pkgs.callPackage ./nixfind          {};
   help             = pkgs.callPackage ./help             {};
   nixocr           = pkgs.callPackage ./nixocr           {};

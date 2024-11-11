@@ -4,7 +4,7 @@
   virtualisation.waydroid.enable = true;
 
   # distrobox (https://wiki.archlinux.org/title/Distrobox# Usage)
-  environment.systemPackages = [ pkgs.distrobox ];
+  environment.defaultPackages = [ pkgs.distrobox ];
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.podman = {
     enable = true;
@@ -28,18 +28,19 @@
   };
 
   # qemu
-  services.spice-vdagentd.enable = true;
-  programs.virt-manager.enable = true;
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-        ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
-      };
-    };
-    spiceUSBRedirection.enable = true;
-  };
+  environment.systemPackages = [ pkgs.nixvirt ];
+  #services.spice-vdagentd.enable = true;
+  #programs.virt-manager.enable = true;
+  #virtualisation = {
+  #  libvirtd = {
+  #    enable = true;
+  #    qemu = {
+  #      swtpm.enable = true;
+  #      ovmf.enable = true;
+  #      ovmf.packages = [ pkgs.OVMFFull.fd ];
+  #    };
+  #  };
+  #  spiceUSBRedirection.enable = true;
+  #};
 
 }

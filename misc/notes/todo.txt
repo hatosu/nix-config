@@ -1,7 +1,3 @@
-- Beat Everyone.
-- study for an ace (pure raw 16 hours a day no breaks at all, also kcals perfectly, also dont ruin アウラ)
-- do everything it takes to start working on niren with a 100% safe computer, accounts, passwords, and efficient environment
-
 make dunst not look ugly asf
 fastfetch
 mpv
@@ -10,7 +6,12 @@ bat
 gitui
 tree
 
-make flawless and perfect wine module
+- do everything it takes to start working on niren with a 100% safe computer, accounts, passwords, and efficient environment
+
+before working on wine:
+- learn every single nix syntax
+- use as many possible combinations of nix syntax to make a few flake repos, and contribute at least 15 nixpkgs and at least 15 nix options
+- learn how to solve every single NixOS chmod issue, and understand it perfectly
 [options]:
 - name = "somename";
 opt1: installExe = "someinstaller.exe";
@@ -64,6 +65,7 @@ opt2: sourceDir = ./path/to/game/files; (fyi, you would only choose one of insta
 - replace mouse with ai
 - ai assistant talk through mic and always be ready to talk to
 - ai assistant can scan repo for virus
+- make vm setup 100% declared (no gui configuration required)
 - package cod into flake
 - custom nixos iso
 - reliable /secret/files/dir system (so that nothing is shown on repo)
