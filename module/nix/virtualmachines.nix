@@ -18,7 +18,7 @@
     storageDriver = "btrfs";
     daemon = {
       settings = {
-        data-root = "/dock";
+        data-root = "/var/lib/docker";
       };
     };
     rootless = {
