@@ -61,7 +61,7 @@
 
   };
 
-  # keep this, but ignore it
+  # keep this, but ignore it (was 0700)
   systemd.tmpfiles.settings = {
     "persist-hatosu-homedir" = {
       "/persist/home/hatosu" = {

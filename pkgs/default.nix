@@ -8,6 +8,7 @@ pkgs: {
 
   # games
   plutonium        = pkgs.callPackage ./plutonium        {};
+  osu              = pkgs.callPackage ./osu              {};
   ddlc             = pkgs.callPackage ./ddlc             {};
   holocure         = pkgs.callPackage ./holocure         {};
 

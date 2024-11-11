@@ -13,8 +13,8 @@ tree
 make flawless and perfect wine module
 [options]:
 - name = "somename";
-- installExe = "someinstaller.exe";
-- sourceDir = ./path/to/game/files; (fyi, you would only choose one of installExe or sourceDir)
+opt1: installExe = "someinstaller.exe";
+opt2: sourceDir = ./path/to/game/files; (fyi, you would only choose one of installExe or sourceDir)
 - finalExe = "some-final.exe"; (exe to be executed once all downloads are finished)
 - wineTricks = [ "cjkfonts" "vcrun2019" "d3dcompiler_47" ];
 - exportVar = [ "WINEESYNC=1" "WINEFSYNC=1" ];
@@ -24,6 +24,7 @@ make flawless and perfect wine module
 - desktop.name = "Some Desktop Name!";
 - desktop.comment = "erm idk put what you want here >x3";
 - desktop.icon = someicon;
+- desktop.categories = [ "Game" "Erm" "Hi" ];
 
 - fix all folder permission problems (in your X folder too) so that there are ZERO security vulnerabilities
 - perfect nixfind option (noogle, nixpkgs, nixoptions, homeoptions, relevant wiki pages, manual pages, ai, web results)

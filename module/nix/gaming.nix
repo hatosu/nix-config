@@ -20,6 +20,7 @@
     minecraft
     cemu
     plutonium
+    osu
     ddlc
     holocure
   ];
