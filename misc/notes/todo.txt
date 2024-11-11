@@ -1,3 +1,4 @@
+- add a "help stack" section on your personal site, setup ssh and all server stuff with a perfect firewall, and remember its "google tab, language docs tab, llm tab, and discord help channel" and maybe more
 make dunst not look ugly asf
 fastfetch
 mpv
@@ -11,6 +12,8 @@ tree
 before working on wine:
 - learn every single nix syntax
 - use as many possible combinations of nix syntax to make a few flake repos, and contribute at least 15 nixpkgs and at least 15 nix options
+- restructure entire nix config with as much variety of nix syntax as possible
+- implement at least 75% of features listed here
 - learn how to solve every single NixOS chmod issue, and understand it perfectly
 [options]:
 - name = "somename";
