@@ -23,19 +23,16 @@
   lshw
   element
 
-  # testing
-  ffmpeg
-
   # programs
   davinci-resolve
   krita
+  godot_4
   #blender
   zoom-us
   anki-bin
   libreoffice-fresh
   lmms
   obsidian
-  virt-viewer
   obs-studio
   freecad
   komikku

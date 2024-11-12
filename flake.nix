@@ -41,15 +41,17 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @ inputs: let
-
+    
     strings = import ./misc/strings/default.nix;
     
     systems = [ "x86_64-linux" ];
     
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
+    shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
+  
   in {
-      
+    
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});  
     
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
@@ -59,6 +61,8 @@
     nixosModules = import ./module/nix;
     
     homeManagerModules = import ./module/home;
+    
+    devShells.x86_64-linux.default = (import ./shell.nix {inherit shellpkgs;});
     
     nixosConfigurations = {
 

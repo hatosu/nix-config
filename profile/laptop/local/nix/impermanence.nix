@@ -49,6 +49,7 @@
         ".mozilla"
         ".cache/dconf"
         ".config/dconf"
+        ".config/godot"
         ".config/vesktop"
         ".config/spotify"
         ".local/share/Steam"
