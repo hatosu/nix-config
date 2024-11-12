@@ -4,7 +4,7 @@
   home.pointerCursor = {
     x11.enable = true;
     gtk.enable = true;
-    package = pkgs.catppuccin-cursors.mochaDark;
+    package = pkgs.pinned.catppuccin-cursors.mochaDark;
     name = "catppuccin-mocha-dark-cursors";
     size = 20;
   };

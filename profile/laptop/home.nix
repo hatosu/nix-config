@@ -1,7 +1,6 @@
 { inputs, lib, config, pkgs, strings, ... }: { imports = [
 
     # import local home modules
-    ./local/home/display.nix
     ./local/home/interface.nix
     ./local/home/theme.nix
     ./local/home/other.nix
@@ -9,6 +8,7 @@
     # import global home modules
     inputs.self.homeManagerModules.cli
     inputs.self.homeManagerModules.fastfetch
+    inputs.self.homeManagerModules.hyprland
     inputs.self.homeManagerModules.firefox
     inputs.self.homeManagerModules.mpv
     inputs.self.homeManagerModules.neovim
