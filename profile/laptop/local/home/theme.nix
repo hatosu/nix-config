@@ -10,11 +10,12 @@
   };
 
   # apply gtk config
+  home.sessionVariables.GSK_RENDERER = "gl";
   gtk = {
     enable = true;
     theme = {
       package = pkgs.pinned.orchis-theme;
-      name = "Orchis-Dark";
+      name = "Orchis-Grey-Dark";
     };
   };
 

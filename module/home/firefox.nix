@@ -20,14 +20,13 @@ enable = true; languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
         { url = "https://dpp.dev/"; inherit name; }
         { url = "https://fmhy.net/videopiracyguide"; inherit name; }
         { url = "https://erynith.github.io/movie-web-instances/"; inherit name; }
+        { url = "https://theindex.moe/"; inherit name; }
         { url = "https://jpdb.io/learn"; inherit name; }
         { url = "https://app.cachix.org/cache/hatosu#push"; inherit name; }
         { url = "https://filehaus.su/"; inherit name; }
         { url = "https://picsur.org/upload"; inherit name; }
         { url = "https://catbox.moe/"; inherit name; }
         { url = "https://litterbox.catbox.moe/"; inherit name; }
-        { url = "https://theindex.moe/"; inherit name; }
-        { url = "https://thewiki.moe/"; inherit name; }
       ];}];
 
       # chrome CSS
