@@ -40,5 +40,22 @@
       config.allowUnfree = true;
     };
   };
-  
+
+  # add pkgs.pinned.<package>
+  pinned-packages = final: _prev: {
+    pinned = import inputs.nixpkgs-pinned {
+      system = final.system;
+      config.allowUnfree = true;
+    };
+  };
+
+  # add pkgs.edge.<package>
+  edge-packages = final: _prev: {
+    edge = import inputs.nixpkgs-edge {
+      system = final.system;
+      config.allowUnfree = true;
+      config.allowBroken = true;
+    };
+  };
+
 }

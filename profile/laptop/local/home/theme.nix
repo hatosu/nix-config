@@ -13,8 +13,8 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.graphite-gtk-theme;
-      name = "Graphite-Dark";
+      package = pkgs.pinned.orchis-theme;
+      name = "Orchis-Dark";
     };
   };
 
@@ -24,7 +24,7 @@
     platformTheme.name = "gtk";
     style = {
       name = "Dracula";
-      package = pkgs.dracula-qt5-theme;
+      package = pkgs.pinned.dracula-qt5-theme;
     };
   };
 

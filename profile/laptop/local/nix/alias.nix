@@ -2,13 +2,11 @@
 
 # general
 hist = "history | grep";
-power = "shutdown -P now";
-try = "nix-shell -p";
 trace = "sudo nixos-rebuild switch --show-trace --verbose --print-build-logs --flake /etc/nixos#laptop";
 fixper = "sudo chmod -R 766";
-s = "playerctl next";
-p = "playerctl play-pause";
-b = "playerctl previous";
+skip = "playerctl next";
+pause = "playerctl play-pause";
+back = "playerctl previous";
 v = "nvim";
 y = "yazi";
 m = "mpv";

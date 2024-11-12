@@ -145,6 +145,38 @@
         "type": "github"
       }
     },
+    "nixpkgs-edge": {
+      "locked": {
+        "lastModified": 1731417335,
+        "narHash": "sha256-a2MRQ62FmEjJ26u3OqIxvPxj25N6UykpsT7h+Z/eu9g=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "03bf2d9300890eab1cd7e574fbbb02dd2858aa99",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-pinned": {
+      "locked": {
+        "lastModified": 1725885598,
+        "narHash": "sha256-wqkKX8t4tgOTOKB0OYrEAAtlMqJYR285HctIuAVR8h0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4d183800f55a5ffee2959f902013c037213fd494",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4d183800f55a5ffee2959f902013c037213fd494",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1704290814,
@@ -169,6 +201,8 @@
         "impermanence": "impermanence",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-edge": "nixpkgs-edge",
+        "nixpkgs-pinned": "nixpkgs-pinned",
         "nixpkgs-stable": "nixpkgs-stable",
         "spicetify-nix": "spicetify-nix"
       }

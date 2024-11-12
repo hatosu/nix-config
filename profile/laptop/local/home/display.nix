@@ -7,12 +7,8 @@ monitor = HDMI-A-1,2560x1080@165,auto,auto
 monitor = eDP-1, disable
 env = XDG_DOWNLOAD_DIR,/home/hatosu/X/Downloads
 env = XDG_CURRENT_DESKTOP,Hyprland
-env = XDG_SESSION_TYPE,wayland
 env = NIXOS_OZONE_WL,1
-env = WLR_NO_HARDWARE_CURSORS,1
 env = __NV_PRIME_RENDER_OFFLOAD,1
-env = SDL_VIDEODRIVER,windows,x11
-env = EOS_USE_ANTICHEATCLIENTNULL,1
 #env = LIBVA_DRIVER_NAME,nvidia
 #env = GBM_BACKEND,nvidia-drm
 #env = __GLX_VENDOR_LIBRARY_NAME,nvidia
@@ -29,6 +25,8 @@ env = EOS_USE_ANTICHEATCLIENTNULL,1
 #env = GDK_BACKEND,wayland,x11
 #env = CLUTTER_BACKEND,wayland
 #env = QT_QPA_PLATFORM,wayland
+#env = XDG_SESSION_TYPE,wayland
+#env = WLR_NO_HARDWARE_CURSORS,1
 xwayland { 
   force_zero_scaling = true 
 }

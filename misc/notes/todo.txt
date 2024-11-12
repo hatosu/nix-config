@@ -6,6 +6,7 @@ tmux
 bat
 gitui
 tree
+history manager
 
 - do everything it takes to start working on niren with a 100% safe computer, accounts, passwords, and efficient environment
 
@@ -30,6 +31,7 @@ opt2: sourceDir = ./path/to/game/files; (fyi, you would only choose one of insta
 - desktop.icon = someicon;
 - desktop.categories = [ "Game" "Erm" "Hi" ];
 
+- make firefox 100% declarative
 - fix all folder permission problems (in your X folder too) so that there are ZERO security vulnerabilities
 - perfect nixfind option (noogle, nixpkgs, nixoptions, homeoptions, relevant wiki pages, manual pages, ai, web results)
 - perfect help option (man, tldr, navi, other tools too, relevant links from phind, phind output, multiple ai output)

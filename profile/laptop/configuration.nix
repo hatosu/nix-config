@@ -37,6 +37,8 @@
     inputs.self.overlays.additions
     inputs.self.overlays.modifications
     inputs.self.overlays.stable-packages
+    inputs.self.overlays.pinned-packages
+    inputs.self.overlays.edge-packages
     
 ]; }; home-manager = { backupFileExtension = "backup";
 extraSpecialArgs = { inherit inputs; inherit strings; };

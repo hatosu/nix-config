@@ -17,8 +17,8 @@
 
   # game packages
   environment.systemPackages = with pkgs; [
-    minecraft
-    cemu
+    edge.minecraft
+    edge.cemu
     plutonium
     osu
     ddlc

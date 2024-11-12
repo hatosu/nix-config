@@ -21,6 +21,8 @@
     inputs.self.overlays.additions
     inputs.self.overlays.modifications
     inputs.self.overlays.stable-packages
+    inputs.self.overlays.pinned-packages
+    inputs.self.overlays.edge-packages
 
 ]; config = { allowUnfree = true; }; };
 home.enableNixpkgsReleaseCheck = false;
