@@ -6,7 +6,7 @@
   programs.steam = {
     package = pkgs.steam;
     enable = true;
-    extraPackages = with pkgs; [ pinned.gamescope ];
+    extraPackages = with pkgs; [ edge.gamescope ];
     extraCompatPackages = with pkgs; [ edge.proton-ge-bin ];
   };
 

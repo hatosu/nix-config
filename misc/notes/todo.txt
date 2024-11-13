@@ -1,4 +1,13 @@
+- doing extra for everyone and yourself arc
+
+c++ website:
+https://hatosu.com/ !!
+- pimp the fuck out of https://hatosu.com/
 - add a "help stack" section on your personal site, setup ssh and all server stuff with a perfect firewall, and remember its "google tab, language docs tab, llm tab, and discord help channel" and maybe more
+- also add a help stack for jp learning
+- also add a personal blog where you glaze the things you love (and rep your nix config)
+- similar to point above but, have a dedicated page that just perfectly summarizes why you would want to use nix over any OS in the world
+
 make dunst not look ugly asf
 fastfetch
 mpv

@@ -3,7 +3,7 @@
 # general
 hist = "history | grep";
 trace = "sudo nixos-rebuild switch --show-trace --verbose --print-build-logs --flake /etc/nixos#laptop";
-fixper = "sudo chmod -R 766";
+fixper = "sudo chmod -R a+rwx";
 skip = "playerctl next";
 pause = "playerctl play-pause";
 back = "playerctl previous";

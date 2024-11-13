@@ -24,5 +24,5 @@ in
 
 pkgs.writeShellScriptBin "${name}" ''
   #!/usr/bin/env bash
-  ${pkgs.mpvpaper}/bin/mpvpaper -vs -o "no-audio loop" '*' ${crop}/video/wallpaper.mp4
+  ${pkgs.mpvpaper}/bin/mpvpaper -p -o "no-audio loop" '*' ${crop}/video/wallpaper.mp4
 ''

@@ -38,7 +38,6 @@
   komikku
   ciano
   flameshot
-  pinned.keypunch
 
   # icons
   adwaita-icon-theme
