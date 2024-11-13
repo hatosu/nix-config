@@ -29,4 +29,4 @@ home.enableNixpkgsReleaseCheck = false;
 programs.home-manager.enable = true;
 home.username = "hatosu";
 home.homeDirectory = "/home/hatosu";
-home.stateVersion = "23.11";}
+home.stateVersion = "24.05";}

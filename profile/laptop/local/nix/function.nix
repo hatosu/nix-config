@@ -12,12 +12,18 @@ cleanse(){
   sudo nix-store --gc 2> /dev/null | awk ' '
   sudo nix-store --optimise
   sudo nix store optimise
-  ${pkgs.noti}/bin/noti -t "HEAL COMMAND" -m "Successfully cleared temp nix files & optimized store! >x3"
+  ${pkgs.noti}/bin/noti -t "CLEANSE COMMAND" -m "Successfully cleared temp nix files & optimized store! >x3"
 }
 
 update(){
   sudo nix flake update --flake /etc/nixos
-  ${pkgs.noti}/bin/noti -t 'UPDATE COMMAND' -m 'system update completed successfully'
+  ${pkgs.noti}/bin/noti -t 'UPDATE COMMAND' -m 'System update completed successfully!'
+}
+
+repair(){
+  clear
+  sudo nix-store --verify --check-contents --repair
+  ${pkgs.noti}/bin/noti -t 'REPAIR COMMAND' -m 'Successfully repaired /nix/store directories!'
 }
 
 nix-sync(){

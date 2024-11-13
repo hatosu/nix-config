@@ -21,7 +21,7 @@
 
       # add trusted groups
       trusted-users = [ "root" "@wheel" ];
-    
+
     };
 
     # auto-collect nix garbage
@@ -43,6 +43,9 @@
 
     # disable channels
     channel.enable = false;
+
+    # use latest nix version
+    package = pkgs.nixVersions.latest;
 
   };
 

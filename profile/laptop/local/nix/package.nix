@@ -6,7 +6,7 @@
   nixfind
   wallpaper
 
-  # cli tools
+  # cli
   htop
   wl-clipboard
   cliphist
@@ -22,8 +22,9 @@
   rclone
   lshw
   element
+  deepfilternet
 
-  # programs
+  # gui
   davinci-resolve
   krita
   godot_4

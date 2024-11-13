@@ -44,4 +44,4 @@
 ]; }; home-manager = { backupFileExtension = "backup";
 extraSpecialArgs = { inherit inputs; inherit strings; };
 users = { "hatosu" = import ./home.nix; }; };
-system.stateVersion = "23.11"; }
+system.stateVersion = "24.05"; }
