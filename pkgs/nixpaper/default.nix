@@ -2,7 +2,7 @@
 
 let
 
-  name = "wallpaper";
+  name = "nixpaper";
 
   file = pkgs.fetchurl {
     url = "https://files.catbox.moe/yt2ihp.mp4";

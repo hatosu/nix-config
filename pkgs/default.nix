@@ -3,9 +3,9 @@ pkgs: {
   # utils
   nixvirt          = pkgs.callPackage ./nixvirt          {};
   nixfind          = pkgs.callPackage ./nixfind          {};
+  nixpaper         = pkgs.callPackage ./nixpaper         {};
+  ocr              = pkgs.callPackage ./ocr              {};
   help             = pkgs.callPackage ./help             {};
-  nixocr           = pkgs.callPackage ./nixocr           {};
-  wallpaper        = pkgs.callPackage ./wallpaper        {};
 
   # games
   plutonium        = pkgs.callPackage ./plutonium        {};

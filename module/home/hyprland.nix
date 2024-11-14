@@ -23,7 +23,7 @@
 
   exec = ''
     exec-once = ${pkgs.ags}/bin/ags
-    exec-once = ${pkgs.wallpaper}/bin/wallpaper
+    exec-once = ${pkgs.nixpaper}/bin/nixpaper
     exec-once = wl-paste --watch cliphist store  
     exec-once = waybar
     exec-once = fcitx5 --enable all

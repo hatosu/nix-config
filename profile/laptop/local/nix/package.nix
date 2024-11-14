@@ -1,10 +1,10 @@
 { pkgs, lib, ... }:{ environment = { systemPackages = with pkgs; [
 
   # custom
-  help
-  nixocr
   nixfind
-  wallpaper
+  nixpaper
+  help
+  ocr
 
   # cli
   htop

@@ -1,12 +1,11 @@
-make dunst not look ugly asf
-fastfetch
-mpv
-tmux
-bat
-gitui
-tree
-history manager
-
+- ags
+- fastfetch
+- mpv
+- tmux
+- bat
+- gitui
+- tree
+- history manager
 - doing extra for everyone and yourself arc
 - do everything it takes to start working on niren with a 100% safe computer, accounts, passwords, and efficient environment
 - make firefox 100% declarative
