@@ -21,7 +21,7 @@
       '';
     });
 
-    # pin version of cliphist
+    # use specific version of cliphist
     cliphist = prev.cliphist.overrideAttrs (old: {
       src = prev.fetchFromGitHub {
         owner = "sentriz";
@@ -31,6 +31,15 @@
       };
     });
 
+  };
+
+  # add pkgs.latest.<package>
+  latest-packages = final: _prev: {
+    latest = import inputs.nixpkgs-latest {
+      system = final.system;
+      config.allowUnfree = true;
+      config.allowBroken = true;
+    };
   };
 
   # add pkgs.stable.<package>
@@ -46,15 +55,6 @@
     pinned = import inputs.nixpkgs-pinned {
       system = final.system;
       config.allowUnfree = true;
-    };
-  };
-
-  # add pkgs.edge.<package>
-  edge-packages = final: _prev: {
-    edge = import inputs.nixpkgs-edge {
-      system = final.system;
-      config.allowUnfree = true;
-      config.allowBroken = true;
     };
   };
 

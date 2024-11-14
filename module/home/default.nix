@@ -8,5 +8,6 @@
   neovim       = import ./neovim.nix;
   vesktop      = import ./vesktop.nix;
   yazi         = import ./yazi.nix;
+  ags          = import ./ags.nix;
 
 }

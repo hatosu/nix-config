@@ -1,4 +1,5 @@
-{ inputs, lib, config, pkgs, strings, ... }: { imports = [
+{ inputs, lib, config, pkgs, strings, ... }: {
+imports = let module = inputs.self.nixosModules; in [
 
     # import the home-manager module
     inputs.home-manager.nixosModules.default
@@ -24,23 +25,23 @@
     ./local/nix/other.nix
 
     # import global nix modules
-    inputs.self.nixosModules.pipewire
-    inputs.self.nixosModules.spotify
-    inputs.self.nixosModules.textfonts
-    inputs.self.nixosModules.virtualmachines
-    inputs.self.nixosModules.gaming
-    inputs.self.nixosModules.hotkeys
-    inputs.self.nixosModules.devstuff
+    module.pipewire
+    module.spotify
+    module.textfonts
+    module.virtualmachines
+    module.gaming
+    module.hotkeys
+    module.devstuff
 
-]; nixpkgs = { overlays = [
+]; nixpkgs = { overlays = let overlay = inputs.self.overlays; in [
 
     # import overlays
-    inputs.self.overlays.additions
-    inputs.self.overlays.modifications
-    inputs.self.overlays.stable-packages
-    inputs.self.overlays.pinned-packages
-    inputs.self.overlays.edge-packages
-    
+    overlay.additions
+    overlay.modifications
+    overlay.latest-packages
+    overlay.stable-packages
+    overlay.pinned-packages
+
 ]; }; home-manager = { backupFileExtension = "backup";
 extraSpecialArgs = { inherit inputs; inherit strings; };
 users = { "hatosu" = import ./home.nix; }; };

@@ -1,13 +1,3 @@
-- doing extra for everyone and yourself arc
-
-c++ website:
-https://hatosu.com/ !!
-- pimp the fuck out of https://hatosu.com/
-- add a "help stack" section on your personal site, setup ssh and all server stuff with a perfect firewall, and remember its "google tab, language docs tab, llm tab, and discord help channel" and maybe more
-- also add a help stack for jp learning
-- also add a personal blog where you glaze the things you love (and rep your nix config)
-- similar to point above but, have a dedicated page that just perfectly summarizes why you would want to use nix over any OS in the world
-
 make dunst not look ugly asf
 fastfetch
 mpv
@@ -17,29 +7,8 @@ gitui
 tree
 history manager
 
+- doing extra for everyone and yourself arc
 - do everything it takes to start working on niren with a 100% safe computer, accounts, passwords, and efficient environment
-
-before working on wine:
-- learn every single nix syntax
-- use as many possible combinations of nix syntax to make a few flake repos, and contribute at least 15 nixpkgs and at least 15 nix options
-- restructure entire nix config with as much variety of nix syntax as possible
-- implement at least 75% of features listed here
-- learn how to solve every single NixOS chmod issue, and understand it perfectly
-[options]:
-- name = "somename";
-opt1: installExe = "someinstaller.exe";
-opt2: sourceDir = ./path/to/game/files; (fyi, you would only choose one of installExe or sourceDir)
-- finalExe = "some-final.exe"; (exe to be executed once all downloads are finished)
-- wineTricks = [ "cjkfonts" "vcrun2019" "d3dcompiler_47" ];
-- exportVar = [ "WINEESYNC=1" "WINEFSYNC=1" ];
-- unsetVar = [ "EOS_USE_ANTICHEATCLIENTNULL" "SDL_VIDEODRIVER" ];
-- enable64Bit = true;
-- enableDxvk = true;
-- desktop.name = "Some Desktop Name!";
-- desktop.comment = "erm idk put what you want here >x3";
-- desktop.icon = someicon;
-- desktop.categories = [ "Game" "Erm" "Hi" ];
-
 - make firefox 100% declarative
 - fix all folder permission problems (in your X folder too) so that there are ZERO security vulnerabilities
 - perfect nixfind option (noogle, nixpkgs, nixoptions, homeoptions, relevant wiki pages, manual pages, ai, web results)
@@ -89,6 +58,38 @@ opt2: sourceDir = ./path/to/game/files; (fyi, you would only choose one of insta
 - https://github.com/search?q=icon&type=repositories&s=stars&o=desc
 - https://github.com/nix-community/nix-on-droid
 - https://github.com/erebe/greenclip
+- make sure everything is 100% declared (get back to exceptions such as firefox, steam, etc)
+
+#######################################
+
+c++ website:
+https://hatosu.com/ !!
+- pimp the fuck out of https://hatosu.com/
+- add a "help stack" section on your personal site, setup ssh and all server stuff with a perfect firewall, and remember its "google tab, language docs tab, llm tab, and discord help channel" and maybe more
+- also add a help stack for jp learning
+- also add a personal blog where you glaze the things you love (and rep your nix config)
+- similar to point above but, have a dedicated page that just perfectly summarizes why you would want to use nix over any OS in the world
+
+before working on wine:
+- learn every single nix syntax
+- use as many possible combinations of nix syntax to make a few flake repos, and contribute at least 15 nixpkgs and at least 15 nix options
+- restructure entire nix config with as much variety of nix syntax as possible
+- implement at least 75% of features listed here
+- learn how to solve every single NixOS chmod issue, and understand it perfectly
+[options]:
+- name = "somename";
+opt1: installExe = "someinstaller.exe";
+opt2: sourceDir = ./path/to/game/files; (fyi, you would only choose one of installExe or sourceDir)
+- finalExe = "some-final.exe"; (exe to be executed once all downloads are finished)
+- wineTricks = [ "cjkfonts" "vcrun2019" "d3dcompiler_47" ];
+- exportVar = [ "WINEESYNC=1" "WINEFSYNC=1" ];
+- unsetVar = [ "EOS_USE_ANTICHEATCLIENTNULL" "SDL_VIDEODRIVER" ];
+- enable64Bit = true;
+- enableDxvk = true;
+- desktop.name = "Some Desktop Name!";
+- desktop.comment = "erm idk put what you want here >x3";
+- desktop.icon = someicon;
+- desktop.categories = [ "Game" "Erm" "Hi" ];
 
 ultimate image/video/audio editing script:
 - change resolution
@@ -106,5 +107,3 @@ https://github.com/nadermx/backgroundremover
 rembg = "${pkgs.backgroundremover}/bin/backgroundremover";
 img = "${pkgs.imagemagick}/bin/magick";
 opt = "${pkgs.image_optim}/bin/image_optim";
-
-- make sure everything is 100% declared (get back to exceptions such as firefox, steam, etc)

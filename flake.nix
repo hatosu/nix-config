@@ -3,16 +3,16 @@
   inputs = {
 
     # unstable (new packages)
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # latest (newest packages)
+    nixpkgs-latest.url = "github:nixos/nixpkgs?ref=master";
 
     # stable (old packages)
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
 
     # pinned (wont update)
     nixpkgs-pinned.url = "github:nixos/nixpkgs/4d183800f55a5ffee2959f902013c037213fd494";
-
-    # edge (newest packages)
-    nixpkgs-edge.url = "github:nixos/nixpkgs?ref=master";
 
     # home manager
     home-manager = {

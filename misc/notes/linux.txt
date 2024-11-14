@@ -26,6 +26,12 @@ git add -A
 git commit -am "testing to see if git works :3"
 git push <custom name you chose>
 
+# clone specific repo of hash
+git clone https://github.com/Aylur/ags/
+cd ags
+git branch ags b284ae932b6f16249c91d4d6d0a3bf44acf9c5ba
+git switch ags
+
 # fix chmod permissions
 touch file2
 mkdir directory2 

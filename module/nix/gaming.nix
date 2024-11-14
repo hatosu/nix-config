@@ -6,8 +6,8 @@
   programs.steam = {
     package = pkgs.steam;
     enable = true;
-    extraPackages = with pkgs; [ edge.gamescope ];
-    extraCompatPackages = with pkgs; [ edge.proton-ge-bin ];
+    extraPackages = with pkgs; [ latest.gamescope ];
+    extraCompatPackages = with pkgs; [ latest.proton-ge-bin ];
   };
 
   # game packages
@@ -16,8 +16,8 @@
     osu
     ddlc
     holocure
-    edge.minecraft
-    edge.cemu
+    latest.minecraft
+    latest.cemu
   ];
 
   # support for xbox controller usb dongle

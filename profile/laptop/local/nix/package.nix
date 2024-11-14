@@ -14,6 +14,7 @@
   vlc
   git
   tokei
+  zip
   rarcrack
   hyperfine
   watchexec
@@ -22,7 +23,6 @@
   rclone
   lshw
   element
-  deepfilternet
 
   # gui
   davinci-resolve

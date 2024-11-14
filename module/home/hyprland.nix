@@ -2,7 +2,7 @@
 
   enable = true;
 
-  package = pkgs.edge.hyprland;
+  package = pkgs.latest.hyprland;
   
   xwayland.enable = true;
   
@@ -22,9 +22,9 @@
   '';
 
   exec = ''
-    exec-once = wl-paste --watch cliphist store  
-    exec-once = ${pkgs.dunst}/bin/dunst
+    exec-once = ${pkgs.ags}/bin/ags
     exec-once = ${pkgs.wallpaper}/bin/wallpaper
+    exec-once = wl-paste --watch cliphist store  
     exec-once = waybar
     exec-once = fcitx5 --enable all
     exec-once = [workspace 1 silent] firefox
