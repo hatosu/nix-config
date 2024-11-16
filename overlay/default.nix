@@ -23,6 +23,15 @@
 
   };
 
+  # add pkgs.fresh.<package>
+  fresh-packages = final: _prev: {
+    fresh = import inputs.nixpkgs-fresh {
+      system = final.system;
+      config.allowUnfree = true;
+      config.allowBroken = true;
+    };
+  };
+
   # add pkgs.latest.<package>
   latest-packages = final: _prev: {
     latest = import inputs.nixpkgs-latest {

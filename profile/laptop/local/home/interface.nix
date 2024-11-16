@@ -13,7 +13,7 @@
     enable = true;
     package = pkgs.waybar;
     settings = {
-      mainBar = { output = [ "HDMI-A-1" ]; # was "*"
+      mainBar = { output = [ "*" ];
       layer = "top"; position = "bottom"; margin = "5px"; height = 32;
       modules-left = [ "hyprland/workspaces" "hyprland/language" "user" ];
       modules-center = [ "hyprland/window" "privacy" ];

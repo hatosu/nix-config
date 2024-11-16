@@ -38,6 +38,7 @@ imports = let module = inputs.self.nixosModules; in [
     # import overlays
     overlay.additions
     overlay.modifications
+    overlay.fresh-packages
     overlay.latest-packages
     overlay.stable-packages
     overlay.pinned-packages

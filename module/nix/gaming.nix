@@ -16,8 +16,9 @@
     osu
     ddlc
     holocure
+    latest.shadps4
     latest.minecraft
-    #latest.cemu
+    latest.cemu
   ];
 
   # support for xbox controller usb dongle

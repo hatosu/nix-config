@@ -2,8 +2,11 @@
 
   inputs = {
 
-    # unstable (new packages)
+    # default (new packages)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # fresh (newer packages)
+    nixpkgs-fresh.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # latest (newest packages)
     nixpkgs-latest.url = "github:nixos/nixpkgs?ref=master";
@@ -12,7 +15,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # pinned (wont update)
-    nixpkgs-pinned.url = "github:nixos/nixpkgs/db3e4d88abb953e2a7d8305459611ac75a28e9ba";
+    nixpkgs-pinned.url = "github:nixos/nixpkgs/f83f99270023d739b4ab3fa51f39778165bb4920";
 
     # home manager
     home-manager = {

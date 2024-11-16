@@ -3,7 +3,7 @@
 name = "davinci";
 
 exec = pkgs.writeShellScriptBin name
-"__GLX_VENDOR_LIBRARY_NAME=nvidia LIBVA_DRIVER_NAME=nvidia QT_QPA_PLATFORM=xcb QT_PLUGIN_PATH=/etc/profiles/per-user/hatosu/lib/qt-6/plugins ${pkgs.stable.davinci-resolve}/bin/davinci-resolve";
+"LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 __GLX_VENDOR_LIBRARY_NAME=nvidia LIBVA_DRIVER_NAME=nvidia QT_QPA_PLATFORM=xcb QT_PLUGIN_PATH=/etc/profiles/per-user/hatosu/lib/qt-6/plugins ${pkgs.stable.davinci-resolve}/bin/davinci-resolve";
 
 icon = builtins.fetchurl {
   url = "https://files.catbox.moe/n22pjs.png";
