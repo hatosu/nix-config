@@ -15,15 +15,6 @@
 
   configjs = builtins.toFile "config.js" ''
     import { NotificationPopups } from "./notificationPopups.js"
-    Utils.timeout(100, () => Utils.notify({
-        summary: "Notification Popup Example",
-        iconName: "info-symbolic",
-        body: "Lorem ipsum dolor sit amet, qui minim labore adipisicing "
-            + "minim sint cillum sint consectetur cupidatat.",
-        actions: {
-            "Cool": () => print("pressed Cool"),
-        },
-    }))
     App.config({
         style: App.configDir + "/style.css",
         windows: [
@@ -58,27 +49,27 @@
         padding: .5em;
     }
     .icon {
-        min-width: 68px;
-        min-height: 68px;
+        min-width: 60px;
+        min-height: 60px;
         margin-right: 1em;
     }
     .icon image {
-        font-size: 58px;
+        font-size: 60px;
         /* to center the icon */
-        margin: 5px;
+        margin: 10px;
         color: @theme_fg_color;
     }
     .icon box {
-        min-width: 68px;
-        min-height: 68px;
-        border-radius: 7px;
+        min-width: 55px;
+        min-height: 55px;
+        border-radius: 8px;
     }
     .notification {
         min-width: 350px;
-        border-radius: 11px;
-        padding: 1em;
-        margin: .5em;
-        border: 1px solid @wm_borders_edge;
+        border-radius: 10px;
+        padding: 1.1em;
+        margin: 1.1em;
+        border: 1.5px solid #C1716D;
         background-color: @theme_bg_color;
     }
     .notification.critical {

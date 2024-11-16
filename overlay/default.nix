@@ -21,16 +21,6 @@
       '';
     });
 
-    # use specific version of cliphist
-    cliphist = prev.cliphist.overrideAttrs (old: {
-      src = prev.fetchFromGitHub {
-        owner = "sentriz";
-        repo = "cliphist";
-        rev = "8c48df70bb3d9d04ae8691513e81293ed296231a";
-        hash = "sha256-tImRbWjYCdIY8wVMibc5g5/qYZGwgT9pl4pWvY7BDlI=";
-      };
-    });
-
   };
 
   # add pkgs.latest.<package>

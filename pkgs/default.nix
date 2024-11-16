@@ -7,6 +7,9 @@ pkgs: {
   ocr              = pkgs.callPackage ./ocr              {};
   help             = pkgs.callPackage ./help             {};
 
+  # programs
+  davinci          = pkgs.callPackage ./davinci          {};
+
   # games
   plutonium        = pkgs.callPackage ./plutonium        {};
   osu              = pkgs.callPackage ./osu              {};

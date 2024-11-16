@@ -17,7 +17,7 @@
     ddlc
     holocure
     latest.minecraft
-    latest.cemu
+    #latest.cemu
   ];
 
   # support for xbox controller usb dongle

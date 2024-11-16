@@ -20,6 +20,6 @@ spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
     fullScreen
   ];
 
-theme = spicePkgs.themes.${theme-name}; 
+theme = spicePkgs.themes.${theme-name};
 colorScheme = "${theme-name}"; enable = true; };
-systemd.tmpfiles.rules = [ "d /home/hatosu/.config/spotify 0777 hatosu users 99999d" ]; }
+systemd.tmpfiles.rules = [ "d /home/hatosu/.config/spotify 0755 hatosu users 99999d" ]; }

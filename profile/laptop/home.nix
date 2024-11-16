@@ -16,6 +16,8 @@ imports = let module = inputs.self.homeManagerModules; in [
     module.vesktop
     module.yazi
     module.ags
+    module.obs
+    module.flameshot
 
 ]; nixpkgs = { overlays = let overlay = inputs.self.overlays; in [
 

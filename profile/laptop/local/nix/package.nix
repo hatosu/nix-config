@@ -1,15 +1,15 @@
 { pkgs, lib, ... }:{ environment = { systemPackages = with pkgs; [
-
+ 
   # custom
   nixfind
   nixpaper
   help
   ocr
+  davinci
 
   # cli
   htop
   wl-clipboard
-  cliphist
   playerctl
   vlc
   git
@@ -22,26 +22,25 @@
   shellcheck
   rclone
   lshw
-  element
+  #pinned.flameshot
+  pinned.element
+  pinned.cliphist
 
   # gui
-  davinci-resolve
-  krita
-  godot_4
-  #blender
-  zoom-us
-  anki-bin
-  libreoffice-fresh
-  lmms
-  obsidian
-  obs-studio
-  freecad
-  komikku
-  ciano
-  flameshot
+  stable.krita
+  stable.libreoffice-fresh
+  stable.lmms
+  stable.freecad
+  stable.godot_4
+  stable.blender
+  stable.zoom-us
+  stable.anki-bin
+  stable.obsidian
+  pinned.komikku
+  pinned.ciano
 
   # icons
-  adwaita-icon-theme
-  papirus-icon-theme
+  pinned.adwaita-icon-theme
+  pinned.papirus-icon-theme
 
 ]; }; }

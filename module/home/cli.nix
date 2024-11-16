@@ -84,6 +84,8 @@
         "pkill *"
         "clear"
         "exit"
+        "ls"
+        "ls -a"
         "c"
         "e"
         "p"

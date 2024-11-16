@@ -34,6 +34,7 @@
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/docker"
+      "/var/lib/waydroid"
       "/var/lib/systemd/coredump"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
@@ -53,7 +54,8 @@
         ".config/vesktop"
         ".config/spotify"
         ".local/share/Steam"
-        ".local/share/anime-game-launcher"
+        ".local/share/waydroid"
+        ".local/share/DaVinciResolve"
       ];
       files = [
         ".zsh_history"
@@ -62,16 +64,32 @@
 
   };
 
+  # declare machine-id (prevents impermanence errors)
+  environment.etc.machine-id = { text = "a18b549c5915442693cd012bb398da2f"; enable = true; };
+
+  # set correct home permissions
   systemd.tmpfiles.settings = {
+
     "persist-hatosu-homedir" = {
       "/persist/home/hatosu" = {
         d = {
           group = "users";
           user = "hatosu";
-          mode = "0700";
+          mode = "0774";
         };
       };
     };
+  
+    "hatosu-homedir" = {
+      "/home/hatosu" = {
+        d = {
+          group = "users";
+          user = "hatosu";
+          mode = "0774";
+        };
+      };
+    };
+
   };
 
 }

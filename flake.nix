@@ -9,10 +9,10 @@
     nixpkgs-latest.url = "github:nixos/nixpkgs?ref=master";
 
     # stable (old packages)
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # pinned (wont update)
-    nixpkgs-pinned.url = "github:nixos/nixpkgs/4d183800f55a5ffee2959f902013c037213fd494";
+    nixpkgs-pinned.url = "github:nixos/nixpkgs/db3e4d88abb953e2a7d8305459611ac75a28e9ba";
 
     # home manager
     home-manager = {

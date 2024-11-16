@@ -461,7 +461,7 @@ vesktop-config = pkgs.writeText "settings.json" ''
             "enabled": true
         },
         "ReviewDB": {
-            "enabled": true,
+            "enabled": false,
             "notifyReviews": true,
             "showWarning": true,
             "hideBlockedUsers": true,

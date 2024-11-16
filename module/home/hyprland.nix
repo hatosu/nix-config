@@ -2,8 +2,8 @@
 
   enable = true;
 
-  package = pkgs.latest.hyprland;
-  
+  package = pkgs.hyprland;
+
   xwayland.enable = true;
   
   sourceFirst = true;
@@ -46,16 +46,17 @@
     env = XDG_SESSION_DESKTOP,Hyprland
     env = XDG_SESSION_TYPE,wayland
     env = NIXOS_OZONE_WL,1
-    env = LIBVA_DRIVER_NAME,nvidia
-    env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-    env = NVD_BACKEND,direct
-    env = GDK_BACKEND,wayland,x11
-    env = CLUTTER_BACKEND,wayland
-    env = QT_QPA_PLATFORM=wayland;xcb
-    env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
-    env = QT_AUTO_SCREEN_SCALE_FACTOR,1
-    env = SDL_VIDEODRIVER,windows,x11
-    env = MOZ_ENABLE_WAYLAND,1
+    env = USE_WAYLAND_GRIM,1
+    #env = LIBVA_DRIVER_NAME,nvidia
+    #env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+    #env = NVD_BACKEND,direct
+    #env = GDK_BACKEND,wayland,x11
+    #env = CLUTTER_BACKEND,wayland
+    #env = QT_QPA_PLATFORM=wayland;xcb
+    #env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+    #env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+    #env = SDL_VIDEODRIVER,windows,x11
+    #env = MOZ_ENABLE_WAYLAND,1
   '';
 
   input = ''
@@ -131,7 +132,7 @@
     bind = $mainMod, C, exec, cliphist list | ${pkgs.fuzzel}/bin/fuzzel -d | cliphist decode | wl-copy
     bind = $mainMod, L, exec, foot
     bind = $mainMod, B, exec, firefox
-    bind = $mainMod, H, exec, flameshot gui
+    bind = $mainMod, H, exec, QT_QPA_PLATFORM=wayland USE_WAYLAND_GRIM=1 flameshot gui
     bind = $mainMod, O, exec, nixocr
     bind = $mainMod, P, exec, ${pkgs.hyprpicker}/bin/hyprpicker -a
     bind = $mainMod, X, togglefloating
