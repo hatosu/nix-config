@@ -21,6 +21,8 @@ enable = true; languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
         { url = "https://titlekeys.ovh/"; inherit name; }
         { url = "https://dlpsgame.com/category/ps4/"; inherit name; }
         { url = "https://ps4pkg.com/"; inherit name; }
+        { url = "https://switchrom.io/"; inherit name; }
+        { url = "https://switchrom.net/"; inherit name; }
         #{ inherit url name; }
         { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; inherit name; }
         { url = "https://jpdb.io/learn"; inherit name; }

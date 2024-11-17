@@ -11,6 +11,7 @@ pkgs: {
   davinci          = pkgs.callPackage ./davinci          {};
 
   # games
+  ryuujinx         = pkgs.callPackage ./ryuujinx         {};
   wiiudownloader   = pkgs.callPackage ./wiiudownloader   {};
 
 }

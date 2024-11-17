@@ -22,7 +22,8 @@
   shellcheck
   rclone
   lshw
-  #pinned.flameshot
+  grim
+  slurp
   pinned.element
   pinned.cliphist
 

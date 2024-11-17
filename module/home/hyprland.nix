@@ -133,7 +133,7 @@
     bind = $mainMod, C, exec, cliphist list | ${pkgs.fuzzel}/bin/fuzzel -d | cliphist decode | wl-copy
     bind = $mainMod, L, exec, foot
     bind = $mainMod, B, exec, firefox
-    bind = $mainMod, H, exec, flameshot gui
+    bind = $mainMod, H, exec, grim -g "$(slurp)"
     bind = $mainMod, O, exec, nixocr
     bind = $mainMod, P, exec, ${pkgs.hyprpicker}/bin/hyprpicker -a
     bind = $mainMod, X, togglefloating

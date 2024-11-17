@@ -12,10 +12,11 @@
 
   # game packages
   environment.systemPackages = with pkgs; [
-    latest.shadps4
     latest.minecraft
+    latest.shadps4
     latest.cemu
     wiiudownloader
+    ryuujinx
   ];
 
   # support for xbox controller usb dongle

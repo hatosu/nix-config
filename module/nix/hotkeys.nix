@@ -33,7 +33,7 @@
     enable = true;
     fcitx5 = {
       waylandFrontend = true;
-      addons = with pkgs; [
+      addons = with pkgs.pinned; [
         catppuccin-fcitx5
         fcitx5-gtk
         fcitx5-mozc
