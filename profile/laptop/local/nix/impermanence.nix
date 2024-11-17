@@ -44,18 +44,21 @@
     
     # home
     users.hatosu = {
-      directories = [
+      directories = [ ".cache/dconf" ".config/dconf"
         "X"
-        ".games"
         ".mozilla"
-        ".cache/dconf"
-        ".config/dconf"
+        ".games/Cemu"
+        ".games/Shad"
+        ".games/Custom"
         ".config/godot"
         ".config/vesktop"
         ".config/spotify"
+        ".config/Cemu"
         ".local/share/Steam"
         ".local/share/waydroid"
         ".local/share/DaVinciResolve"
+        ".local/share/shadPS4"
+        ".local/share/Cemu"
       ];
       files = [
         ".zsh_history"

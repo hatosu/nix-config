@@ -5,7 +5,7 @@
     x11.enable = true;
     gtk.enable = true;
     package = pkgs.pinned.oreo-cursors-plus;
-    name = "oreo_grey_cursors";
+    name = "oreo_spark_light_pink_cursors";
     size = 20;
   };
 

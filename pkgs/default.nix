@@ -11,9 +11,6 @@ pkgs: {
   davinci          = pkgs.callPackage ./davinci          {};
 
   # games
-  plutonium        = pkgs.callPackage ./plutonium        {};
-  osu              = pkgs.callPackage ./osu              {};
-  ddlc             = pkgs.callPackage ./ddlc             {};
-  holocure         = pkgs.callPackage ./holocure         {};
+  wiiudownloader   = pkgs.callPackage ./wiiudownloader   {};
 
 }

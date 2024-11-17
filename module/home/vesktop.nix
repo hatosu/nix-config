@@ -1,5 +1,8 @@
 { pkgs, inputs, strings, ... }: let
 
+# choose display method (wayland or xorg)
+protocol = "wayland";
+
 # choose icon
 icon = pkgs.fetchurl {
   url = "https://files.catbox.moe/ww0qwu.png";
@@ -732,7 +735,7 @@ target = ".config/vesktop/settings/settings.json"; force = true; }; };
 home.file = { "vesktop-theme" = { source = builtins.toFile "theme.css" "${theme}";
 target = ".config/vesktop/themes/theme.css"; force = true; }; };
 home.packages = with pkgs; [ vesktop ]; xdg.desktopEntries = { vesktop = {
-exec = "vesktop --enable-features=UseOzonePlatform --ozone-platform=x11 --enable-wayland-ime %U";
+exec = "vesktop --enable-features=UseOzonePlatform --ozone-platform=${protocol} --enable-wayland-ime %U";
 icon = "${icon}"; name = "Discord"; genericName = "Internet Messenger";
 comment = "some random discord client..."; noDisplay = false; prefersNonDefaultGPU = false;
 startupNotify = true; terminal = false; settings = { Keywords = "discord;vencord;electron;chat";

@@ -27,9 +27,6 @@
   QT_IM_MODULE = "fcitx";
   GTK_IM_MDOULE = "fcitx";
   GLFW_IM_MODULE = "ibus"; };
-  system.activationScripts.fcitx5-theme.text = ''
-  mkdir -p /home/hatosu/.config/fcitx5/conf
-  ln -sfn ${strings.classicuiconf} /home/hatosu/.config/fcitx5/conf/classicui.conf '';
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
   i18n.inputMethod = {
     type = "fcitx5";

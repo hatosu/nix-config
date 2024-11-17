@@ -12,13 +12,10 @@
 
   # game packages
   environment.systemPackages = with pkgs; [
-    plutonium
-    osu
-    ddlc
-    holocure
     latest.shadps4
     latest.minecraft
     latest.cemu
+    wiiudownloader
   ];
 
   # support for xbox controller usb dongle

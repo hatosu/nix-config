@@ -12,6 +12,7 @@ pkgs.mkShell {
     winetricks
     dxvk
     gamemode
+    appimage-run
   ];
 
   shellHook = ''

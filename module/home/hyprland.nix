@@ -11,7 +11,7 @@
   systemd = {
     enable = true;
     enableXdgAutostart = false;
-    variables = [ "--all" ];
+    #variables = [ "--all" ];
   };
 
   extraConfig = let
@@ -29,7 +29,7 @@
     exec-once = fcitx5 --enable all
     exec-once = [workspace 1 silent] firefox
     exec-once = [workspace 2 silent] foot
-    exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=x11 --enable-wayland-ime
+    exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
     exec-once = [workspace 4 silent] spotify
   '';
 
@@ -49,7 +49,7 @@
     env = LIBVA_DRIVER_NAME,nvidia
     env = __GLX_VENDOR_LIBRARY_NAME,nvidia
     env = NVD_BACKEND,direct
-    env = GDK_BACKEND,wayland,x11,*
+    env = GDK_BACKEND,wayland,x11
     env = CLUTTER_BACKEND,wayland
     env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
     env = QT_AUTO_SCREEN_SCALE_FACTOR,1
