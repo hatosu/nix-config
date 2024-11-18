@@ -37,6 +37,7 @@
   stable.zoom-us
   stable.anki-bin
   stable.obsidian
+  stable.tor-browser
   pinned.komikku
   pinned.ciano
 

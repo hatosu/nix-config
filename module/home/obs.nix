@@ -1,8 +1,8 @@
 { config, pkgs, ... }: { programs.obs-studio = { enable = true;
 
-  package = pkgs.latest.obs-studio;
+  package = pkgs.obs-studio;
 
-  plugins = with pkgs.latest.obs-studio-plugins; [
+  plugins = with pkgs.obs-studio-plugins; [
 
     # drivers
     obs-pipewire-audio-capture # capture pipewire audio

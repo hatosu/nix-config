@@ -1,6 +1,7 @@
 { inputs, }: {
 
   additions = final: _prev: import ../pkgs final.pkgs;
+
   modifications = final: prev: {
 
     # allow waybar to work smoothly on hyprland
@@ -13,11 +14,18 @@
       enableWlrSupport = true;
     };
 
+    # modify obs desktop entry
+    obs-studio = prev.obs-studio.overrideAttrs (oldAttrs: {
+      postInstall = (oldAttrs.postInstall or "") + ''
+        substituteInPlace $out/share/applications/com.obsproject.Studio.desktop \
+          --replace "Exec=obs" "Exec=env LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 obs"
+      '';
+    });
+
     # modify ciano desktop entry
     ciano = prev.ciano.overrideAttrs (oldAttrs: {
       postInstall = (oldAttrs.postInstall or "") + ''
-        substituteInPlace $out/share/applications/com.github.robertsanseries.ciano.desktop \
-        --replace "Name=Ciano" "Name=Convert"
+        substituteInPlace $out/share/applications/com.github.robertsanseries.ciano.desktop --replace "Name=Ciano" "Name=Convert"
       '';
     });
 

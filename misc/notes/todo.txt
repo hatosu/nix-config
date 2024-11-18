@@ -1,3 +1,8 @@
+- obs overlays
+- twitch bot (also make it mlem...?)
+- clips
+- mlem bot
+
 - ags
 - fastfetch
 - mpv
@@ -5,6 +10,9 @@
 - bat
 - gitui
 - tree
+
+- declared safe and secure japan vpn
+- perfect terminal (notifications, other shit too)
 - history manager
 - doing extra for everyone and yourself arc
 - do everything it takes to start working on niren with a 100% safe computer, accounts, passwords, and efficient environment
@@ -35,7 +43,6 @@
 - screen record
 - gif record
 - calculator gui
-- perfect free & safe vpn (and also anything it takes to make sites love you, faking being a different OS etc)
 - perfect disk.nix configuration (preparation for yubi key too)
 - web scraper for jp, kr, zh, and french learning
 - perfect firefox & language tools

@@ -1,8 +1,7 @@
-{ pkgs, ... }: { environment = { shellAliases = {
+{ pkgs, ... }: { environment = { shellAliases = let pkg = pkgs.stable; in {
 
 # general
 hist = "history | grep";
-trace = "sudo nixos-rebuild switch --show-trace --verbose --print-build-logs --flake /etc/nixos#laptop";
 fixper = "sudo chmod -R a+rwx";
 skip = "playerctl next";
 pause = "playerctl play-pause";
@@ -13,34 +12,30 @@ m = "mpv";
 c = "clear";
 
 # nixpkgs
-scan = "${pkgs.vulnix}/bin/vulnix --system --verbose";
-dupe = "${pkgs.rmlint}/bin/rmlint";
-anime = "${pkgs.ani-cli}/bin/ani-cli -q 1080p";
-brightness = "${pkgs.brightnessctl}/bin/brightnessctl";
-chatgpt = "${pkgs.tgpt}/bin/tgpt";
-phind = "${pkgs.tgpt}/bin/tgpt --provider phind";
-color = "${pkgs.okolors}/bin/okolors";
-disk = "${pkgs.ncdu}/bin/ncdu";
-audio = "${pkgs.ponymix}/bin/ponymix";
-tasks = "${pkgs.glances}/bin/glances";
-drag = "${pkgs.ripdrag}/bin/ripdrag -r";
-rembg = "${pkgs.backgroundremover}/bin/backgroundremover";
-img = "${pkgs.imagemagick}/bin/magick";
-opt = "${pkgs.image_optim}/bin/image_optim";
-home = "cd && nvim $(${pkgs.skim}/bin/sk)";
-conf = "cd /etc/nixos && nvim $(${pkgs.skim}/bin/sk) && cd";
-ff = "${pkgs.fastfetch}/bin/fastfetch";
-f = "cd $(dirname $(${pkgs.fd}/bin/fd --type file | ${pkgs.skim}/bin/sk))";
-
-# temporary
-pget = "nix run nixpkgs#pirate-get -- -T -S ~/Downloads";
-torbrowser = "nix run nixpkgs#tor-browser";
-tor = "nix run nixpkgs#aria2 --";
-metaclean = "nix run nixpkgs#metadata-cleaner --";
-vidget = "nix run nixpkgs#yt-dlp --";
-spotget = "nix run nixpkgs#spotdl -- --format mp3";
-browse = "nix run nixpkgs#w3m --";
-gping = "nix run nixpkgs#gping --";
+scan = "${pkg.vulnix}/bin/vulnix --system --verbose";
+dupe = "${pkg.rmlint}/bin/rmlint";
+anime = "${pkg.ani-cli}/bin/ani-cli -q 1080p";
+brightness = "${pkg.brightnessctl}/bin/brightnessctl";
+chatgpt = "${pkg.tgpt}/bin/tgpt";
+phind = "${pkg.tgpt}/bin/tgpt --provider phind";
+disk = "${pkg.ncdu}/bin/ncdu";
+audio = "${pkg.ponymix}/bin/ponymix";
+tasks = "${pkg.glances}/bin/glances";
+drag = "${pkg.ripdrag}/bin/ripdrag -r";
+rembg = "${pkg.backgroundremover}/bin/backgroundremover";
+img = "${pkg.imagemagick}/bin/magick";
+opt = "${pkg.image_optim}/bin/image_optim";
+home = "cd && nvim $(${pkg.skim}/bin/sk)";
+conf = "cd /etc/nixos && nvim $(${pkg.skim}/bin/sk) && cd";
+pget = "${pkg.pirate-get}/bin/pirate-get -T -S ~/Downloads";
+tor = "${pkg.aria2}/bin/aria2";
+metaclean = "${pkg.metadata-cleaner}/bin/metadata-cleaner";
+vidget = "${pkg.yt-dlp}/bin/yt-dlp";
+spotget = "${pkg.spotdl}/bin/spotdl --format mp3";
+browse = "${pkg.w3m}/bin/w3m";
+gping = "${pkg.gping}/bin/gping";
+ff = "${pkg.fastfetch}/bin/fastfetch";
+f = "cd $(dirname $(${pkg.fd}/bin/fd --type file | ${pkg.skim}/bin/sk))";
 
 # notes
 lch = "sudoedit /etc/nixos/misc/notes/linux.txt";
@@ -50,4 +45,4 @@ tch = "sudoedit /etc/nixos/misc/notes/todo.txt";
 fch = "sudoedit /etc/nixos/misc/notes/features.txt";
 ich = "sudoedit /etc/nixos/misc/notes/imperative.txt";
 
-}; }; }
+};};}

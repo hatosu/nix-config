@@ -5,6 +5,7 @@ enable = true; languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
         ublock-origin
         darkreader
+        purpleadblock
         yomitan
       ];
 
@@ -16,11 +17,11 @@ enable = true; languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
         { url = "https://www.phind.com/search?home=true"; inherit name; }
         { url = "https://dpp.dev/"; inherit name; }
         #{ inherit url name; }
+        { url = "https://ps4pkg.com/"; inherit name; }
         { url = "https://itch.io/games/free/platform-windows"; inherit name; }
         { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files"; inherit name; }
         { url = "https://titlekeys.ovh/"; inherit name; }
         { url = "https://dlpsgame.com/category/ps4/"; inherit name; }
-        { url = "https://ps4pkg.com/"; inherit name; }
         { url = "https://switchrom.io/"; inherit name; }
         { url = "https://switchrom.net/"; inherit name; }
         #{ inherit url name; }

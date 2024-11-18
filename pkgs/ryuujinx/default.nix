@@ -19,14 +19,30 @@ title = pkgs.fetchurl {
   name = "title.keys";
 };
 
+games = {
+
+  totk = pkgs.fetchurl {
+    url = "";
+    sha256 = "";
+  };
+
+  totk-update = pkgs.fetchurl {
+    url = "https://cdn3.filehaus.su/files/1731911796_52651/The_Legend_of_Zelda_Tears_of_the_Kingdom__0100F2C0115B6800__v393216_.nsp";
+    sha256 = "0msayb29x0knn3d3x485952h9y9b5lig46vn2nnyh21dckdb4v3c";
+  };
+
+};
+
 exec = pkgs.writeShellScriptBin name ''
   USER="$(whoami)"
   if [ ! -d "$HOME/.config/Ryujinx/system" ]; then
     mkdir -p "$HOME/.config/Ryujinx/system"
+    mkdir -p "$HOME/.config/Ryujinx/games"
     cp -f ${prod} "$HOME/.config/Ryujinx/system/prod.keys"
     cp -f ${title} "$HOME/.config/Ryujinx/system/title.keys"
+    cp -f ${games.totk} ${games.totk-update} "$HOME/.config/Ryujinx/games"
   fi
-  ${pkgs.stable.ryujinx}/bin/ryujinx
+  ${pkgs.latest.ryujinx}/bin/ryujinx
 '';
 
 icon = builtins.fetchurl {

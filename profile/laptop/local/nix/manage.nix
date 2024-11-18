@@ -69,4 +69,8 @@
   # limit number of nix generations to 100
   boot.loader.systemd-boot.configurationLimit = 1000;
 
+  # nixhelper aliases
+  programs.nh = { enable = true; package = pkgs.pinned.nh; };
+  environment.interactiveShellInit = "export FLAKE=/etc/nixos";
+
 }
