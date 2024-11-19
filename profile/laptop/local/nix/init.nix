@@ -1,5 +1,6 @@
 { ... }: { environment = { interactiveShellInit = ''
 
-# idk what to put here yet
+  USER="$(whoami)"
+  cd "$HOME/X"
 
-''; }; }
+'';};}

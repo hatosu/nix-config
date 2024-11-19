@@ -69,8 +69,15 @@
   # limit number of nix generations to 100
   boot.loader.systemd-boot.configurationLimit = 1000;
 
-  # nixhelper aliases
-  programs.nh = { enable = true; package = pkgs.pinned.nh; };
-  environment.interactiveShellInit = "export FLAKE=/etc/nixos";
+  # nixhelper/aliases
+  programs.nh = { enable = true; 
+  package = pkgs.pinned.nh; };
+  environment.shellAliases = let 
+    FLAKE = "/etc/nixos";
+    HOST = "laptop";
+  in { rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}"; 
+  cleanse = "sudo nix-collect-garbage && sudo nix store optimise";
+  update = "sudo nix flake update --flake ${FLAKE}";
+  repair = "sudo nix-store --verify --check-contents --repair"; };
 
 }

@@ -3,6 +3,8 @@
 - clips
 - mlem bot
 
+#######################################
+
 - ags
 - fastfetch
 - mpv
@@ -10,7 +12,6 @@
 - bat
 - gitui
 - tree
-
 - declared safe and secure japan vpn
 - perfect terminal (notifications, other shit too)
 - history manager
@@ -68,6 +69,8 @@
 
 #######################################
 
+
+
 c++ website:
 https://hatosu.com/ !!
 - pimp the fuck out of https://hatosu.com/
@@ -96,6 +99,11 @@ opt2: sourceDir = ./path/to/game/files; (fyi, you would only choose one of insta
 - desktop.comment = "erm idk put what you want here >x3";
 - desktop.icon = someicon;
 - desktop.categories = [ "Game" "Erm" "Hi" ];
+
+make every emulator declarative: (nix official, hm, or flake repo)
+- shadps4
+- ryujinx
+- cemu
 
 ultimate image/video/audio editing script:
 - change resolution

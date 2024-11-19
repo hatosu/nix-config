@@ -22,6 +22,14 @@
       '';
     });
 
+    # modify kdenlive desktop entry
+    kdenlive = prev.kdenlive.overrideAttrs (oldAttrs: {
+      postInstall = (oldAttrs.postInstall or "") + ''
+        substituteInPlace $out/share/applications/org.kde.kdenlive.desktop \
+          --replace "Exec=kdenlive %F" "Exec=env LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 kdenlive %F"
+      '';
+    });
+
     # modify ciano desktop entry
     ciano = prev.ciano.overrideAttrs (oldAttrs: {
       postInstall = (oldAttrs.postInstall or "") + ''

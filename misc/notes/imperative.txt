@@ -3,3 +3,4 @@
 - shadps4
 - windowsvm
 - firefox (partly)
+- davinci

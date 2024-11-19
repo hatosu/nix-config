@@ -5,7 +5,6 @@
   nixpaper
   help
   ocr
-  davinci
 
   # cli
   htop
@@ -28,6 +27,7 @@
   pinned.cliphist
 
   # gui
+  kdenlive
   stable.krita
   stable.libreoffice-fresh
   stable.lmms
@@ -38,6 +38,7 @@
   stable.anki-bin
   stable.obsidian
   stable.tor-browser
+  stable.gnome.nautilus
   pinned.komikku
   pinned.ciano
 

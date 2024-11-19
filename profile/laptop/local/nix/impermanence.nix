@@ -47,15 +47,12 @@
       directories = [ ".cache/dconf" ".config/dconf"
         "X"
         ".mozilla"
-        ".games/Cemu"
-        ".games/Ryuujinx"
-        ".games/Shad"
-        ".games/Custom"
         ".config/godot"
         ".config/vesktop"
         ".config/spotify"
         ".config/Ryujinx"
         ".config/Cemu"
+        ".local/share/kdenlive"
         ".local/share/Steam"
         ".local/share/waydroid"
         ".local/share/DaVinciResolve"
@@ -64,6 +61,8 @@
       ];
       files = [
         ".zsh_history"
+        ".config/kdenliverc"
+        ".config/kdenlive-layoutsrc"
       ];
     };
 

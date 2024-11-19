@@ -16,6 +16,7 @@ enable = true; languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
         { url = "https://noogle.dev/"; inherit name; }
         { url = "https://www.phind.com/search?home=true"; inherit name; }
         { url = "https://dpp.dev/"; inherit name; }
+        { url = "https://davinciresolvetutorial.xyz/"; inherit name; }
         #{ inherit url name; }
         { url = "https://ps4pkg.com/"; inherit name; }
         { url = "https://itch.io/games/free/platform-windows"; inherit name; }

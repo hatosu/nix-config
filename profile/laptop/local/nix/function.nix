@@ -1,6 +1,6 @@
 { pkgs, ... }: { environment.interactiveShellInit = ''
 
-nix-sync(){
+pushconfig(){
   sudo chmod a+rwx ~/X/Github/config
   cd ~/X/Github/config
   sudo git rm -rf ~/X/Github/config/*

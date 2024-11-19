@@ -12,11 +12,4 @@
   # proprietary drivers are faster
   hardware.nvidia.open = false;
 
-  # davinci fix
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = [ pkgs.stable.rocmPackages.clr.icd ];
-  };
-
 }

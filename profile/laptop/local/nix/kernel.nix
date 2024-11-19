@@ -3,7 +3,7 @@
   boot = {
     
     # choose custom kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
 
   };
 
