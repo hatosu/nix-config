@@ -75,9 +75,12 @@
   environment.shellAliases = let 
     FLAKE = "/etc/nixos";
     HOST = "laptop";
-  in { rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}"; 
-  cleanse = "sudo nix-collect-garbage && sudo nix store optimise";
+  in {
+  rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
   update = "sudo nix flake update --flake ${FLAKE}";
-  repair = "sudo nix-store --verify --check-contents --repair"; };
+  cleanse = ''
+    sudo nix-store --verify --check-contents --repair
+    sudo nix-collect-garbage && sudo nix store optimise && \
+  '';
 
 }

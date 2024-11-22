@@ -9,42 +9,34 @@ enable = true; languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
       ];
 
       # bookmarks
-      bookmarks = let name = ""; url = "https://hatosu.com/"; in [ { name = "toolbar"; toolbar = true; bookmarks = [
+      bookmarks = let name = ""; in [ { name = "toolbar"; toolbar = true; bookmarks = [
         { url = "https://github.com/hatosu/config"; inherit name; }
         { url = "https://mynixos.com/help/search"; inherit name; }
         { url = "https://noogle.dev/"; inherit name; }
         { url = "https://www.phind.com/search?home=true"; inherit name; }
         { url = "https://dpp.dev/"; inherit name; }
-        { url = "https://pomofocus.io/"; inherit name; }
-        { inherit url name; }
         { url = "https://www.twitch.tv/issogashii/videos"; inherit name; }
         { url = "https://www.photopea.com/"; inherit name; }
         { url = "https://docs.kdenlive.org/en/getting_started/tutorials.html"; inherit name; }
         { url = "https://x.com/issogashii"; inherit name; }
         { url = "https://www.youtube.com/@issogashiiVT"; inherit name; }
-        { inherit url name; }
         { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; inherit name; }
         { url = "https://jpdb.io/learn"; inherit name; }
-        { inherit url name; }
         { url = "https://fmhy.net/videopiracyguide"; inherit name; }
         { url = "https://erynith.github.io/movie-web-instances/"; inherit name; }
         { url = "https://theindex.moe/"; inherit name; }
-        { inherit url name; }
         { url = "https://isthereanydeal.com/deals/#sort:price"; inherit name; }
         { url = "https://rgamedeals.net/"; inherit name; }
         { url = "https://www.eneba.com/"; inherit name; }
         { url = "https://gg.deals/"; inherit name; }
-        { inherit url name; }
         { url = "https://app.cachix.org/cache/hatosu#push"; inherit name; }
         { url = "https://filehaus.su/"; inherit name; }
         { url = "https://picsur.org/upload"; inherit name; }
         { url = "https://catbox.moe/"; inherit name; }
         { url = "https://litterbox.catbox.moe/"; inherit name; }
-        { inherit url name; }
         { url = "https://ps4pkg.com/"; inherit name; }
         { url = "https://itch.io/games/free/platform-windows"; inherit name; }
         { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files"; inherit name; }
-        { url = "https://titlekeys.ovh/"; inherit name; }
         { url = "https://dlpsgame.com/category/ps4/"; inherit name; }
         { url = "https://switchrom.io/"; inherit name; }
         { url = "https://switchrom.net/"; inherit name; }

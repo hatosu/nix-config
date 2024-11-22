@@ -58,6 +58,7 @@
         ".local/share/waydroid"
         ".local/share/shadPS4"
         ".local/share/Cemu"
+        ".local/share/Cemu/games"
       ];
       files = [
         ".zsh_history"

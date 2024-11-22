@@ -1,9 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
 
   boot = {
     
     # choose custom kernel
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_zen;
 
   };
 

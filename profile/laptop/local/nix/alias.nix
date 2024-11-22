@@ -43,5 +43,6 @@ nch = "sudoedit /etc/nixos/misc/notes/nix.txt";
 vch = "sudoedit /etc/nixos/misc/notes/vim.txt";
 tch = "sudoedit /etc/nixos/misc/notes/todo.txt";
 fch = "sudoedit /etc/nixos/misc/notes/features.txt";
+kch = "sudoedit /etc/nixos/misc/notes/kden.txt";
 
 };};}

@@ -2,7 +2,7 @@
 
 let
 
-  name = "ocr";
+  name = "nixocr";
 
   script = pkgs.writeText "${name}.sh" ''
     #!/bin/sh

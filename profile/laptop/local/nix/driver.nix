@@ -12,11 +12,15 @@
   # proprietary drivers are faster
   hardware.nvidia.open = false;
 
-  # misc
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    #extraPackages = [ pkgs.stable.rocmPackages.clr.icd ];
+  # other
+  hardware = {
+    firmware = [ pkgs.firmwareLinuxNonfree ];
+    enableAllFirmware = true;
+    #graphics = {
+    #  enable = true;
+    #  enable32Bit = true;
+    #  extraPackages = [ pkgs.stable.rocmPackages.clr.icd ];
+    #};
   };
 
 }

@@ -4,8 +4,7 @@
   nixfind
   nixpaper
   help
-  ocr
-  davinci
+  nixocr
 
   # cli
   htop
