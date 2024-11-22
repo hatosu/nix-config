@@ -31,7 +31,7 @@
 
     # firefox addons
     firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=610a9c92c573bf57959ffd371cb4921dd681b272";
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=4a8ba00d1be3f3745428ed56efbb32155c548192";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

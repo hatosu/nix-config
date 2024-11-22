@@ -14,9 +14,9 @@
   environment.systemPackages = with pkgs; [
     latest.minecraft
     latest.shadps4
-    stable.cemu
     wiiudownloader
     #ryuujinx
+    cemuu
   ];
 
   # support for xbox controller usb dongle

@@ -1,3 +1,4 @@
+- perfect kden/video edit setup
 - obs overlays
 - twitch bot (also make it mlem...?)
 - clips
@@ -5,10 +6,11 @@
 
 #######################################
 
+- tmux
+- https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
 - ags
 - fastfetch
 - mpv
-- tmux
 - bat
 - gitui
 - tree
@@ -121,3 +123,11 @@ https://github.com/nadermx/backgroundremover
 rembg = "${pkgs.backgroundremover}/bin/backgroundremover";
 img = "${pkgs.imagemagick}/bin/magick";
 opt = "${pkgs.image_optim}/bin/image_optim";
+
+make firefox 100% declarative:
+(try and commit this to its hm module)
+- declare language that firefox is displayed in
+- declare cookie exceptions
+- add seperators to bookmarks
+- declare ublock
+- choose if extensions are enabled or disabled on fresh install

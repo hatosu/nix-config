@@ -5,6 +5,7 @@
   nixpaper
   help
   ocr
+  davinci
 
   # cli
   htop

@@ -45,7 +45,8 @@
     # home
     users.hatosu = {
       directories = [ ".cache/dconf" ".config/dconf"
-        "X"
+        "files"
+        "files/Default"
         ".mozilla"
         ".config/godot"
         ".config/vesktop"
@@ -55,7 +56,6 @@
         ".local/share/kdenlive"
         ".local/share/Steam"
         ".local/share/waydroid"
-        ".local/share/DaVinciResolve"
         ".local/share/shadPS4"
         ".local/share/Cemu"
       ];
@@ -73,7 +73,6 @@
 
   # set correct home permissions
   systemd.tmpfiles.settings = {
-
     "persist-hatosu-homedir" = {
       "/persist/home/hatosu" = {
         d = {
@@ -83,7 +82,6 @@
         };
       };
     };
-  
     "hatosu-homedir" = {
       "/home/hatosu" = {
         d = {
@@ -93,7 +91,6 @@
         };
       };
     };
-
   };
 
 }

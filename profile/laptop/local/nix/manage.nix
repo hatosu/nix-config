@@ -3,7 +3,7 @@
   nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs; in { settings = {
 
       # enable experimental features
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
 
       # disable global registry
       flake-registry = "";
