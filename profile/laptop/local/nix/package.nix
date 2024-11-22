@@ -5,6 +5,7 @@
   nixpaper
   help
   nixocr
+  #kden
 
   # cli
   htop
@@ -27,8 +28,7 @@
   pinned.cliphist
 
   # gui
-  kdenlive
-  stable.krita
+  krita
   stable.libreoffice-fresh
   stable.lmms
   stable.freecad

@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-  # apply cursor config
+  # cursor
   home.pointerCursor = {
     x11.enable = true;
     gtk.enable = true;
@@ -9,17 +9,20 @@
     size = 20;
   };
 
-  # apply gtk config
+  # gtk
   home.packages = [ pkgs.dconf ];
   home.sessionVariables.GSK_RENDERER = "gl";
-  gtk = { enable = true;
+  gtk = { 
+    enable = true;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
     theme = {
       package = pkgs.pinned.orchis-theme;
       name = "Orchis-Grey-Dark";
     };
   };
 
-  # apply qt config
+  # qt
   qt = {
     enable = true;
     platformTheme.name = "gtk";

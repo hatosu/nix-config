@@ -79,8 +79,9 @@
   rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
   update = "sudo nix flake update --flake ${FLAKE}";
   cleanse = ''
-    sudo nix-store --verify --check-contents --repair
-    sudo nix-collect-garbage && sudo nix store optimise && \
+    sudo nix-store --verify --check-contents --repair && \
+    sudo nix-collect-garbage && sudo nix store optimise
   '';
+  };
 
 }

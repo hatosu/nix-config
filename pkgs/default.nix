@@ -7,6 +7,9 @@ pkgs: {
   nixocr           = pkgs.callPackage ./nixocr           {};
   help             = pkgs.callPackage ./help             {};
 
+  # programs
+  kden             = pkgs.callPackage ./kden             {};
+
   # games
   wiiudownloader   = pkgs.callPackage ./wiiudownloader   {};
 

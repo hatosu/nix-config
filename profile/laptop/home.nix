@@ -30,6 +30,10 @@ imports = let module = inputs.self.homeManagerModules; in [
     overlay.pinned-packages
 
 ]; config = { allowUnfree = true; }; };
+
+  # nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
 home.enableNixpkgsReleaseCheck = false;
 programs.home-manager.enable = true;
 home.username = "hatosu";
