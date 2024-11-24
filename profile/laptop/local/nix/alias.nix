@@ -20,7 +20,6 @@ chatgpt = "${pkg.tgpt}/bin/tgpt";
 phind = "${pkg.tgpt}/bin/tgpt --provider phind";
 disk = "${pkg.ncdu}/bin/ncdu";
 audio = "${pkg.ponymix}/bin/ponymix";
-tasks = "${pkg.glances}/bin/glances";
 drag = "${pkg.ripdrag}/bin/ripdrag -r";
 rembg = "${pkg.backgroundremover}/bin/backgroundremover";
 img = "${pkg.imagemagick}/bin/magick";
@@ -34,7 +33,9 @@ vidget = "${pkg.yt-dlp}/bin/yt-dlp";
 audget = "${pkg.yt-dlp}/bin/yt-dlp -x --no-keep-video";
 spotget = "${pkg.spotdl}/bin/spotdl --format mp3";
 browse = "${pkg.w3m}/bin/w3m";
-gping = "${pkg.gping}/bin/gping";
+pings = "${pkg.gping}/bin/gping";
+task = "${pkg.htop}/bin/htop";
+tasks = "${pkg.glances}/bin/glances";
 ff = "${pkg.fastfetch}/bin/fastfetch";
 f = "cd $(dirname $(${pkg.fd}/bin/fd --type file | ${pkg.skim}/bin/sk))";
 
@@ -44,6 +45,6 @@ nch = "sudoedit /etc/nixos/misc/notes/nix.txt";
 vch = "sudoedit /etc/nixos/misc/notes/vim.txt";
 tch = "sudoedit /etc/nixos/misc/notes/todo.txt";
 fch = "sudoedit /etc/nixos/misc/notes/features.txt";
-kch = "sudoedit /etc/nixos/misc/notes/kden.txt";
+pch = "sudoedit /etc/nixos/misc/notes/production.txt";
 
 };};}

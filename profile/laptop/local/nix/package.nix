@@ -8,7 +8,8 @@
   #kden
 
   # cli
-  htop
+  ffmpeg
+  appimage-run
   wl-clipboard
   playerctl
   vlc
@@ -24,12 +25,13 @@
   lshw
   grim
   slurp
+  python3 # kdenlive needs
+  python312Packages.pip # kdenlive needs
   pinned.element
   pinned.cliphist
 
   # gui
   ciano
-  pinned.komikku
   stable.krita
   stable.subtitleeditor
   stable.libreoffice-fresh
@@ -42,6 +44,7 @@
   stable.obsidian
   stable.tor-browser
   stable.gnome.nautilus
+  pinned.komikku
 
   # icons
   pinned.adwaita-icon-theme

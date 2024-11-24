@@ -5,8 +5,8 @@ name = "kden";
 desktopName = "Kdenlive";
 
 zip = pkgs.fetchurl {
-  url = "https://cdn3.filehaus.su/files/1732303306_72584/vosk.zip";
-  sha256 = "";
+  url = "https://cdn4.filehaus.su/files/1732430853_76238/speechmodels.zip";
+  sha256 = "061xh9wc0iyrdf65jwhwar1rfn0lcv101bam4i69g4nq2sc56kf7";
 };
 
 drv = pkgs.runCommand "unpack" {} ''
@@ -14,14 +14,14 @@ drv = pkgs.runCommand "unpack" {} ''
   ${pkgs.unzip}/bin/unzip ${zip} -d "$out/files"
 '';
 
+#
+
 script = pkgs.writeShellScriptBin name ''
   USER="$(whoami)"
-  PATH=${pkgs.python3}/bin:${pkgs.python312Packages.pip}/bin:$PATH
-  export LC_ALL=en_US.UTF-8
-  export LANG=en_US.UTF-8
-  if [ ! -d "$HOME/.local/share/kdenlive/profiles" ]; then
-    mkdir -p "$HOME/.local/share/kdenlive/VOSK"
-    cp -rf ${drv}/files/vosk/* "$HOME/.local/share/kdenlive/VOSK"
+  PATH=${pkgs.python312.withPackages(ps: with ps; [ pip toolz setuptools srt vosk ])}/bin:$PATH
+  if [ ! -d "$HOME/.local/share/kdenlive/speechmodels" ]; then
+    mkdir -p "$HOME/.local/share/kdenlive/speechmodels"
+    cp -rf ${drv}/files/speechmodels/* "$HOME/.local/share/kdenlive/speechmodels"
   fi
   ${pkgs.kdenlive}/bin/kdenlive
 '';

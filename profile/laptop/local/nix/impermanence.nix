@@ -46,7 +46,6 @@
     users.hatosu = {
       directories = [ ".cache/dconf" ".config/dconf"
         "files"
-        "files/Default"
         ".mozilla"
         ".config/godot"
         ".config/vesktop"

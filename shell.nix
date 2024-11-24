@@ -7,7 +7,6 @@ pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     nix
     git
-    ffmpeg
     wine64
     winetricks
     dxvk
