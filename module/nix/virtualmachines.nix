@@ -16,6 +16,7 @@
     package = pkgs.docker;
     enable = true;
     storageDriver = "btrfs";
+    enableOnBoot = false;
     daemon = {
       settings = {
         data-root = "/var/lib/docker";
@@ -25,10 +26,18 @@
       enable = true;
       setSocketVariable = true;
     };
+    #extraPackages = let
+    #  arch = pkgs.dockerTools.buildImage {
+    #    name = "archlinux";
+    #    tag = "latest";
+    #    diskSize = 30000; #megabytes
+    #    buildVMMemorySize = 2000; #megabytes
+    #  };
+    #in with pkgs; [ arch ];
   };
 
   # qemu
-  environment.systemPackages = [ pkgs.nixvirt ];
+  #environment.systemPackages = [ pkgs.nixvirt ];
   #services.spice-vdagentd.enable = true;
   #programs.virt-manager.enable = true;
   #virtualisation = {

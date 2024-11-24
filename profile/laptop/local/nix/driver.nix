@@ -16,6 +16,7 @@
   hardware = {
     firmware = [ pkgs.firmwareLinuxNonfree ];
     enableAllFirmware = true;
+    nvidia-container-toolkit.enable = true;
     #graphics = {
     #  enable = true;
     #  enable32Bit = true;
