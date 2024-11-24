@@ -9,7 +9,6 @@ imports = let module = inputs.self.homeManagerModules; in [
     # import global home modules
     module.cli
     module.fastfetch
-    module.hyprland
     module.firefox
     module.mpv
     module.neovim

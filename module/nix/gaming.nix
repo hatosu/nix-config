@@ -29,7 +29,4 @@
   # support for xbox controller usb dongle
   hardware.xone.enable = true;
 
-  # wtf?
-  home-manager.users.hatosu.programs.bun.enable = true;
-
 }

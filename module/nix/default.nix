@@ -1,5 +1,6 @@
 {
 
+  hyprland           = import ./hyprland.nix;
   pipewire           = import ./pipewire.nix;
   spotify            = import ./spotify.nix;
   textfonts          = import ./textfonts.nix;

@@ -1,26 +1,55 @@
-{ pkgs, inputs, ... }: { wayland.windowManager.hyprland = { 
+{ pkgs, inputs, ... }: {
 
+# xdg/dbus
+  services.dbus.enable = true;
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    config.common.default = "*";
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
+  };
+
+  # polkit
+  systemd.user = {
+    services = {
+      polkit-gnome-authentication-agent-1 = {
+        description = "polkit-gnome-authentication-agent-1";
+        wantedBy = [ "graphical-session.target" ];
+        wants = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+      };
+    };
+  };
+
+# hypr
+home-manager.users.hatosu.wayland.windowManager.hyprland = { 
   enable = true;
-
   package = pkgs.fresh.hyprland;
-
   xwayland.enable = true;
-  
   sourceFirst = true;
-  
   systemd = {
     enable = true;
     enableXdgAutostart = false;
     #variables = [ "--all" ];
   };
-
   extraConfig = let
-
   display = ''
     monitor = HDMI-A-1,2560x1080@165,auto,auto
     monitor = eDP-1, disable
   '';
-
   exec = ''
     exec-once = ${pkgs.ags}/bin/ags
     exec-once = ${pkgs.nixpaper}/bin/nixpaper
@@ -33,7 +62,6 @@
     exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
     exec-once = [workspace 4 silent] spotify
   '';
-
   rules = ''
     windowrulev2 = opacity 0.90 0.90,floating:0
     windowrulev2 = opacity 0.90 0.90,floating:1
@@ -41,7 +69,6 @@
     windowrule = workspace 3, title:^(.*Discord.*)$
     windowrule = workspace 4, title:^(.*Spotify.*)$
   '';
-
   vars = ''
     env = XDG_CURRENT_DESKTOP,Hyprland
     env = XDG_SESSION_DESKTOP,Hyprland
@@ -58,7 +85,6 @@
     env = QT_QPA_PLATFORM,wayland;xcb
     env = USE_WAYLAND_GRIM,1
   '';
-
   input = ''
     input {
       kb_layout = us
@@ -70,7 +96,6 @@
       force_no_accel = 1
     }
   '';
-
   visual = ''
     decoration {
       rounding = 7
@@ -92,7 +117,6 @@
       layout = dwindle
     }
   '';
-
   animation = ''
     animations {
       enabled = true
@@ -112,7 +136,6 @@
       preserve_split = true # You probably want this
     }
   '';
-
   other = ''
     cursor { 
       no_hardware_cursors = true
@@ -125,7 +148,6 @@
         new_status = master
     }
   '';
-
   binds = ''
     $mainMod = SUPER
     bind = $mainMod, T, exec, rofi -show drun
@@ -184,5 +206,4 @@
     bindl = , XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause
     bindl = , XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous
   '';
-
 in"${display}\n${vars}\n${exec}\n${rules}\n${input}\n${visual}\n${animation}\n${other}\n${binds}";};}

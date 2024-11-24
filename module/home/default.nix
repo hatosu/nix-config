@@ -2,7 +2,6 @@
 
   cli          = import ./cli.nix;
   fastfetch    = import ./fastfetch.nix;
-  hyprland     = import ./hyprland.nix;
   firefox      = import ./firefox.nix;
   mpv          = import ./mpv.nix;
   neovim       = import ./neovim.nix;

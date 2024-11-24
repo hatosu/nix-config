@@ -19,12 +19,12 @@ imports = let module = inputs.self.nixosModules; in [
     ./local/nix/manage.nix
     ./local/nix/alias.nix
     ./local/nix/function.nix
-    ./local/nix/session.nix
     ./local/nix/init.nix
     ./local/nix/secure.nix
     ./local/nix/other.nix
 
     # import global nix modules
+    module.hyprland
     module.pipewire
     module.spotify
     module.textfonts
