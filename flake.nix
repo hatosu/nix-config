@@ -82,7 +82,7 @@
     nixosConfigurations = {
 
       laptop = nixpkgs.lib.nixosSystem {
-        stateVersion = "24.05";
+        #stateVersion = "24.05";
         inherit specialArgs;
         modules = homeManager ++ [
           ./profile/laptop/configuration.nix
