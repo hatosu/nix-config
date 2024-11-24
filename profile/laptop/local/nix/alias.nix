@@ -31,6 +31,7 @@ pget = "${pkg.pirate-get}/bin/pirate-get -T -S ~/Downloads";
 tor = "${pkg.aria2}/bin/aria2";
 metaclean = "${pkg.metadata-cleaner}/bin/metadata-cleaner";
 vidget = "${pkg.yt-dlp}/bin/yt-dlp";
+audget = "${pkg.yt-dlp}/bin/yt-dlp -x --no-keep-video";
 spotget = "${pkg.spotdl}/bin/spotdl --format mp3";
 browse = "${pkg.w3m}/bin/w3m";
 gping = "${pkg.gping}/bin/gping";

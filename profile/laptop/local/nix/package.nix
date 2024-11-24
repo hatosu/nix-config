@@ -28,7 +28,10 @@
   pinned.cliphist
 
   # gui
-  krita
+  ciano
+  pinned.komikku
+  stable.krita
+  stable.subtitleeditor
   stable.libreoffice-fresh
   stable.lmms
   stable.freecad
@@ -39,8 +42,6 @@
   stable.obsidian
   stable.tor-browser
   stable.gnome.nautilus
-  pinned.komikku
-  pinned.ciano
 
   # icons
   pinned.adwaita-icon-theme
