@@ -5,7 +5,7 @@
   nixpaper
   help
   nixocr
-  #kden
+  kden
 
   # cli
   ffmpeg

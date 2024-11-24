@@ -27,6 +27,7 @@
     exec-once = wl-paste --watch cliphist store  
     exec-once = waybar
     exec-once = fcitx5 --enable all
+    exec-once = steam -silent
     exec-once = [workspace 1 silent] firefox
     exec-once = [workspace 2 silent] foot
     exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
@@ -52,12 +53,10 @@
     env = GDK_BACKEND,wayland,x11
     env = CLUTTER_BACKEND,wayland
     env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
-    env = QT_AUTO_SCREEN_SCALE_FACTOR,1
     env = SDL_VIDEODRIVER,windows,x11
     env = MOZ_ENABLE_WAYLAND,1
     env = QT_QPA_PLATFORM,wayland;xcb
     env = USE_WAYLAND_GRIM,1
-    env = WLR_RENDERER_ALLOW_SOFTWARE,1
   '';
 
   input = ''

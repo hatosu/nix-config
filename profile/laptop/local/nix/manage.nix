@@ -49,8 +49,18 @@
 
   };
 
-  # allow unfree/broken packages
-  nixpkgs.config = { allowUnfree = true; allowBroken = true; };
+  nixpkgs.config = {
+
+    # allow unfree/broken packages
+    allowUnfree = true;
+    allowBroken = true;
+
+    # whitelist insecure packages
+    permittedInsecurePackages = [
+      "python-2.7.18.8"
+    ];
+  
+  };
 
   # let all nix-commands use unfree packages
   environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";

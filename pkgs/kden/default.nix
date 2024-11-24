@@ -1,8 +1,10 @@
-{ pkgs ? import <nixpkgs> {} }: let
+{ pkgs ? import <nixpkgs> { overlays = [ import ./overlays.nix ]; } }: let
 
 name = "kden";
 
 desktopName = "Kdenlive";
+
+#
 
 zip = pkgs.fetchurl {
   url = "https://cdn4.filehaus.su/files/1732430853_76238/speechmodels.zip";
@@ -14,11 +16,10 @@ drv = pkgs.runCommand "unpack" {} ''
   ${pkgs.unzip}/bin/unzip ${zip} -d "$out/files"
 '';
 
-#
-
+#PATH=$PATH:${pkgs.python312.withPackages(ps: with ps; [ pip toolz setuptools srt ])}/bin:${vosk}/bin
 script = pkgs.writeShellScriptBin name ''
   USER="$(whoami)"
-  PATH=${pkgs.python312.withPackages(ps: with ps; [ pip toolz setuptools srt vosk ])}/bin:$PATH
+  PATH=$PATH:${pkgs.python312.withPackages(ps: with ps; [ pip toolz setuptools srt ])}/bin
   if [ ! -d "$HOME/.local/share/kdenlive/speechmodels" ]; then
     mkdir -p "$HOME/.local/share/kdenlive/speechmodels"
     cp -rf ${drv}/files/speechmodels/* "$HOME/.local/share/kdenlive/speechmodels"

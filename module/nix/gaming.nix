@@ -19,7 +19,17 @@
     wiiudownloader
   ];
 
+  # vr
+  programs.alvr = {
+    package = pkgs.latest.alvr;
+    enable = true;
+    openFirewall = true;
+  };
+
   # support for xbox controller usb dongle
   hardware.xone.enable = true;
+
+  # wtf?
+  home-manager.users.hatosu.programs.bun.enable = true;
 
 }

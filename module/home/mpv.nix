@@ -20,7 +20,6 @@
       LEFT = "playlist-prev";
       RIGHT = "playlist-next";
     };
-
   };
 
 }

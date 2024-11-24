@@ -19,7 +19,7 @@
 
     # home manager
     home-manager = {
-      url = "github:nix-community/home-manager/e83414058edd339148dc142a8437edb9450574c8";
+      url = "github:nix-community/home-manager/bd58a1132e9b7f121f65313bc662ad6c8a05f878";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -28,6 +28,12 @@
       url = "github:nix-community/disko/67dc29be3036cc888f0b9d4f0a788ee0f6768700";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # impermanence
+    impermanence.url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
+
+    # nixos hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/59b6e11bea99805b02ab38c8f9d8ba21fee58874";
 
     # firefox addons
     firefox-addons = {
@@ -41,16 +47,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # impermanence
-    impermanence.url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
-
-    # nixos hardware
-    nixos-hardware.url = "github:NixOS/nixos-hardware/59b6e11bea99805b02ab38c8f9d8ba21fee58874";
-
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @ inputs: let
-    
+
+    vars = import ./misc/vars/default.nix;
+
     strings = import ./misc/strings/default.nix;
     
     systems = [ "x86_64-linux" ];
@@ -58,7 +60,11 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
     shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
-  
+
+    specialArgs = { inherit inputs vars strings; };
+
+    homeManager = [ home-manager.nixosModules.home-manager { home-manager = { extraSpecialArgs = specialArgs; }; } ];
+
   in {
     
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});  
@@ -76,11 +82,10 @@
     nixosConfigurations = {
 
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs; inherit strings;};
-        modules = [
+        stateVersion = "24.05";
+        inherit specialArgs;
+        modules = homeManager ++ [
           ./profile/laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          inputs.home-manager.nixosModules.default
           inputs.disko.nixosModules.default
           inputs.impermanence.nixosModules.impermanence
           inputs.spicetify-nix.nixosModules.default

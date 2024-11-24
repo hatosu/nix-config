@@ -6,6 +6,8 @@
 
 #######################################
 
+- cracked ai voice changer
+- voice to location on screen
 - tmux
 - https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
 - ags
