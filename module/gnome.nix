@@ -1,8 +1,5 @@
 { pkgs, inputs, lib, ... }: {
 
-  # monitor
-  # ~/.config/monitors.xml
-
   services = {
 
     # enable xorg
@@ -11,6 +8,11 @@
 
       # enable gnome
       desktopManager.gnome = {
+        enable = true;
+      };
+
+      # enable gdm
+      displayManager.gdm = {
         enable = true;
       };
 

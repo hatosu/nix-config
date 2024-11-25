@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }: {
 
-  # login prompt
+  # login
+  services.displayManager.ly.enable = true;
   services.displayManager.sessionPackages = [
   ((pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
     [Desktop Entry]

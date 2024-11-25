@@ -13,6 +13,7 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
         { url = "https://github.com/hatosu/config"; inherit name; }
         { url = "https://mynixos.com/help/search"; inherit name; }
         { url = "https://noogle.dev/"; inherit name; }
+        { url = "https://claude.ai/new"; inherit name; }
         { url = "https://www.phind.com/search?home=true"; inherit name; }
         { url = "https://dpp.dev/"; inherit name; }
         { url = "https://www.twitch.tv/issogashii/videos"; inherit name; }
@@ -22,6 +23,8 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
         { url = "https://www.youtube.com/account"; inherit name; }
         { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; inherit name; }
         { url = "https://jpdb.io/learn"; inherit name; }
+        { url = "https://itazuraneko.org/other/kensaku.html"; inherit name; }
+        { url = "https://reader.ttsu.app"; inherit name; }
         { url = "https://fmhy.net/videopiracyguide"; inherit name; }
         { url = "https://erynith.github.io/movie-web-instances/"; inherit name; }
         { url = "https://theindex.moe/"; inherit name; }
@@ -37,9 +40,9 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
         { url = "https://ps4pkg.com/"; inherit name; }
         { url = "https://itch.io/games/free/platform-windows"; inherit name; }
         { url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files"; inherit name; }
-        { url = "https://dlpsgame.com/category/ps4/"; inherit name; }
         { url = "https://switchrom.io/"; inherit name; }
         { url = "https://switchrom.net/"; inherit name; }
+        { url = "https://dlpsgame.com/category/ps4/"; inherit name; }
       ];}];
 
       # chrome CSS

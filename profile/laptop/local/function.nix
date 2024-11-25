@@ -1,10 +1,10 @@
 { pkgs, ... }: { environment.interactiveShellInit = ''
 
 pushconfig(){
-  sudo chmod a+rwx ~/files/Github/config
-  cd ~/files/Github/config
-  sudo git rm -rf ~/files/Github/config/*
-  sudo cp -rf ~/files/Config/* ~/files/Github/config
+  sudo chmod a+rwx ~/files/github/config
+  cd ~/files/github/config
+  sudo git rm -rf ~/files/github/config/*
+  sudo cp -rf ~/files/config/* ~/files/github/config
   sudo git switch main
   sudo git add .
   sudo git add -A

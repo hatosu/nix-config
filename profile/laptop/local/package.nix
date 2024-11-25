@@ -35,7 +35,6 @@
   ciano
   stable.video-trimmer
   stable.krita
-  stable.subtitleeditor
   stable.libreoffice-fresh
   stable.lmms
   stable.freecad

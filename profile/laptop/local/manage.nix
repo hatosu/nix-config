@@ -83,15 +83,12 @@
   programs.nh = { enable = true; 
   package = pkgs.pinned.nh; };
   environment.shellAliases = let 
-    FLAKE = "/home/hatosu/files/Config";
+    FLAKE = "/home/hatosu/files/config";
     HOST = "laptop";
   in {
   rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
   update = "sudo nix flake update --flake ${FLAKE}";
-  cleanse = ''
-    sudo nix-store --verify --check-contents --repair && \
-    sudo nix-collect-garbage && sudo nix store optimise
-  '';
+  cleanse = "sudo nix-store --verify --check-contents --repair && sudo nix-collect-garbage && sudo nix store optimise";
   };
 
 }
