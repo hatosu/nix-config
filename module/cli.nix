@@ -1,7 +1,7 @@
-{pkgs,lib,...}:{
+{ pkgs, lib, ... }: {
 
-  # setup terminal emulator
-  programs.foot = {
+  # wayland terminal
+  home-manager.users.hatosu.programs.foot = {
     enable = true;
     package = pkgs.foot;
     settings = {
@@ -30,8 +30,15 @@
     };
   };
 
+  # xorg terminal
+  home-manager.users.hatosu.programs.kitty = {
+    enable = true;
+    package = pkgs.kitty;
+    themeFile = "Pnevma";
+  };
+
   # custom prompt
-  programs.starship = { 
+  home-manager.users.hatosu.programs.starship = { 
     package = pkgs.starship;
     enable = true;
     enableZshIntegration = true;
@@ -56,7 +63,7 @@
     };
   };
 
-  programs.zsh = {
+  home-manager.users.hatosu.programs.zsh = {
 
     # enable zsh and some default plugins
     package = pkgs.zsh;
@@ -96,8 +103,12 @@
 
   };
 
+  # set zsh as default shell
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   # zoxide for "z" command
-  programs.zoxide = {
+  home-manager.users.hatosu.programs.zoxide = {
     enable = true;
     package = pkgs.zoxide;
     enableZshIntegration = true;

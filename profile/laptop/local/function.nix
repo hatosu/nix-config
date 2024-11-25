@@ -13,6 +13,21 @@ pushconfig(){
   cd
 }
 
+merge(){
+  find . -maxdepth 1 -name "*.opus" -type f | sort > input_files.txt
+  if [ ! -s input_files.txt ]; then
+    echo "No .opus files found in current directory"
+    rm input_files.txt
+    exit 1
+  fi
+  rm -f concat.txt
+  while IFS= read -r file; do
+    echo "file '$file'" >> concat.txt
+  done < input_files.txt
+  ffmpeg -f concat -safe 0 -i concat.txt -c copy final.opus
+  rm input_files.txt concat.txt
+}
+
 shafind(){
   if [[ ! -z "$1" ]]; then
     curl "$1" | sha256sum

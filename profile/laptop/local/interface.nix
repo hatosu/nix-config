@@ -1,7 +1,7 @@
 { pkgs, inputs, strings, ... }: {
 
   # app menu
-  programs.rofi = {
+  home-manager.users.hatosu.programs.rofi = {
     package = pkgs.rofi;
     enable = true;
     terminal = "\${pkgs.foot}/bin/foot";
@@ -9,7 +9,7 @@
   };
 
   # bar
-  programs.waybar = {
+  home-manager.users.hatosu.programs.waybar = {
     enable = true;
     package = pkgs.waybar;
     settings = {

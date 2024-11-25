@@ -1,5 +1,5 @@
 { pkgs, inputs, strings, ...}: let icon = strings.logotxt; in { 
-programs.fastfetch = { enable = true; package = pkgs.fastfetch; settings = {
+home-manager.users.hatosu.programs.fastfetch = { enable = true; package = pkgs.fastfetch; settings = {
 
       # visual 
       display = {

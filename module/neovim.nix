@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: { programs.neovim = { enable = true; defaultEditor = true;
+{ config, pkgs, ... }: { home-manager.users.hatosu.programs.neovim = { enable = true; defaultEditor = true;
 viAlias = true; vimAlias = true; vimdiffAlias = true; package = pkgs.neovim-unwrapped;
 
     # choose plugins

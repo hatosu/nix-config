@@ -1,5 +1,5 @@
-{ pkgs, inputs, strings, ... }: { programs.firefox = { package = pkgs.firefox; 
-enable = true; languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
+{ pkgs, inputs, strings, ... }: { home-manager.users.hatosu.programs.firefox = { 
+package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu = { isDefault = true;
 
       # extensions
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [

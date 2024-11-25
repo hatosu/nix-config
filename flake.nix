@@ -51,6 +51,8 @@
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @ inputs: let
 
+    nixosVersion = "24.05";
+
     vars = import ./misc/vars/default.nix;
 
     strings = import ./misc/strings/default.nix;
@@ -61,9 +63,10 @@
 
     shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-    specialArgs = { inherit inputs vars strings; };
+    specialArgs = { inherit inputs vars strings nixosVersion; };
 
-    homeManager = [ home-manager.nixosModules.home-manager { home-manager = { extraSpecialArgs = specialArgs; }; } ];
+    homeManager = [ home-manager.nixosModules.home-manager { 
+    home-manager = { extraSpecialArgs = specialArgs; }; } ];
 
   in {
     
@@ -73,16 +76,13 @@
     
     overlays = import ./overlay {inherit inputs;};
     
-    nixosModules = import ./module/nix;
-    
-    homeManagerModules = import ./module/home;
+    nixosModules = import ./module;
     
     devShells.x86_64-linux.default = (import ./shell.nix {inherit shellpkgs;});
     
     nixosConfigurations = {
 
       laptop = nixpkgs.lib.nixosSystem {
-        #stateVersion = "24.05";
         inherit specialArgs;
         modules = homeManager ++ [
           ./profile/laptop/configuration.nix

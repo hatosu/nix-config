@@ -1,30 +1,34 @@
-{ inputs, lib, config, pkgs, strings, ... }: { 
+{ inputs, lib, config, pkgs, strings, vars, nixosVersion, ... }: { 
 imports = let module = inputs.self.nixosModules; in [
 
     # import the home-manager module
     inputs.home-manager.nixosModules.default
 
     # import local nix modules
-    ./local/nix/disk.nix
-    ./local/nix/impermanence.nix
-    ./local/nix/hardware.nix
-    ./local/nix/kernel.nix
-    ./local/nix/driver.nix
-    ./local/nix/boot.nix
-    ./local/nix/login.nix
-    ./local/nix/host.nix
-    ./local/nix/network.nix
-    ./local/nix/package.nix
-    ./local/nix/root.nix
-    ./local/nix/manage.nix
-    ./local/nix/alias.nix
-    ./local/nix/function.nix
-    ./local/nix/init.nix
-    ./local/nix/secure.nix
-    ./local/nix/other.nix
+    ./local/disk.nix
+    ./local/impermanence.nix
+    ./local/hardware.nix
+    ./local/kernel.nix
+    ./local/driver.nix
+    ./local/boot.nix
+    ./local/login.nix
+    ./local/host.nix
+    ./local/network.nix
+    ./local/package.nix
+    ./local/root.nix
+    ./local/manage.nix
+    ./local/alias.nix
+    ./local/function.nix
+    ./local/init.nix
+    ./local/secure.nix
+    ./local/other.nix
+    ./local/interface.nix
+    ./local/theme.nix
+    ./local/misc.nix
 
     # import global nix modules
     module.hyprland
+    #module.gnome
     module.pipewire
     module.spotify
     module.textfonts
@@ -32,6 +36,16 @@ imports = let module = inputs.self.nixosModules; in [
     module.gaming
     module.hotkeys
     module.devstuff
+    module.cli
+    module.fastfetch
+    module.firefox
+    module.mpv
+    module.neovim
+    module.vesktop
+    module.yazi
+    module.ags
+    module.obs
+    module.flameshot
 
 ]; nixpkgs = { overlays = let overlay = inputs.self.overlays; in [
 
@@ -45,4 +59,4 @@ imports = let module = inputs.self.nixosModules; in [
 
 ]; }; home-manager = { backupFileExtension = "backup";
 users = { "hatosu" = import ./home.nix; }; };
-system.stateVersion = "24.05"; }
+system.stateVersion = nixosVersion; }

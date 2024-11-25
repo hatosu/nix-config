@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
 
   #setup mpv to be BOTH your VIDEO and IMAGE viewer!!! mwahahaha >:3
-  programs.mpv = {
+  home-manager.users.hatosu.programs.mpv = {
     enable = true;
     package = pkgs.mpv;
     config = {

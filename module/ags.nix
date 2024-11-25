@@ -214,19 +214,19 @@
 
 in {
 
-  home.file."types" = { source = "${libs}/files/types/";
+  home-manager.users.hatosu.home.file."types" = { source = "${libs}/files/types/";
   target = ".config/ags/types/"; force = true; };
 
-  home.file."config.js" = { source = configjs;
+  home-manager.users.hatosu.home.file."config.js" = { source = configjs;
   target = ".config/ags/config.js"; force = true; };
   
-  home.file."tsconfig.json" = { source = tsconfigjson;
+  home-manager.users.hatosu.home.file."tsconfig.json" = { source = tsconfigjson;
   target = ".config/ags/tsconfig.json"; force = true; };
 
-  home.file."style.css" = { source = stylecss;
+  home-manager.users.hatosu.home.file."style.css" = { source = stylecss;
   target = ".config/ags/style.css"; force = true; };
 
-  home.file."notificationPopups.js" = { source = notificationPopupsjs;
+  home-manager.users.hatosu.home.file."notificationPopups.js" = { source = notificationPopupsjs;
   target = ".config/ags/notificationPopups.js"; force = true; };
 
-home.packages = [ pkgs.pinned.ags ]; }
+home-manager.users.hatosu.home.packages = [ pkgs.pinned.ags ]; }

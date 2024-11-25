@@ -1,4 +1,4 @@
-{ pkgs, inputs, strings, ... }: { programs.yazi = { package = pkgs.yazi; enable=true;
+{ pkgs, inputs, strings, ... }: { home-manager.users.hatosu.programs.yazi = { package = pkgs.yazi; enable=true;
 enableZshIntegration = true; enableNushellIntegration = false;
 
     theme.manager = {
@@ -8,7 +8,7 @@ enableZshIntegration = true; enableNushellIntegration = false;
     };
 
 theme.flavor = { use = "theme"; };};
-home.file."toml" = { source = strings.flavortoml; 
+home-manager.users.hatosu.home.file."toml" = { source = strings.flavortoml; 
 target = ".config/yazi/flavors/theme.yazi/flavor.toml"; force = true; };
-home.file."xml" = { source = strings.tmthemexml;
+home-manager.users.hatosu.home.file."xml" = { source = strings.tmthemexml;
 target = ".config/yazi/flavors/theme.yazi/tmtheme.xml"; force = true; }; }

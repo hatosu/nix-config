@@ -55,7 +55,6 @@
         ".config/spotify"
         ".config/Ryujinx"
         ".config/Cemu"
-        ".config/subtitleeditor"
         ".local/share/kdenlive"
         ".local/share/Steam"
         ".local/share/waydroid"

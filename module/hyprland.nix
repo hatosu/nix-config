@@ -1,6 +1,16 @@
 { pkgs, inputs, ... }: {
 
-# xdg/dbus
+  # login prompt
+  services.displayManager.sessionPackages = [
+  ((pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
+    [Desktop Entry]
+    Name=hyprland
+    Comment=InsertSomeCommentHere
+    Exec=${pkgs.hyprland}/bin/Hyprland
+    Type=Application
+  '').overrideAttrs (_: {passthru.providedSessions = ["hyprland"];}))];
+
+  # xdg/dbus
   services.dbus.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -34,6 +44,12 @@
     };
   };
 
+  # icons
+  environment.systemPackages = with pkgs; [
+    pinned.adwaita-icon-theme
+    pinned.papirus-icon-theme
+  ];
+
 # hypr
 home-manager.users.hatosu.wayland.windowManager.hyprland = { 
   enable = true;
@@ -41,9 +57,9 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
   xwayland.enable = true;
   sourceFirst = true;
   systemd = {
-    enable = true;
+    enable = false;
     enableXdgAutostart = false;
-    #variables = [ "--all" ];
+    variables = [ "--all" ];
   };
   extraConfig = let
   display = ''

@@ -1,6 +1,7 @@
 { pkgs, ... }: { environment = { shellAliases = let pkg = pkgs.stable; in {
 
 # general
+logout = "kill -9 -1";
 hist = "history | grep";
 fixper = "sudo chmod -R a+rwx";
 skip = "playerctl next";

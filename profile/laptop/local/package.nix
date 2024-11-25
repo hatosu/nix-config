@@ -8,6 +8,7 @@
   kden
 
   # cli
+  nixfmt-rfc-style
   ffmpeg
   appimage-run
   wl-clipboard
@@ -32,6 +33,7 @@
 
   # gui
   ciano
+  stable.video-trimmer
   stable.krita
   stable.subtitleeditor
   stable.libreoffice-fresh
@@ -43,11 +45,6 @@
   stable.anki-bin
   stable.obsidian
   stable.tor-browser
-  stable.gnome.nautilus
   pinned.komikku
-
-  # icons
-  pinned.adwaita-icon-theme
-  pinned.papirus-icon-theme
 
 ]; }; }
