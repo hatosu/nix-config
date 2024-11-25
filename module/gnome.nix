@@ -14,11 +14,6 @@
         enable = true;
       };
 
-      # enable gdm
-      #displayManager.gdm = {
-        #enable = true;
-      #};
-
       # exclude default xorg packages
       excludePackages = with pkgs; [ xterm ];
 

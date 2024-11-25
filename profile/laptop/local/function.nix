@@ -4,7 +4,7 @@ pushconfig(){
   sudo chmod a+rwx ~/files/Github/config
   cd ~/files/Github/config
   sudo git rm -rf ~/files/Github/config/*
-  sudo cp -rf /etc/nixos/* ~/files/Github/config
+  sudo cp -rf ~/files/Config/* ~/files/Github/config
   sudo git switch main
   sudo git add .
   sudo git add -A

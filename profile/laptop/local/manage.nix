@@ -76,14 +76,14 @@
     fi
   '';
 
-  # limit number of nix generations to 100
+  # limit number of nix generations to 1000
   boot.loader.systemd-boot.configurationLimit = 1000;
 
   # nixhelper/aliases
   programs.nh = { enable = true; 
   package = pkgs.pinned.nh; };
   environment.shellAliases = let 
-    FLAKE = "/etc/nixos";
+    FLAKE = "/home/hatosu/files/Config";
     HOST = "laptop";
   in {
   rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
