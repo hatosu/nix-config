@@ -41,11 +41,11 @@ ff = "${pkg.fastfetch}/bin/fastfetch";
 f = "cd $(dirname $(${pkg.fd}/bin/fd --type file | ${pkg.skim}/bin/sk))";
 
 # notes
-lch = "sudoedit /etc/nixos/misc/notes/linux.txt";
-nch = "sudoedit /etc/nixos/misc/notes/nix.txt";
-vch = "sudoedit /etc/nixos/misc/notes/vim.txt";
-tch = "sudoedit /etc/nixos/misc/notes/todo.txt";
-fch = "sudoedit /etc/nixos/misc/notes/features.txt";
-pch = "sudoedit /etc/nixos/misc/notes/production.txt";
+lch = "sudoedit /home/hatosu/files/config/misc/notes/linux.txt";
+nch = "sudoedit /home/hatosu/files/config/misc/notes/nix.txt";
+vch = "sudoedit /home/hatosu/files/config/misc/notes/vim.txt";
+tch = "sudoedit /home/hatosu/files/config/misc/notes/todo.txt";
+fch = "sudoedit /home/hatosu/files/config/misc/notes/features.txt";
+pch = "sudoedit /home/hatosu/files/config/misc/notes/production.txt";
 
 };};}

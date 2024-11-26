@@ -8,23 +8,17 @@ imports = let module = inputs.self.nixosModules; in [
     ./local/disk.nix
     ./local/impermanence.nix
     ./local/hardware.nix
-    ./local/kernel.nix
-    ./local/driver.nix
     ./local/boot.nix
-    ./local/login.nix
     ./local/host.nix
     ./local/network.nix
     ./local/package.nix
-    ./local/root.nix
     ./local/manage.nix
     ./local/alias.nix
     ./local/function.nix
-    ./local/init.nix
     ./local/secure.nix
-    ./local/other.nix
     ./local/interface.nix
     ./local/theme.nix
-    ./local/misc.nix
+    ./local/utility.nix
 
     # import global nix modules
     module.hyprland

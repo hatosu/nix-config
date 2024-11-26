@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, lib, inputs, config, ... }: {
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
@@ -70,9 +70,6 @@
 
   };
 
-  # declare machine-id (prevents impermanence errors)
-  environment.etc.machine-id = { text = "a18b549c5915442693cd012bb398da2f"; enable = true; };
-
   # set correct home permissions
   systemd.tmpfiles.settings = {
     "persist-hatosu-homedir" = {
@@ -92,6 +89,28 @@
           mode = "0774";
         };
       };
+    };
+  };
+
+  # declare machine-id (prevents impermanence errors)
+  environment.etc.machine-id = { text = "a18b549c5915442693cd012bb398da2f"; enable = true; };
+
+  # move xdg folders to .cache
+  home-manager.users.hatosu.xdg = let
+    home = config.home-manager.users.hatosu.home.homeDirectory;
+  in {
+    enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      download = "${home}/.cache/Downloads";
+      desktop = "${home}/.cache/Desktop";
+      videos = "${home}/.cache/Videos";
+      pictures = "${home}/.cache/Pictures";
+      documents = "${home}/.cache/Documents";
+      templates = "${home}/.cache/Templates";
+      publicShare = "${home}/.cache/Public";
+      music = "${home}/.cache/Music";
     };
   };
 
