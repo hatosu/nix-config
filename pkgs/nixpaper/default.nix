@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 let
 
@@ -13,7 +15,7 @@ let
 
   height = "1080";
 
-  crop = pkgs.runCommand "crop" {} ''
+  crop = pkgs.runCommand "crop" { } ''
     mkdir -p $out/video
     ${pkgs.ffmpeg}/bin/ffmpeg -i ${file} -vf \
     "scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}" \

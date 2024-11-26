@@ -1,9 +1,13 @@
-{ shellpkgs ? import <nixpkgs> {} }:
+{
+  shellpkgs ? import <nixpkgs> { },
+}:
 
-let pkgs = shellpkgs; in
+let
+  pkgs = shellpkgs;
+in
 
 pkgs.mkShell {
-  
+
   nativeBuildInputs = with pkgs; [
     nix
     git

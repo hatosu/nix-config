@@ -1,4 +1,6 @@
-{ pkgs, lib, ... }: { fonts.packages = with pkgs; [
+{ pkgs, lib, ... }:
+{
+  fonts.packages = with pkgs; [
 
     # enable fonts
     nerdfonts
@@ -14,4 +16,5 @@
     noto-fonts-emoji
     noto-fonts-cjk-sans
 
-]; }
+  ];
+}

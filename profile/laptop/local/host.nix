@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
 
   # define hostname
   networking.hostName = "nixos";
@@ -10,10 +11,10 @@
     description = "Hatosu's NixOS user.";
     initialPassword = ";";
     group = "users";
-    extraGroups = [ 
+    extraGroups = [
       "wheel"
       "docker"
-      "libvirtd" 
+      "libvirtd"
       "kvm"
     ];
   };
@@ -21,7 +22,7 @@
   # properly set default locale
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    supportedLocales = ["en_US.UTF-8/UTF-8"];
+    supportedLocales = [ "en_US.UTF-8/UTF-8" ];
   };
 
   # tty

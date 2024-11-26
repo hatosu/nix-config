@@ -1,5 +1,7 @@
-{ ... }: { disko.devices = {
-  
+{ ... }:
+{
+  disko.devices = {
+
     disk.main = {
       device = "/dev/nvme0n1";
       type = "disk";
@@ -48,17 +50,25 @@
             size = "100%FREE";
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = [ "-f" ];
               subvolumes = {
                 "/root" = {
                   mountpoint = "/";
                 };
                 "/persist" = {
-                  mountOptions = ["subvol=persist" "compress=zstd:3" "noatime"];
+                  mountOptions = [
+                    "subvol=persist"
+                    "compress=zstd:3"
+                    "noatime"
+                  ];
                   mountpoint = "/persist";
                 };
                 "/nix" = {
-                  mountOptions = ["subvol=nix" "compress=zstd:3" "noatime"];
+                  mountOptions = [
+                    "subvol=nix"
+                    "compress=zstd:3"
+                    "noatime"
+                  ];
                   mountpoint = "/nix";
                 };
               };
@@ -67,6 +77,6 @@
         };
       };
     };
-  
+
   };
 }

@@ -1,4 +1,10 @@
-{ pkgs, lib, inputs, ... }: {
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
@@ -27,7 +33,8 @@
 
   programs.fuse.userAllowOther = true;
   fileSystems."/persist".neededForBoot = true;
-  environment.persistence."/persist/system" = { hideMounts = true;
+  environment.persistence."/persist/system" = {
+    hideMounts = true;
 
     # root
     directories = [
@@ -36,12 +43,22 @@
       "/var/log"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
-      { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+      {
+        directory = "/var/lib/colord";
+        user = "colord";
+        group = "colord";
+        mode = "u=rwx,g=rx,o=";
+      }
     ];
     files = [
-      { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+      {
+        file = "/var/keys/secret_file";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
     ];
-    
+
     # home
     users.server1 = {
       directories = [

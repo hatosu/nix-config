@@ -1,8 +1,10 @@
-{ ... }: {
+{ ... }:
+{
 
   networking.networkmanager.enable = true;
 
-  networking.firewall = { enable = true;
+  networking.firewall = {
+    enable = true;
     #trustedInterfaces = [ "enp0s2" ];
     #rejectPackets = false;
     #pingLimit = "--limit 1/minute --limit-burst 5";
@@ -26,10 +28,10 @@
     #logRefusedPackets = false;
     #logRefusedConnections = true;
     #interfaces."eth0" = {
-      #allowedUDPPorts = [ 53 ];
-      #allowedUDPPortRanges = [ { from = 60000; to = 61000; } ];
-      #allowedTCPPorts = [ 22 80 ];
-      #allowedTCPPortRanges = [ { from = 8999; to = 9003; } ];
+    #allowedUDPPorts = [ 53 ];
+    #allowedUDPPortRanges = [ { from = 60000; to = 61000; } ];
+    #allowedTCPPorts = [ 22 80 ];
+    #allowedTCPPortRanges = [ { from = 8999; to = 9003; } ];
     #};
   };
 

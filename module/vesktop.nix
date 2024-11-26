@@ -1,4 +1,10 @@
-{ pkgs, inputs, strings, ... }: let
+{
+  pkgs,
+  inputs,
+  strings,
+  ...
+}:
+let
 
   # choose display method (wayland or xorg)
   protocol = "wayland";
@@ -732,8 +738,10 @@
     }
   '';
 
-# ignore everything below
-vesktopcss = builtins.readFile theme; in {
+  # ignore everything below
+  vesktopcss = builtins.readFile theme;
+in
+{
   home-manager.users.hatosu.home.file = {
     "vesktop-config" = {
       source = vesktop-config;
@@ -769,7 +777,11 @@ vesktopcss = builtins.readFile theme; in {
         "InstantMessaging"
         "Chat"
       ];
-      mimeType = [ "" "" "" ];
+      mimeType = [
+        ""
+        ""
+        ""
+      ];
       type = "Application";
     };
   };

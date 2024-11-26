@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   # import hardware.nix
   imports = [
@@ -23,7 +24,7 @@
     description = "Hatosu's NixOS user.";
     initialPassword = ";";
     group = "users";
-    extraGroups = [ 
+    extraGroups = [
       "wheel"
       "audio"
       "sound"
@@ -32,7 +33,7 @@
       "input"
       "tty"
       "docker"
-      "libvirtd" 
+      "libvirtd"
       "kvm"
     ];
   };

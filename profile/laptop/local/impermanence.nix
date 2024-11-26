@@ -1,4 +1,11 @@
-{ pkgs, lib, inputs, config, ... }: {
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}:
+{
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
@@ -24,7 +31,8 @@
 
   programs.fuse.userAllowOther = true;
   fileSystems."/persist".neededForBoot = true;
-  environment.persistence."/persist/system" = { hideMounts = true;
+  environment.persistence."/persist/system" = {
+    hideMounts = true;
 
     # root
     directories = [
@@ -35,15 +43,27 @@
       "/var/lib/docker"
       "/var/lib/waydroid"
       "/var/lib/systemd/coredump"
-      { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+      {
+        directory = "/var/lib/colord";
+        user = "colord";
+        group = "colord";
+        mode = "u=rwx,g=rx,o=";
+      }
     ];
     files = [
-      { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+      {
+        file = "/var/keys/secret_file";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
     ];
-    
+
     # home
     users.hatosu = {
-      directories = [ ".cache/dconf" ".config/dconf"
+      directories = [
+        ".cache/dconf"
+        ".config/dconf"
         "files"
         ".mozilla"
         ".config/alvr"
@@ -93,25 +113,30 @@
   };
 
   # declare machine-id (prevents impermanence errors)
-  environment.etc.machine-id = { text = "a18b549c5915442693cd012bb398da2f"; enable = true; };
+  environment.etc.machine-id = {
+    text = "a18b549c5915442693cd012bb398da2f";
+    enable = true;
+  };
 
   # move xdg folders to .cache
-  home-manager.users.hatosu.xdg = let
-    home = config.home-manager.users.hatosu.home.homeDirectory;
-  in {
-    enable = true;
-    userDirs = {
+  home-manager.users.hatosu.xdg =
+    let
+      home = config.home-manager.users.hatosu.home.homeDirectory;
+    in
+    {
       enable = true;
-      createDirectories = true;
-      download = "${home}/.cache/Downloads";
-      desktop = "${home}/.cache/Desktop";
-      videos = "${home}/.cache/Videos";
-      pictures = "${home}/.cache/Pictures";
-      documents = "${home}/.cache/Documents";
-      templates = "${home}/.cache/Templates";
-      publicShare = "${home}/.cache/Public";
-      music = "${home}/.cache/Music";
+      userDirs = {
+        enable = true;
+        createDirectories = true;
+        download = "${home}/.cache/Downloads";
+        desktop = "${home}/.cache/Desktop";
+        videos = "${home}/.cache/Videos";
+        pictures = "${home}/.cache/Pictures";
+        documents = "${home}/.cache/Documents";
+        templates = "${home}/.cache/Templates";
+        publicShare = "${home}/.cache/Public";
+        music = "${home}/.cache/Music";
+      };
     };
-  };
 
 }

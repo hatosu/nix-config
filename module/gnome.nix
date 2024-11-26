@@ -1,4 +1,10 @@
-{ pkgs, inputs, lib, ... }: {
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+{
 
   services = {
 
@@ -31,24 +37,27 @@
   };
 
   # icons
-  environment.systemPackages = with pkgs; [
-    pinned.adwaita-icon-theme
-    pinned.papirus-icon-theme
-  ] 
+  environment.systemPackages =
+    with pkgs;
+    [
+      pinned.adwaita-icon-theme
+      pinned.papirus-icon-theme
+    ]
 
-  # extensions
-  ++ (with pkgs.gnomeExtensions; [
-    appindicator
-    blur-my-shell
-    pop-shell
-  ]);
+    # extensions
+    ++ (with pkgs.gnomeExtensions; [
+      appindicator
+      blur-my-shell
+      pop-shell
+    ]);
 
   # configure dconf
   home-manager.users.hatosu.dconf.settings = {
 
     # general
     "org/gnome/shell" = {
-      favorite-apps = [ # taskbar apps
+      favorite-apps = [
+        # taskbar apps
         "firefox.desktop"
         "org.gnome.Nautilus.desktop"
         "kitty.desktop"
@@ -94,7 +103,7 @@
 
     # keybinds
     "org/gnome/mutter/wayland/keybindings" = {
-      restore-shortcuts = []; # Never reset shortcuts to default
+      restore-shortcuts = [ ]; # Never reset shortcuts to default
     };
     "org/gnome/shell/keybindings" = {
       toggle-application-view = [ "<Super>a" ];
@@ -108,12 +117,12 @@
       toggle-fullscreen = [ "<Control><Super>f" ];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      screenreader = [];
-      home = ["<Super>e"]; # Open file explorer
-      www = ["<Super>b"]; # Open web browser
-      control-center = ["<Super>i"]; # Open settings
-      search = ["<Super>space"];
-      logout = ["<Control><Super>y"]; # Power off
+      screenreader = [ ];
+      home = [ "<Super>e" ]; # Open file explorer
+      www = [ "<Super>b" ]; # Open web browser
+      control-center = [ "<Super>i" ]; # Open settings
+      search = [ "<Super>space" ];
+      logout = [ "<Control><Super>y" ]; # Power off
     };
 
     # nautilus
@@ -135,7 +144,7 @@
     gnome-disk-utility
     seahorse
     gnome-backgrounds
-    gnome-tour #GNOME Shell detects the .desktop file on first log-in.
+    gnome-tour # GNOME Shell detects the .desktop file on first log-in.
     gnome-user-docs
     baobab
     epiphany

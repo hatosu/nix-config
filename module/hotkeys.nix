@@ -1,4 +1,5 @@
-{ pkgs, strings, ... }: {
+{ pkgs, strings, ... }:
+{
 
   # enable keyd as hotkey service
   services.keyd = {
@@ -23,10 +24,11 @@
 
   # language key input
   environment.sessionVariables = {
-  XMODIFIERS = "@im=fcitx";
-  QT_IM_MODULE = "fcitx";
-  GTK_IM_MDOULE = "fcitx";
-  GLFW_IM_MODULE = "ibus"; };
+    XMODIFIERS = "@im=fcitx";
+    QT_IM_MODULE = "fcitx";
+    GTK_IM_MDOULE = "fcitx";
+    GLFW_IM_MODULE = "ibus";
+  };
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
   i18n.inputMethod = {
     type = "fcitx5";
@@ -68,6 +70,5 @@
       };
     };
   };
-
 
 }

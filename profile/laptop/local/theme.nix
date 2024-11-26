@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   # cursor
   home-manager.users.hatosu.home.pointerCursor = {
@@ -12,7 +13,7 @@
   # gtk
   home-manager.users.hatosu.home.packages = [ pkgs.dconf ];
   home-manager.users.hatosu.home.sessionVariables.GSK_RENDERER = "gl";
-  home-manager.users.hatosu.gtk = { 
+  home-manager.users.hatosu.gtk = {
     enable = true;
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;

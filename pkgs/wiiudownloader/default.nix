@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 let
 
@@ -20,14 +22,14 @@ pkgs.appimageTools.wrapType1 {
   inherit name src;
 
   extraInstallCommands = ''
-    
+
     install -m 444 -D ${appimageContents}/${desktop} -t $out/share/applications
-    
+
     substituteInPlace $out/share/applications/${desktop} \
       --replace-fail 'Exec=WiiUDownloader' 'Exec=${name}'
-    
+
     cp -r ${appimageContents}/usr/share/icons $out/share
-  
+
   '';
 
 }

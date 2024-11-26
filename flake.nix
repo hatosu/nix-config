@@ -1,4 +1,5 @@
-{ description = "Hatosu's NixOS flake.";
+{
+  description = "Hatosu's NixOS flake.";
 
   inputs = {
 
@@ -49,75 +50,106 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @ inputs: let
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      ...
+    }@inputs:
+    let
 
-    nixosVersion = "24.05";
+      nixosVersion = "24.05";
 
-    vars = import ./misc/vars/default.nix;
+      vars = import ./misc/vars/default.nix;
 
-    strings = import ./misc/strings/default.nix;
-    
-    systems = [ "x86_64-linux" ];
-    
-    forAllSystems = nixpkgs.lib.genAttrs systems;
+      strings = import ./misc/strings/default.nix;
 
-    shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
+      systems = [ "x86_64-linux" ];
 
-    specialArgs = { inherit inputs vars strings nixosVersion; };
+      forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    homeManager = [ home-manager.nixosModules.home-manager { 
-    home-manager = { extraSpecialArgs = specialArgs; }; } ];
+      shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-  in {
-    
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});  
-    
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-    
-    overlays = import ./overlay {inherit inputs;};
-    
-    nixosModules = import ./module;
-    
-    devShells.x86_64-linux.default = (import ./shell.nix {inherit shellpkgs;});
-    
-    nixosConfigurations = {
-
-      laptop = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = homeManager ++ [
-          ./profile/laptop/configuration.nix
-          inputs.disko.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
-          inputs.spicetify-nix.nixosModules.default
-        ];
+      specialArgs = {
+        inherit
+          inputs
+          vars
+          strings
+          nixosVersion
+          ;
       };
 
-      server1 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs; inherit strings;};
-        modules = [
-          ./profile/server1/configuration.nix
-          inputs.disko.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
-        ];
-      };
+      homeManager = [
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            extraSpecialArgs = specialArgs;
+          };
+        }
+      ];
 
-      proj1 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs; inherit strings;};
-        modules = [
-          ./profile/proj1/configuration.nix
-          inputs.disko.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
-        ];
-      };
+    in
+    {
 
-      temporary = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs; inherit strings;};
-        modules = [
-          ./profile/temporary/configuration.nix
-          inputs.disko.nixosModules.default
-        ];
-      };
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
+      overlays = import ./overlay { inherit inputs; };
+
+      nixosModules = import ./module;
+
+      devShells.x86_64-linux.default = (import ./shell.nix { inherit shellpkgs; });
+
+      nixosConfigurations = {
+
+        laptop = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = homeManager ++ [
+            ./profile/laptop/configuration.nix
+            inputs.disko.nixosModules.default
+            inputs.impermanence.nixosModules.impermanence
+            inputs.spicetify-nix.nixosModules.default
+          ];
+        };
+
+        server1 = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            inherit strings;
+          };
+          modules = [
+            ./profile/server1/configuration.nix
+            inputs.disko.nixosModules.default
+            inputs.impermanence.nixosModules.impermanence
+          ];
+        };
+
+        proj1 = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            inherit strings;
+          };
+          modules = [
+            ./profile/proj1/configuration.nix
+            inputs.disko.nixosModules.default
+            inputs.impermanence.nixosModules.impermanence
+          ];
+        };
+
+        temporary = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            inherit strings;
+          };
+          modules = [
+            ./profile/temporary/configuration.nix
+            inputs.disko.nixosModules.default
+          ];
+        };
+
+      };
     };
-  };
 }

@@ -1,4 +1,5 @@
-{ pkgs, lib, ...}: {
+{ pkgs, lib, ... }:
+{
 
   # waydroid
   virtualisation.waydroid.enable = true;

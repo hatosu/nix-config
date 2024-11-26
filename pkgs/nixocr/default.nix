@@ -1,4 +1,4 @@
-{ pkgs }: 
+{ pkgs }:
 
 let
 
@@ -21,8 +21,8 @@ pkgs.stdenv.mkDerivation {
   buildInputs = with pkgs; [
     shc
   ];
-  phases = [ 
-    "buildPhase" 
+  phases = [
+    "buildPhase"
     "installPhase"
   ];
   buildPhase = ''

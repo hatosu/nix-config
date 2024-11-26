@@ -1,5 +1,12 @@
-{ config, pkgs, ... }: { home-manager.users.hatosu.programs.neovim = { enable = true; defaultEditor = true;
-viAlias = true; vimAlias = true; vimdiffAlias = true; package = pkgs.neovim-unwrapped;
+{ config, pkgs, ... }:
+{
+  home-manager.users.hatosu.programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    package = pkgs.neovim-unwrapped;
 
     # choose plugins
     plugins = with pkgs.vimPlugins; [
@@ -66,4 +73,5 @@ viAlias = true; vimAlias = true; vimdiffAlias = true; package = pkgs.neovim-unwr
 
     '';
 
-}; }
+  };
+}

@@ -1,4 +1,5 @@
-{ pkgs, strings, ... }: {
+{ pkgs, strings, ... }:
+{
 
   imports = [
     ./hardware.nix
@@ -31,19 +32,29 @@
 
   programs.steam.enable = true;
 
-  fonts.packages = with pkgs; [ noto-fonts hack-font gohufont ];
+  fonts.packages = with pkgs; [
+    noto-fonts
+    hack-font
+    gohufont
+  ];
 
   boot.loader.systemd-boot.enable = true;
 
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages;
-  
+
   networking.hostName = "nix";
-  
+
   time.timeZone = "America/Los_Angeles";
 
-  environment.systemPackages = with pkgs; [ vim git xdotool kitty firefox ];
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    xdotool
+    kitty
+    firefox
+  ];
 
   system.stateVersion = "23.11";
 
