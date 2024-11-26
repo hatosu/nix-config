@@ -1,6 +1,16 @@
 { pkgs }: pkgs.writeShellScriptBin "nixfind" ''
   
   #!/usr/bin/env bash
+  highlight() {
+    while IFS= read -r line; do
+      period_count=$(echo "$line" | tr -cd '.' | wc -c)
+      if [ $period_count -ge 2 ]; then
+        echo -e "\033[38;5;218m$line\033[0m"
+      else
+        echo "$line"
+      fi
+    done < "$1"
+  }
   echo -e "select category\n1. Nix Packages\n2. Nix Options\n3. Home Options\n"
   read -p "enter choice (1-3):" choice
   case $choice in
@@ -18,16 +28,6 @@
       fi
       man configuration.nix 2> /dev/null | awk "/$1/,/Declared/" > /tmp/nixfind_result
       grep -v '/' /tmp/nixfind_result > /tmp/nixfind_result2
-      highlight() {
-        while IFS= read -r line; do
-          period_count=$(echo "$line" | tr -cd '.' | wc -c)
-          if [ $period_count -ge 2 ]; then
-            echo -e "\033[38;5;218m$line\033[0m"
-          else
-            echo "$line"
-          fi
-        done < "$1"
-      }
       highlight /tmp/nixfind_result2 | less
       ;;
     3)
@@ -37,16 +37,6 @@
       fi
       man home-configuration.nix 2> /dev/null | awk "/$1/,/Declared/" > /tmp/nixfind_result
       grep -v '/' /tmp/nixfind_result > /tmp/nixfind_result2
-      highlight() {
-        while IFS= read -r line; do
-          period_count=$(echo "$line" | tr -cd '.' | wc -c)
-          if [ $period_count -ge 2 ]; then
-            echo -e "\033[38;5;218m$line\033[0m"
-          else
-            echo "$line"
-          fi
-        done < "$1"
-      }
       highlight /tmp/nixfind_result2 | less
       ;;
     *)

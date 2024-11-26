@@ -53,20 +53,28 @@
 
 # hypr
 home-manager.users.hatosu.wayland.windowManager.hyprland = { 
+  
   enable = true;
+  
   package = pkgs.fresh.hyprland;
+  
   xwayland.enable = true;
+  
   sourceFirst = true;
+  
   systemd = {
     enable = false;
     enableXdgAutostart = false;
     variables = [ "--all" ];
   };
+  
   extraConfig = let
+    
   display = ''
     monitor = HDMI-A-1,2560x1080@165,auto,auto
     monitor = eDP-1, disable
   '';
+  
   exec = ''
     exec-once = ${pkgs.ags}/bin/ags
     exec-once = ${pkgs.nixpaper}/bin/nixpaper
@@ -79,6 +87,7 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
     exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
     exec-once = [workspace 4 silent] spotify
   '';
+  
   rules = ''
     windowrulev2 = opacity 0.90 0.90,floating:0
     windowrulev2 = opacity 0.90 0.90,floating:1
@@ -86,6 +95,7 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
     windowrule = workspace 3, title:^(.*Discord.*)$
     windowrule = workspace 4, title:^(.*Spotify.*)$
   '';
+  
   vars = ''
     env = XDG_CURRENT_DESKTOP,Hyprland
     env = XDG_SESSION_DESKTOP,Hyprland
@@ -102,6 +112,7 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
     env = QT_QPA_PLATFORM,wayland;xcb
     env = USE_WAYLAND_GRIM,1
   '';
+  
   input = ''
     input {
       kb_layout = us
@@ -113,6 +124,7 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
       force_no_accel = 1
     }
   '';
+  
   visual = ''
     decoration {
       rounding = 7
@@ -134,6 +146,7 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
       layout = dwindle
     }
   '';
+  
   animation = ''
     animations {
       enabled = true
@@ -153,6 +166,7 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
       preserve_split = true # You probably want this
     }
   '';
+  
   other = ''
     cursor { 
       no_hardware_cursors = true
@@ -165,6 +179,7 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
         new_status = master
     }
   '';
+  
   binds = ''
     $mainMod = SUPER
     bind = $mainMod, T, exec, rofi -show drun
@@ -223,4 +238,5 @@ home-manager.users.hatosu.wayland.windowManager.hyprland = {
     bindl = , XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause
     bindl = , XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous
   '';
+
 in"${display}\n${vars}\n${exec}\n${rules}\n${input}\n${visual}\n${animation}\n${other}\n${binds}";};}
