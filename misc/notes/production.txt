@@ -1,13 +1,13 @@
 kden:
-examples
 - https://www.youtube.com/watch?v=xOrE8gNO04I
 - https://www.youtube.com/watch?v=avy_0UH0Pa0
-notes
 - Shift+S to add subtitle track, then click wand for auto subtitles
-effects
--
-combos
--
+- transform
+- rotoscoping
+- transparency
+- box blur
+- average blur
+- gaussian blur
 
 krita:
 - 

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
 
   boot = {
 
@@ -8,7 +7,7 @@
     loader.efi.canTouchEfiVariables = true;
 
     # kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.latest.linuxPackages;
 
   };
 

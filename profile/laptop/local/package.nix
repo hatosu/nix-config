@@ -1,7 +1,4 @@
-{ pkgs, lib, ... }:
-{
-  environment = {
-    systemPackages = with pkgs; [
+{ pkgs, lib, ... }: { environment = { systemPackages = with pkgs; [
 
       # custom
       nixfind
@@ -9,8 +6,10 @@
       help
       nixocr
       kden
+      #voice-changer
 
       # cli
+      cargo
       nixfmt-rfc-style
       ffmpeg
       appimage-run
@@ -29,8 +28,7 @@
       lshw
       grim
       slurp
-      python3 # kdenlive needs
-      python312Packages.pip # kdenlive needs
+      latest.backgroundremover
       pinned.element
       pinned.cliphist
 
@@ -50,6 +48,4 @@
       stable.tor-browser
       pinned.komikku
 
-    ];
-  };
-}
+];};}

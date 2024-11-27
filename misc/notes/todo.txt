@@ -6,17 +6,17 @@
 
 #######################################
 
+- school
+- thunderbird
+- tmux
 - cracked ai voice changer
 - voice to location on screen
-- tmux
 - https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
-- ags
+- astal in rust
 - fastfetch
-- mpv
 - bat
 - gitui
 - tree
-- declared safe and secure japan vpn
 - perfect terminal (notifications, other shit too)
 - history manager
 - doing extra for everyone and yourself arc
@@ -48,6 +48,7 @@
 - screen record
 - gif record
 - calculator gui
+- jp vpn
 - perfect disk.nix configuration (preparation for yubi key too)
 - web scraper for jp, kr, zh, and french learning
 - perfect firefox & language tools
@@ -72,8 +73,6 @@
 - make sure everything is 100% declared (get back to exceptions such as firefox, steam, etc)
 
 #######################################
-
-
 
 c++ website:
 https://hatosu.com/ !!

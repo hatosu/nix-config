@@ -1,6 +1,9 @@
-{ pkgs, ... }:
-{
-  environment.interactiveShellInit = ''
+{ pkgs, ... }: { environment.interactiveShellInit = ''
+
+    t(){
+      sudo mkdir -p ~/.cache/trash
+      mv -f "$1" ~/.cache/trash
+    }
 
     pushconfig(){
       sudo chmod a+rwx ~/files/github/config
@@ -79,5 +82,4 @@
       fi
     }
 
-  '';
-}
+'';}

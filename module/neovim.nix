@@ -1,14 +1,8 @@
-{ config, pkgs, ... }:
-{
-  home-manager.users.hatosu.programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    package = pkgs.neovim-unwrapped;
+{ config, pkgs, ... }: { home-manager.users.hatosu.programs.neovim = {
+enable = true; defaultEditor = true; viAlias = true; vimAlias = true;
+vimdiffAlias = true; package = pkgs.neovim-unwrapped;
 
-    # choose plugins
+    # plugins
     plugins = with pkgs.vimPlugins; [
       vim-nix
       vim-airline
@@ -24,7 +18,7 @@
       undotree
     ];
 
-    # edit init.vim
+    # init.vim
     extraConfig = ''
 
       " configure theme

@@ -1,5 +1,4 @@
-{ inputs }:
-{
+{ inputs }: {
 
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -13,6 +12,10 @@
       enableWlrSupport = true;
     };
 
+    #colloid-gtk-theme = prev.colloid-gtk-theme.override {
+    #  tweaks = [ "black" ];
+    #};
+ 
     ciano = prev.ciano.overrideAttrs (oldAttrs: {
       src = prev.fetchFromGitHub {
         owner = "robertsanseries";
@@ -20,11 +23,9 @@
         rev = "31ae62057660e327eaf5e358a31c2364b62addbf";
         hash = "sha256-QVXvcBTyY82AZbAqCeRSEhECm4k9y/3zv0pBkuk0W9I=";
       };
-      postInstall =
-        (oldAttrs.postInstall or "")
-        + ''
-          substituteInPlace $out/share/applications/com.github.robertsanseries.ciano.desktop --replace "Name=Ciano" "Name=Convert"
-        '';
+      postInstall = (oldAttrs.postInstall or "") + ''
+        substituteInPlace $out/share/applications/com.github.robertsanseries.ciano.desktop --replace "Name=Ciano" "Name=Convert"
+      '';
     });
 
   };

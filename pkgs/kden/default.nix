@@ -1,12 +1,4 @@
-{
-  pkgs ? import <nixpkgs> {
-    overlays = [
-      import
-      ./overlays.nix
-    ];
-  },
-}:
-let
+{ pkgs ? import <nixpkgs> {}, }: let
 
   name = "kden";
 
@@ -27,16 +19,7 @@ let
   #PATH=$PATH:${pkgs.python312.withPackages(ps: with ps; [ pip toolz setuptools srt ])}/bin:${vosk}/bin
   script = pkgs.writeShellScriptBin name ''
     USER="$(whoami)"
-    PATH=$PATH:${
-      pkgs.python312.withPackages (
-        ps: with ps; [
-          pip
-          toolz
-          setuptools
-          srt
-        ]
-      )
-    }/bin
+    PATH=$PATH:${pkgs.python312.withPackages (ps: with ps; [ pip toolz setuptools srt ])}/bin
     if [ ! -d "$HOME/.local/share/kdenlive/speechmodels" ]; then
       mkdir -p "$HOME/.local/share/kdenlive/speechmodels"
       cp -rf ${drv}/files/speechmodels/* "$HOME/.local/share/kdenlive/speechmodels"
@@ -54,8 +37,7 @@ let
     inherit icon name desktopName;
   };
 
-in
-pkgs.symlinkJoin {
+in pkgs.symlinkJoin {
   paths = [
     script
     item

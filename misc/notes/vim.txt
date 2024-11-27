@@ -1,22 +1,23 @@
-#open file vim
+# open file vim
 :e <file or path to file>
 
-#open folder vim
+# open folder vim
 :Ex <path>
 
-#comment a line using tpope/vim-commentary
-gcc
-
-#comment a paragraph using tpope/vim-commentary
-gcap
-
-#comment a selection in visual mode using tpope/vim-commentary
+# comment a line or selection using tpope/vim-commentary
 gc
 
-# add indent
-highlight text
+# auto comment a paragraph using tpope/vim-commentary
+gcap
+
+# comment a selection in visual mode using tpope/vim-commentary
+gc
+
+# add number of indents
 norm I <amount of spaces>
 
-# reset indent
-highlight text
-normal 0dw
+# reset indents
+<<
+
+# other indents
+https://learnbyexample.github.io/tips/vim-tip-2/

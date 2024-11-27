@@ -4,7 +4,12 @@
   # waydroid
   virtualisation.waydroid.enable = true;
 
-  # distrobox (https://wiki.archlinux.org/title/Distrobox# Usage)
+  # distrobox
+  # (stores files in ~/.local/share/containers/storage)
+  # 1: distrobox create --name arch --image archlinux
+  # 2: distrobox enter arch
+  # 3: distrobox stop arch
+  # 4: distrobox rm arch
   environment.defaultPackages = [ pkgs.distrobox ];
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.podman = {

@@ -1,74 +1,66 @@
-{
-  lib,
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
-{
+{ lib, config, pkgs, inputs, ... }: let
 
-  nix =
-    let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in
-    {
-      settings = {
+FLAKE = "/home/hatosu/files/config";
 
-        # enable experimental features
-        experimental-features = [
-          "nix-command"
-          "flakes"
-          "pipe-operators"
-        ];
+HOST = "laptop";
 
-        # disable global registry
-        flake-registry = "";
+in { nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs; in { settings = {
 
-        # workaround for https://github.com/NixOS/nix/issues/9574
-        nix-path = config.nix.nixPath;
+    # enable experimental features
+    experimental-features = [
+      "nix-command"
+      "flakes"
+      "pipe-operators"
+    ];
 
-        # custom binary cache
-        trusted-substituters = [ "https://cache.nixos.org" ];
-        extra-trusted-substituters = [ "https://nix-community.cachix.org" ];
-        extra-trusted-public-keys = [
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        ];
+    # disable global registry
+    flake-registry = "";
 
-        # increase buffer size
-        download-buffer-size = "99999999";
+    # workaround for https://github.com/NixOS/nix/issues/9574
+    nix-path = config.nix.nixPath;
 
-        # add trusted groups
-        trusted-users = [
-          "root"
-          "@wheel"
-        ];
+    # custom binary cache
+    trusted-substituters = [ "https://cache.nixos.org" ];
+    extra-trusted-substituters = [ "https://nix-community.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
 
-      };
+    # increase buffer size
+    download-buffer-size = "99999999";
 
-      # auto-collect nix garbage
-      gc = {
-        dates = "daily";
-        options = "--delete-older-than 1d";
-        automatic = true;
-      };
+    # add trusted groups
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
 
-      # auto-optimize /nix/store
-      optimise = {
-        dates = [ "daily" ];
-        automatic = true;
-      };
+  };
 
-      # make flake registry and nix path match flake inputs
-      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
-      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-
-      # disable channels
-      channel.enable = false;
-
-      # use latest nix version
-      package = pkgs.nixVersions.latest;
-
+    # auto-collect nix garbage
+    gc = {
+      dates = "daily";
+      options = "--delete-older-than 1d";
+      automatic = true;
     };
+
+  # auto-optimize /nix/store
+    optimise = {
+      dates = [ "daily" ];
+      automatic = true;
+    };
+
+    # make flake registry and nix path match flake inputs
+    registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+
+    # disable channels
+    channel.enable = false;
+
+    # use latest nix version
+    package = pkgs.nixVersions.latest;
+
+  };
 
   nixpkgs.config = {
 
@@ -101,19 +93,11 @@
   boot.loader.systemd-boot.configurationLimit = 1000;
 
   # nixhelper/aliases
-  programs.nh = {
-    enable = true;
-    package = pkgs.pinned.nh;
+  programs.nh = { enable = true; package = pkgs.pinned.nh; };
+  environment.shellAliases = {
+    rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
+    update = "sudo nix flake update --flake ${FLAKE}";
+    purify = "sudo nix-store --verify --check-contents --repair && sudo nix-collect-garbage && sudo nix store optimise";
   };
-  environment.shellAliases =
-    let
-      FLAKE = "/home/hatosu/files/config";
-      HOST = "laptop";
-    in
-    {
-      rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
-      update = "sudo nix flake update --flake ${FLAKE}";
-      cleanse = "sudo nix-store --verify --check-contents --repair && sudo nix-collect-garbage && sudo nix store optimise";
-    };
 
 }

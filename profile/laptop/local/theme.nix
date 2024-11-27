@@ -1,30 +1,18 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: { home-manager.users.hatosu = {
 
-  # cursor
-  home-manager.users.hatosu.home.pointerCursor = {
-    x11.enable = true;
-    gtk.enable = true;
-    package = pkgs.pinned.oreo-cursors-plus;
-    name = "oreo_spark_light_pink_cursors";
-    size = 20;
-  };
-
-  # gtk
-  home-manager.users.hatosu.home.packages = [ pkgs.dconf ];
-  home-manager.users.hatosu.home.sessionVariables.GSK_RENDERER = "gl";
-  home-manager.users.hatosu.gtk = {
-    enable = true;
+  gtk = {
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+    enable = true;
     theme = {
-      package = pkgs.pinned.orchis-theme;
-      name = "Orchis-Grey-Dark";
+      name = "Colloid-Dark";
+      package = pkgs.colloid-gtk-theme.override {
+        tweaks = [ "black" "rimless" "float" "normal" ];
+      };
     };
   };
 
-  # qt
-  home-manager.users.hatosu.qt = {
+  qt = {
     enable = true;
     platformTheme.name = "gtk";
     style = {
@@ -32,5 +20,16 @@
       package = pkgs.pinned.dracula-qt5-theme;
     };
   };
+  
+  home.pointerCursor = {
+    x11.enable = true;
+    gtk.enable = true;
+    package = pkgs.pinned.oreo-cursors-plus;
+    name = "oreo_spark_light_pink_cursors";
+    size = 20;
+  };
 
-}
+  # fixes hm error
+  home.sessionVariables.GSK_RENDERER = "gl";
+  
+};}
