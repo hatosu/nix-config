@@ -97,7 +97,8 @@ in { nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs; in 
   environment.shellAliases = {
     rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
     update = "sudo nix flake update --flake ${FLAKE}";
-    purify = "sudo nix-store --verify --check-contents --repair && sudo nix-collect-garbage && sudo nix store optimise";
+    repair = "sudo nix-store --verify --check-contents --repair";
+    purify = "sudo nix-collect-garbage && sudo nix store optimise";
   };
 
 }

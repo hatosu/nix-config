@@ -32,6 +32,9 @@ cd ags
 git branch ags b284ae932b6f16249c91d4d6d0a3bf44acf9c5ba
 git switch ags
 
+# logs
+dmesg -w (dmesg and wait for new messages)
+
 # fix chmod permissions
 touch file2
 mkdir directory2 

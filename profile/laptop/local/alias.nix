@@ -1,4 +1,4 @@
-{ pkgs, ... }: { environment = { shellAliases = let pkg = pkgs.stable; in {
+{ pkgs, ... }: { environment = { shellAliases = {
 
 # general
 logout = "kill -9 -1";
@@ -13,34 +13,34 @@ m = "mpv";
 c = "clear";
 
 # nixpkgs
-scan = "${pkg.vulnix}/bin/vulnix --system --verbose";
-dupe = "${pkg.rmlint}/bin/rmlint";
-anime = "${pkg.ani-cli}/bin/ani-cli -q 1080p";
-brightness = "${pkg.brightnessctl}/bin/brightnessctl";
-chatgpt = "${pkg.tgpt}/bin/tgpt";
-phind = "${pkg.tgpt}/bin/tgpt --provider phind";
-disk = "${pkg.ncdu}/bin/ncdu";
-audio = "${pkg.ponymix}/bin/ponymix";
-drag = "${pkg.ripdrag}/bin/ripdrag -r";
-img = "${pkg.imagemagick}/bin/magick";
-opt = "${pkg.image_optim}/bin/image_optim";
-home = "cd && nvim $(${pkg.skim}/bin/sk)";
-conf = "cd ~/files/config && nvim $(${pkg.skim}/bin/sk) && cd";
-pget = "${pkg.pirate-get}/bin/pirate-get -T -S ~/Downloads";
-tor = "${pkg.aria2}/bin/aria2";
-metaclean = "${pkg.metadata-cleaner}/bin/metadata-cleaner";
-vidget = "${pkg.yt-dlp}/bin/yt-dlp";
-audget = "${pkg.yt-dlp}/bin/yt-dlp -x --no-keep-video";
-spotget = "${pkg.spotdl}/bin/spotdl --format mp3";
-browse = "${pkg.w3m}/bin/w3m";
-radio = "${pkg.radio-cli}/bin/radio-cli -s japan";
-lofi = "${pkg.radio-cli}/bin/radio-cli -s lofi";
-pings = "${pkg.gping}/bin/gping";
-task = "${pkg.htop}/bin/htop";
-tasks = "${pkg.glances}/bin/glances";
-vimtutor = "${pkgs.vim}/bin/vimtutor";
-ff = "${pkg.fastfetch}/bin/fastfetch";
-f = "cd $(dirname $(${pkg.fd}/bin/fd --type file | ${pkg.skim}/bin/sk))";
+scan = "${pkgs.stable.vulnix}/bin/vulnix --system --verbose";
+dupe = "${pkgs.stable.rmlint}/bin/rmlint";
+anime = "${pkgs.ani-cli}/bin/ani-cli -q 1080p";
+brightness = "${pkgs.stable.brightnessctl}/bin/brightnessctl";
+chatgpt = "${pkgs.stable.tgpt}/bin/tgpt";
+phind = "${pkgs.stable.tgpt}/bin/tgpt --provider phind";
+disk = "${pkgs.stable.ncdu}/bin/ncdu";
+audio = "${pkgs.stable.ponymix}/bin/ponymix";
+drag = "${pkgs.stable.ripdrag}/bin/ripdrag -r";
+img = "${pkgs.stable.imagemagick}/bin/magick";
+opt = "${pkgs.stable.image_optim}/bin/image_optim";
+home = "cd && nvim $(${pkgs.stable.skim}/bin/sk)";
+conf = "cd ~/files/config && nvim $(${pkgs.stable.skim}/bin/sk) && cd";
+pget = "${pkgs.stable.pirate-get}/bin/pirate-get -T -S ~/Downloads";
+tor = "${pkgs.stable.aria2}/bin/aria2";
+metaclean = "${pkgs.stable.metadata-cleaner}/bin/metadata-cleaner";
+vidget = "${pkgs.stable.yt-dlp}/bin/yt-dlp";
+audget = "${pkgs.stable.yt-dlp}/bin/yt-dlp -x --no-keep-video";
+spotget = "${pkgs.stable.spotdl}/bin/spotdl --format mp3";
+browse = "${pkgs.stable.w3m}/bin/w3m";
+radio = "${pkgs.stable.radio-cli}/bin/radio-cli -s japan";
+lofi = "${pkgs.stable.radio-cli}/bin/radio-cli -s lofi";
+pings = "${pkgs.stable.gping}/bin/gping";
+task = "${pkgs.stable.htop}/bin/htop";
+tasks = "${pkgs.stable.glances}/bin/glances";
+vimtutor = "${pkgs.stable.vim}/bin/vimtutor";
+ff = "${pkgs.stable.fastfetch}/bin/fastfetch";
+f = "cd $(dirname $(${pkgs.stable.fd}/bin/fd --type file | ${pkgs.stable.skim}/bin/sk))";
 
 # notes
 lch = "sudoedit /home/hatosu/files/config/misc/notes/linux.txt";

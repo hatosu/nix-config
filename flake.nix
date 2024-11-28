@@ -56,42 +56,26 @@
       nixpkgs,
       home-manager,
       nixos-hardware,
-      ...
-    }@inputs:
-    let
+      ... 
+    } @ inputs: let
 
       nixosVersion = "24.05";
-
-      vars = import ./misc/vars/default.nix;
-
-      strings = import ./misc/strings/default.nix;
-
+      
       systems = [ "x86_64-linux" ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-
+      
       shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-      specialArgs = {
-        inherit
-          inputs
-          vars
-          strings
-          nixosVersion
-          ;
-      };
+      vars = import ./misc/vars/default.nix;
+      strings = import ./misc/strings/default.nix;
 
-      homeManager = [
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            extraSpecialArgs = specialArgs;
-          };
-        }
-      ];
+      specialArgs = { inherit inputs vars strings nixosVersion; };
 
-    in
-    {
+      homeManager = [ home-manager.nixosModules.home-manager
+      { home-manager = { extraSpecialArgs = specialArgs; }; } ];
+
+    in {
 
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
@@ -116,10 +100,7 @@
         };
 
         server1 = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit strings;
-          };
+          inherit specialArgs;
           modules = [
             ./profile/server1/configuration.nix
             inputs.disko.nixosModules.default
@@ -128,10 +109,7 @@
         };
 
         proj1 = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit strings;
-          };
+          inherit specialArgs;
           modules = [
             ./profile/proj1/configuration.nix
             inputs.disko.nixosModules.default
@@ -140,10 +118,7 @@
         };
 
         temporary = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit strings;
-          };
+          inherit specialArgs;
           modules = [
             ./profile/temporary/configuration.nix
             inputs.disko.nixosModules.default

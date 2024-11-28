@@ -6,7 +6,7 @@
     enable = true;
     theme = {
       name = "Colloid-Dark";
-      package = pkgs.colloid-gtk-theme.override {
+      package = pkgs.pinned.colloid-gtk-theme.override {
         tweaks = [ "black" "rimless" "float" "normal" ];
       };
     };

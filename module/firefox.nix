@@ -23,6 +23,8 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
     { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; inherit name; }
     { url = "https://jpdb.io/learn"; inherit name; }
     { url = "https://itazuraneko.org/other/kensaku.html"; inherit name; }
+    { url = "https://lifeprint.com/"; inherit name; }
+    { url = "https://www.signingsavvy.com/"; inherit name; }
     { url = "https://reader.ttsu.app"; inherit name; }
     { url = "https://fmhy.net/videopiracyguide"; inherit name; }
     { url = "https://erynith.github.io/movie-web-instances/"; inherit name; }
