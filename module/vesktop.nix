@@ -314,7 +314,7 @@ let
             },
             "MessageLogger": {
                 "enabled": true,
-                "collapseDeleted": true,
+                "collapseDeleted": false,
                 "deleteStyle": "text",
                 "ignoreBots": false,
                 "ignoreSelf": true,
@@ -534,7 +534,7 @@ let
                 "enabled": true,
                 "displayNames": false,
                 "inReplies": false,
-                "mode": "user-nick"
+                "mode": "nick-user"
             },
             "ShowTimeoutDuration": {
                 "enabled": true

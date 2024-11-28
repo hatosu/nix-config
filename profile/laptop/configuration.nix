@@ -55,6 +55,7 @@
       module.ags
       module.obs
       module.flameshot
+      module.radio-cli
 
     ];
   nixpkgs = {

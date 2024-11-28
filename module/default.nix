@@ -20,5 +20,6 @@
   yazi = import ./yazi.nix;
   obs = import ./obs.nix;
   ags = import ./ags.nix;
+  radio-cli = import ./radio-cli.nix;
 
 }
