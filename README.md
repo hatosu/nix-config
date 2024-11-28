@@ -1,5 +1,3 @@
-![showcase](https://github.com/hatosu/config/blob/main/showcase.gif?raw=true)
-
 <br />
 <div align="center">
 <img src="https://github.com/hatosu/config/blob/main/showcase.gif?raw=true" />
