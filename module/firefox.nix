@@ -18,9 +18,8 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
     { url = "https://dpp.dev/"; inherit name; }
     { url = "https://www.twitch.tv/issogashii/videos"; inherit name; }
     { url = "https://www.photopea.com/"; inherit name; }
-    { url = "https://docs.kdenlive.org/en/getting_started/tutorials.html"; inherit name; }
     { url = "https://x.com/issogashii"; inherit name; }
-    { url = "https://www.youtube.com/account"; inherit name; }
+    { url = "https://www.youtube.com/@issogashiiVT"; inherit name; }
     { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; inherit name; }
     { url = "https://jpdb.io/learn"; inherit name; }
     { url = "https://itazuraneko.org/other/kensaku.html"; inherit name; }

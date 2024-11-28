@@ -37,7 +37,7 @@
       stable.synfigstudio
       stable.video-trimmer
       stable.krita
-      stable.libreoffice-fresh
+      stable.libreoffice
       stable.lmms
       stable.freecad
       stable.godot_4

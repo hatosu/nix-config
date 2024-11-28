@@ -1,5 +1,6 @@
 {
 
+  niri = import ./niri.nix;
   hyprland = import ./hyprland.nix;
   gnome = import ./gnome.nix;
   pipewire = import ./pipewire.nix;

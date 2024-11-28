@@ -1,5 +1,4 @@
-{ pkgs, lib, ... }:
-{
+{ pkgs, lib, ... }: {
 
   # wayland terminal
   home-manager.users.hatosu.programs.foot = {

@@ -8,7 +8,7 @@ let
     #!/bin/sh
     mkdir -p /tmp/nixocr
     ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" -t png /tmp/nixocr/input.png
-    ${pkgs.tesseract4}/bin/tesseract /tmp/nixocr/input.png /tmp/nixocr/output -l jpn
+    ${pkgs.latest.tesseract4}/bin/tesseract /tmp/nixocr/input.png /tmp/nixocr/output -l jpn
     cat /tmp/nixocr/output.txt | ${pkgs.wl-clipboard}/bin/wl-copy
     rm -rf /tmp/nixocr/*
   '';

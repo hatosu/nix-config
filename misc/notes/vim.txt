@@ -16,8 +16,5 @@ gc
 # add number of indents
 norm I <amount of spaces>
 
-# reset indents
-<<
-
 # other indents
 https://learnbyexample.github.io/tips/vim-tip-2/

@@ -14,9 +14,9 @@
   # game packages
   environment.systemPackages = with pkgs; [
     minecraft
-    shadps4
-    cemu
-    ryujinx
+    latest.shadps4
+    latest.cemu
+    latest.ryujinx
     wiiudownloader
   ];
 

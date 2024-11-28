@@ -11,10 +11,6 @@
     flameshot = prev.flameshot.override {
       enableWlrSupport = true;
     };
-
-    #colloid-gtk-theme = prev.colloid-gtk-theme.override {
-    #  tweaks = [ "black" ];
-    #};
  
     ciano = prev.ciano.overrideAttrs (oldAttrs: {
       src = prev.fetchFromGitHub {

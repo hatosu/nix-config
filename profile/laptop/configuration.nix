@@ -36,6 +36,7 @@
 
       # import global nix modules
       module.hyprland
+      #module.niri
       #module.gnome
       module.pipewire
       module.spotify

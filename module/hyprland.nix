@@ -1,21 +1,15 @@
-{ pkgs, inputs, ... }:
-{
+{ pkgs, inputs, ... }: {
 
   # login
   services.displayManager.ly.enable = true;
-  services.displayManager.sessionPackages = [
-    (
-      (pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
-        [Desktop Entry]
-        Name=hyprland
-        Comment=InsertSomeCommentHere
-        Exec=${pkgs.hyprland}/bin/Hyprland
-        Type=Application
-      '').overrideAttrs
-      (_: {
-        passthru.providedSessions = [ "hyprland" ];
-      })
-    )
+  services.displayManager.sessionPackages = [(
+    (pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
+      [Desktop Entry]
+      Name=hyprland
+      Comment=InsertSomeCommentHere
+      Exec=${pkgs.hyprland}/bin/Hyprland
+      Type=Application
+    '').overrideAttrs(_: {passthru.providedSessions = [ "hyprland" ];}))
   ];
 
   # xdg/dbus
