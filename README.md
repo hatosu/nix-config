@@ -3,7 +3,7 @@
 <img src="https://github.com/hatosu/config/blob/main/showcase.gif?raw=true" />
 </div>
 
-<h1 align="center">Hatosu's NixOS (my entire PC)</h1>
+<h1 align="center">Hatosu's NixOS (entire pc)</h1>
 
 <div align="center">
 
