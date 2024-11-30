@@ -57,20 +57,15 @@
 
     enable = true;
 
-    package = pkgs.fresh.hyprland;
+    package = pkgs.latest.hyprland;
 
     xwayland.enable = true;
 
-    sourceFirst = true;
-
     systemd = {
-      enable = false;
-      enableXdgAutostart = false;
-      variables = [ "--all" ];
+      enable = true;
     };
 
-    extraConfig =
-      let
+    extraConfig = let
 
         display = ''
           monitor = HDMI-A-1,2560x1080@165,auto,auto
@@ -241,7 +236,4 @@
           bindl = , XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous
         '';
 
-      in
-      "${display}\n${vars}\n${exec}\n${rules}\n${input}\n${visual}\n${animation}\n${other}\n${binds}";
-  };
-}
+in"${display}\n${vars}\n${exec}\n${rules}\n${input}\n${visual}\n${animation}\n${other}\n${binds}";};}

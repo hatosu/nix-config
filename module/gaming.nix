@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-{
+{ pkgs, inputs, ... }: {
 
   # setup steam
   programs.gamemode.enable = true;
@@ -14,10 +13,11 @@
   # game packages
   environment.systemPackages = with pkgs; [
     minecraft
-    latest.shadps4
-    latest.ryujinx
     cemu
     wiiudownloader
+    stable.xivlauncher
+    latest.shadps4
+    latest.ryujinx
   ];
 
   # vr

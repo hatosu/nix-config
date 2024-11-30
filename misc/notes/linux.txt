@@ -74,8 +74,6 @@ dd if=/dev/zero of=/dev/sdc bs=512 count=1
 echo -e "n\np\n1\n\n\nw" | fdisk /dev/sdc
 mkfs.vfat /dev/sdc1
 lsblk
-mkdir -p /media/usb-drive
-mount /dev/sdc1 /media/usb-drive
 
 # force wipe all partitions (does NOT make sure that data cant be recovered)
 dd if=/dev/zero of=/dev/sda bs=1M status=progress

@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  strings,
-  ...
-}:
-{
+{ pkgs, inputs, strings, ... }: {
 
   # app menu
   home-manager.users.hatosu.programs.rofi = {
@@ -17,7 +11,7 @@
   # bar
   home-manager.users.hatosu.programs.waybar = {
     enable = true;
-    package = pkgs.waybar;
+    package = pkgs.stable.waybar;
     settings = {
       mainBar = {
         output = [ "*" ];

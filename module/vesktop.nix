@@ -494,7 +494,7 @@ let
             },
             "Summaries": {
                 "enabled": true,
-                "summaryExpiryThresholdDays": 1
+                "summaryExpiryThresholdDays": 30
             },
             "SendTimestamps": {
                 "enabled": false,
@@ -695,8 +695,8 @@ let
     }
   '';
 
-  # ignore everything below
-  vesktopcss = builtins.readFile theme;
+# ignore everything below
+vesktopcss = builtins.readFile theme;
 in
 {
   home-manager.users.hatosu.home.file = {
