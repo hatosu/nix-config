@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  strings,
-  ...
-}:
-let
+{ pkgs, inputs, strings, ... }: let
 
   # choose display method (wayland or xorg)
   protocol = "wayland";
