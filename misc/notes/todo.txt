@@ -6,6 +6,7 @@
 
 #######################################
 
+- cracked out stylix.nix file (fanc syn too)
 - shell.nix where you can do "nix develop C" or "nix develop rust" and swap between configs
 - school
 - thunderbird

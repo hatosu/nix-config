@@ -1,52 +1,66 @@
-{ pkgs, lib, ... }: { environment = { systemPackages = with pkgs; [
+{ pkgs, ...}: { environment.systemPackages =
 
-      # custom
-      nixfind
-      nixpaper
-      help
-      nixocr
-      kden
-      #voice-changer
+  # default
+  with pkgs; [
+    nixfind
+    nixpaper
+    nixocr
+    help
+    kden
+    #voice-changer
+  ]
 
-      # cli
-      woeusb
-      cargo
-      nixfmt-rfc-style
-      ffmpeg
-      appimage-run
-      wl-clipboard
-      playerctl
-      vlc
-      git
-      tokei
-      zip
-      rarcrack
-      hyperfine
-      watchexec
-      wget
-      shellcheck
-      rclone
-      lshw
-      grim
-      slurp
-      latest.backgroundremover
-      pinned.element
-      pinned.cliphist
+  # fresh
+  ++ (with pkgs.fresh; [
+    woeusb
+    cargo
+    nixfmt-rfc-style
+    ffmpeg
+    appimage-run
+    wl-clipboard
+    playerctl
+    vlc
+    git
+    tokei
+    zip
+    rarcrack
+    hyperfine
+    watchexec
+    wget
+    shellcheck
+    rclone
+    lshw
+    grim
+    slurp
+    ciano
+  ])
 
-      # gui
-      ciano
-      stable.synfigstudio
-      stable.video-trimmer
-      stable.krita
-      stable.libreoffice
-      stable.lmms
-      stable.freecad
-      stable.godot_4
-      stable.blender
-      stable.zoom-us
-      stable.anki-bin
-      stable.obsidian
-      stable.tor-browser
-      pinned.komikku
+  # latest
+  ++ (with pkgs.latest; [
+    backgroundremover
+  ])
 
-];};}
+  # stable
+  ++ (with pkgs.stable; [
+    synfigstudio
+    video-trimmer
+    krita
+    libreoffice
+    lmms
+    freecad
+    godot_4
+    blender
+    zoom-us
+    anki-bin
+    obsidian
+    tor-browser
+    komikku
+  ])
+
+  # pinned
+  ++ (with pkgs.pinned; [
+    element
+    cliphist
+  ]);
+
+}
