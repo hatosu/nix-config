@@ -3,7 +3,6 @@
   fonts.packages = with pkgs; [
 
     # enable fonts
-    nerdfonts
     source-code-pro
     font-awesome
     gohufont

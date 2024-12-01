@@ -4,9 +4,9 @@
 
   modifications = final: prev: {
 
-    #waybar = prev.waybar.overrideAttrs (oldAttrs: rec {
-    #  mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    #});
+    waybar = prev.waybar.overrideAttrs (oldAttrs: rec {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
 
     flameshot = prev.flameshot.override {
       enableWlrSupport = true;

@@ -9,6 +9,7 @@
       #voice-changer
 
       # cli
+      woeusb
       cargo
       nixfmt-rfc-style
       ffmpeg

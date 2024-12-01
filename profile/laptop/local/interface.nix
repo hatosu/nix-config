@@ -11,7 +11,7 @@
   # bar
   home-manager.users.hatosu.programs.waybar = {
     enable = true;
-    package = pkgs.stable.waybar;
+    package = pkgs.waybar;
     settings = {
       mainBar = {
         output = [ "*" ];

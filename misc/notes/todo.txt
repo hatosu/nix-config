@@ -6,6 +6,7 @@
 
 #######################################
 
+- shell.nix where you can do "nix develop C" or "nix develop rust" and swap between configs
 - school
 - thunderbird
 - tmux
@@ -62,7 +63,7 @@
 - ai assistant can scan repo for virus
 - make vm setup 100% declared (no gui configuration required)
 - package cod into flake
-- custom nixos iso
+- (generators) (custom nixos iso) (https://github.com/sjcobb2022/nixos-config/tree/main/generators)
 - reliable /secret/files/dir system (so that nothing is shown on repo)
 - hijack distros with nixos-anywhere reliably
 - copy configs of xsharawi, lynaix, grox(vimjoyer), doom-emacs-main-dev, aylur, misterio77
