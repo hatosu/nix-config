@@ -87,7 +87,7 @@
 
     # manage history
     history = {
-      size = 10000;
+      size = 1000000;
       ignoreAllDups = true;
       path = "$HOME/.zsh_history";
       ignorePatterns = [

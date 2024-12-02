@@ -42,6 +42,7 @@
 
   # stable
   ++ (with pkgs.stable; [
+    anki-bin
     synfigstudio
     video-trimmer
     krita
@@ -51,7 +52,6 @@
     godot_4
     blender
     zoom-us
-    anki-bin
     obsidian
     tor-browser
     komikku

@@ -53,6 +53,7 @@
       ".config/spotify"
       ".config/Ryujinx"
       ".config/Cemu"
+      ".local/share/Anki2"
       ".local/share/godot"
       ".local/share/kdenlive"
       ".local/share/Steam"

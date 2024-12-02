@@ -10,15 +10,15 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
 
   # bookmarks
   bookmarks = let name = ""; in [ { name = "toolbar"; toolbar = true; bookmarks = [
-    { url = "https://claude.ai/new"; inherit name; }
-    { url = "https://www.perplexity.ai/"; inherit name; }
-    { url = "https://www.phind.com/search?home=true"; inherit name; }
+    { url = "https://github.com/hatosu/config"; inherit name; }
     { url = "https://search.nixos.org/packages?channel=unstable"; inherit name; }
     { url = "https://noogle.dev/"; inherit name; }
     { url = "https://home-manager-options.extranix.com/?query=&release=master"; inherit name; }
     { url = "https://tales.mbivert.com/on-nix-language/"; inherit name; }
     { url = "https://ayats.org/blog"; inherit name; }
-    { url = "https://github.com/hatosu/config"; inherit name; }
+    { url = "https://claude.ai/new"; inherit name; }
+    { url = "https://www.perplexity.ai/"; inherit name; }
+    { url = "https://www.phind.com/search?home=true"; inherit name; }
     { url = "https://dpp.dev/"; inherit name; }
     { url = "https://www.twitch.tv/issogashii/videos"; inherit name; }
     { url = "https://www.photopea.com/"; inherit name; }
