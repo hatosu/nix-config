@@ -15,5 +15,5 @@
     konsole
     elisa
   ];
-  
+
 }

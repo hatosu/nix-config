@@ -1,5 +1,5 @@
 {
 
-  # nothing yet D:
+  locale = "ja_JP.UTF-8";
 
 }

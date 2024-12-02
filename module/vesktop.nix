@@ -83,7 +83,7 @@
                 "enabled": true,
                 "anonymiseByDefault": true,
                 "method": 0,
-                "randomisedLength": 50,
+                "randomisedLength": 5,
                 "consistent": "image"
             },
             "AppleMusicRichPresence": {

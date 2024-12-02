@@ -36,6 +36,7 @@
 
       # import global nix modules
       module.hyprland
+      #module.kde
       #module.niri
       #module.gnome
       module.pipewire

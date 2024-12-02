@@ -18,6 +18,12 @@
     # pinned (wont update)
     nixpkgs-pinned.url = "github:nixos/nixpkgs/f83f99270023d739b4ab3fa51f39778165bb4920";
 
+    # impermanence
+    impermanence.url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
+
+    # nixos hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/59b6e11bea99805b02ab38c8f9d8ba21fee58874";
+
     # home manager
     home-manager = {
       url = "github:nix-community/home-manager/819f682269f4e002884702b87e445c82840c68f2";
@@ -29,12 +35,6 @@
       url = "github:nix-community/disko/67dc29be3036cc888f0b9d4f0a788ee0f6768700";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # impermanence
-    impermanence.url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
-
-    # nixos hardware
-    nixos-hardware.url = "github:NixOS/nixos-hardware/59b6e11bea99805b02ab38c8f9d8ba21fee58874";
 
     # firefox addons
     firefox-addons = {

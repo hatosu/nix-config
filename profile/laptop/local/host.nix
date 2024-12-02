@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ inputs, vars, ... }: {
 
   # define hostname
   networking.hostName = "nixos";
@@ -19,10 +18,21 @@
     ];
   };
 
-  # properly set default locale
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    supportedLocales = [ "en_US.UTF-8/UTF-8" ];
+  # locale
+  i18n.defaultLocale = vars.locale;
+  home-manager.users.hatosu.home.language = {
+    base = vars.locale;
+    ctype = vars.locale;
+    numeric = vars.locale;
+    time = vars.locale;
+    collate = vars.locale;
+    monetary = vars.locale;
+    messages = vars.locale;
+    paper = vars.locale;
+    name = vars.locale;
+    address = vars.locale;
+    telephone = vars.locale;
+    measurement = vars.locale;
   };
 
   # tty

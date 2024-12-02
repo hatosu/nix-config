@@ -1,8 +1,7 @@
-{ pkgs, lib, ... }:
-{
-  fonts.packages = with pkgs; [
+{ pkgs, lib, ... }: {
 
-    # enable fonts
+  # enable fonts
+  fonts.packages = with pkgs; [
     source-code-pro
     font-awesome
     gohufont
@@ -14,6 +13,9 @@
     noto-fonts
     noto-fonts-emoji
     noto-fonts-cjk-sans
+  ]
 
-  ];
+  # enable all nerd-fonts
+  ++ (lib.filter lib.isDerivation (lib.attrValues pkgs.nerd-fonts));
+
 }

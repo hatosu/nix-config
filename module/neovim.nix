@@ -11,6 +11,7 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
       vim-suda
       vim-surround
       vim-commentary
+      telescope-nvim
       presence-nvim
       awesome-vim-colorschemes
       syntastic
@@ -49,12 +50,12 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
       nmap <silent> <c-j> :wincmd j<CR>
       nmap <silent> <c-h> :wincmd h<CR>
       nmap <silent> <c-l> :wincmd l<CR>
-      
-      " binds for nerdcommenter
-      filetype plugin on
-      nnoremap <silent> <leader>c} V}:call NERDComment('x', 'toggle')<CR>
-      nnoremap <silent> <leader>c{ V{:call NERDComment('x', 'toggle')<CR>
 
+      " telescope
+      nnoremap <leader>f <cmd>Telescope find_files<cr>
+      nnoremap <leader>g <cmd>Telescope live_grep<cr>
+      nnoremap <leader>b <cmd>Telescope buffers<cr>
+      
       " discord presence
       let g:presence_auto_update         = 1
       let g:presence_neovim_image_text   = "The One True Text Editor"

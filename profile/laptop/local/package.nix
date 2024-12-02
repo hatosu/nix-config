@@ -55,6 +55,7 @@
     obsidian
     tor-browser
     komikku
+    ripgrep
   ])
 
   # pinned
