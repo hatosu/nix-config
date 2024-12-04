@@ -45,6 +45,7 @@
     users.hatosu = { directories = [ ".cache/dconf" ".config/dconf"
       "files"
       ".mozilla"
+      ".config/obs-studio"
       ".config/alvr"
       ".config/Valve"
       ".config/openvr"

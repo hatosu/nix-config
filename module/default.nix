@@ -11,6 +11,7 @@
   gaming = import ./gaming.nix;
   hotkeys = import ./hotkeys.nix;
   devstuff = import ./devstuff.nix;
+  rofi = import ./rofi.nix;
   cli = import ./cli.nix;
   fastfetch = import ./fastfetch.nix;
   firefox = import ./firefox.nix;

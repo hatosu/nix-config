@@ -11,21 +11,20 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
       vim-suda
       vim-surround
       vim-commentary
+      onedarker-nvim
       telescope-nvim
       presence-nvim
-      awesome-vim-colorschemes
       syntastic
       indentLine
       supertab
       undotree
+      awesome-vim-colorschemes
     ];
 
-    extraConfig = let
-
     # init.vim
-    init = ''
+    extraConfig = ''
       
-      " configure theme
+      " apply theme
       let g:sierra_Twilight = 1
       colorscheme sierra
       autocmd VimEnter * highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
@@ -70,7 +69,6 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
       let g:presence_editing_text        = "Editing %s"
       let g:presence_file_explorer_text  = "Browsing %s"
       let g:presence_git_commit_text     = "Committing changes"
-      let g:presence_plugin_manager_text = "Managing plugins"
       let g:presence_reading_text        = "Reading %s"
       let g:presence_workspace_text      = "Working on %s"
       let g:presence_line_number_text    = "Line %s out of %s"
@@ -90,4 +88,4 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
     
     '';
 
-in"${init}";};}
+};}

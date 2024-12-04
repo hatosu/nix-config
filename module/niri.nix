@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, strings, ... }: {
 
   # enable
   programs.niri = {
@@ -15,7 +15,6 @@
   services.gnome.gnome-keyring.enable = true;
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
     xdgOpenUsePortal = true;
     config.common.default = "*";
     extraPortals = with pkgs; [
@@ -48,8 +47,41 @@
     pinned.papirus-icon-theme
   ];
 
+  # bar
+  home-manager.users.hatosu.programs.waybar = {
+    enable = true;
+    package = pkgs.waybar;
+    settings = {
+      mainBar = {
+        output = [ "*" ];
+        layer = "top";
+        position = "bottom";
+        margin = "5px";
+        height = 32;
+        modules-left = [
+          "niri/workspaces"
+          "niri/language"
+          "user"
+        ];
+        modules-center = [
+          "niri/window"
+          "privacy"
+        ];
+        modules-right = [
+          "tray"
+          "cpu"
+          "temperature"
+          "memory"
+          "disk"
+          "clock"
+        ];
+      };
+    };
+    style = strings.waybarstylecss;
+  };
+
   # config
-  home-manager.users.hatosu.home.file."config" = let config = builtins.toFile "config.kdl" ''
+  home-manager.users.hatosu.home.file."niri-config" = let config = pkgs.writeText "config.kdl" ''
 
     //////////
     //output//

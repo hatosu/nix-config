@@ -1,5 +1,4 @@
-{ pkgs }:
-pkgs.writeShellScriptBin "nixfind" ''
+{ pkgs }: pkgs.writeShellScriptBin "nixfind" ''
 
   #!/usr/bin/env bash
   highlight() {
@@ -12,7 +11,7 @@ pkgs.writeShellScriptBin "nixfind" ''
       fi
     done < "$1"
   }
-  echo -e "select category\n1. Nix Packages\n2. Nix Options\n3. Home Options\n"
+  echo -e "select category\n1. Nix Packages\n2. Nix Options\n3. Home Options\n4. Github"
   read -p "enter choice (1-3):" choice
   case $choice in
     1)
@@ -39,6 +38,13 @@ pkgs.writeShellScriptBin "nixfind" ''
       man home-configuration.nix 2> /dev/null | awk "/$1/,/Declared/" > /tmp/nixfind_result
       grep -v '/' /tmp/nixfind_result > /tmp/nixfind_result2
       highlight /tmp/nixfind_result2 | less
+      ;;
+    4)
+      if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 <search_term>"
+        exit 1
+      fi
+      xdg-open "https://github.com/search?q=path%3A**%2F*.nix%20$1&type=code"
       ;;
     *)
       echo "Invalid selection."

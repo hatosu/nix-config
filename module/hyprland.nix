@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, strings, ... }: {
 
   # login
   services.displayManager.ly.enable = true;
@@ -11,6 +11,35 @@
       Type=Application
     '').overrideAttrs(_: {passthru.providedSessions = [ "hyprland" ];}))
   ];
+
+  # gtk, qt, cursor
+  home-manager.users.hatosu.gtk = {
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+    enable = true;
+    theme = {
+      name = "Colloid-Dark";
+      package = pkgs.pinned.colloid-gtk-theme.override {
+        tweaks = [ "black" "rimless" "float" "normal" ];
+      };
+    };
+  };
+  home-manager.users.hatosu.qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style = {
+      name = "Dracula";
+      package = pkgs.pinned.dracula-qt5-theme;
+    };
+  };
+  home-manager.users.hatosu.home.pointerCursor = {
+    x11.enable = true;
+    gtk.enable = true;
+    package = pkgs.pinned.oreo-cursors-plus;
+    name = "oreo_spark_light_pink_cursors";
+    size = 20;
+  };
+  home-manager.users.hatosu.home.sessionVariables.GSK_RENDERER = "gl";
 
   # xdg/dbus
   services.dbus.enable = true;
@@ -52,6 +81,39 @@
     pinned.papirus-icon-theme
   ];
 
+  # bar
+  home-manager.users.hatosu.programs.waybar = {
+    enable = true;
+    package = pkgs.waybar;
+    settings = {
+      mainBar = {
+        output = [ "*" ];
+        layer = "top";
+        position = "bottom";
+        margin = "5px";
+        height = 32;
+        modules-left = [
+          "hyprland/workspaces"
+          "hyprland/language"
+          "user"
+        ];
+        modules-center = [
+          "hyprland/window"
+          "privacy"
+        ];
+        modules-right = [
+          "tray"
+          "cpu"
+          "temperature"
+          "memory"
+          "disk"
+          "clock"
+        ];
+      };
+    };
+    style = strings.waybarstylecss;
+  };
+
   # hypr
   home-manager.users.hatosu.wayland.windowManager.hyprland = {
 
@@ -78,7 +140,6 @@
           exec-once = wl-paste --watch cliphist store  
           exec-once = waybar
           exec-once = fcitx5 --enable all
-          exec-once = steam -silent
           exec-once = [workspace 1 silent] firefox
           exec-once = [workspace 2 silent] foot
           exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime

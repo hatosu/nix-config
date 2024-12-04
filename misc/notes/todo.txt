@@ -70,7 +70,7 @@ make firefox 100% declarative:
 - choose if extensions are enabled or disabled on fresh install
 
 - sops nix
-- commit first package, realtimevc? vosk? read link!!!!!!!!!!!! > (https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md)
+- commit first package, realtimevc? vosk? openseeface? all in one vtube package? read link!!!!!!!!!!!! > (https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md)
 - obs overlays
 - hijack OS? (these 2 links: https://github.com/nix-community/nixos-anywhere and https://github.com/elitak/nixos-infect)
 - cracked out stylix.nix file (fanc syn too)
@@ -87,7 +87,6 @@ make firefox 100% declarative:
 - gitui
 - tree
 - perfect terminal (notifications, other shit too)
-- history manager
 - doing extra for everyone and yourself arc
 - do everything it takes to start working on niren with a 100% safe computer, accounts, passwords, and efficient environment
 - make firefox 100% declarative

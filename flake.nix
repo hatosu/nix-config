@@ -30,6 +30,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # plasma manager
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager/88ca377ff58b5c30a2879745829842554d4b21d5";
+      inputs.nixpkgs.follows = "nixpkgs"; inputs.home-manager.follows = "home-manager";
+    };
+
     # disko
     disko = {
       url = "github:nix-community/disko/67dc29be3036cc888f0b9d4f0a788ee0f6768700";
@@ -38,7 +44,7 @@
 
     # firefox addons
     firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=4a8ba00d1be3f3745428ed56efbb32155c548192";
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=51d5446f359b67d5b6fdf45a145391c4d8679b3e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -55,25 +61,29 @@
       self,
       nixpkgs,
       home-manager,
+      plasma-manager,
       nixos-hardware,
       ... 
     } @ inputs: let
 
+      # read before changing: https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
       nixosVersion = "24.05";
-      
-      systems = [ "x86_64-linux" ];
 
+      systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      
+
       shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
       vars = import ./misc/vars/default.nix;
+
       strings = import ./misc/strings/default.nix;
 
       specialArgs = { inherit inputs vars strings nixosVersion; };
 
+      # hm & pm stuff
       homeManager = [ home-manager.nixosModules.home-manager
-      { home-manager = { extraSpecialArgs = specialArgs; }; } ];
+      { home-manager = { extraSpecialArgs = specialArgs; sharedModules =
+      [ inputs.plasma-manager.homeManagerModules.plasma-manager ]; }; } ];
 
     in {
 

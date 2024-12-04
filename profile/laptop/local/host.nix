@@ -19,21 +19,7 @@
   };
 
   # locale
-  i18n.defaultLocale = vars.locale;
-  home-manager.users.hatosu.home.language = {
-    base = vars.locale;
-    ctype = vars.locale;
-    numeric = vars.locale;
-    time = vars.locale;
-    collate = vars.locale;
-    monetary = vars.locale;
-    messages = vars.locale;
-    paper = vars.locale;
-    name = vars.locale;
-    address = vars.locale;
-    telephone = vars.locale;
-    measurement = vars.locale;
-  };
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # tty
   console = {

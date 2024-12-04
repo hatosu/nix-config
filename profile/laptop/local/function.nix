@@ -1,8 +1,8 @@
 { pkgs, ... }: { environment.interactiveShellInit = ''
 
-    t(){
+    rf(){
       sudo mkdir -p ~/.cache/trash
-      mv -f "$1" ~/.cache/trash
+      sudo mv -f "$1" ~/.cache/trash
     }
 
     pushconfig(){

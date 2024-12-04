@@ -728,11 +728,6 @@ in
         "InstantMessaging"
         "Chat"
       ];
-      mimeType = [
-        ""
-        ""
-        ""
-      ];
       type = "Application";
     };
   };

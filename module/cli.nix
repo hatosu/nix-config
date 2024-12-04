@@ -8,9 +8,12 @@
       main = {
         font = "gohufont:size=12";
       };
-      mouse = {
-        hide-when-typing = "yes";
+      desktop-notifications = {
+        command = "${pkgs.libnotify}/bin/notify-send -a foot -i foot \${title} \${body}";
+        #command = "${lib.getExe pkgs.libnotify} -a \${app-id} -i \${app-id} \${title} \${body}";
+        inhibit-when-focused = "yes";
       };
+      mouse.hide-when-typing = "yes";
       colors = {
         background = "1C1C1C";
         foreground = "e0def4";

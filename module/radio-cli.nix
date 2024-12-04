@@ -2,7 +2,7 @@
 
   packages = with pkgs; [ radio-cli ];
 
-  file."config" = let config = builtins.toFile "config.json" ''
+  file."radio-cli-config" = let config = pkgs.writeText "config.json" ''
     {
 	    "config_version": "2.3.0",
 	    "max_lines": 7,

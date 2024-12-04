@@ -5,7 +5,7 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
   extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
     ublock-origin
     darkreader
-    yomitan
+    #yomitan
   ];
 
   # bookmarks
@@ -19,11 +19,13 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
     { url = "https://claude.ai/new"; inherit name; }
     { url = "https://www.perplexity.ai/"; inherit name; }
     { url = "https://www.phind.com/search?home=true"; inherit name; }
+    { url = "https://grep.app/"; inherit name; }
     { url = "https://dpp.dev/"; inherit name; }
     { url = "https://www.twitch.tv/issogashii/videos"; inherit name; }
     { url = "https://www.photopea.com/"; inherit name; }
     { url = "https://x.com/issogashii"; inherit name; }
     { url = "https://www.youtube.com/@issogashiiVT"; inherit name; }
+    { url = "https://discord.com/channels/331718482485837825/1013107104678162544"; inherit name; }
     { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; inherit name; }
     { url = "https://jpdb.io/learn"; inherit name; }
     { url = "https://itazuraneko.org/other/kensaku.html"; inherit name; }
