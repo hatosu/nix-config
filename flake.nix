@@ -74,9 +74,9 @@
 
       shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-      vars = import ./misc/vars/default.nix;
+      vars = import ./vars/default.nix;
 
-      strings = import ./misc/strings/default.nix;
+      strings = import ./strings/default.nix;
 
       specialArgs = { inherit inputs vars strings nixosVersion; };
 

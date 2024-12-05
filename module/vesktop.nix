@@ -301,7 +301,7 @@
                 "showMillis": false
             },
             "MessageLinkEmbeds": {
-                "enabled": true,
+                "enabled": false,
                 "automodEmbeds": "never",
                 "listMode": "blacklist",
                 "idList": ""

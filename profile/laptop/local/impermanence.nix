@@ -54,6 +54,7 @@
       ".config/spotify"
       ".config/Ryujinx"
       ".config/Cemu"
+      ".local/state/wireplumber"
       ".local/share/Anki2"
       ".local/share/godot"
       ".local/share/kdenlive"

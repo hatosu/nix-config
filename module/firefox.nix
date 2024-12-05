@@ -24,8 +24,7 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
     { url = "https://www.twitch.tv/issogashii/videos"; inherit name; }
     { url = "https://www.photopea.com/"; inherit name; }
     { url = "https://x.com/issogashii"; inherit name; }
-    { url = "https://www.youtube.com/@issogashiiVT"; inherit name; }
-    { url = "https://discord.com/channels/331718482485837825/1013107104678162544"; inherit name; }
+    { url = "https://www.youtube.com/feed/subscriptions/shorts"; inherit name; }
     { url = "https://discord.com/channels/696438030189330482/1238755966439133235"; inherit name; }
     { url = "https://jpdb.io/learn"; inherit name; }
     { url = "https://itazuraneko.org/other/kensaku.html"; inherit name; }

@@ -18,7 +18,33 @@
       cd
     }
 
-    merge(){
+    JESSE(){
+      xdg-open "https://www.google.com/"
+      sleep 0.1
+      xdg-open "https://www.phind.com/search?home=true"
+      sleep 0.1
+      xdg-open "https://www.perplexity.ai/"
+      sleep 0.1
+      xdg-open "https://claude.ai/new"
+      sleep 0.1
+      xdg-open "https://grep.app/"
+      sleep 0.1
+      xdg-open "http://www.crasseux.com/books/ctutorial/"
+      sleep 0.1
+      xdg-open "https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html"
+      sleep 0.1
+      xdg-open "https://en.cppreference.com/w/"
+      sleep 0.1
+      xdg-open "https://doc.rust-lang.org/book/title-page.html"
+      sleep 0.1
+      xdg-open "https://pkg.go.dev/"
+      sleep 0.1
+      xdg-open "https://ziglang.org/documentation/master/"
+      sleep 0.1
+      xdg-open "https://discord.com/channels/331718482485837825/1124619767542718524"
+    }
+
+    merge_opus(){
       find . -maxdepth 1 -name "*.opus" -type f | sort > input_files.txt
       if [ ! -s input_files.txt ]; then
         echo "No .opus files found in current directory"

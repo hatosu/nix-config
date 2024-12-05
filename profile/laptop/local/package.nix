@@ -2,42 +2,33 @@
 
   # default
   with pkgs; [
+    kden
+    help
     nixfind
     nixpaper
     nixocr
-    help
-    kden
-    #voice-changer
-  ]
-
-  # fresh
-  ++ (with pkgs.fresh; [
-    woeusb
-    cargo
-    nixfmt-rfc-style
-    ffmpeg
-    appimage-run
+    ciano
     wl-clipboard
     playerctl
     vlc
     git
     tokei
     zip
-    rarcrack
-    hyperfine
-    watchexec
     wget
-    shellcheck
-    rclone
-    lshw
-    grim
     slurp
-    ciano
+    grim
+    lshw
+  ]
+
+  # fresh
+  ++ (with pkgs.fresh; [
+    nixfmt-rfc-style
   ])
 
   # latest
   ++ (with pkgs.latest; [
-    backgroundremover
+    ffmpeg
+    tor-browser
   ])
 
   # stable
@@ -52,10 +43,14 @@
     godot_4
     blender
     zoom-us
-    obsidian
-    tor-browser
     komikku
     ripgrep
+    mission-center
+    rarcrack
+    hyperfine
+    watchexec
+    shellcheck
+    rclone
   ])
 
   # pinned

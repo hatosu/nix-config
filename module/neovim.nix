@@ -23,11 +23,9 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
 
     # init.vim
     extraConfig = ''
-      
+
       " apply theme
-      let g:sierra_Twilight = 1
-      colorscheme sierra
-      autocmd VimEnter * highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+      colorscheme gruvbox
       
       " set bar theme
       autocmd VimEnter * AirlineTheme minimalist
