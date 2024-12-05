@@ -140,6 +140,7 @@
           exec-once = wl-paste --watch cliphist store  
           exec-once = waybar
           exec-once = fcitx5 --enable all
+          exec-once = steam -silent
           exec-once = [workspace 1 silent] firefox
           exec-once = [workspace 2 silent] foot
           exec-once = [workspace 3 silent] vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime

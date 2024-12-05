@@ -1,5 +1,4 @@
-{ pkgs, strings, ... }:
-{
+{ pkgs, strings, ... }: {
 
   # enable keyd as hotkey service
   services.keyd = {
@@ -28,6 +27,11 @@
     QT_IM_MODULE = "fcitx";
     GTK_IM_MDOULE = "fcitx";
     GLFW_IM_MODULE = "ibus";
+  };
+  home-manager.users.hatosu.home.file."classicui.conf" = { 
+    source = strings.classicuiconf; 
+    target = ".config/fcitx5/conf/classicui.conf";
+    force = true;
   };
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
   i18n.inputMethod = {
@@ -62,6 +66,10 @@
         };
         "Groups/0/Items/3" = {
           Name = "keyboard-cn-altgr-pinyin";
+          Layout = "";
+        };
+        "Groups/0/Items/4" = {
+          Name = "keyboard-fr";
           Layout = "";
         };
         "GroupOrder" = {

@@ -99,6 +99,7 @@ in { nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs; in 
     update = "sudo nix flake update --flake ${FLAKE}";
     repair = "sudo nix-store --verify --check-contents --repair";
     purify = "sudo nix-collect-garbage && sudo nix store optimise";
+    develop = "sudo nix develop ${FLAKE}";
   };
 
 }

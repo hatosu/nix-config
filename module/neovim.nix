@@ -14,11 +14,11 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
       onedarker-nvim
       telescope-nvim
       presence-nvim
+      gruvbox
       syntastic
       indentLine
       supertab
       undotree
-      awesome-vim-colorschemes
     ];
 
     # init.vim

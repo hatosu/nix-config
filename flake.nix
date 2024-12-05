@@ -116,15 +116,6 @@
           ];
         };
 
-        proj1 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            ./profile/proj1/configuration.nix
-            inputs.disko.nixosModules.default
-            inputs.impermanence.nixosModules.impermanence
-          ];
-        };
-
         temporary = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [

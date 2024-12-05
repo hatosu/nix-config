@@ -65,6 +65,7 @@
       ".local/share/Cemu/games"
     ]; files = [
       ".zsh_history"
+      ".local/share/zoxide/db.zo"
       ".config/kdenliverc"
       ".config/kdenlive-layoutsrc"
     ];};
