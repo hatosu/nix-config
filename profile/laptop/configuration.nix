@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, strings, vars, nixosVersion, ... }: {
+{ inputs, lib, config, pkgs, strings, nixosVersion, ... }: {
   
   imports = let module = inputs.self.nixosModules; in [
 

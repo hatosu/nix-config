@@ -74,11 +74,9 @@
 
       shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-      vars = import ./vars/default.nix;
-
       strings = import ./strings/default.nix;
 
-      specialArgs = { inherit inputs vars strings nixosVersion; };
+      specialArgs = { inherit inputs strings nixosVersion; };
 
       # hm & pm stuff
       homeManager = [ home-manager.nixosModules.home-manager
