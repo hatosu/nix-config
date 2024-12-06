@@ -43,7 +43,10 @@
 #  inherit name;
 #}
 
-{ pkgs ? import <nixpkgs> {}, }: let
+{
+  pkgs ? import <nixpkgs> { },
+}:
+let
 
   name = "kden";
 
@@ -63,7 +66,8 @@
     inherit icon name desktopName;
   };
 
-in pkgs.symlinkJoin {
+in
+pkgs.symlinkJoin {
   paths = [
     script
     item

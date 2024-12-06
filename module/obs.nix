@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: { home-manager.users.hatosu.programs.obs-studio = { enable = true;
+{ config, pkgs, ... }:
+{
+  home-manager.users.hatosu.programs.obs-studio = {
+    enable = true;
 
     package = pkgs.obs-studio;
 

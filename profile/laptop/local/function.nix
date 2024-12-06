@@ -1,4 +1,6 @@
-{ pkgs, ... }: { environment.interactiveShellInit = ''
+{ pkgs, ... }:
+{
+  environment.interactiveShellInit = ''
 
     rf(){
       sudo mkdir -p ~/.cache/trash
@@ -108,4 +110,5 @@
       fi
     }
 
-'';}
+  '';
+}

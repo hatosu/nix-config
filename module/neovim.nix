@@ -1,6 +1,12 @@
-{ config, pkgs, ... }: { home-manager.users.hatosu.programs.neovim = {
-enable = true; defaultEditor = true; viAlias = true; vimAlias = true;
-vimdiffAlias = true; package = pkgs.neovim-unwrapped;
+{ config, pkgs, ... }:
+{
+  home-manager.users.hatosu.programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    package = pkgs.neovim-unwrapped;
 
     # plugins
     plugins = with pkgs.vimPlugins; [
@@ -26,22 +32,22 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
 
       " apply theme
       colorscheme gruvbox
-      
+
       " set bar theme
       autocmd VimEnter * AirlineTheme minimalist
-      
+
       " add numbered lines
       set nu
-      
+
       " turn on syntax highlighting
       syntax on
-      
+
       " configure font
       set guifont=Source\ Code\ Pro:h11
-      
-      " bind Ctrl+S to save
-      nnoremap <C-s> :SudaWrite<CR>
-      
+
+      " allow :w to write with sudo
+      cmap w SudaWrite
+
       " hjkl to move between splits
       nmap <silent> <c-k> :wincmd k<CR>
       nmap <silent> <c-j> :wincmd j<CR>
@@ -52,7 +58,7 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
       nnoremap <leader>f <cmd>Telescope find_files<cr>
       nnoremap <leader>g <cmd>Telescope live_grep<cr>
       nnoremap <leader>b <cmd>Telescope buffers<cr>
-      
+
       " discord presence
       let g:presence_auto_update         = 1
       let g:presence_neovim_image_text   = "The One True Text Editor"
@@ -70,7 +76,7 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
       let g:presence_reading_text        = "Reading %s"
       let g:presence_workspace_text      = "Working on %s"
       let g:presence_line_number_text    = "Line %s out of %s"
-      
+
       " fix clipboard
       set clipboard=unnamed
       let g:clipboard = {
@@ -83,7 +89,8 @@ vimdiffAlias = true; package = pkgs.neovim-unwrapped;
           \       '*': ['${pkgs.wl-clipboard}/bin/wl-paste', '--no-newline'],
           \   },
           \ }
-    
+
     '';
 
-};}
+  };
+}

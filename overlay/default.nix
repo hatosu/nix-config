@@ -1,4 +1,5 @@
-{ inputs }: {
+{ inputs }:
+{
 
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -8,10 +9,8 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     });
 
-    flameshot = prev.flameshot.override {
-      enableWlrSupport = true;
-    };
- 
+    flameshot = prev.flameshot.override { enableWlrSupport = true; };
+
     ciano = prev.ciano.overrideAttrs (oldAttrs: {
       src = prev.fetchFromGitHub {
         owner = "robertsanseries";
@@ -19,9 +18,11 @@
         rev = "31ae62057660e327eaf5e358a31c2364b62addbf";
         hash = "sha256-QVXvcBTyY82AZbAqCeRSEhECm4k9y/3zv0pBkuk0W9I=";
       };
-      postInstall = (oldAttrs.postInstall or "") + ''
-        substituteInPlace $out/share/applications/com.github.robertsanseries.ciano.desktop --replace "Name=Ciano" "Name=Convert"
-      '';
+      postInstall =
+        (oldAttrs.postInstall or "")
+        + ''
+          substituteInPlace $out/share/applications/com.github.robertsanseries.ciano.desktop --replace "Name=Ciano" "Name=Convert"
+        '';
     });
 
   };

@@ -33,7 +33,8 @@
     # plasma manager
     plasma-manager = {
       url = "github:nix-community/plasma-manager/88ca377ff58b5c30a2879745829842554d4b21d5";
-      inputs.nixpkgs.follows = "nixpkgs"; inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     # disko
@@ -63,8 +64,9 @@
       home-manager,
       plasma-manager,
       nixos-hardware,
-      ... 
-    } @ inputs: let
+      ...
+    }@inputs:
+    let
 
       # read before changing: https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
       nixosVersion = "24.05";
@@ -79,15 +81,20 @@
 
       specialArgs = { inherit inputs strings nixosVersion; };
 
-      homeManager = [ home-manager.nixosModules.home-manager
-      { home-manager = { extraSpecialArgs = specialArgs; sharedModules =
-      [ inputs.plasma-manager.homeManagerModules.plasma-manager ]; }; } ];
+      homeManager = [
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            extraSpecialArgs = specialArgs;
+            sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+          };
+        }
+      ];
 
-    in {
+    in
+    {
 
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       overlays = import ./overlay { inherit inputs; };
 

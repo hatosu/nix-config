@@ -1,4 +1,5 @@
-{ pkgs, strings, ... }: {
+{ pkgs, strings, ... }:
+{
 
   # enable keyd as hotkey service
   services.keyd = {
@@ -28,8 +29,8 @@
     GTK_IM_MDOULE = "fcitx";
     GLFW_IM_MODULE = "ibus";
   };
-  home-manager.users.hatosu.home.file."classicui.conf" = { 
-    source = strings.classicuiconf; 
+  home-manager.users.hatosu.home.file."classicui.conf" = {
+    source = strings.classicuiconf;
     target = ".config/fcitx5/conf/classicui.conf";
     force = true;
   };

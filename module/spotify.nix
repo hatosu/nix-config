@@ -4,7 +4,7 @@
     let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 
-      # name of theme ↓ 
+      # name of theme ↓
       theme-name = "defaultDynamic";
     in
     {

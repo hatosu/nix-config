@@ -1,4 +1,10 @@
-{ pkgs, inputs, strings, ...}: {
+{
+  pkgs,
+  inputs,
+  strings,
+  ...
+}:
+{
 
   home-manager.users.hatosu.programs.rofi = {
     package = pkgs.rofi;

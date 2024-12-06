@@ -1,6 +1,8 @@
-{ shellpkgs ? import <nixpkgs> {}, }:
+{
+  shellpkgs ? import <nixpkgs> { },
+}:
 
-let 
+let
 
   pkgs = shellpkgs;
 

@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   services = {
 
@@ -21,7 +22,7 @@
     desktopManager.plasma6 = {
       enable = true;
     };
-  
+
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -34,7 +35,7 @@
 
   home-manager.users.hatosu.programs.plasma = {
     enable = true;
-    
+
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
       iconTheme = "Papirus-Dark";
@@ -44,7 +45,7 @@
         size = 32;
       };
     };
-    
+
     fonts = {
       general = {
         family = "JetBrains Mono";
@@ -52,11 +53,14 @@
       };
     };
 
-    desktop.widgets = [
-    ];
+    desktop.widgets = [ ];
 
     hotkeys.commands = {
-      "kitty" = { name = "kitty"; command = "kitty"; key = "Meta+L"; };
+      "kitty" = {
+        name = "kitty";
+        command = "kitty";
+        key = "Meta+L";
+      };
     };
 
     shortcuts = {

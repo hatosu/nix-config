@@ -1,4 +1,11 @@
-{ pkgs, lib, inputs, config, ... }: {
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}:
+{
 
   programs.fuse.userAllowOther = true;
   fileSystems."/persist".neededForBoot = true;
@@ -24,7 +31,8 @@
     umount /btrfs_tmp
   '';
 
-  environment.persistence."/persist/system" = { hideMounts = true;
+  environment.persistence."/persist/system" = {
+    hideMounts = true;
 
     # root
     directories = [
@@ -35,40 +43,55 @@
       "/var/lib/docker"
       "/var/lib/waydroid"
       "/var/lib/systemd/coredump"
-      { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+      {
+        directory = "/var/lib/colord";
+        user = "colord";
+        group = "colord";
+        mode = "u=rwx,g=rx,o=";
+      }
     ];
     files = [
-      { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+      {
+        file = "/var/keys/secret_file";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
     ];
 
     # home
-    users.hatosu = { directories = [ ".cache/dconf" ".config/dconf"
-      "files"
-      ".mozilla"
-      ".config/obs-studio"
-      ".config/alvr"
-      ".config/Valve"
-      ".config/openvr"
-      ".config/godot"
-      ".config/vesktop"
-      ".config/spotify"
-      ".config/Ryujinx"
-      ".config/Cemu"
-      ".local/state/wireplumber"
-      ".local/share/Anki2"
-      ".local/share/godot"
-      ".local/share/kdenlive"
-      ".local/share/Steam"
-      ".local/share/waydroid"
-      ".local/share/shadPS4"
-      ".local/share/Cemu"
-      ".local/share/Cemu/games"
-    ]; files = [
-      ".zsh_history"
-      ".local/share/zoxide/db.zo"
-      ".config/kdenliverc"
-      ".config/kdenlive-layoutsrc"
-    ];};
+    users.hatosu = {
+      directories = [
+        ".cache/dconf"
+        ".config/dconf"
+        "files"
+        ".mozilla"
+        ".config/obs-studio"
+        ".config/alvr"
+        ".config/Valve"
+        ".config/openvr"
+        ".config/godot"
+        ".config/vesktop"
+        ".config/spotify"
+        ".config/Ryujinx"
+        ".config/Cemu"
+        ".local/state/wireplumber"
+        ".local/share/Anki2"
+        ".local/share/godot"
+        ".local/share/kdenlive"
+        ".local/share/Steam"
+        ".local/share/waydroid"
+        ".local/share/shadPS4"
+        ".local/share/Cemu"
+        ".local/share/Cemu/games"
+      ];
+      files = [
+        ".zsh_history"
+        ".local/share/zoxide/db.zo"
+        ".config/kdenliverc"
+        ".config/kdenlive-layoutsrc"
+      ];
+    };
 
   };
 
@@ -101,21 +124,24 @@
   home-manager.users.hatosu.home.packages = [ pkgs.dconf ];
 
   # move xdg folders to .cache
-  home-manager.users.hatosu.xdg = let home =
-  config.home-manager.users.hatosu.home.homeDirectory; in {
-    enable = true;
-    userDirs = {
+  home-manager.users.hatosu.xdg =
+    let
+      home = config.home-manager.users.hatosu.home.homeDirectory;
+    in
+    {
       enable = true;
-      createDirectories = true;
-      download = "${home}/.cache/Downloads";
-      desktop = "${home}/.cache/Desktop";
-      videos = "${home}/.cache/Videos";
-      pictures = "${home}/.cache/Pictures";
-      documents = "${home}/.cache/Documents";
-      templates = "${home}/.cache/Templates";
-      publicShare = "${home}/.cache/Public";
-      music = "${home}/.cache/Music";
+      userDirs = {
+        enable = true;
+        createDirectories = true;
+        download = "${home}/.cache/Downloads";
+        desktop = "${home}/.cache/Desktop";
+        videos = "${home}/.cache/Videos";
+        pictures = "${home}/.cache/Pictures";
+        documents = "${home}/.cache/Documents";
+        templates = "${home}/.cache/Templates";
+        publicShare = "${home}/.cache/Public";
+        music = "${home}/.cache/Music";
+      };
     };
-  };
 
 }

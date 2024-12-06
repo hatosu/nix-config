@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   home-manager.users.hatosu.xsession.windowManager.awesome = {
     package = pkgs.stable.awesome;
@@ -8,8 +9,15 @@
   };
 
   # config
-  home.file.".config/awesome" = let config = "
+  home.file.".config/awesome" =
+    let
+      config = "
     # erm
-  "; in { source = config; force = true; };
+  ";
+    in
+    {
+      source = config;
+      force = true;
+    };
 
 }

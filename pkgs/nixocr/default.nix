@@ -18,9 +18,7 @@ in
 pkgs.stdenv.mkDerivation {
   name = "${name}";
   src = script;
-  buildInputs = with pkgs; [
-    shc
-  ];
+  buildInputs = with pkgs; [ shc ];
   phases = [
     "buildPhase"
     "installPhase"

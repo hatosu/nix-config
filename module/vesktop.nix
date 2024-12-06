@@ -1,4 +1,10 @@
-{ pkgs, inputs, strings, ... }: let
+{
+  pkgs,
+  inputs,
+  strings,
+  ...
+}:
+let
 
   # choose display method (wayland or xorg)
   protocol = "wayland";
@@ -689,8 +695,8 @@
     }
   '';
 
-# ignore everything below
-vesktopcss = builtins.readFile theme;
+  # ignore everything below
+  vesktopcss = builtins.readFile theme;
 in
 {
   home-manager.users.hatosu.home.file = {

@@ -1,15 +1,26 @@
-{ pkgs, inputs, strings, ... }: {
+{
+  pkgs,
+  inputs,
+  strings,
+  ...
+}:
+{
 
   # login
   services.displayManager.ly.enable = true;
-  services.displayManager.sessionPackages = [(
-    (pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
-      [Desktop Entry]
-      Name=hyprland
-      Comment=InsertSomeCommentHere
-      Exec=${pkgs.hyprland}/bin/Hyprland
-      Type=Application
-    '').overrideAttrs(_: {passthru.providedSessions = [ "hyprland" ];}))
+  services.displayManager.sessionPackages = [
+    (
+      (pkgs.writeTextDir "share/wayland-sessions/hyprland.desktop" ''
+        [Desktop Entry]
+        Name=hyprland
+        Comment=InsertSomeCommentHere
+        Exec=${pkgs.hyprland}/bin/Hyprland
+        Type=Application
+      '').overrideAttrs
+      (_: {
+        passthru.providedSessions = [ "hyprland" ];
+      })
+    )
   ];
 
   # gtk, qt, cursor
@@ -20,7 +31,12 @@
     theme = {
       name = "Colloid-Dark";
       package = pkgs.pinned.colloid-gtk-theme.override {
-        tweaks = [ "black" "rimless" "float" "normal" ];
+        tweaks = [
+          "black"
+          "rimless"
+          "float"
+          "normal"
+        ];
       };
     };
   };
@@ -127,7 +143,8 @@
       enable = true;
     };
 
-    extraConfig = let
+    extraConfig =
+      let
 
         display = ''
           monitor = HDMI-A-1,2560x1080@165,auto,auto
@@ -298,4 +315,7 @@
           bindl = , XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous
         '';
 
-in"${display}\n${vars}\n${exec}\n${rules}\n${input}\n${visual}\n${animation}\n${other}\n${binds}";};}
+      in
+      "${display}\n${vars}\n${exec}\n${rules}\n${input}\n${visual}\n${animation}\n${other}\n${binds}";
+  };
+}

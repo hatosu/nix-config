@@ -13,7 +13,7 @@ in
     package = pkgs.fastfetch;
     settings = {
 
-      # visual 
+      # visual
       display = {
         size.binaryPrefix = "si";
         color = "blue";

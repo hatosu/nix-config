@@ -20,7 +20,7 @@
     #extraStopCommands = "iptables -P INPUT ACCEPT";
     #extraReversePathFilterRules = "fib daddr . mark . iif type local accept";
     #extraPackages = [ pkgs.ipset ];
-    #extraInputRules = "ip6 saddr { fc00::/7, fe80::/10 } tcp dport 24800 accept"; 
+    #extraInputRules = "ip6 saddr { fc00::/7, fe80::/10 } tcp dport 24800 accept";
     #extraForwardRules = "iifname wg0 accept";
     #extraCommands = "iptables -A INPUT -p icmp -j ACCEPT";
     #logReversePathDrops = false;
