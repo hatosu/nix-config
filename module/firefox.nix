@@ -32,6 +32,7 @@ package = pkgs.firefox; enable = true; languagePacks = [ "jp" ]; profiles.hatosu
     { url = "https://www.signingsavvy.com/"; inherit name; }
     { url = "https://reader.ttsu.app"; inherit name; }
     { url = "https://fmhy.net/videopiracyguide"; inherit name; }
+    { url = "https://annas-archive.org/"; inherit name; }
     { url = "https://libgen.is/"; inherit name; }
     { url = "https://erynith.github.io/movie-web-instances/"; inherit name; }
     { url = "https://theindex.moe/"; inherit name; }
