@@ -70,6 +70,7 @@
       nixosVersion = "24.05";
 
       systems = [ "x86_64-linux" ];
+
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -78,7 +79,6 @@
 
       specialArgs = { inherit inputs strings nixosVersion; };
 
-      # hm & pm stuff
       homeManager = [ home-manager.nixosModules.home-manager
       { home-manager = { extraSpecialArgs = specialArgs; sharedModules =
       [ inputs.plasma-manager.homeManagerModules.plasma-manager ]; }; } ];

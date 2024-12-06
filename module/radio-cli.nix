@@ -9,12 +9,28 @@
 	    "country": "JP",
 	    "data": [
 		    {
+			    "station": "tbs",
+			    "url": "https://www.youtube.com/live/ohI356mwBp8?si=OWMhLG-aEh8KUxL3"
+				},
+		    {
+					"station": "ann",
+					"url": "https://www.youtube.com/live/coYw-eVU0Ks?si=Syrt6q9uY13_YDIh"
+				},
+		    {
+					"station": "ntv",
+					"url": "https://www.youtube.com/live/L6h5VKq7ZV0?si=0fdHLC13oGCHFozi"
+				},
+		    {
+					"station": "anime",
+					"url": "https://www.youtube.com/live/4FBW3mkdKOs?si=s3XXq9WcTKaV-0ty"
+				},
+		    {
+					"station": "jpop",
+					"url": "https://www.youtube.com/live/tr77RbnfYIU?si=DoeLhhKvLZraF9En"
+				},
+		    {
 			    "station": "lofi",
 			    "url": "https://www.youtube.com/live/jfKfPfyJRdk?si=WDl-XdfuhxBfe6XN"
-		    },
-		    {
-			    "station": "japan",
-			    "url": "https://www.youtube.com/live/ohI356mwBp8?si=OWMhLG-aEh8KUxL3"
 		    }
 	    ]
     }

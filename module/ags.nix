@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-let
+{ pkgs, inputs, ... }: let
 
   monitor = "HDMI-A-1";
 
@@ -9,7 +8,7 @@ let
     sha256 = "1d3vq2a2kf1ld6fcjb5z74nlm4pcf5gj7xqg5657z5jrvkab3i0j";
   };
 
-  libs = pkgs.runCommand "libs" { } ''
+  libs = pkgs.runCommand "libs" {} ''
     mkdir -p $out/files
     ${pkgs.unzip}/bin/unzip ${zip} -d "$out/files"
   '';
