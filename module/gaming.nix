@@ -22,41 +22,41 @@
   ];
 
   # vr option 1
-  # programs.alvr = {
-  #   package = pkgs.latest.alvr;
-  #   enable = true;
-  #   openFirewall = true;
-  # };
-
-  # vr option 2
-  services.wivrn = {
-    package = pkgs.latest.wivrn;
+  programs.alvr = {
+    package = pkgs.latest.alvr;
     enable = true;
     openFirewall = true;
-    defaultRuntime = true; # this doesnt currently support proton?
-    autoStart = true;
-    # Config for WiVRn (https://github.com/WiVRn/WiVRn/blob/master/docs/configuration.md)
-    config = {
-      enable = true;
-      json = {
-        # 1.0x foveation scaling
-        scale = 1.0;
-        # 100 Mb/s
-        bitrate = 100000000;
-        encoders = [
-          {
-            encoder = "vaapi";
-            codec = "h265";
-            # 1.0 x 1.0 scaling
-            width = 1.0;
-            height = 1.0;
-            offset_x = 0.0;
-            offset_y = 0.0;
-          }
-        ];
-      };
-    };
   };
+
+  # vr option 2
+  # services.wivrn = {
+  #   package = pkgs.latest.wivrn;
+  #   enable = true;
+  #   openFirewall = true;
+  #   defaultRuntime = true; # this doesnt currently support proton?
+  #   autoStart = true;
+  #   # Config for WiVRn (https://github.com/WiVRn/WiVRn/blob/master/docs/configuration.md)
+  #   config = {
+  #     enable = true;
+  #     json = {
+  #       # 1.0x foveation scaling
+  #       scale = 1.0;
+  #       # 100 Mb/s
+  #       bitrate = 100000000;
+  #       encoders = [
+  #         {
+  #           encoder = "vaapi";
+  #           codec = "h265";
+  #           # 1.0 x 1.0 scaling
+  #           width = 1.0;
+  #           height = 1.0;
+  #           offset_x = 0.0;
+  #           offset_y = 0.0;
+  #         }
+  #       ];
+  #     };
+  #   };
+  # };
 
   # support for xbox controller usb dongle
   hardware.xone.enable = true;
