@@ -72,7 +72,7 @@
 
     shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-    strings = import ./strings/default.nix;
+    strings = import ./strings.nix;
 
     specialArgs = {inherit inputs strings nixosVersion;};
 
