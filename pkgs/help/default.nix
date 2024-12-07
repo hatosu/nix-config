@@ -1,4 +1,5 @@
-{pkgs}: let
+{ pkgs }:
+let
   name = "help";
 
   script = pkgs.writeText "${name}.sh" ''
@@ -34,17 +35,17 @@
     esac
   '';
 in
-  pkgs.stdenv.mkDerivation {
-    name = "${name}";
-    src = script;
-    buildInputs = with pkgs; [shc];
-    phases = [
-      "buildPhase"
-      "installPhase"
-    ];
-    buildPhase = ''shc -vrf ${script} -o ${name} '';
-    installPhase = ''
-      mkdir -p $out/bin
-      cp ${name} $out/bin
-    '';
-  }
+pkgs.stdenv.mkDerivation {
+  name = "${name}";
+  src = script;
+  buildInputs = with pkgs; [ shc ];
+  phases = [
+    "buildPhase"
+    "installPhase"
+  ];
+  buildPhase = ''shc -vrf ${script} -o ${name} '';
+  installPhase = ''
+    mkdir -p $out/bin
+    cp ${name} $out/bin
+  '';
+}

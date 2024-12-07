@@ -1,11 +1,12 @@
-{
-  pkgs,
-  inputs,
-  strings,
-  ...
-}: let
+{ pkgs
+, inputs
+, strings
+, ...
+}:
+let
   icon = strings.logotxt;
-in {
+in
+{
   home-manager.users.hatosu.programs.fastfetch = {
     enable = true;
     package = pkgs.fastfetch;

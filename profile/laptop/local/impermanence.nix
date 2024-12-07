@@ -1,9 +1,8 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  config,
-  ...
+{ pkgs
+, lib
+, inputs
+, config
+, ...
 }: {
   programs.fuse.userAllowOther = true;
   fileSystems."/persist".neededForBoot = true;
@@ -118,24 +117,26 @@
   environment.etc.machine-id.text = "a18b549c5915442693cd012bb398da2f";
 
   # satisfy hm with dconf
-  home-manager.users.hatosu.home.packages = [pkgs.dconf];
+  home-manager.users.hatosu.home.packages = [ pkgs.dconf ];
 
   # move xdg folders to .cache
-  home-manager.users.hatosu.xdg = let
-    home = config.home-manager.users.hatosu.home.homeDirectory;
-  in {
-    enable = true;
-    userDirs = {
+  home-manager.users.hatosu.xdg =
+    let
+      home = config.home-manager.users.hatosu.home.homeDirectory;
+    in
+    {
       enable = true;
-      createDirectories = true;
-      download = "${home}/.cache/Downloads";
-      desktop = "${home}/.cache/Desktop";
-      videos = "${home}/.cache/Videos";
-      pictures = "${home}/.cache/Pictures";
-      documents = "${home}/.cache/Documents";
-      templates = "${home}/.cache/Templates";
-      publicShare = "${home}/.cache/Public";
-      music = "${home}/.cache/Music";
+      userDirs = {
+        enable = true;
+        createDirectories = true;
+        download = "${home}/.cache/Downloads";
+        desktop = "${home}/.cache/Desktop";
+        videos = "${home}/.cache/Videos";
+        pictures = "${home}/.cache/Pictures";
+        documents = "${home}/.cache/Documents";
+        templates = "${home}/.cache/Templates";
+        publicShare = "${home}/.cache/Public";
+        music = "${home}/.cache/Music";
+      };
     };
-  };
 }

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # import hardware.nix
   imports = [
     ./hardware.nix

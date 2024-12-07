@@ -1,9 +1,9 @@
-{
-  pkgs,
-  inputs,
-  strings,
-  ...
-}: let
+{ pkgs
+, inputs
+, strings
+, ...
+}:
+let
   # choose display method (wayland or xorg)
   protocol = "wayland";
 
@@ -695,7 +695,8 @@
 
   # ignore everything below
   vesktopcss = builtins.readFile theme;
-in {
+in
+{
   home-manager.users.hatosu.home.file = {
     "vesktop-config" = {
       source = vesktop-config;
@@ -710,7 +711,7 @@ in {
       force = true;
     };
   };
-  home-manager.users.hatosu.home.packages = with pkgs; [vesktop];
+  home-manager.users.hatosu.home.packages = with pkgs; [ vesktop ];
   home-manager.users.hatosu.xdg.desktopEntries = {
     vesktop = {
       exec = "vesktop --enable-features=UseOzonePlatform --ozone-platform=${protocol} --enable-wayland-ime %U";

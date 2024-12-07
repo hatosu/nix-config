@@ -1,8 +1,7 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  ...
+{ pkgs
+, inputs
+, lib
+, ...
 }: {
   services = {
     # enable xorg
@@ -20,7 +19,7 @@
       };
 
       # exclude default xorg packages
-      excludePackages = with pkgs; [xterm];
+      excludePackages = with pkgs; [ xterm ];
     };
 
     # gnome services
@@ -95,26 +94,26 @@
 
     # keybinds
     "org/gnome/mutter/wayland/keybindings" = {
-      restore-shortcuts = []; # Never reset shortcuts to default
+      restore-shortcuts = [ ]; # Never reset shortcuts to default
     };
     "org/gnome/shell/keybindings" = {
-      toggle-application-view = ["<Super>a"];
-      toggle-quick-settings = ["<Super>s"];
+      toggle-application-view = [ "<Super>a" ];
+      toggle-quick-settings = [ "<Super>s" ];
     };
     "org/gnome/desktop/wm/keybindings" = {
-      switch-applications = ["<Super>Tab"]; # Legacy alt-tab menu
-      switch-applications-backward = ["<Shift><Super>Tab"];
-      switch-windows = ["<Alt>Tab"];
-      switch-windows-backward = ["<Shift><Alt>Tab"];
-      toggle-fullscreen = ["<Control><Super>f"];
+      switch-applications = [ "<Super>Tab" ]; # Legacy alt-tab menu
+      switch-applications-backward = [ "<Shift><Super>Tab" ];
+      switch-windows = [ "<Alt>Tab" ];
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
+      toggle-fullscreen = [ "<Control><Super>f" ];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      screenreader = [];
-      home = ["<Super>e"]; # Open file explorer
-      www = ["<Super>b"]; # Open web browser
-      control-center = ["<Super>i"]; # Open settings
-      search = ["<Super>space"];
-      logout = ["<Control><Super>y"]; # Power off
+      screenreader = [ ];
+      home = [ "<Super>e" ]; # Open file explorer
+      www = [ "<Super>b" ]; # Open web browser
+      control-center = [ "<Super>i" ]; # Open settings
+      search = [ "<Super>space" ];
+      logout = [ "<Control><Super>y" ]; # Power off
     };
 
     # nautilus

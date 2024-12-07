@@ -1,4 +1,5 @@
-{pkgs ? import <nixpkgs> {}}: let
+{ pkgs ? import <nixpkgs> { } }:
+let
   #https://github.com/HikariKnight/quickpassthrough
   #https://github.com/quickemu-project/quickemu/issues/688
   name = "nixvirt";
@@ -26,10 +27,10 @@
     inherit name;
   };
 in
-  pkgs.symlinkJoin {
-    paths = [
-      script
-      item
-    ];
-    inherit name;
-  }
+pkgs.symlinkJoin {
+  paths = [
+    script
+    item
+  ];
+  inherit name;
+}

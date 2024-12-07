@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   home-manager.users.hatosu.programs.obs-studio = {
     enable = true;

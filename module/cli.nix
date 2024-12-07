@@ -1,7 +1,6 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
   # wayland terminal
   home-manager.users.hatosu.programs.foot = {
@@ -81,7 +80,7 @@
     oh-my-zsh = {
       package = pkgs.oh-my-zsh;
       enable = true;
-      plugins = ["git"];
+      plugins = [ "git" ];
     };
 
     # manage history

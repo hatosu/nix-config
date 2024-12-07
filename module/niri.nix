@@ -1,8 +1,7 @@
-{
-  pkgs,
-  inputs,
-  strings,
-  ...
+{ pkgs
+, inputs
+, strings
+, ...
 }: {
   # enable
   programs.niri = {
@@ -21,7 +20,7 @@
     enable = true;
     xdgOpenUsePortal = true;
     config.common.default = "*";
-    extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
   # polkit
@@ -29,9 +28,9 @@
     services = {
       polkit-gnome-authentication-agent-1 = {
         description = "polkit-gnome-authentication-agent-1";
-        wantedBy = ["graphical-session.target"];
-        wants = ["graphical-session.target"];
-        after = ["graphical-session.target"];
+        wantedBy = [ "graphical-session.target" ];
+        wants = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
         serviceConfig = {
           Type = "simple";
           ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -55,7 +54,7 @@
     package = pkgs.waybar;
     settings = {
       mainBar = {
-        output = ["*"];
+        output = [ "*" ];
         layer = "top";
         position = "bottom";
         margin = "5px";
@@ -83,8 +82,9 @@
   };
 
   # config
-  home-manager.users.hatosu.home.file."niri-config" = let
-    config = pkgs.writeText "config.kdl" ''
+  home-manager.users.hatosu.home.file."niri-config" =
+    let
+      config = pkgs.writeText "config.kdl" ''
 
       //////////
       //output//
@@ -246,9 +246,10 @@
       }
 
     '';
-  in {
-    source = config;
-    target = ".config/niri/config.kdl";
-    force = true;
-  };
+    in
+    {
+      source = config;
+      target = ".config/niri/config.kdl";
+      force = true;
+    };
 }
