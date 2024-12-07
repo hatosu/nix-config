@@ -1,14 +1,16 @@
-{ pkgs, inputs, ... }:
 {
-
+  pkgs,
+  inputs,
+  ...
+}: {
   # setup steam
   programs.gamemode.enable = true;
-  environment.defaultPackages = with pkgs; [ pinned.mangohud ];
+  environment.defaultPackages = with pkgs; [pinned.mangohud];
   programs.steam = {
     package = pkgs.latest.steam;
     enable = true;
-    extraPackages = with pkgs; [ latest.gamescope ];
-    extraCompatPackages = with pkgs; [ latest.proton-ge-bin ];
+    extraPackages = with pkgs; [latest.gamescope];
+    extraCompatPackages = with pkgs; [latest.proton-ge-bin];
     protontricks.enable = true;
   };
 
@@ -61,5 +63,4 @@
 
   # support for xbox controller usb dongle
   hardware.xone.enable = true;
-
 }

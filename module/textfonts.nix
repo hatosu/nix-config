@@ -1,9 +1,10 @@
-{ pkgs, lib, ... }:
 {
-
+  pkgs,
+  lib,
+  ...
+}: {
   # enable fonts
-  fonts.packages =
-    with pkgs;
+  fonts.packages = with pkgs;
     [
       source-code-pro
       font-awesome
@@ -17,8 +18,6 @@
       noto-fonts-emoji
       noto-fonts-cjk-sans
     ]
-
     # enable all nerd-fonts
     ++ (lib.filter lib.isDerivation (lib.attrValues pkgs.nerd-fonts));
-
 }

@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-{
-
+{pkgs, ...}: {
   #programs.npm = {
   #  enable = true;
   #};
-
 }

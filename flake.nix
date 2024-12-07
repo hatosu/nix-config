@@ -2,7 +2,6 @@
   description = "Hatosu's NixOS flake.";
 
   inputs = {
-
     # default (new packages)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -54,83 +53,76 @@
       url = "github:Gerg-L/spicetify-nix/396cf13f9310aa82c1a5da24a5213e7170d40642";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      plasma-manager,
-      nixos-hardware,
-      ...
-    }@inputs:
-    let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    plasma-manager,
+    nixos-hardware,
+    ...
+  } @ inputs: let
+    # read before changing: https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    nixosVersion = "24.05";
 
-      # read before changing: https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-      nixosVersion = "24.05";
+    systems = ["x86_64-linux"];
 
-      systems = [ "x86_64-linux" ];
+    forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      forAllSystems = nixpkgs.lib.genAttrs systems;
+    shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-      shellpkgs = nixpkgs.legacyPackages.x86_64-linux;
+    strings = import ./strings/default.nix;
 
-      strings = import ./strings/default.nix;
+    specialArgs = {inherit inputs strings nixosVersion;};
 
-      specialArgs = { inherit inputs strings nixosVersion; };
+    homeManager = [
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          extraSpecialArgs = specialArgs;
+          sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
+        };
+      }
+    ];
+  in {
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-      homeManager = [
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            extraSpecialArgs = specialArgs;
-            sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
-          };
-        }
-      ];
+    overlays = import ./overlay {inherit inputs;};
 
-    in
-    {
+    nixosModules = import ./module;
 
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    devShells.x86_64-linux.default = import ./shell.nix {inherit shellpkgs;};
 
-      overlays = import ./overlay { inherit inputs; };
-
-      nixosModules = import ./module;
-
-      devShells.x86_64-linux.default = (import ./shell.nix { inherit shellpkgs; });
-
-      nixosConfigurations = {
-
-        laptop = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = homeManager ++ [
+    nixosConfigurations = {
+      laptop = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules =
+          homeManager
+          ++ [
             ./profile/laptop/configuration.nix
             inputs.disko.nixosModules.default
             inputs.impermanence.nixosModules.impermanence
             inputs.spicetify-nix.nixosModules.default
           ];
-        };
+      };
 
-        server1 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            ./profile/server1/configuration.nix
-            inputs.disko.nixosModules.default
-            inputs.impermanence.nixosModules.impermanence
-          ];
-        };
+      server1 = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = [
+          ./profile/server1/configuration.nix
+          inputs.disko.nixosModules.default
+          inputs.impermanence.nixosModules.impermanence
+        ];
+      };
 
-        temporary = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            ./profile/temporary/configuration.nix
-            inputs.disko.nixosModules.default
-          ];
-        };
-
+      temporary = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = [
+          ./profile/temporary/configuration.nix
+          inputs.disko.nixosModules.default
+        ];
       };
     };
+  };
 }

@@ -1,9 +1,4 @@
-{
-  pkgs ? import <nixpkgs> { },
-}:
-
-let
-
+{pkgs ? import <nixpkgs> {}}: let
   pname = "wiiudownloader";
 
   desktop = "WiiUDownloader.desktop";
@@ -15,23 +10,19 @@ let
     hash = "sha256-FPZODciFFChY4afNdmuovA0ongwTioxYhYdY1/Clff0=";
   };
 
-  appimageContents = pkgs.appimageTools.extractType1 { inherit pname version src; };
-
+  appimageContents = pkgs.appimageTools.extractType1 {inherit pname version src;};
 in
+  pkgs.appimageTools.wrapType1 {
+    inherit pname version src;
 
-pkgs.appimageTools.wrapType1 {
+    extraInstallCommands = ''
 
-  inherit pname version src;
+      install -m 444 -D ${appimageContents}/${desktop} -t $out/share/applications
 
-  extraInstallCommands = ''
+      substituteInPlace $out/share/applications/${desktop} \
+        --replace-fail 'Exec=WiiUDownloader' 'Exec=${pname}'
 
-    install -m 444 -D ${appimageContents}/${desktop} -t $out/share/applications
+      cp -r ${appimageContents}/usr/share/icons $out/share
 
-    substituteInPlace $out/share/applications/${desktop} \
-      --replace-fail 'Exec=WiiUDownloader' 'Exec=${pname}'
-
-    cp -r ${appimageContents}/usr/share/icons $out/share
-
-  '';
-
-}
+    '';
+  }

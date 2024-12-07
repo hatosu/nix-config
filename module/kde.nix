@@ -1,13 +1,10 @@
-{ pkgs, ... }:
-{
-
+{pkgs, ...}: {
   services = {
-
     displayManager.defaultSession = "plasmax11";
 
     xserver = {
       enable = true;
-      excludePackages = with pkgs; [ xterm ];
+      excludePackages = with pkgs; [xterm];
       displayManager.setupCommands = ''
         ${pkgs.xorg.xrandr}/bin/xrandr \
         --output HDMI-A-1 --primary --mode 2560x1080 --rate 165 --pos 0x0 --rotate normal
@@ -22,7 +19,6 @@
     desktopManager.plasma6 = {
       enable = true;
     };
-
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -53,7 +49,7 @@
       };
     };
 
-    desktop.widgets = [ ];
+    desktop.widgets = [];
 
     hotkeys.commands = {
       "kitty" = {
@@ -155,7 +151,5 @@
         powerButtonAction = "hibernate";
       };
     };
-
   };
-
 }

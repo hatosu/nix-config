@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home-manager.users.hatosu.programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -45,8 +48,8 @@
       " configure font
       set guifont=Source\ Code\ Pro:h11
 
-      " allow :w to write with sudo
-      cmap w SudaWrite
+      " bind Ctrl+S to save
+      nnoremap <C-s> :SudaWrite<CR>
 
       " hjkl to move between splits
       nmap <silent> <c-k> :wincmd k<CR>
@@ -91,6 +94,5 @@
           \ }
 
     '';
-
   };
 }

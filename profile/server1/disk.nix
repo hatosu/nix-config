@@ -1,7 +1,5 @@
-{ ... }:
-{
+{...}: {
   disko.devices = {
-
     disk.main = {
       device = "/dev/nvme0n1";
       type = "disk";
@@ -50,7 +48,7 @@
             size = "100%FREE";
             content = {
               type = "btrfs";
-              extraArgs = [ "-f" ];
+              extraArgs = ["-f"];
               subvolumes = {
                 "/root" = {
                   mountpoint = "/";
@@ -77,6 +75,5 @@
         };
       };
     };
-
   };
 }

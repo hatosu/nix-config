@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-{
-
+{pkgs, ...}: {
   # import hardware.nix
   imports = [
     ./hardware.nix
@@ -57,5 +55,4 @@
 
   # state version
   system.stateVersion = "23.11";
-
 }

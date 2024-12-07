@@ -3,12 +3,11 @@
   inputs,
   strings,
   ...
-}:
-{
+}: {
   home-manager.users.hatosu.programs.firefox = {
     package = pkgs.firefox;
     enable = true;
-    languagePacks = [ "jp" ];
+    languagePacks = ["jp"];
     profiles.hatosu = {
       isDefault = true;
 
@@ -20,182 +19,180 @@
       ];
 
       # bookmarks
-      bookmarks =
-        let
-          name = "";
-        in
-        [
-          {
-            name = "toolbar";
-            toolbar = true;
-            bookmarks = [
-              {
-                url = "https://github.com/hatosu/config";
-                inherit name;
-              }
-              {
-                url = "https://search.nixos.org/packages?channel=unstable";
-                inherit name;
-              }
-              {
-                url = "https://noogle.dev/";
-                inherit name;
-              }
-              {
-                url = "https://home-manager-options.extranix.com/?query=&release=master";
-                inherit name;
-              }
-              {
-                url = "https://tales.mbivert.com/on-nix-language/";
-                inherit name;
-              }
-              {
-                url = "https://ayats.org/blog";
-                inherit name;
-              }
-              {
-                url = "https://claude.ai/new";
-                inherit name;
-              }
-              {
-                url = "https://www.perplexity.ai/";
-                inherit name;
-              }
-              {
-                url = "https://www.phind.com/search?home=true";
-                inherit name;
-              }
-              {
-                url = "https://grep.app/";
-                inherit name;
-              }
-              {
-                url = "https://dpp.dev/";
-                inherit name;
-              }
-              {
-                url = "https://www.twitch.tv/issogashii/videos";
-                inherit name;
-              }
-              {
-                url = "https://www.photopea.com/";
-                inherit name;
-              }
-              {
-                url = "https://x.com/issogashii";
-                inherit name;
-              }
-              {
-                url = "https://www.youtube.com/feed/subscriptions/shorts";
-                inherit name;
-              }
-              {
-                url = "https://discord.com/channels/696438030189330482/1238755966439133235";
-                inherit name;
-              }
-              {
-                url = "https://jpdb.io/learn";
-                inherit name;
-              }
-              {
-                url = "https://itazuraneko.org/other/kensaku.html";
-                inherit name;
-              }
-              {
-                url = "https://lifeprint.com/";
-                inherit name;
-              }
-              {
-                url = "https://www.signingsavvy.com/";
-                inherit name;
-              }
-              {
-                url = "https://reader.ttsu.app";
-                inherit name;
-              }
-              {
-                url = "https://fmhy.net/videopiracyguide";
-                inherit name;
-              }
-              {
-                url = "https://annas-archive.org/";
-                inherit name;
-              }
-              {
-                url = "https://libgen.is/";
-                inherit name;
-              }
-              {
-                url = "https://erynith.github.io/movie-web-instances/";
-                inherit name;
-              }
-              {
-                url = "https://theindex.moe/";
-                inherit name;
-              }
-              {
-                url = "https://isthereanydeal.com/deals/#sort:price";
-                inherit name;
-              }
-              {
-                url = "https://rgamedeals.net/";
-                inherit name;
-              }
-              {
-                url = "https://www.eneba.com/";
-                inherit name;
-              }
-              {
-                url = "https://gg.deals/";
-                inherit name;
-              }
-              {
-                url = "https://app.cachix.org/cache/hatosu#push";
-                inherit name;
-              }
-              {
-                url = "https://filehaus.su/";
-                inherit name;
-              }
-              {
-                url = "https://picsur.org/upload";
-                inherit name;
-              }
-              {
-                url = "https://catbox.moe/";
-                inherit name;
-              }
-              {
-                url = "https://litterbox.catbox.moe/";
-                inherit name;
-              }
-              {
-                url = "https://ps4pkg.com/";
-                inherit name;
-              }
-              {
-                url = "https://itch.io/games/free/platform-windows";
-                inherit name;
-              }
-              {
-                url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files";
-                inherit name;
-              }
-              {
-                url = "https://switchrom.io/";
-                inherit name;
-              }
-              {
-                url = "https://switchrom.net/";
-                inherit name;
-              }
-              {
-                url = "https://dlpsgame.com/category/ps4/";
-                inherit name;
-              }
-            ];
-          }
-        ];
+      bookmarks = let
+        name = "";
+      in [
+        {
+          name = "toolbar";
+          toolbar = true;
+          bookmarks = [
+            {
+              url = "https://github.com/hatosu/config";
+              inherit name;
+            }
+            {
+              url = "https://search.nixos.org/packages?channel=unstable";
+              inherit name;
+            }
+            {
+              url = "https://noogle.dev/";
+              inherit name;
+            }
+            {
+              url = "https://home-manager-options.extranix.com/?query=&release=master";
+              inherit name;
+            }
+            {
+              url = "https://tales.mbivert.com/on-nix-language/";
+              inherit name;
+            }
+            {
+              url = "https://ayats.org/blog";
+              inherit name;
+            }
+            {
+              url = "https://claude.ai/new";
+              inherit name;
+            }
+            {
+              url = "https://www.perplexity.ai/";
+              inherit name;
+            }
+            {
+              url = "https://www.phind.com/search?home=true";
+              inherit name;
+            }
+            {
+              url = "https://grep.app/";
+              inherit name;
+            }
+            {
+              url = "https://dpp.dev/";
+              inherit name;
+            }
+            {
+              url = "https://www.twitch.tv/issogashii/videos";
+              inherit name;
+            }
+            {
+              url = "https://www.photopea.com/";
+              inherit name;
+            }
+            {
+              url = "https://x.com/issogashii";
+              inherit name;
+            }
+            {
+              url = "https://www.youtube.com/feed/subscriptions/shorts";
+              inherit name;
+            }
+            {
+              url = "https://discord.com/channels/696438030189330482/1238755966439133235";
+              inherit name;
+            }
+            {
+              url = "https://jpdb.io/learn";
+              inherit name;
+            }
+            {
+              url = "https://itazuraneko.org/other/kensaku.html";
+              inherit name;
+            }
+            {
+              url = "https://lifeprint.com/";
+              inherit name;
+            }
+            {
+              url = "https://www.signingsavvy.com/";
+              inherit name;
+            }
+            {
+              url = "https://reader.ttsu.app";
+              inherit name;
+            }
+            {
+              url = "https://fmhy.net/videopiracyguide";
+              inherit name;
+            }
+            {
+              url = "https://annas-archive.org/";
+              inherit name;
+            }
+            {
+              url = "https://libgen.is/";
+              inherit name;
+            }
+            {
+              url = "https://erynith.github.io/movie-web-instances/";
+              inherit name;
+            }
+            {
+              url = "https://theindex.moe/";
+              inherit name;
+            }
+            {
+              url = "https://isthereanydeal.com/deals/#sort:price";
+              inherit name;
+            }
+            {
+              url = "https://rgamedeals.net/";
+              inherit name;
+            }
+            {
+              url = "https://www.eneba.com/";
+              inherit name;
+            }
+            {
+              url = "https://gg.deals/";
+              inherit name;
+            }
+            {
+              url = "https://app.cachix.org/cache/hatosu#push";
+              inherit name;
+            }
+            {
+              url = "https://filehaus.su/";
+              inherit name;
+            }
+            {
+              url = "https://picsur.org/upload";
+              inherit name;
+            }
+            {
+              url = "https://catbox.moe/";
+              inherit name;
+            }
+            {
+              url = "https://litterbox.catbox.moe/";
+              inherit name;
+            }
+            {
+              url = "https://ps4pkg.com/";
+              inherit name;
+            }
+            {
+              url = "https://itch.io/games/free/platform-windows";
+              inherit name;
+            }
+            {
+              url = "https://www.apkmirror.com/?post_type=app_release&searchtype=apk&s=apkmirror+installer&minapi-max=30&arch%5B%5D=universal&arch%5B%5D=x86&arch%5B%5D=x86_64&bundles%5B%5D=apk_files";
+              inherit name;
+            }
+            {
+              url = "https://switchrom.io/";
+              inherit name;
+            }
+            {
+              url = "https://switchrom.net/";
+              inherit name;
+            }
+            {
+              url = "https://dlpsgame.com/category/ps4/";
+              inherit name;
+            }
+          ];
+        }
+      ];
 
       # chrome CSS
       userChrome = ''
@@ -370,7 +367,6 @@
         user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
         user_pref("browser.download.useDownloadDir", false);
       '';
-
     };
   };
 }

@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 pkgs.writeShellScriptBin "nixfind" ''
 
   #!/usr/bin/env bash

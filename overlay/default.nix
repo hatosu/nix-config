@@ -1,15 +1,12 @@
-{ inputs }:
-{
-
+{inputs}: {
   additions = final: _prev: import ../pkgs final.pkgs;
 
   modifications = final: prev: {
-
     waybar = prev.waybar.overrideAttrs (oldAttrs: rec {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     });
 
-    flameshot = prev.flameshot.override { enableWlrSupport = true; };
+    flameshot = prev.flameshot.override {enableWlrSupport = true;};
 
     ciano = prev.ciano.overrideAttrs (oldAttrs: {
       src = prev.fetchFromGitHub {
@@ -24,7 +21,6 @@
           substituteInPlace $out/share/applications/com.github.robertsanseries.ciano.desktop --replace "Name=Ciano" "Name=Convert"
         '';
     });
-
   };
 
   fresh-packages = final: _prev: {
@@ -56,5 +52,4 @@
       config.allowUnfree = true;
     };
   };
-
 }

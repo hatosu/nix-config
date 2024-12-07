@@ -1,6 +1,8 @@
-{ inputs, vars, ... }:
 {
-
+  inputs,
+  vars,
+  ...
+}: {
   # define hostname
   networking.hostName = "nixos";
 
@@ -30,5 +32,4 @@
 
   # timezone
   time.timeZone = "America/Los_Angeles";
-
 }

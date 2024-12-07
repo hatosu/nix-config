@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
 {
-
+  config,
+  pkgs,
+  ...
+}: {
   # network manager
   networking.networkmanager.enable = true;
 
@@ -14,5 +16,4 @@
   #  joinNetworks = ["17d709436cb399c4"];
   #  localConf = {};
   #};
-
 }

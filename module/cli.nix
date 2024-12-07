@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
 {
-
+  pkgs,
+  lib,
+  ...
+}: {
   # wayland terminal
   home-manager.users.hatosu.programs.foot = {
     enable = true;
@@ -9,11 +11,7 @@
       main = {
         font = "gohufont:size=12";
       };
-      desktop-notifications = {
-        command = "${pkgs.libnotify}/bin/notify-send -a foot -i foot \${title} \${body}";
-        #command = "${lib.getExe pkgs.libnotify} -a \${app-id} -i \${app-id} \${title} \${body}";
-        inhibit-when-focused = "yes";
-      };
+      desktop-notifications.command = "${lib.getExe pkgs.libnotify} -a \${app-id} -i \${app-id} \${title} \${body}";
       mouse.hide-when-typing = "yes";
       colors = {
         background = "1C1C1C";
@@ -72,7 +70,6 @@
   };
 
   home-manager.users.hatosu.programs.zsh = {
-
     # enable zsh and some default plugins
     package = pkgs.zsh;
     enable = true;
@@ -84,7 +81,7 @@
     oh-my-zsh = {
       package = pkgs.oh-my-zsh;
       enable = true;
-      plugins = [ "git" ];
+      plugins = ["git"];
     };
 
     # manage history
@@ -106,7 +103,6 @@
         "b"
       ];
     };
-
   };
 
   # set zsh as default shell
@@ -119,5 +115,4 @@
     package = pkgs.zoxide;
     enableZshIntegration = true;
   };
-
 }

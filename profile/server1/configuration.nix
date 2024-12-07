@@ -1,6 +1,8 @@
-{ pkgs, strings, ... }:
 {
-
+  pkgs,
+  strings,
+  ...
+}: {
   imports = [
     ./hardware.nix
     ./disk.nix
@@ -15,7 +17,7 @@
     home = "/home/server1";
     initialPassword = ";";
     group = "users";
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -57,5 +59,4 @@
   ];
 
   system.stateVersion = "23.11";
-
 }

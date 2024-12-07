@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment = {
     shellAliases = {
-
       # general
       logout = "kill -9 -1";
       hist = "history | grep";
@@ -50,7 +48,6 @@
       tch = "sudoedit ~/files/notes/todo.txt";
       fch = "sudoedit ~/files/notes/features.txt";
       pch = "sudoedit ~/files/notes/production.txt";
-
     };
   };
 }

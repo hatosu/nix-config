@@ -1,11 +1,13 @@
-{ pkgs, strings, ... }:
 {
-
+  pkgs,
+  strings,
+  ...
+}: {
   # enable keyd as hotkey service
   services.keyd = {
     enable = true;
     keyboards.default = {
-      ids = [ "*" ];
+      ids = ["*"];
       settings = {
         main = {
           rightshift = "overload(rightshift, rightshift)";
@@ -79,5 +81,4 @@
       };
     };
   };
-
 }

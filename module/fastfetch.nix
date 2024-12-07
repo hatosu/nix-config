@@ -3,16 +3,13 @@
   inputs,
   strings,
   ...
-}:
-let
+}: let
   icon = strings.logotxt;
-in
-{
+in {
   home-manager.users.hatosu.programs.fastfetch = {
     enable = true;
     package = pkgs.fastfetch;
     settings = {
-
       # visual
       display = {
         size.binaryPrefix = "si";

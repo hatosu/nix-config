@@ -4,80 +4,70 @@
   pkgs,
   inputs,
   ...
-}:
-let
-
+}: let
   FLAKE = "/home/hatosu/files/config";
 
   HOST = "laptop";
+in {
+  nix = let
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in {
+    settings = {
+      # enable experimental features
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "pipe-operators"
+      ];
 
-in
-{
-  nix =
-    let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in
-    {
-      settings = {
+      # disable global registry
+      flake-registry = "";
 
-        # enable experimental features
-        experimental-features = [
-          "nix-command"
-          "flakes"
-          "pipe-operators"
-        ];
+      # workaround for https://github.com/NixOS/nix/issues/9574
+      nix-path = config.nix.nixPath;
 
-        # disable global registry
-        flake-registry = "";
+      # custom binary cache
+      trusted-substituters = ["https://cache.nixos.org"];
+      extra-trusted-substituters = ["https://nix-community.cachix.org"];
+      extra-trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
 
-        # workaround for https://github.com/NixOS/nix/issues/9574
-        nix-path = config.nix.nixPath;
+      # increase buffer size
+      download-buffer-size = "99999999";
 
-        # custom binary cache
-        trusted-substituters = [ "https://cache.nixos.org" ];
-        extra-trusted-substituters = [ "https://nix-community.cachix.org" ];
-        extra-trusted-public-keys = [
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        ];
-
-        # increase buffer size
-        download-buffer-size = "99999999";
-
-        # add trusted groups
-        trusted-users = [
-          "root"
-          "@wheel"
-        ];
-
-      };
-
-      # auto-collect nix garbage
-      gc = {
-        dates = "daily";
-        options = "--delete-older-than 1d";
-        automatic = true;
-      };
-
-      # auto-optimize /nix/store
-      optimise = {
-        dates = [ "daily" ];
-        automatic = true;
-      };
-
-      # make flake registry and nix path match flake inputs
-      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
-      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-
-      # disable channels
-      channel.enable = false;
-
-      # use latest nix version
-      package = pkgs.latest.nixVersions.latest;
-
+      # add trusted groups
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
     };
 
-  nixpkgs.config = {
+    # auto-collect nix garbage
+    gc = {
+      dates = "daily";
+      options = "--delete-older-than 1d";
+      automatic = true;
+    };
 
+    # auto-optimize /nix/store
+    optimise = {
+      dates = ["daily"];
+      automatic = true;
+    };
+
+    # make flake registry and nix path match flake inputs
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+
+    # disable channels
+    channel.enable = false;
+
+    # use latest nix version
+    package = pkgs.latest.nixVersions.latest;
+  };
+
+  nixpkgs.config = {
     # allow unfree/broken packages
     allowUnfree = true;
     allowBroken = true;
@@ -86,7 +76,6 @@ in
     permittedInsecurePackages = [
       #"python-2.7.18.8"
     ];
-
   };
 
   # let all nix-commands use unfree packages
@@ -94,7 +83,7 @@ in
 
   # remove unneeded channel directories
   system.activationScripts.channel-remove.text = ''
-    if [ -d "/root/.nix-defexpr/channels" ] 
+    if [ -d "/root/.nix-defexpr/channels" ]
     then
       rm -rf /root/.nix-defexpr/channels
       mv -f /nix/var/nix/profiles/per-user/root/channels /tmp
@@ -112,12 +101,11 @@ in
     package = pkgs.pinned.nh;
   };
   environment.shellAliases = {
-    rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
-    update = "sudo nix flake update --flake ${FLAKE}";
-    develop = "sudo nix develop ${FLAKE}";
-    format = "sudo ${pkgs.nixfmt-rfc-style}/bin/nixfmt -sv ${FLAKE}";
+    switch = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
+    update = "sudo clear && sudo nix flake update --flake ${FLAKE} && nh os switch -H ${HOST} ${FLAKE}";
     cleanse = "sudo nix-collect-garbage && sudo nix store optimise";
     repair = "sudo nix-store --verify --check-contents --repair";
+    develop = "sudo nix develop ${FLAKE}";
+    format = "sudo ${pkgs.pinned.alejandra}/bin/alejandra ${FLAKE}";
   };
-
 }

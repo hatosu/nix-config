@@ -1,12 +1,14 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home-manager.users.hatosu.programs.obs-studio = {
     enable = true;
 
     package = pkgs.obs-studio;
 
     plugins = with pkgs.obs-studio-plugins; [
-
       # drivers
       obs-pipewire-audio-capture # capture pipewire audio
       obs-vkcapture # vulkan/opengl game capture
@@ -34,8 +36,6 @@
       obs-scale-to-sound # scales source reactively to sound levels
       obs-freeze-filter # freeze source as filter
       obs-text-pthread # useful text source plugin
-
     ];
-
   };
 }

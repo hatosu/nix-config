@@ -1,6 +1,4 @@
-{ ... }:
-{
-
+{...}: {
   networking.networkmanager.enable = true;
 
   networking.firewall = {
@@ -34,5 +32,4 @@
     #allowedTCPPortRanges = [ { from = 8999; to = 9003; } ];
     #};
   };
-
 }

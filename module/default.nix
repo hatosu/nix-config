@@ -1,5 +1,4 @@
 {
-
   niri = import ./niri.nix;
   kde = import ./kde.nix;
   hyprland = import ./hyprland.nix;
@@ -23,5 +22,4 @@
   obs = import ./obs.nix;
   ags = import ./ags.nix;
   radio-cli = import ./radio-cli.nix;
-
 }

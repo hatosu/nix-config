@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
 {
-
+  pkgs,
+  inputs,
+  ...
+}: {
   home-manager.users.hatosu.services.flameshot = {
     package = pkgs.pinned.flameshot;
     enable = true;
@@ -11,5 +13,4 @@
       };
     };
   };
-
 }

@@ -4,56 +4,49 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
+  nix = let
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in {
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
-  nix =
-    let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in
-    {
-      settings = {
+      flake-registry = "";
 
-        experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
+      nix-path = config.nix.nixPath;
 
-        flake-registry = "";
+      trusted-substituters = ["https://cache.nixos.org"];
 
-        nix-path = config.nix.nixPath;
+      download-buffer-size = "99999999";
 
-        trusted-substituters = [ "https://cache.nixos.org" ];
-
-        download-buffer-size = "99999999";
-
-        trusted-users = [
-          "root"
-          "@wheel"
-        ];
-
-      };
-
-      gc = {
-        dates = "daily";
-        options = "--delete-older-than 1d";
-        automatic = true;
-      };
-
-      optimise = {
-        dates = [ "daily" ];
-        automatic = true;
-      };
-
-      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
-      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-
-      channel.enable = false;
-
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
     };
 
+    gc = {
+      dates = "daily";
+      options = "--delete-older-than 1d";
+      automatic = true;
+    };
+
+    optimise = {
+      dates = ["daily"];
+      automatic = true;
+    };
+
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+
+    channel.enable = false;
+  };
+
   system.activationScripts.channel-remove.text = ''
-    if [ -d "/root/.nix-defexpr/channels" ] 
+    if [ -d "/root/.nix-defexpr/channels" ]
     then
       rm -rf /root/.nix-defexpr/channels
       mv -f /nix/var/nix/profiles/per-user/root/channels /tmp
@@ -65,5 +58,4 @@
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.configurationLimit = 100;
-
 }
