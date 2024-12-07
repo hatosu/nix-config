@@ -1,11 +1,12 @@
-{ inputs
-, lib
-, config
-, pkgs
-, strings
-, vars
-, nixosVersion
-, ...
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  strings,
+  vars,
+  nixosVersion,
+  ...
 }: {
   # reload ALL system units when changing configs
   systemd.user.startServices = "sd-switch";

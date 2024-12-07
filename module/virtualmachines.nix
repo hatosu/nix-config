@@ -1,6 +1,7 @@
-{ pkgs
-, lib
-, ...
+{
+  pkgs,
+  lib,
+  ...
 }: {
   # waydroid
   virtualisation.waydroid.enable = true;
@@ -11,7 +12,7 @@
   # 2: distrobox enter arch
   # 3: distrobox stop arch
   # 4: distrobox rm arch
-  environment.defaultPackages = [ pkgs.distrobox ];
+  environment.defaultPackages = [pkgs.distrobox];
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.podman = {
     enable = true;

@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }: {
   home-manager.users.hatosu.programs.neovim = {
     enable = true;

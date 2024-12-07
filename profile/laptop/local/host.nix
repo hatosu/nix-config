@@ -1,6 +1,7 @@
-{ inputs
-, vars
-, ...
+{
+  inputs,
+  vars,
+  ...
 }: {
   # define hostname
   networking.hostName = "nixos";

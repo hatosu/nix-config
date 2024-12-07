@@ -1,7 +1,8 @@
-{ pkgs
-, inputs
-, strings
-, ...
+{
+  pkgs,
+  inputs,
+  strings,
+  ...
 }: {
   home-manager.users.hatosu.programs.yazi = {
     package = pkgs.yazi;

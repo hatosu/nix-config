@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   boot = {
     # bootloader
     loader.systemd-boot.enable = true;

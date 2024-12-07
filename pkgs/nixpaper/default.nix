@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
-let
+{pkgs ? import <nixpkgs> {}}: let
   name = "nixpaper";
 
   file = pkgs.fetchurl {
@@ -16,14 +15,14 @@ let
 
   height = "1080";
 
-  crop = pkgs.runCommand "crop" { } ''
+  crop = pkgs.runCommand "crop" {} ''
     mkdir -p $out/video
     ${pkgs.ffmpeg}/bin/ffmpeg -i ${file} -vf \
     "scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}" \
     $out/video/wallpaper.mp4
   '';
 in
-pkgs.writeShellScriptBin "${name}" ''
-  #!/usr/bin/env bash
-  ${pkgs.mpvpaper}/bin/mpvpaper -p -o "no-audio loop" '*' ${crop}/video/wallpaper.mp4
-''
+  pkgs.writeShellScriptBin "${name}" ''
+    #!/usr/bin/env bash
+    ${pkgs.mpvpaper}/bin/mpvpaper -p -o "no-audio loop" '*' ${crop}/video/wallpaper.mp4
+  ''

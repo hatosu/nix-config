@@ -1,18 +1,7 @@
-{ pkgs
-
-
-
-
-
-
-}:
-
-
+{pkgs}:
 pkgs.writeShellScriptBin
-
-  "nixfind"
-
-  ''
+"nixfind"
+''
 
   #!/usr/bin/env bash
   highlight() {

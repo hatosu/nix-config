@@ -1,5 +1,5 @@
-<br / >
-  < div align="center">
+<br />
+<div align="center">
 <img src="https://github.com/hatosu/config/blob/main/showcase.gif?raw=true" />
 </div>
 
@@ -7,9 +7,9 @@
 
 <div align="center">
 
-**[<kbd> <br> Modules <br> </kbd>](/module/)**
-**[<kbd> <br> Hosts <br> </kbd>](/profile/)**
-**[<kbd> <br> Overlays <br> </kbd>](/overlay/)**
+**[<kbd> <br> Modules <br> </kbd>](/module/)** 
+**[<kbd> <br> Hosts <br> </kbd>](/profile/)** 
+**[<kbd> <br> Overlays <br> </kbd>](/overlay/)** 
 **[<kbd> <br> Packages <br> </kbd>](/pkgs/)**
 
 </div>

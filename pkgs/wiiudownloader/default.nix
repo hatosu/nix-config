@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
-let
+{pkgs ? import <nixpkgs> {}}: let
   pname = "wiiudownloader";
 
   desktop = "WiiUDownloader.desktop";
@@ -11,12 +10,12 @@ let
     hash = "sha256-FPZODciFFChY4afNdmuovA0ongwTioxYhYdY1/Clff0=";
   };
 
-  appimageContents = pkgs.appimageTools.extractType1 { inherit pname version src; };
+  appimageContents = pkgs.appimageTools.extractType1 {inherit pname version src;};
 in
-pkgs.appimageTools.wrapType1 {
-  inherit pname version src;
+  pkgs.appimageTools.wrapType1 {
+    inherit pname version src;
 
-  extraInstallCommands = ''
+    extraInstallCommands = ''
 
       install -m 444 -D ${appimageContents}/${desktop} -t $out/share/applications
 
@@ -26,4 +25,4 @@ pkgs.appimageTools.wrapType1 {
       cp -r ${appimageContents}/usr/share/icons $out/share
 
     '';
-}
+  }
