@@ -1,9 +1,12 @@
-{pkgs, ...}: {
+{ 
+  pkgs,
+  ... 
+}: {
+
   environment.systemPackages =
-    # default
-    with pkgs;
-      [
-        kden
+    
+      # default
+      with pkgs; [
         help
         nixfind
         nixpaper
@@ -18,19 +21,24 @@
         wget
         lshw
       ]
+      
       # fresh
       ++ (with pkgs.fresh; [
         slurp
         grim
       ])
+      
       # latest
       ++ (with pkgs.latest; [
         ffmpeg
         tor-browser
+        kdenlive
       ])
+      
       # stable
       ++ (with pkgs.stable; [
         anki-bin
+        obsidian
         synfigstudio
         video-trimmer
         krita
@@ -49,9 +57,11 @@
         shellcheck
         rclone
       ])
+      
       # pinned
       ++ (with pkgs.pinned; [
         element
         cliphist
       ]);
+
 }

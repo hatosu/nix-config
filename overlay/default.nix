@@ -2,7 +2,7 @@
   additions = final: _prev: import ../pkgs final.pkgs;
 
   modifications = final: prev: {
-    waybar = prev.waybar.overrideAttrs (oldAttrs: rec {
+    waybar = prev.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     });
 

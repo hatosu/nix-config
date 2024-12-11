@@ -1,8 +1,5 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{ pkgs, ... }: {
+
   # setup steam
   programs.gamemode.enable = true;
   environment.defaultPackages = with pkgs; [pinned.mangohud];
@@ -22,6 +19,12 @@
     stable.xivlauncher
     latest.shadps4
     latest.ryujinx
+    (import (fetchFromGitHub {
+      owner = "NixOS";
+      repo = "nixpkgs";
+      rev = "46fbd894a87c6b9e64c22d8a4c462b90d1438dcb";
+      sha256 = "sha256-U5R0VmNoAZz8N+xyTDteXT8yaZYUG4mKc61cGMNGwiA=";
+    }){system = "x86_64-linux";}).yuzu
   ];
 
   # vr option 1

@@ -1,5 +1,4 @@
-{pkgs, ...}: {
-  environment.interactiveShellInit = ''
+{pkgs, ...}: { environment.interactiveShellInit = ''
 
     rf(){
       sudo mkdir -p ~/.cache/trash
@@ -24,11 +23,11 @@
       sleep 0.1
       xdg-open "https://www.phind.com/search?home=true"
       sleep 0.1
-      xdg-open "https://www.perplexity.ai/"
+      xdg-open "https://ayesoul.com/"
       sleep 0.1
       xdg-open "https://claude.ai/new"
       sleep 0.1
-      xdg-open "https://grep.app/"
+      xdg-open "https://github.com/search?q=path%3A**%2F*.nix%20guh&type=code"
       sleep 0.1
       xdg-open "http://www.crasseux.com/books/ctutorial/"
       sleep 0.1
@@ -41,8 +40,6 @@
       xdg-open "https://pkg.go.dev/"
       sleep 0.1
       xdg-open "https://ziglang.org/documentation/master/"
-      sleep 0.1
-      xdg-open "https://discord.com/channels/331718482485837825/1124619767542718524"
     }
 
     merge_opus(){

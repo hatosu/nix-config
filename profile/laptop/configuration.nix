@@ -1,15 +1,12 @@
 {
   inputs,
-  lib,
-  config,
-  pkgs,
-  strings,
   nixosVersion,
   ...
 }: {
   imports = let
     module = inputs.self.nixosModules;
   in [
+
     # import the home-manager module
     inputs.home-manager.nixosModules.default
 
@@ -28,11 +25,6 @@
     ./local/utility.nix
 
     # import global nix modules
-    #module.niri
-    #module.gnome
-    module.hyprland
-    #module.awesome
-    #module.kde
     module.pipewire
     module.spotify
     module.textfonts
@@ -52,12 +44,19 @@
     module.obs
     module.flameshot
     module.radio-cli
+    module.hyprland
+    #module.niri
+    #module.gnome
+    #module.awesome
+    #module.kde
+
   ];
 
   nixpkgs = {
     overlays = let
       overlay = inputs.self.overlays;
     in [
+
       # import overlays
       overlay.additions
       overlay.modifications
@@ -65,6 +64,7 @@
       overlay.latest-packages
       overlay.stable-packages
       overlay.pinned-packages
+    
     ];
   };
 

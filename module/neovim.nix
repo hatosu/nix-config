@@ -1,98 +1,376 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home-manager.users.hatosu.programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    package = pkgs.neovim-unwrapped;
+{ pkgs, ... }: {
 
-    # plugins
-    plugins = with pkgs.vimPlugins; [
-      vim-nix
-      vim-airline
-      vim-airline-themes
-      vim-polyglot
-      vim-suda
-      vim-surround
-      vim-commentary
-      onedarker-nvim
-      telescope-nvim
-      presence-nvim
-      gruvbox
-      syntastic
-      indentLine
-      supertab
-      undotree
-    ];
+  # conform-nvim, which-key, colorscheme, numbers, telescope, font, treesitter, oil, git, other binds, parts you dont know abt still
 
-    # init.vim
-    extraConfig = ''
+  environment.shellAliases.v = "sudo -E neovide";
 
-      " apply theme
-      colorscheme gruvbox
+  home-manager.users.hatosu.programs = {
 
-      " set bar theme
-      autocmd VimEnter * AirlineTheme minimalist
+    neovide = {
+      enable = true;
+      settings = {
+        vsync = true;
+      };
+    };
 
-      " add numbered lines
-      set nu
+    nixvim = {
+      enable = true;
 
-      " turn on syntax highlighting
-      syntax on
+      package = pkgs.neovim-unwrapped;
 
-      " configure font
-      set guifont=Source\ Code\ Pro:h11
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
 
-      " bind Ctrl+S to save
-      nnoremap <C-s> :SudaWrite<CR>
+      opts = {
+        guifont = "Source Code Pro:h10";
+        number = true;
+        relativenumber = true;
+        shiftwidth = 2;
+      };
 
-      " hjkl to move between splits
-      nmap <silent> <c-k> :wincmd k<CR>
-      nmap <silent> <c-j> :wincmd j<CR>
-      nmap <silent> <c-h> :wincmd h<CR>
-      nmap <silent> <c-l> :wincmd l<CR>
+      performance = {
+        combinePlugins = {
+          enable = true;
+        };
+        byteCompileLua.enable = true;
+      };
 
-      " telescope
-      nnoremap <leader>f <cmd>Telescope find_files<cr>
-      nnoremap <leader>g <cmd>Telescope live_grep<cr>
-      nnoremap <leader>b <cmd>Telescope buffers<cr>
+      clipboard = {
+        register = "unnamedplus";
+        providers.wl-copy.enable = true;
+      };
 
-      " discord presence
-      let g:presence_auto_update         = 1
-      let g:presence_neovim_image_text   = "The One True Text Editor"
-      let g:presence_main_image          = "neovim"
-      let g:presence_client_id           = "793271441293967371"
-      let g:presence_debounce_timeout    = 10
-      let g:presence_enable_line_number  = 0
-      let g:presence_blacklist           = []
-      let g:presence_buttons             = 1
-      let g:presence_file_assets         = {}
-      let g:presence_show_time           = 1
-      let g:presence_editing_text        = "Editing %s"
-      let g:presence_file_explorer_text  = "Browsing %s"
-      let g:presence_git_commit_text     = "Committing changes"
-      let g:presence_reading_text        = "Reading %s"
-      let g:presence_workspace_text      = "Working on %s"
-      let g:presence_line_number_text    = "Line %s out of %s"
+      plugins = {
 
-      " fix clipboard
-      set clipboard=unnamed
-      let g:clipboard = {
-          \   'copy': {
-          \       '+': ['${pkgs.wl-clipboard}/bin/wl-copy', '--trim-newline'],
-          \       '*': ['${pkgs.wl-clipboard}/bin/wl-copy', '--trim-newline'],
-          \   },
-          \   'paste': {
-          \       '+': ['${pkgs.wl-clipboard}/bin/wl-paste', '--no-newline'],
-          \       '*': ['${pkgs.wl-clipboard}/bin/wl-paste', '--no-newline'],
-          \   },
-          \ }
+        nix.enable = true;
 
-    '';
+        telescope.enable = true;
+
+        treesitter.enable = true;
+
+        web-devicons.enable = true;
+
+        lsp = {
+          enable = true;
+          servers = {
+
+            nil_ls = {
+              enable = true;
+            };
+
+            clangd = {
+              enable = true;
+            };
+
+            rust_analyzer = {
+              enable = true;
+              installCargo = false;
+              installRustc = false;
+            };
+
+            gopls = {
+              enable = true;
+            };
+
+            zls = {
+              enable = true;
+            };
+
+            lua_ls = {
+              enable = true;
+              settings = {
+                telemetry.enable = false;
+              };
+            };
+
+            bashls = {
+              enable = true;
+            };
+
+            html = {
+              enable = true;
+            };
+
+            marksman = {
+              enable = true;
+            };
+
+            hls = {
+              enable = true;
+              installGhc = true;
+            };
+
+            typos_lsp = {
+              enable = true;
+              extraOptions.init_options.diagnosticSeverity = "Hint";
+            };
+          
+          };
+        };
+
+        oil = {
+          enable = true;
+          settings = {
+            defaultFileExplorer = true;
+            delete_to_trash = true;
+          };
+        };
+
+        luasnip = {
+          enable = true;
+          settings = {
+            enable_autosnippets = true;
+            store_selection_keys = "<Tab>";
+          };
+        };
+
+        lint = {
+          enable = true;
+          lintersByFt = {
+            rst = ["vale"];
+            text = ["vale"];
+            c = ["clangtidy"];
+            cpp = ["clangtidy"];
+            haskell = ["hlint"];
+            json = ["jsonlint"];
+            bash = ["shellcheck"];
+            shell = ["shellcheck"];
+            clojure = ["clj-kondo"];
+            nix = ["nix"];
+            dockerfile = ["hadolint"];
+            markdown = ["markdownlint"];
+          };
+        };
+
+        cmp = {
+          enable = true;
+          autoEnableSources = true;
+          settings = {
+            autocomplete = true;
+            sources = [{name = "nvim_lsp";}];
+            performance = {
+              debounce = 200;
+              throttle = 200;
+              maxViewEntries = 5;
+            };
+            snippet.expand = ''
+              function(args)
+                require('luasnip').lsp_expand(args.body)
+              end
+            '';
+            mapping = {
+              "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+              "<C-j>" = "cmp.mapping.select_next_item()";
+              "<C-k>" = "cmp.mapping.select_prev_item()";
+              "<C-e>" = "cmp.mapping.abort()";
+              "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+              "<C-f>" = "cmp.mapping.scroll_docs(4)";
+              "<C-Space>" = "cmp.mapping.complete()";
+              "<CR>" = "cmp.mapping.confirm({ select = false })";
+              "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+            };
+            window = {
+              completion.scrollbar = true;
+              documentation.border = "single";
+            };
+          };
+        };
+
+        undotree = {
+          enable = true;
+          settings = {
+            CursorLine = true;
+            DiffAutoOpen = true;
+            DiffCommand = "diff";
+            DiffpanelHeight = 10;
+            HelpLine = true;
+            HighlightChangedText = true;
+            HighlightChangedWithSign = true;
+            HighlightSyntaxAdd = "DiffAdd";
+            HighlightSyntaxChange = "DiffChange";
+            HighlightSyntaxDel = "DiffDelete";
+            RelativeTimestamp = true;
+            SetFocusWhenToggle = true;
+            ShortIndicators = false;
+            SplitWidth = 40;
+            TreeNodeShape = "*";
+            TreeReturnShape = "\\";
+            TreeSplitShape = "/";
+            TreeVertShape = "|";
+            WindowLayout = 4;
+          };
+        };
+
+        presence-nvim = {
+          enable = true;
+          neovimImageText = "buh...";
+          extraOptions.main_image = "https://files.catbox.moe/g4sujl.png";
+          package = pkgs.vimPlugins.presence-nvim.overrideAttrs (oldAttrs: {
+            src = pkgs.fetchFromGitHub {
+              owner = "andweeb";
+              repo = "presence.nvim";
+              rev = "0dbcdebb2f1feeecdad7a6286a50575bf07d7533";
+              sha256 = "sha256-ajiA/2zVJ/aRBW69DDmNT/c/S09moE5bl8ziZQ+9OBs=";
+            };
+          });
+        };
+
+      };
+
+      extraPlugins = with pkgs.vimPlugins; [
+        {
+          plugin = comment-nvim;
+          config = "lua require(\"Comment\").setup()";
+        }
+      ];
+
+      autoCmd = [
+        {
+          event = ["BufEnter" "BufWinEnter"];
+          pattern = ["*.c" "*.h"];
+          command = "echo 'Entering a C/C++ file";
+        }
+      ];
+
+      globals.mapleader = ''\'';
+
+      keymaps = [
+        {
+          action = "<cmd>Telescope live_grep<CR>";
+          key = "<leader>g";
+        }
+      ];
+
+      colorschemes.palette = let
+
+        palette = {
+          base00 = "#32302F"; # idk
+          base01 = "#3C3836"; # highlight row & scrollbar
+          base02 = "#504945"; # idk
+          base03 = "#665C54"; # comments
+          base04 = "#72837C"; # line numbers
+          base05 = "#BDAE93"; # operators & delimiters
+          base06 = "#D5C4A1"; # idk
+          base07 = "#EBDBB2"; # most text
+          base08 = "#FBF1C7"; # functions
+          base09 = "#B2DBC7"; # illuminate
+          base0A = "#A7D6AA"; # ! or booleans
+          base0B = "#A3CFC4"; # idk
+          base0C = "#8BCCA5"; # idk
+          base0D = "#DA9B58"; # idk
+          base0E = "#93C2AB"; # idk
+          base0F = "#EB7757"; # numbers 
+        };
+      
+      in {
+
+        enable = true;
+        settings = {
+          palettes = {
+            main = "main_tempest";
+            accent = "accent_tempest";
+            state = "state_tempest";
+          };
+          custom_palettes = {
+            main = {
+              main_tempest = {
+                color0 = "${palette.base00}";
+                color1 = "${palette.base01}"; 
+                color2 = "${palette.base0A}"; 
+                color3 = "${palette.base04}";
+                color4 = "${palette.base05}"; 
+                color5 = "${palette.base06}"; 
+                color6 = "${palette.base03}"; 
+                color7 = "${palette.base08}"; 
+                color8 = "${palette.base07}"; 
+              };
+            };
+            accent = {
+              accent_tempest = {
+                accent0 = "${palette.base0F}";
+                accent1 = "${palette.base09}";
+                accent2 = "${palette.base0E}";
+                accent3 = "${palette.base0D}"; 
+                accent4 = "${palette.base0A}"; 
+                accent5 = "${palette.base0B}";
+                accent6 = "${palette.base0C}";
+              };
+            };
+            state = {
+              state_tempest = {
+                hint = "${palette.base0C}";
+                info = "${palette.base0D}";
+                ok = "${palette.base0B}";
+                warning = "${palette.base0A}";
+                error = "${palette.base0F}";
+              };
+            };
+          };
+        };
+
+        luaConfig.post = ''
+          local colors = require("palette.theme")
+          require("palette").setup({
+            custom_highlight_group = "Corrections",
+            custom_highlight_groups = {
+              Corrections = {
+          	{
+          	  "@tag.builtin.tsx",
+          	  colors.accent.accent5,
+          	},
+          	{
+          	  "@tag.tsx",
+          	  colors.accent.accent6,
+          	},
+          	{
+          	  "@tag.attribute.tsx",
+          	  colors.accent.accent2,
+          	},
+          	{
+          	  "Search",
+          	  colors.accent.accent3,
+          	},
+          	{
+          	  "Keyword",
+          	  colors.accent.accent2,
+          	},
+          	{
+          	  "VisualMode",
+          	  colors.accent.accent2,
+          	},
+          	{
+          	  "Directory",
+          	  colors.accent.accent2,
+          	},
+          	{
+          	  "Special",
+          	  colors.main.color5,
+          	},
+          	{
+          	  "SpecialChar",
+          	  colors.main.color5,
+          	},
+          	{
+          	  "Type",
+          	  colors.accent.accent5,
+          	},
+          	{
+          	  "String",
+          	  colors.main.color4,
+          	},
+          	{
+          	  "@variable",
+          	  colors.accent.accent4,
+          	},
+              },
+            },
+          })
+          vim.cmd([[colorscheme palette]])
+        '';
+      
+      };
+    };
   };
 }

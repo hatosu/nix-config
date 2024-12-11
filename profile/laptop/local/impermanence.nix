@@ -64,6 +64,7 @@
         ".config/dconf"
         "files"
         ".mozilla"
+        ".config/obsidian"
         ".config/obs-studio"
         ".config/alvr"
         ".config/Valve"
@@ -85,7 +86,6 @@
       ];
       files = [
         ".zsh_history"
-        ".local/share/zoxide/db.zo"
         ".config/kdenliverc"
         ".config/kdenlive-layoutsrc"
       ];

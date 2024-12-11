@@ -94,18 +94,23 @@ in {
   # limit number of nix generations to 1000
   boot.loader.systemd-boot.configurationLimit = 1000;
 
-  # nixhelper/aliases
+  # nixhelper
   programs.nh = {
     enable = true;
     package = pkgs.pinned.nh;
   };
 
+  # aliases
   environment.shellAliases = {
     rebuild = "sudo clear && nh os switch -H ${HOST} ${FLAKE}";
-    update = "sudo clear && sudo nix flake update --flake ${FLAKE} && nh os switch -H ${HOST} ${FLAKE}";
-    cleanse = "sudo nix-collect-garbage && sudo nix store optimise";
-    repair = "sudo nix-store --verify --check-contents --repair";
+    update = "sudo nix flake update --flake ${FLAKE}";
     develop = "sudo nix develop ${FLAKE}";
-    format = "cd ${FLAKE} && sudo nix fmt ./* && cd";
+    format = "sudo nix fmt";
+    cleanse = ''
+      sudo nix-store --repair --verify --check-contents
+      sudo nix-collect-garbage
+      sudo nix store optimise
+    '';
   };
+
 }

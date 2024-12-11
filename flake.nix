@@ -17,40 +17,38 @@
     # pinned (wont update)
     nixpkgs-pinned.url = "github:nixos/nixpkgs/f83f99270023d739b4ab3fa51f39778165bb4920";
 
-    # impermanence
     impermanence.url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
 
-    # nixos hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/e563803af3526852b6b1d77107a81908c66a9fcf";
 
-    # home manager
     home-manager = {
-      url = "github:nix-community/home-manager/819f682269f4e002884702b87e445c82840c68f2";
+      url = "github:nix-community/home-manager/9ebaa80a227eaca9c87c53ed515ade013bc2bca9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # plasma manager
     plasma-manager = {
       url = "github:nix-community/plasma-manager/88ca377ff58b5c30a2879745829842554d4b21d5";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
 
-    # disko
     disko = {
       url = "github:nix-community/disko/67dc29be3036cc888f0b9d4f0a788ee0f6768700";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # firefox addons
     firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=51d5446f359b67d5b6fdf45a145391c4d8679b3e";
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=507a6a4dfcf786e6b6691eeae1c96fc9f21a7d95";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # spicetify
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix/396cf13f9310aa82c1a5da24a5213e7170d40642";
+      url = "github:Gerg-L/spicetify-nix/577b6a4e513c9a8d987fb5d331a19976b391d48e";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/cf7e026c8c86c5548d270e20c04f456939591219";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -59,8 +57,9 @@
     self,
     nixpkgs,
     home-manager,
-    plasma-manager,
     nixos-hardware,
+    plasma-manager,
+    nixvim,
     ...
   } @ inputs: let
     # read before changing: https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
@@ -81,7 +80,10 @@
       {
         home-manager = {
           extraSpecialArgs = specialArgs;
-          sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
+          sharedModules = [
+            inputs.plasma-manager.homeManagerModules.plasma-manager
+            inputs.nixvim.homeManagerModules.nixvim
+          ];
         };
       }
     ];
