@@ -36,6 +36,7 @@ profiles.hatosu = { isDefault = true;
         { url = "https://fmhy.net/videopiracyguide"; inherit name; }
         { url = "https://annas-archive.org/"; inherit name; }
         { url = "https://libgen.is/"; inherit name; }
+        { url = "https://arxiv.org/"; inherit name; }
         { url = "https://erynith.github.io/movie-web-instances/"; inherit name; }
         { url = "https://theindex.moe/"; inherit name; }
         { url = "https://isthereanydeal.com/deals/#sort:price"; inherit name; }

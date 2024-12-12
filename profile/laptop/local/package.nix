@@ -20,6 +20,7 @@
         git
         wget
         lshw
+        obsidian
       ]
       
       # fresh
@@ -38,7 +39,6 @@
       # stable
       ++ (with pkgs.stable; [
         anki-bin
-        obsidian
         synfigstudio
         video-trimmer
         krita

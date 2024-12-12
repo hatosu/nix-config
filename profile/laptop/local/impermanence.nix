@@ -1,10 +1,10 @@
 {
   pkgs,
   lib,
-  inputs,
   config,
   ...
 }: {
+
   programs.fuse.userAllowOther = true;
   fileSystems."/persist".neededForBoot = true;
   boot.initrd.postDeviceCommands = lib.mkAfter ''
@@ -41,30 +41,16 @@
       "/var/lib/docker"
       "/var/lib/waydroid"
       "/var/lib/systemd/coredump"
-      {
-        directory = "/var/lib/colord";
-        user = "colord";
-        group = "colord";
-        mode = "u=rwx,g=rx,o=";
-      }
+      {directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o=";}
     ];
     files = [
-      {
-        file = "/var/keys/secret_file";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
-      }
+      {file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; };}
     ];
 
     # home
-    users.hatosu = {
-      directories = [
-        ".cache/dconf"
-        ".config/dconf"
+    users.hatosu = { directories = [ ".cache/dconf" ".config/dconf"
         "files"
         ".mozilla"
-        ".config/obsidian"
         ".config/obs-studio"
         ".config/alvr"
         ".config/Valve"
@@ -90,6 +76,7 @@
         ".config/kdenlive-layoutsrc"
       ];
     };
+  
   };
 
   # set correct home permissions
