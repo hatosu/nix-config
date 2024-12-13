@@ -42,6 +42,10 @@
       xdg-open "https://ziglang.org/documentation/master/"
     }
 
+    webmtomp4(){
+      sudo ${pkgs.ffmpeg}/bin/ffmpeg -i "$1" -c copy output.mp4
+    }
+
     merge_opus(){
       find . -maxdepth 1 -name "*.opus" -type f | sort > input_files.txt
       if [ ! -s input_files.txt ]; then

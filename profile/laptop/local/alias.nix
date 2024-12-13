@@ -22,7 +22,6 @@
   disk = "${pkgs.stable.ncdu}/bin/ncdu";
   audio = "${pkgs.stable.ponymix}/bin/ponymix";
   drag = "${pkgs.stable.ripdrag}/bin/ripdrag -r";
-  img = "${pkgs.stable.imagemagick}/bin/magick";
   opt = "${pkgs.stable.image_optim}/bin/image_optim";
   home = "cd && v $(${pkgs.stable.skim}/bin/sk)";
   conf = "cd ~/files/config && v $(${pkgs.stable.skim}/bin/sk) && cd";

@@ -299,16 +299,27 @@ in { home-manager.users.hatosu = {
     userPlugins = {
       betterActivities = "github:D3SOX/vc-betterActivities/044b504666b8b753ab45d82c0cd0d316b1ea7e60";
       messageLoggerEnhanced = "github:Syncxv/vc-message-logger-enhanced/199b24e32503c7d3288c5237ed0786d6ce10c855";
+      
+      # only for tracking sus or weird members, for the sake of timing out or banning
       notifyUserChanges = "github:D3SOX/vc-notifyUserChanges/4b36010991c762581bc941ed0e74b42989f584e7";
       stalker = "github:zastlx/vc-stalker-plugin/3a7df3b4105d626c370056d6177d6b94d748b664";
+    
     };
 
     extraConfig = {
       plugins = {
         betterActivities.enable = true;
         messageLoggerEnhanced.enable = true;
-        notifyUserChanges.enable = true;
+
+        # read the comment above
         stalker.enable = true;
+        notifyUserChanges = {
+          enable = true;
+          notifyStatus = true;
+          notifyVoice = true;
+          persistNotifications = true;
+        };
+      
       };
     };
 
