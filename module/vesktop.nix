@@ -37,8 +37,8 @@ in { home-manager.users.hatosu = {
       frameless = true;
       enableReactDevtools = false;
       enabledThemes = [ "theme.css" ];
-
-      plugins = {
+  
+       plugins = {
 
         silentTyping = {
           enable = true;
@@ -74,32 +74,32 @@ in { home-manager.users.hatosu = {
           noiseSuppression = true;
           echoCancellation = true;
         };
-  
+
         viewRaw = {
           enable = true;
           clickMethod = "Left";
         };
-  
+
         viewIcons = {
           enable = true;
           format = "png";
           imgSize = 1024;
         };
-  
+
         userVoiceShow = {
           enable = true;
           showInUserProfileModal = true;
           showInMemberList = true;
           showInMessages = true;
         };
-  
+
         typingTweaks = {
           enable = true;
           showAvatars = true;
           showRoleColors = true;
           alternativeFormatting = true;
         };
-  
+
         typingIndicator = {
           enable = true;
           indicatorMode = "both";
@@ -107,17 +107,17 @@ in { home-manager.users.hatosu = {
           includeMutedChannels = true;
           includeBlockedUsers = true;
         };
-  
+
         silentMessageToggle = {
           enable = true;
           autoDisable = true;
         };
-  
+
         showMeYourName = {
           enable = true;
           mode = "nick-user";
         };
-  
+
         relationshipNotifier = {
           enable = true;
           notices = true;
@@ -127,42 +127,42 @@ in { home-manager.users.hatosu = {
           servers = true;
           groups = true;
         };
-  
+
         messageLatency = {
           enable = true;
           latency = 0;
           showMillis = true;
           detectDiscordKotlin = true;
         };
-  
+
         memberCount = {
           toolTip = true;
           memberList = true;
         };
-  
+
         implicitRelationships = {
           enable = true;
           sortByAffinity = true;
         };
-  
+
         dearrow = {
           enable = true;
           replaceElements = "everything";
           dearrowByDefault = false;
           hideButton = false;
         };
-  
+
         consoleJanitor = {
           enable = true;
           disableLoggers = true;
           disableSpotifyLogger = true;
         };
-  
+
         betterRoleContext = {
           enable = true;
           roleIconFileFormat = "png";
         };
-  
+
         banger = {
           enable = true;
           source = "https://files.catbox.moe/xm4y04.gif";
@@ -173,154 +173,133 @@ in { home-manager.users.hatosu = {
           showChatBarButton = true;
           autoTranslate = false;
         };
-        
-        chatInputButtonAPI.enable = true;
-        
-        commandsAPI.enable = true;
-        
-        memberListDecoratorsAPI.enable = true;
-        
-        messageAccessoriesAPI.enable = true;
-        
-        messageDecorationsAPI.enable = true;
-        
-        messageEventsAPI.enable = true;
-        
-        messagePopoverAPI.enable = true;
-        
-        messageUpdaterAPI.enable = true;
-        
-        serverListAPI.enable = true;
-        
-        userSettingsAPI.enable = true;
-        
+
         alwaysAnimate.enable = true;
-        
+
         alwaysTrust.enable = true;
-        
+
         biggerStreamPreview.enable = true;
-        
-        callTimer.enable = true;
-        
+
+        clearURLs.enable = true;
+
         betterSessions.enable = true;
         
-        clearURLs.enable = true;
-  
         copyFileContents.enable = true;
-  
+        
         copyUserURLs.enable = true;
-  
+        
         disableCallIdle.enable = true;
-  
-        dontRoundMyTimestamps.enable = true;
-  
-        emoteCloner.enable = true;
-  
-        favoriteEmojiFirst.enable = true;
-  
-        favoriteGifSearch.enable = true;
-  
-        fixImagesQuality.enable = true;
-  
-        fixYoutubeEmbeds.enable = true;
-  
-        friendsSince.enable = true;
-  
-        fullSearchContext.enable = true;
-  
-        gameActivityToggle.enable = true;
-  
-        greetStickerPicker.enable = true;
-  
-        hideAttachments.enable = true;
-  
-        iLoveSpam.enable = true;
-  
-        imageLink.enable = true;
-  
-        imageZoom.enable = true;
-  
-        keepCurrentChannel.enable = true;
-  
-        loadingQuotes.enable = true;
-  
-        mentionAvatars.enable = true;
-  
-        messageTags.enable = true;
-  
-        moreCommands.enable = true;
-  
-        moreKaomoji.enable = true;
-  
-        normalizeMessageLinks.enable = true;
-  
-        permissionsViewer.enable = true;
-  
-        petpet.enable = true;
-  
-        pinDMs.enable = true;
-  
-        platformIndicators.enable = true;
-  
-        readAllNotificationsButton.enable = true;
-  
-        replyTimestamp.enable = true;
-  
-        reverseImageSearch.enable = true;
-  
-        roleColorEverywhere.enable = true;
-  
-        sendTimestamps.enable = true;
-  
-        serverInfo.enable = true;
-  
-        showConnections.enable = true;
-  
-        showAllMessageButtons.enable = true;
-  
-        serverListIndicators.enable = true;
-  
-        showHiddenChannels.enable = true;
-  
-        showHiddenThings.enable = true;
-  
-        showTimeoutDuration.enable = true;
-  
-        sortFriendRequests.enable = true;
-  
-        spotifyControls.enable = true;
-  
-        spotifyShareCommands.enable = true;
-  
-        streamerModeOnStream.enable = true;
-  
-        unlockedAvatarZoom.enable = true;
-  
-        validReply.enable = true;
-  
-        validUser.enable = true;
-  
-        vencordToolbox.enable = true;
-  
-        voiceDownload.enable = true;
-  
-        volumeBooster.enable = true;
-  
-        whoReacted.enable = true;
-  
-        youtubeAdblock.enable = true;
-  
-        webScreenShareFixes.enable = true;
-  
-        moyai.enable = false; # forever disable this lmao
 
-      };
+        dontRoundMyTimestamps.enable = true;
+
+        emoteCloner.enable = true;
+
+        favoriteEmojiFirst.enable = true;
+
+        favoriteGifSearch.enable = true;
+
+        fixImagesQuality.enable = true;
+
+        fixYoutubeEmbeds.enable = true;
+
+        friendsSince.enable = true;
+
+        fullSearchContext.enable = true;
+
+        gameActivityToggle.enable = true;
+
+        greetStickerPicker.enable = true;
+
+        hideAttachments.enable = true;
+
+        iLoveSpam.enable = true;
+
+        imageLink.enable = true;
+
+        imageZoom.enable = true;
+
+        keepCurrentChannel.enable = true;
+
+        loadingQuotes.enable = true;
+
+        mentionAvatars.enable = true;
+
+        messageTags.enable = true;
+
+        moreCommands.enable = true;
+
+        moreKaomoji.enable = true;
+
+        normalizeMessageLinks.enable = true;
+
+        permissionsViewer.enable = true;
+
+        petpet.enable = true;
+
+        pinDMs.enable = true;
+
+        platformIndicators.enable = true;
+
+        readAllNotificationsButton.enable = true;
+
+        replyTimestamp.enable = true;
+
+        reverseImageSearch.enable = true;
+
+        roleColorEverywhere.enable = true;
+
+        sendTimestamps.enable = true;
+
+        serverInfo.enable = true;
+
+        showConnections.enable = true;
+
+        showAllMessageButtons.enable = true;
+
+        serverListIndicators.enable = true;
+
+        showHiddenChannels.enable = true;
+
+        showHiddenThings.enable = true;
+
+        showTimeoutDuration.enable = true;
+
+        sortFriendRequests.enable = true;
+
+        spotifyControls.enable = true;
+
+        spotifyShareCommands.enable = true;
+
+        streamerModeOnStream.enable = true;
+
+        unlockedAvatarZoom.enable = true;
+
+        validReply.enable = true;
+
+        validUser.enable = true;
+
+        vencordToolbox.enable = true;
+
+        voiceDownload.enable = true;
+
+        volumeBooster.enable = true;
+
+        whoReacted.enable = true;
+
+        youtubeAdblock.enable = true;
+
+        webScreenShareFixes.enable = true;
+
+        moyai.enable = false; # forever keep this disabled lmao
+
+       };
 
     };
 
     userPlugins = {
       betterActivities = "github:D3SOX/vc-betterActivities/044b504666b8b753ab45d82c0cd0d316b1ea7e60";
       messageLoggerEnhanced = "github:Syncxv/vc-message-logger-enhanced/199b24e32503c7d3288c5237ed0786d6ce10c855";
+      notifyUserChanges = "github:D3SOX/vc-notifyUserChanges/4b36010991c762581bc941ed0e74b42989f584e7";
       stalker = "github:zastlx/vc-stalker-plugin/3a7df3b4105d626c370056d6177d6b94d748b664";
     };
 
@@ -328,6 +307,7 @@ in { home-manager.users.hatosu = {
       plugins = {
         betterActivities.enable = true;
         messageLoggerEnhanced.enable = true;
+        notifyUserChanges.enable = true;
         stalker.enable = true;
       };
     };
