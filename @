@@ -1,5 +1,7 @@
 { pkgs, ... }: let
 
+  protocol = "wayland";
+
   icon = pkgs.fetchurl {
     url = "https://files.catbox.moe/ww0qwu.png";
     sha256 = "134mvkc0vl1aifgv52c7gdgsblfdcxiaq88b7rylkqfrcgz37bhy";
@@ -156,6 +158,12 @@ in { home-manager.users.hatosu = {
           enable = true;
           disableLoggers = true;
           disableSpotifyLogger = true;
+        };
+  
+        betterRoleDot = {
+          enable = true;
+          bothStyles = true;
+          copyRoleColorInProfilePopout = true;
         };
   
         betterRoleContext = {
@@ -320,7 +328,7 @@ in { home-manager.users.hatosu = {
 
     userPlugins = {
       betterActivities = "github:D3SOX/vc-betterActivities/044b504666b8b753ab45d82c0cd0d316b1ea7e60";
-      messageLoggerEnhanced = "github:Syncxv/vc-message-logger-enhanced/199b24e32503c7d3288c5237ed0786d6ce10c855";
+      messageLoggerEnhanced = "github:Syncxv/vc-message-logger-enhanced/cfd92553bb9b3f291fc437b1717096a4c967e45b";
       stalker = "github:zastlx/vc-stalker-plugin/3a7df3b4105d626c370056d6177d6b94d748b664";
     };
 

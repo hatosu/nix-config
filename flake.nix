@@ -2,6 +2,7 @@
   description = "Hatosu's NixOS flake.";
 
   inputs = {
+
     # default (new packages)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -17,12 +18,35 @@
     # pinned (wont update)
     nixpkgs-pinned.url = "github:nixos/nixpkgs/f83f99270023d739b4ab3fa51f39778165bb4920";
 
-    impermanence.url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
+    impermanence = {
+      url = "github:nix-community/impermanence/c7f5b394397398c023000cf843986ee2571a1fd7";
+    };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/e563803af3526852b6b1d77107a81908c66a9fcf";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/e563803af3526852b6b1d77107a81908c66a9fcf";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/9ebaa80a227eaca9c87c53ed515ade013bc2bca9";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko/67dc29be3036cc888f0b9d4f0a788ee0f6768700";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/cf7e026c8c86c5548d270e20c04f456939591219";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixcord = {
+      url = "github:kaylorben/nixcord/f7f800b825d63b401c656d6c83b43be5ae6851bd";
+    };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix/577b6a4e513c9a8d987fb5d331a19976b391d48e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -32,25 +56,11 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    disko = {
-      url = "github:nix-community/disko/67dc29be3036cc888f0b9d4f0a788ee0f6768700";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons&ref=507a6a4dfcf786e6b6691eeae1c96fc9f21a7d95";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix/577b6a4e513c9a8d987fb5d331a19976b391d48e";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim/cf7e026c8c86c5548d270e20c04f456939591219";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -60,6 +70,7 @@
     nixos-hardware,
     plasma-manager,
     nixvim,
+    nixcord,
     ...
   } @ inputs: let
     # read before changing: https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
@@ -79,9 +90,11 @@
       home-manager.nixosModules.home-manager {
         home-manager = {
           extraSpecialArgs = specialArgs;
+          useGlobalPkgs = true;
           sharedModules = [
             inputs.plasma-manager.homeManagerModules.plasma-manager
             inputs.nixvim.homeManagerModules.nixvim
+            inputs.nixcord.homeManagerModules.nixcord
           ];
         };
       }

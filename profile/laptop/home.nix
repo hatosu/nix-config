@@ -4,9 +4,9 @@
   systemd.user.startServices = "sd-switch";
 
   # hm
+  programs.home-manager.enable = true;
   home.username = "hatosu";
   home.homeDirectory = "/home/hatosu";
-  programs.home-manager.enable = true;
 
   # version
   home.enableNixpkgsReleaseCheck = false;

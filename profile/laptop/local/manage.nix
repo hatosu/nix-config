@@ -67,6 +67,7 @@ in {
   };
 
   nixpkgs.config = {
+
     # allow unfree/broken packages
     allowUnfree = true;
     allowBroken = true;
@@ -75,6 +76,7 @@ in {
     permittedInsecurePackages = [
       #"python-2.7.18.8"
     ];
+  
   };
 
   # let all nix-commands use unfree packages

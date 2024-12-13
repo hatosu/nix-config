@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  # conform-nvim, which-key, colorscheme, numbers, telescope, font, treesitter, oil, git, other binds, parts you dont know abt still
+  # conform-nvim, which-key, colorscheme, telescope, font, treesitter, oil, git, other binds, parts you dont know abt still
 
   environment.shellAliases.v = "sudo -E neovide";
 
@@ -26,7 +26,7 @@
         guifont = "Source Code Pro:h10";
         relativenumber = true;
         shiftwidth = 2;
-        mouse = "";
+        # mouse = "";
       };
 
       performance = {
@@ -237,30 +237,32 @@
       globals.mapleader = ''\'';
 
       keymaps = [
-        {
-          action = "<cmd>Telescope live_grep<CR>";
-          key = "<leader>g";
-        }
+        {action = "<cmd>Telescope live_grep<CR>"; key = "<leader>g";}
+        # {action = "<Nop>"; key = "<Left>"; options.noremap = true; mode = [ "v" "n" "i" ];}
+        # {action = "<Nop>"; key = "<Right>"; options.noremap = true; mode = [ "v" "n" "i" ];}
+        # {action = "<Nop>"; key = "<Up>"; options.noremap = true; mode = [ "v" "n" "i" ];}
+        # {action = "<Nop>"; key = "<Down>"; options.noremap = true; mode = [ "v" "n" "i" ];}
       ];
 
       colorschemes.palette = let
+
         palette = {
           base00 = "#1C1C1B"; # background
           base07 = "#FFFFFD"; # most text
+          base0F = "#EB7757"; # numbers 
           base01 = "#3C3836"; # highlight row & scrollbar
-          base02 = "#504945"; # idk
           base03 = "#665C54"; # comments
           base04 = "#72837C"; # line numbers
           base05 = "#BDAE93"; # operators & delimiters
-          base06 = "#D5C4A1"; # idk
           base08 = "#FBF1C7"; # functions
           base09 = "#B2DBC7"; # illuminate
           base0A = "#A7D6AA"; # ! or booleans
+          base06 = "#D5C4A1"; # idk
           base0B = "#A3CFC4"; # idk
           base0C = "#8BCCA5"; # idk
           base0D = "#DA9B58"; # idk
           base0E = "#93C2AB"; # idk
-          base0F = "#EB7757"; # numbers 
+          base02 = "#504945"; # idk
         };
       
       in {

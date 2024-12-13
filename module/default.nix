@@ -22,4 +22,5 @@
   obs = import ./obs.nix;
   ags = import ./ags.nix;
   radio-cli = import ./radio-cli.nix;
+  tmux = import ./tmux.nix;
 }

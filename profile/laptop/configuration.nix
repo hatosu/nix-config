@@ -3,6 +3,7 @@
   nixosVersion,
   ...
 }: {
+
   imports = let
     module = inputs.self.nixosModules;
   in [
@@ -34,6 +35,7 @@
     module.devstuff
     module.rofi
     module.cli
+    module.tmux
     module.fastfetch
     module.firefox
     module.mpv
