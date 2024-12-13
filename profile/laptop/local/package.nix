@@ -39,6 +39,7 @@
       # stable
       ++ (with pkgs.stable; [
         anki-bin
+        tree
         synfigstudio
         video-trimmer
         krita

@@ -24,9 +24,9 @@
 
       opts = {
         guifont = "Source Code Pro:h10";
-        number = true;
         relativenumber = true;
         shiftwidth = 2;
+        mouse = "";
       };
 
       performance = {
@@ -206,7 +206,7 @@
         presence-nvim = {
           enable = true;
           neovimImageText = "buh...";
-          extraOptions.main_image = "https://files.catbox.moe/g4sujl.png";
+          extraOptions.main_image = "https://files.catbox.moe/ytspyv.png";
           package = pkgs.vimPlugins.presence-nvim.overrideAttrs (oldAttrs: {
             src = pkgs.fetchFromGitHub {
               owner = "andweeb";
@@ -244,16 +244,15 @@
       ];
 
       colorschemes.palette = let
-
         palette = {
-          base00 = "#32302F"; # idk
+          base00 = "#1C1C1B"; # background
+          base07 = "#FFFFFD"; # most text
           base01 = "#3C3836"; # highlight row & scrollbar
           base02 = "#504945"; # idk
           base03 = "#665C54"; # comments
           base04 = "#72837C"; # line numbers
           base05 = "#BDAE93"; # operators & delimiters
           base06 = "#D5C4A1"; # idk
-          base07 = "#EBDBB2"; # most text
           base08 = "#FBF1C7"; # functions
           base09 = "#B2DBC7"; # illuminate
           base0A = "#A7D6AA"; # ! or booleans

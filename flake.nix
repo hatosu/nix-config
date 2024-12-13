@@ -76,8 +76,7 @@
     specialArgs = {inherit inputs strings nixosVersion;};
 
     homeManager = [
-      home-manager.nixosModules.home-manager
-      {
+      home-manager.nixosModules.home-manager {
         home-manager = {
           extraSpecialArgs = specialArgs;
           sharedModules = [
@@ -87,7 +86,9 @@
         };
       }
     ];
+
   in {
+
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
     overlays = import ./overlay {inherit inputs;};

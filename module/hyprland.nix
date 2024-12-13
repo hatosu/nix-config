@@ -4,7 +4,7 @@
   strings,
   ...
 }: {
-  # login
+
   services.displayManager.ly.enable = true;
   services.displayManager.sessionPackages = [
     (
@@ -22,7 +22,6 @@
     )
   ];
 
-  # gtk, qt, cursor
   home-manager.users.hatosu.gtk = {
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
@@ -39,6 +38,7 @@
       };
     };
   };
+
   home-manager.users.hatosu.qt = {
     enable = true;
     platformTheme.name = "gtk";
@@ -47,6 +47,7 @@
       package = pkgs.pinned.dracula-qt5-theme;
     };
   };
+
   home-manager.users.hatosu.home.pointerCursor = {
     x11.enable = true;
     gtk.enable = true;
@@ -56,7 +57,6 @@
   };
   home-manager.users.hatosu.home.sessionVariables.GSK_RENDERER = "gl";
 
-  # xdg/dbus
   services.dbus.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -71,7 +71,6 @@
     ];
   };
 
-  # polkit
   systemd.user = {
     services = {
       polkit-gnome-authentication-agent-1 = {
@@ -90,13 +89,11 @@
     };
   };
 
-  # icons
   environment.systemPackages = with pkgs; [
     pinned.adwaita-icon-theme
     pinned.papirus-icon-theme
   ];
 
-  # bar
   home-manager.users.hatosu.programs.waybar = {
     enable = true;
     package = pkgs.waybar;
@@ -129,7 +126,6 @@
     style = strings.waybarstylecss;
   };
 
-  # hypr
   home-manager.users.hatosu.wayland.windowManager.hyprland = {
     enable = true;
 
@@ -310,6 +306,5 @@
         bindl = , XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause
         bindl = , XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous
       '';
-    in "${display}\n${vars}\n${exec}\n${rules}\n${input}\n${visual}\n${animation}\n${other}\n${binds}";
-  };
-}
+
+in "${display}\n${vars}\n${exec}\n${rules}\n${input}\n${visual}\n${animation}\n${other}\n${binds}";};}
