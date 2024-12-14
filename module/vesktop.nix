@@ -130,7 +130,7 @@ in { home-manager.users.hatosu = {
 
         messageLatency = {
           enable = true;
-          latency = 0;
+          latency = 2;
           showMillis = true;
           detectDiscordKotlin = true;
         };
@@ -213,8 +213,6 @@ in { home-manager.users.hatosu = {
         hideAttachments.enable = true;
 
         iLoveSpam.enable = true;
-
-        imageLink.enable = true;
 
         imageZoom.enable = true;
 

@@ -39,6 +39,7 @@
       # stable
       ++ (with pkgs.stable; [
         anki-bin
+        reaper
         tree
         synfigstudio
         video-trimmer

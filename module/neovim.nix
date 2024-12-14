@@ -26,7 +26,7 @@
         guifont = "Source Code Pro:h10";
         relativenumber = true;
         shiftwidth = 2;
-        # mouse = "";
+        mouse = "";
       };
 
       performance = {
@@ -238,10 +238,10 @@
 
       keymaps = [
         {action = "<cmd>Telescope live_grep<CR>"; key = "<leader>g";}
-        # {action = "<Nop>"; key = "<Left>"; options.noremap = true; mode = [ "v" "n" "i" ];}
-        # {action = "<Nop>"; key = "<Right>"; options.noremap = true; mode = [ "v" "n" "i" ];}
-        # {action = "<Nop>"; key = "<Up>"; options.noremap = true; mode = [ "v" "n" "i" ];}
-        # {action = "<Nop>"; key = "<Down>"; options.noremap = true; mode = [ "v" "n" "i" ];}
+        {action = "<Nop>"; key = "<Left>"; options.noremap = true; mode = [ "v" "n" "i" ];}
+        {action = "<Nop>"; key = "<Right>"; options.noremap = true; mode = [ "v" "n" "i" ];}
+        {action = "<Nop>"; key = "<Up>"; options.noremap = true; mode = [ "v" "n" "i" ];}
+        {action = "<Nop>"; key = "<Down>"; options.noremap = true; mode = [ "v" "n" "i" ];}
       ];
 
       colorschemes.palette = let
