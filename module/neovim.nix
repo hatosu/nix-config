@@ -2,7 +2,7 @@
 
   # conform-nvim, which-key, colorscheme, telescope, font, treesitter, oil, git, other binds, parts you dont know abt still
 
-  environment.shellAliases.v = "sudo -E neovide";
+  environment.shellAliases.v = "neovide";
 
   home-manager.users.hatosu.programs = {
 
@@ -65,8 +65,8 @@
 
             rust_analyzer = {
               enable = true;
-              installCargo = false;
-              installRustc = false;
+              installCargo = true;
+              installRustc = true;
             };
 
             gopls = {
@@ -238,6 +238,10 @@
 
       keymaps = [
         {action = "<cmd>Telescope live_grep<CR>"; key = "<leader>g";}
+        {action = "<Left>"; key = "<C-h>"; options.noremap = true; mode = [ "i" ];}
+        {action = "<Right>"; key = "<C-l>"; options.noremap = true; mode = [ "i" ];}
+        {action = "<Up>"; key = "<C-k>"; options.noremap = true; mode = [ "i" ];}
+        {action = "<Down>"; key = "<C-j>"; options.noremap = true; mode = [ "i" ];}
         {action = "<Nop>"; key = "<Left>"; options.noremap = true; mode = [ "v" "n" "i" ];}
         {action = "<Nop>"; key = "<Right>"; options.noremap = true; mode = [ "v" "n" "i" ];}
         {action = "<Nop>"; key = "<Up>"; options.noremap = true; mode = [ "v" "n" "i" ];}

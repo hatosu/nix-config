@@ -55,6 +55,7 @@ profiles.hatosu = { isDefault = true;
         { url = "https://switchrom.net/"; inherit name; }
         { url = "https://dlpsgame.com/category/ps4/"; inherit name; }
         { url = "https://posemy.art/app/"; inherit name; }
+        { url = "https://caniuse.com/"; inherit name; }
       ];}];
 
       # chrome CSS
