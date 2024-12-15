@@ -1,10 +1,19 @@
-{pkgs, ...}: {
-  boot = {
-    # bootloader
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+{pkgs, ...}: { boot = {
+    
+  loader = {
 
-    # kernel
-    kernelPackages = pkgs.latest.linuxPackages_latest; # backup: pkgs.latest.linuxPackages;
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    
+    grub = {
+      enable = true;
+      efiSupport = true;
+      theme = pkgs.nixos-grub2-theme;
+    };
+  
   };
-}
+
+  kernelPackages = pkgs.linuxPackages_latest; # backup: pkgs.latest.linuxPackages;
+
+};}
