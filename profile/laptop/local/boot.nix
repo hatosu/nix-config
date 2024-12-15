@@ -5,6 +5,6 @@
     loader.efi.canTouchEfiVariables = true;
 
     # kernel
-    kernelPackages = pkgs.linuxPackages_latest; # backup: pkgs.latest.linuxPackages;
+    kernelPackages = pkgs.latest.linuxPackages_latest; # backup: pkgs.latest.linuxPackages;
   };
 }
