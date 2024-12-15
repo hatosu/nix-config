@@ -21,12 +21,6 @@
         wget
         lshw
         obsidian
-        (import (fetchFromGitHub {
-          owner = "NixOS";
-          repo = "nixpkgs";
-          rev = "391634c3434fd98f708b78a9339efc6149366e86";
-          sha256 = "";
-        }){system = "x86_64-linux";}).etcher
       ]
       
       # fresh
