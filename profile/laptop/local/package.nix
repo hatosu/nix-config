@@ -53,6 +53,7 @@
         komikku
         ripgrep
         mission-center
+        isoimagewriter
         rarcrack
         hyperfine
         watchexec
