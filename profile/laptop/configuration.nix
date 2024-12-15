@@ -27,7 +27,6 @@
 
     # import global nix modules
     module.pipewire
-    module.spotify
     module.textfonts
     module.virtualmachines
     module.gaming
