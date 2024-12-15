@@ -6,7 +6,9 @@
 }: {
 
   programs.fuse.userAllowOther = true;
+
   fileSystems."/persist".neededForBoot = true;
+
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
     mount /dev/root_vg/root /btrfs_tmp
@@ -78,28 +80,6 @@
       ];
     };
   
-  };
-
-  # set correct home permissions
-  systemd.tmpfiles.settings = {
-    "persist-hatosu-homedir" = {
-      "/persist/home/hatosu" = {
-        d = {
-          group = "users";
-          user = "hatosu";
-          mode = "0776";
-        };
-      };
-    };
-    "hatosu-homedir" = {
-      "/home/hatosu" = {
-        d = {
-          group = "users";
-          user = "hatosu";
-          mode = "0776";
-        };
-      };
-    };
   };
 
   # declare machine-id (prevents impermanence errors)
