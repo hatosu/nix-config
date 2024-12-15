@@ -45,11 +45,6 @@
       url = "github:kaylorben/nixcord/f7f800b825d63b401c656d6c83b43be5ae6851bd";
     };
 
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix/577b6a4e513c9a8d987fb5d331a19976b391d48e";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     plasma-manager = {
       url = "github:nix-community/plasma-manager/88ca377ff58b5c30a2879745829842554d4b21d5";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -121,7 +116,6 @@
             ./profile/laptop/configuration.nix
             inputs.disko.nixosModules.default
             inputs.impermanence.nixosModules.impermanence
-            inputs.spicetify-nix.nixosModules.default
           ];
       };
 
