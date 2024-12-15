@@ -6,7 +6,7 @@
 }: {
 
   programs.fuse.userAllowOther = true;
-
+  fileSystems."/persist".neededForBoot = true;
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
     mount /dev/root_vg/root /btrfs_tmp
@@ -80,11 +80,33 @@
   
   };
 
+  # set correct home permissions
+  systemd.tmpfiles.settings = {
+    "persist-hatosu-homedir" = {
+      "/persist/home/hatosu" = {
+        d = {
+          group = "users";
+          user = "hatosu";
+          mode = "0776";
+        };
+      };
+    };
+    "hatosu-homedir" = {
+      "/home/hatosu" = {
+        d = {
+          group = "users";
+          user = "hatosu";
+          mode = "0776";
+        };
+      };
+    };
+  };
+
   # declare machine-id (prevents impermanence errors)
   environment.etc.machine-id.text = "a18b549c5915442693cd012bb398da2f";
 
   # satisfy hm with dconf
-  home-manager.users.hatosu.home.packages = [ pkgs.dconf ];
+  home-manager.users.hatosu.home.packages = [pkgs.dconf];
 
   # move xdg folders to .cache
   home-manager.users.hatosu.xdg = let
