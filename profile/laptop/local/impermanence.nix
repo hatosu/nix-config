@@ -82,6 +82,17 @@
   
   };
 
+systemd.tmpfiles.settings = { "persist-hatosu-homedir" = {
+      "/persist/home/hatosu" = {
+        d = {
+      group = "users";
+      user = "hatosu";
+      mode = "0700";
+    };
+      };
+    };
+  };
+
   # declare machine-id (prevents impermanence errors)
   environment.etc.machine-id.text = "a18b549c5915442693cd012bb398da2f";
 
