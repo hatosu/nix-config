@@ -15,3 +15,9 @@
 </div>
 
 ---
+how to install:
+```bash
+nix --experimental-features "nix-command flakes" run --no-write-lock-file github:hatosu/config#install
+reboot
+nixos-rebuild switch --flake --no-write-lock-file github:hatosu/config#<insert-profile-of-choice>
+```
