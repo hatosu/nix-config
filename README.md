@@ -1,6 +1,6 @@
 how to install:
 ```bash
-# run this within usb installer:
+# run this within usb installer
 nix --experimental-features "nix-command flakes" run github:hatosu/config#install
 
 # reboot, and unplug usb stick
