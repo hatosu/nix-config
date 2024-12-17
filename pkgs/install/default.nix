@@ -20,10 +20,6 @@
   sudo cp -rf /tmp/config/* /mnt/etc/nixos
   sudo mv -f /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/profile/temporary/hardware.nix
 
-  # backup
-  sudo mkdir /persist
-  sudo cp -rf /mnt/etc/nixos /persist
-
   # install nixos
   sudo nixos-install --root /mnt --flake /mnt/etc/nixos#temporary
 
