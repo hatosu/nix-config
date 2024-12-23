@@ -1,4 +1,5 @@
-{pkgs}: let
+ { pkgs ? import <nixpkgs> {} }: let 
+
   name = "nixocr";
 
   script = pkgs.writeText "${name}.sh" ''

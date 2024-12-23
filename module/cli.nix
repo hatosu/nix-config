@@ -3,6 +3,7 @@
   lib,
   ...
 }: {
+
   # wayland terminal
   home-manager.users.hatosu.programs.foot = {
     enable = true;
@@ -81,7 +82,7 @@
     oh-my-zsh = {
       package = pkgs.oh-my-zsh;
       enable = true;
-      plugins = ["git"];
+      plugins = [ "git" ];
     };
 
     # manage history
@@ -115,4 +116,5 @@
     package = pkgs.zoxide;
     enableZshIntegration = true;
   };
+
 }

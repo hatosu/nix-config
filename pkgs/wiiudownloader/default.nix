@@ -1,4 +1,5 @@
-{pkgs ? import <nixpkgs> {}}: let
+{pkgs ? import <nixpkgs> {} }: let
+  
   pname = "wiiudownloader";
 
   desktop = "WiiUDownloader.desktop";

@@ -18,30 +18,6 @@
       cd
     }
 
-    JESSE(){
-      xdg-open "https://www.google.com/"
-      sleep 0.1
-      xdg-open "https://www.phind.com/search?home=true"
-      sleep 0.1
-      xdg-open "https://ayesoul.com/"
-      sleep 0.1
-      xdg-open "https://claude.ai/new"
-      sleep 0.1
-      xdg-open "https://github.com/search?q=path%3A**%2F*.nix%20guh&type=code"
-      sleep 0.1
-      xdg-open "http://www.crasseux.com/books/ctutorial/"
-      sleep 0.1
-      xdg-open "https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html"
-      sleep 0.1
-      xdg-open "https://en.cppreference.com/w/"
-      sleep 0.1
-      xdg-open "https://doc.rust-lang.org/book/title-page.html"
-      sleep 0.1
-      xdg-open "https://pkg.go.dev/"
-      sleep 0.1
-      xdg-open "https://ziglang.org/documentation/master/"
-    }
-
     webmtomp4(){
       sudo ${pkgs.ffmpeg}/bin/ffmpeg -i "$1" -c copy output.mp4
     }

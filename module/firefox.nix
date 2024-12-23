@@ -11,7 +11,15 @@ profiles.hatosu = { isDefault = true;
 
       # bookmarks
       bookmarks = let name = ""; in [ { name = "toolbar"; toolbar = true; bookmarks = [
-        { url = "https://github.com/hatosu/config"; inherit name; }
+        { url = "https://projecteuler.net/archives"; inherit name; }
+        { url = "https://leetcode.com/"; inherit name; }
+        { url = "https://github.com/search?q=path%3A**%2F*.nix%20guh&type=code"; inherit name; }
+        { url = "http://www.crasseux.com/books/ctutorial/"; inherit name; }
+        { url = "https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html"; inherit name; }
+        { url = "https://en.cppreference.com/w/"; inherit name; }
+        { url = "https://doc.rust-lang.org/book/title-page.html"; inherit name; }
+        { url = "https://pkg.go.dev/"; inherit name; }
+        { url = "https://ziglang.org/documentation/master/"; inherit name; }
         { url = "https://search.nixos.org/packages?channel=unstable"; inherit name; }
         { url = "https://noogle.dev/"; inherit name; }
         { url = "https://home-manager-options.extranix.com/?query=&release=master"; inherit name; }

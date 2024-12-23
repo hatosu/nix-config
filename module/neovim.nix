@@ -2,16 +2,9 @@
 
   # conform-nvim, which-key, colorscheme, telescope, font, treesitter, oil, git, other binds, parts you dont know abt still
 
-  environment.shellAliases.v = "neovide";
+  environment.shellAliases.v = "nvim";
 
   home-manager.users.hatosu.programs = {
-
-    neovide = {
-      enable = true;
-      settings = {
-        vsync = true;
-      };
-    };
 
     nixvim = {
       enable = true;
@@ -238,10 +231,6 @@
 
       keymaps = [
         {action = "<cmd>Telescope live_grep<CR>"; key = "<leader>g";}
-        {action = "<Left>"; key = "<C-h>"; options.noremap = true; mode = [ "i" ];}
-        {action = "<Right>"; key = "<C-l>"; options.noremap = true; mode = [ "i" ];}
-        {action = "<Up>"; key = "<C-k>"; options.noremap = true; mode = [ "i" ];}
-        {action = "<Down>"; key = "<C-j>"; options.noremap = true; mode = [ "i" ];}
         {action = "<Nop>"; key = "<Left>"; options.noremap = true; mode = [ "v" "n" "i" ];}
         {action = "<Nop>"; key = "<Right>"; options.noremap = true; mode = [ "v" "n" "i" ];}
         {action = "<Nop>"; key = "<Up>"; options.noremap = true; mode = [ "v" "n" "i" ];}

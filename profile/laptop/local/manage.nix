@@ -84,7 +84,6 @@ in {
 
   # remove unneeded channel directories
   system.activationScripts.channel-remove.text = ''
-    chown -R hatosu /home/hatosu
     if [ -d "/root/.nix-defexpr/channels" ]
     then
       rm -rf /root/.nix-defexpr/channels

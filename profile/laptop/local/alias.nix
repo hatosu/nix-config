@@ -3,7 +3,7 @@
   # general
   logout = "kill -9 -1";
   hist = "history | grep";
-  fixper = "sudo chmod -R a+rwx";
+  fixdir = "sudo chown -R hatosu:users";
   skip = "playerctl next";
   pause = "playerctl play-pause";
   back = "playerctl previous";
@@ -28,7 +28,7 @@
   pget = "${pkgs.stable.pirate-get}/bin/pirate-get -T -S ~/Downloads";
   tor = "${pkgs.stable.aria2}/bin/aria2c";
   metaclean = "${pkgs.stable.metadata-cleaner}/bin/metadata-cleaner";
-  vidget = "${pkgs.stable.yt-dlp}/bin/yt-dlp";
+  vidget = "${pkgs.stable.yt-dlp}/bin/yt-dlp --format mp4";
   audget = "${pkgs.stable.yt-dlp}/bin/yt-dlp -x --no-keep-video";
   spotget = "${pkgs.stable.spotdl}/bin/spotdl --format mp3";
   browse = "${pkgs.stable.w3m}/bin/w3m";
@@ -36,15 +36,5 @@
   tasks = "${pkgs.stable.htop}/bin/htop";
   ff = "${pkgs.stable.fastfetch}/bin/fastfetch";
   f = "cd $(dirname $(${pkgs.stable.fd}/bin/fd --type file | ${pkgs.stable.skim}/bin/sk))";
-
-  # notes
-  tch = "v ~/files/notes/todo.txt";
-  pch = "v ~/files/notes/projects.txt";
-  nch = "v ~/files/notes/nix.txt";
-  lch = "v ~/files/notes/linux.txt";
-  vch = "v ~/files/notes/vim.txt";
-  ich = "v ~/files/notes/imperative.txt";
-  fch = "v ~/files/notes/features.txt";
-  cch = "v ~/files/notes/creation.txt";
 
 };};}

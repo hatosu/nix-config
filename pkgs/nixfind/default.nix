@@ -1,7 +1,4 @@
-{pkgs}:
-pkgs.writeShellScriptBin
-"nixfind"
-''
+ { pkgs ? import <nixpkgs> {} }: pkgs.writeShellScriptBin "nixfind" ''
 
   #!/usr/bin/env bash
   highlight() {
@@ -14,7 +11,7 @@ pkgs.writeShellScriptBin
       fi
     done < "$1"
   }
-  echo -e "select category\n1. Nix Packages\n2. Nix Options\n3. Home Options\n4. Github"
+  echo -e "select category\n1. Nix Packages\n2. Nix Options\n3. Home Options\n4. Github Option\n5. Github File"
   read -p "enter choice (1-3):" choice
   case $choice in
     1)
@@ -48,6 +45,13 @@ pkgs.writeShellScriptBin
         exit 1
       fi
       xdg-open "https://github.com/search?q=path%3A**%2F*.nix%20$1&type=code"
+      ;;
+    5)
+      if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 <search_term>"
+        exit 1
+      fi
+      xdg-open "https://github.com/search?q=path%3A**%2F$1.nix&type=code"
       ;;
     *)
       echo "Invalid selection."

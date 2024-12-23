@@ -36,6 +36,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim/cf7e026c8c86c5548d270e20c04f456939591219";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,11 +67,13 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
+    nixos-wsl,
     plasma-manager,
     nixvim,
     nixcord,
     ...
   } @ inputs: let
+
     # read before changing: https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     nixosVersion = "24.05";
 
@@ -108,15 +114,14 @@
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     nixosConfigurations = {
+
       laptop = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
-        modules =
-          homeManager
-          ++ [
-            ./profile/laptop/configuration.nix
-            inputs.disko.nixosModules.default
-            inputs.impermanence.nixosModules.impermanence
-          ];
+        modules = homeManager ++ [
+          ./profile/laptop/configuration.nix
+          inputs.disko.nixosModules.default
+          inputs.impermanence.nixosModules.impermanence
+        ];
       };
 
       server1 = nixpkgs.lib.nixosSystem {
@@ -128,6 +133,14 @@
         ];
       };
 
+      wsl = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = homeManager ++ [
+          ./profile/wsl/configuration.nix
+          nixos-wsl.nixosModules.default
+        ];
+      };
+
       temporary = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = [
@@ -135,6 +148,7 @@
           inputs.disko.nixosModules.default
         ];
       };
+
     };
   };
 }

@@ -20,7 +20,7 @@
   vesktop = import ./vesktop.nix;
   yazi = import ./yazi.nix;
   obs = import ./obs.nix;
-  ags = import ./ags.nix;
   radio-cli = import ./radio-cli.nix;
   tmux = import ./tmux.nix;
+  obsidian = import ./obsidian.nix;
 }

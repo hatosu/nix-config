@@ -1,15 +1,3 @@
-how to install:
-```bash
-# run this within usb installer
-nix --experimental-features "nix-command flakes" run github:hatosu/config#install
-
-# reboot, and unplug usb stick
-reboot
-
-# choose profile, and rebuild
-nixos-rebuild switch --flake github:hatosu/config#<insert-profile-of-choice>
-```
----
 <br />
 <div align="center">
 <img src="https://github.com/hatosu/config/blob/main/showcase.gif?raw=true" />
@@ -25,3 +13,5 @@ nixos-rebuild switch --flake github:hatosu/config#<insert-profile-of-choice>
 **[<kbd> <br> Packages <br> </kbd>](/pkgs/)**
 
 </div>
+
+---

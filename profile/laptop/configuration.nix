@@ -26,12 +26,12 @@
     ./local/utility.nix
 
     # import global nix modules
+    module.obsidian
     module.pipewire
     module.textfonts
     module.virtualmachines
     module.gaming
     module.hotkeys
-    module.devstuff
     module.rofi
     module.cli
     module.tmux
@@ -41,7 +41,6 @@
     module.neovim
     module.vesktop
     module.yazi
-    module.ags
     module.obs
     module.flameshot
     module.radio-cli

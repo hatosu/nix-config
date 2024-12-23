@@ -9,6 +9,8 @@
 
   fileSystems."/persist".neededForBoot = true;
 
+  fileSystems."/".neededForBoot = true;
+
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
     mount /dev/root_vg/root /btrfs_tmp
@@ -82,16 +84,22 @@
   
   };
 
-systemd.tmpfiles.settings = { "persist-hatosu-homedir" = {
+  systemd.tmpfiles.settings = { 
+    "persist-hatosu-homedir" = {
       "/persist/home/hatosu" = {
         d = {
-      group = "users";
-      user = "hatosu";
-      mode = "0700";
-    };
+          group = "users";
+          user = "hatosu";
+          mode = "0700";
+        };
       };
     };
   };
+
+  system.activationScripts.chown.text = ''
+    chown -R hatosu:users /persist/system/home/hatosu
+    chown -R hatosu:users /home/hatosu
+  '';
 
   # declare machine-id (prevents impermanence errors)
   environment.etc.machine-id.text = "a18b549c5915442693cd012bb398da2f";

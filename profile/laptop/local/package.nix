@@ -1,9 +1,4 @@
-{ 
-  pkgs,
-  ... 
-}: {
-
-  environment.systemPackages =
+{ pkgs, ... }: { environment.systemPackages =
     
       # default
       with pkgs; [
@@ -11,7 +6,6 @@
         nixfind
         nixpaper
         nixocr
-        ciano
         wl-clipboard
         playerctl
         vlc
@@ -20,7 +14,7 @@
         git
         wget
         lshw
-        obsidian
+        dos2unix
       ]
       
       # fresh
@@ -33,7 +27,6 @@
       ++ (with pkgs.latest; [
         ffmpeg
         tor-browser
-        kdenlive
       ])
       
       # stable
@@ -44,6 +37,7 @@
         synfigstudio
         video-trimmer
         krita
+        kdenlive
         libreoffice
         lmms
         freecad
@@ -53,7 +47,6 @@
         komikku
         ripgrep
         mission-center
-        isoimagewriter
         rarcrack
         hyperfine
         watchexec
@@ -65,6 +58,7 @@
       ++ (with pkgs.pinned; [
         element
         cliphist
+        freetube
       ]);
 
 }
