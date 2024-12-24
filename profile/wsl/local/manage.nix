@@ -6,7 +6,7 @@
   ...
 }: let
   
-  FLAKE = "/mnt/c/Users/hatosu/files/config";
+  FLAKE = "/mnt/c/Users/hatosu/files/nix";
   
   HOST = "wsl";
 

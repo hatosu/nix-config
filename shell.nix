@@ -10,6 +10,7 @@ in
       dxvk
       gamemode
       appimage-run
+      pnpm
     ];
 
     shellHook = ''

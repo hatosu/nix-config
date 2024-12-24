@@ -9,6 +9,8 @@
         zip
         wget
         lshw
+        dos2unix
+        dotter
       ]
 
       # fresh

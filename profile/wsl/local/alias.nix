@@ -36,10 +36,9 @@
       history | grep "$1" | less +G
     }
 
-    fix_files(){
-      sudo chown -R hatosu:users /mnt/c/Users/hatosu/files
-      sudo chmod -R 774 /mnt/c/Users/hatosu/files
-      cd /mnt/c/Users/hatosu/files
+    fix_this_directory(){
+      sudo chown -R hatosu:users ./*
+      sudo chmod -R 774 ./*
       sudo find . -type f -print0 | xargs -0 sudo dos2unix
     }
 
