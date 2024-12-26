@@ -12,6 +12,7 @@
     dupe = "${pkgs.stable.rmlint}/bin/rmlint";
     brightness = "${pkgs.stable.brightnessctl}/bin/brightnessctl";
     disk = "${pkgs.stable.ncdu}/bin/ncdu";
+    csh = "nvim /mnt/c/Users/hatosu/files/notes/cheatsheet.txt";
     opt = "${pkgs.stable.image_optim}/bin/image_optim";
     pget = "${pkgs.stable.pirate-get}/bin/pirate-get -T -S ~/Downloads";
     tor = "${pkgs.stable.aria2}/bin/aria2c";
