@@ -1,4 +1,5 @@
 {
+  
   description = "Hatosu's NixOS flake.";
 
   inputs = {
@@ -36,6 +37,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
     };
@@ -68,6 +75,7 @@
     home-manager,
     nixos-hardware,
     nixos-wsl,
+    nix-on-droid,
     plasma-manager,
     nixvim,
     nixcord,
@@ -150,5 +158,14 @@
       };
 
     };
+
+    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+      inherit specialArgs;
+      modules = homeManager ++ [
+        ./profile/android/configuration.nix
+        {nix.registry.nixpkgs.flake = nixpkgs;}
+      ];
+    };
+
   };
 }
