@@ -4,7 +4,6 @@
       with pkgs; [
         help
         nixfind
-        nixpaper
         tokei
         zip
         wget

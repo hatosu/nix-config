@@ -4,13 +4,22 @@
       with pkgs; [
         help
         nixfind
-        nixpaper
         tokei
         zip
         wget
         lshw
-        dos2unix
-        dotter
+        killall
+        diffutils
+        findutils
+        utillinux
+        tzdata
+        hostname
+        man
+        gnugrep
+        gnupg
+        gnused
+        gnutar
+        xz
       ]
 
       # fresh
