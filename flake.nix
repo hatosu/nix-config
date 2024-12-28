@@ -159,7 +159,7 @@
 
     };
 
-    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+    nixOnDroidConfigurations.android = nix-on-droid.lib.nixOnDroidConfiguration {
       inherit specialArgs;
       modules = homeManager ++ [
         ./profile/android/configuration.nix
